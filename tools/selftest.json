@@ -114,5 +114,17 @@
             "expect": "crossterm",
             "note": "TUI over terminal backend."
         }
+    ],
+    "runtime": [
+        {
+            "crate": "axum",
+            "expect": "requires tokio",
+            "note": "Optional in Cargo.toml but inside the default closure; a plain optional flag would call this a free choice."
+        },
+        {
+            "crate": "lettre",
+            "expect": "behind a feature",
+            "note": "Genuinely runtime-agnostic: neither runtime is in its default closure."
+        }
     ]
 }

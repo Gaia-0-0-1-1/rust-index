@@ -25,8 +25,8 @@ python tools/rustgraph.py stack axum
 ```
 
 `stack` answers the half of the question a category cannot: not "which crate",
-but "what comes with it". It is derived from the dependency graph rather than
-authored — two crates that share a Cargo.toml co-occur, and **lift** corrects for
+but "what comes with it", plus what the crate **requires** versus what is
+feature-gated. It is derived from the dependency graph rather than authored — two crates that share a Cargo.toml co-occur, and **lift** corrects for
 ubiquity, so it reports `tonic`+`prost` and `quinn`+`rustls` rather than
 `everything`+`serde_json`. `ask` shows the same for its leading answer.
 
@@ -122,8 +122,16 @@ any diff, the same shape as the existing `lint-markdown-toc` job.
 
 **Answers — catches the query surface regressing.** `tools/selftest.json` records
 what "the index works" means: twelve queries with their expected top crate, one
-that must find no category at all, each recipe's resolved/uncovered counts, and
-three graph affinities.
+that must find no category at all, each recipe's resolved/uncovered counts,
+three graph affinities, and two runtime constraints.
+
+**Runtime constraints.** `ask` and `stack` report when a crate pins an async
+runtime, three ways, because Cargo's `optional` flag alone misleads: axum gates
+tokio behind a feature that `default` turns on, so calling it merely optional
+tells you that you have a choice you do not have. Only a dependency that is
+optional *and* outside the default-feature closure is genuinely opt-in — `lettre`
+is, `axum` is not. Worth knowing: **no crate in this index requires both tokio
+and async-std**, so there is no conflict detector here; it would never fire.
 
 ```bash
 python tools/rustgraph.py selftest

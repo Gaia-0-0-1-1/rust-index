@@ -102,6 +102,32 @@ def pg_array(raw):
     return out
 
 
+def default_closure(raw):
+    """Feature names reachable from `default`.
+
+    Cargo's "optional" does not mean "off": axum gates tokio behind a feature
+    that `default` turns on, so a plain optional flag would report axum as not
+    needing a runtime. Walking the feature graph from `default` separates
+    genuinely opt-in dependencies from ones you get unless you opt out."""
+    try:
+        features = json.loads(raw) if raw else {}
+    except (ValueError, TypeError):
+        return set()
+    if not isinstance(features, dict):
+        return set()
+    seen, stack = set(), list(features.get("default") or [])
+    while stack:
+        name = str(stack.pop())
+        name = name.split("/", 1)[0]
+        if name.startswith("dep:"):
+            name = name[4:]
+        if not name or name in seen:
+            continue
+        seen.add(name)
+        stack.extend(features.get(name) or [])
+    return seen
+
+
 def repo_aliases(repo_name):
     """Names a repo might publish under. 'curl-rust' -> {'curl-rust','curl'},
     so the user-facing crate wins over a sys- crate that out-downloads it only
@@ -187,7 +213,8 @@ def main(argv):
                     latest[cid] = (
                         created, row["id"],
                         pg_array(row.get("keywords")),
-                        pg_array(row.get("categories")))
+                        pg_array(row.get("categories")),
+                        sorted(default_closure(row.get("features"))))
             print("  latest versions for %d crates" % len(latest))
 
     # ---- resolve each node to a crate
@@ -276,9 +303,13 @@ def main(argv):
         entry = latest.get(v["crate_id"])
         if not entry:
             continue
-        keywords, categories = entry[2], entry[3]
-        if keywords or categories:
-            vocab[node_id] = {"keywords": keywords, "categories": categories}
+        keywords, categories, default_on = entry[2], entry[3], entry[4]
+        if keywords or categories or default_on:
+            vocab[node_id] = {
+                "keywords": keywords,
+                "categories": categories,
+                "default_features": default_on,
+            }
     KEYWORDS.write_text(
         json.dumps(vocab, indent=1, sort_keys=True) + "\n", encoding="utf-8")
 

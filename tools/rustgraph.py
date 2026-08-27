@@ -113,6 +113,58 @@ def load_deps(kinds=("0",)):
     return out
 
 
+def dep_split():
+    """src -> (required, optional). Feature-gated deps are not the same promise.
+
+    "axum requires tokio" is a constraint on the caller: pick axum and the runtime
+    is decided. "lettre optionally depends on tokio" means the opposite -- it
+    adapts to whichever runtime is already there. Collapsing the two, as a plain
+    dependency list does, loses exactly the fact an agent needs."""
+    if "split" in _DEPS_CACHE:
+        return _DEPS_CACHE["split"]
+    req, opt = {}, {}
+    if DEP_EDGES.exists():
+        for line in DEP_EDGES.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            e = json.loads(line)
+            if e.get("dep_kind") != "0":
+                continue
+            bucket = opt if e.get("optional") else req
+            bucket.setdefault(e["from"], set()).add(e["to"])
+    out = (req, opt)
+    _DEPS_CACHE["split"] = out
+    return out
+
+
+def runtime_note(node_id):
+    """The single most consequential thing a crate can require in async Rust.
+
+    Three-way, because Cargo's optional flag alone would mislead: axum gates
+    tokio behind a feature, but `default` turns that feature on, so reporting it
+    as merely optional tells an agent it has a choice it does not have. Only a
+    dependency that is optional *and* outside the default closure is opt-in."""
+    req, opt = dep_split()
+    required = req.get(node_id, set())
+    optional = opt.get(node_id, set())
+    defaults = set((VOCAB.get(node_id) or {}).get("default_features") or ())
+
+    hits = []
+    for rt in ("tokio", "async-std"):
+        rid = next((i for i in required | optional
+                    if (IDENT.get(i) or {}).get("crate") == rt), None)
+        if rid is None:
+            continue
+        if rid in required:
+            hits.append("requires %s" % rt)
+        elif rt in defaults:
+            hits.append("requires %s (on by default; disable default features"
+                        " to avoid it)" % rt)
+        else:
+            hits.append("%s available behind a feature" % rt)
+    return ", ".join(hits)
+
+
 def affinity(min_support=4):
     """Which projects genuinely get used together, from the dependency graph.
 
@@ -562,6 +614,9 @@ def cmd_ask(query):
     partners = aff.get(lead["id"], [])
     if partners:
         lead_crate, _lv = crate_candidate(lead)
+        rt = runtime_note(lead["id"])
+        if rt:
+            print("RUNTIME  %s %s" % (lead_crate or lead["name"], rt))
         print("COMMONLY USED WITH %s" % (lead_crate or lead["name"]))
         for score, count, other in partners[:5]:
             o = node_by_id.get(other)
@@ -859,6 +914,23 @@ def cmd_selftest():
             label = "affinity " + case["crate"]
             print("  %-4s %-32s -> %s" % (mark, label, top))
 
+    if spec.get("runtime"):
+        by_crate = {}
+        for n in nodes:
+            c, _v = crate_candidate(n)
+            if c:
+                by_crate.setdefault(c.lower(), n)
+        for case in spec["runtime"]:
+            node = by_crate.get(case["crate"].lower())
+            got = runtime_note(node["id"]) if node else ""
+            ok = case["expect"].lower() in got.lower()
+            if not ok:
+                failures.append("runtime %s: expected %r in %r"
+                                % (case["crate"], case["expect"], got))
+            mark = "ok" if ok else "FAIL"
+            label = "runtime " + case["crate"]
+            print("  %-4s %-32s -> %s" % (mark, label, got[:34] or "none"))
+
     print()
     if failures:
         print("SELFTEST FAILED (%d)" % len(failures))
@@ -902,6 +974,9 @@ def cmd_stack(name):
     crate, _v = crate_candidate(target)
     print("%s -- what it is built with" % (crate or target["name"]))
     print("%s" % (target.get("description") or ""))
+    rt = runtime_note(target["id"])
+    if rt:
+        print("RUNTIME: %s" % rt)
     print("=" * 72)
 
     if not partners and not deps:
@@ -921,14 +996,21 @@ def cmd_stack(name):
             row = "  %-22s x%-5.1f  in %2d manifests   %s"
             print(row % (oc or o["name"], score, count, blurb))
 
-    if deps:
-        print("\nITS OWN DEPENDENCIES THAT THIS LIST ALSO CARRIES")
-        for d in sorted(deps):
-            o = node_by_id.get(d)
-            if not o:
-                continue
+    req, opt = dep_split()
+    groups = (
+        ("REQUIRES", req.get(target["id"], set())),
+        ("OPTIONAL, BEHIND A FEATURE", opt.get(target["id"], set())),
+    )
+    for label, group in groups:
+        group = {d for d in group if d in node_by_id}
+        if not group:
+            continue
+        print("\n%s  (of what this list carries)" % label)
+        for d in sorted(group):
+            o = node_by_id[d]
             oc, _ov = crate_candidate(o)
-            print("  %-22s %s" % (oc or o["name"], (o.get("description") or "")[:44]))
+            blurb = (o.get("description") or "")[:44]
+            print("  %-22s %s" % (oc or o["name"], blurb))
 
     picks = []
     for _s, _c, other in partners[:4]:
