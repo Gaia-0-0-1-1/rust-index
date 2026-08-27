@@ -7,6 +7,9 @@ into something an agent can query instead of scan.
 regenerate it, never hand-edit it.**
 
 ## Query it
+`AGENT-PROMPT.md` is a self-contained version of this page, meant to be pasted
+to an agent that does not have the repo yet.
+
 
 ```bash
 python tools/rustgraph.py ask "async http client"
