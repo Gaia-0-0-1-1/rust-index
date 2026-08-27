@@ -29,9 +29,10 @@ list it carries more signal than the prose -- on names alone "async" pulls in
 async-std, async-dropper and async-graphql by pure string overlap. A category is
 reachable through the vocabulary its members are *described* with, aggregated
 over its subtree, so "serialization" finds Encoding although that name never says
-the word. Adoption then orders results within the categories that matched, and is
-damped outside them: counted globally, clap's billion downloads win "terminal ui"
-on fame alone.
+the word -- and through their crates.io keywords and categories, which is how
+"REST API" reaches HTTP Server in a list that only ever writes "HTTP". Adoption
+then orders results within the categories that matched, and is damped outside
+them: counted globally, clap's billion downloads win "terminal ui" on fame.
 """
 
 import json
@@ -47,12 +48,14 @@ IDENTITY = ROOT / "index" / "crate-identity.json"
 DOWNLOADS = ROOT / "index" / "downloads.json"
 DEP_EDGES = ROOT / "index" / "dep-edges.jsonl"
 DAG = ROOT / "index" / "dag.json"
+VOCABULARY = ROOT / "index" / "crate-vocabulary.json"
 RECIPES = ROOT / "tools" / "recipes.json"
 SELFTEST = ROOT / "tools" / "selftest.json"
 
 # Filled by load(). Absent until tools/crates_deps.py has run.
 IDENT = {}
 DL = {}
+VOCAB = {}
 CONFIDENT = {"readme", "repo-exact", "repo-alias"}
 
 STOP = {
@@ -67,7 +70,7 @@ def tokens(s):
 
 
 def load():
-    global IDENT, DL
+    global IDENT, DL, VOCAB
     if not NODES.exists():
         sys.exit("index/nodes.jsonl missing -- run: cargo run --bin index")
     nodes = [json.loads(l) for l in NODES.read_text(encoding="utf-8").splitlines() if l.strip()]
@@ -76,6 +79,8 @@ def load():
         IDENT = json.loads(IDENTITY.read_text(encoding="utf-8"))
     if DOWNLOADS.exists():
         DL = json.loads(DOWNLOADS.read_text(encoding="utf-8"))
+    if VOCABULARY.exists():
+        VOCAB = json.loads(VOCABULARY.read_text(encoding="utf-8"))
     return nodes, cats
 
 
@@ -173,10 +178,20 @@ def category_terms(nodes, cats):
     subtree = subtree_map(cats)
     words_of = {}
     for n in nodes:
-        words_of[n["id"]] = {
+        words = {
             w for w in re.split(r"[^a-z0-9]+", (n.get("description") or "").lower())
             if len(w) >= 4 and w not in STOP
         }
+        # Fold in the crate's own keywords and crates.io categories. A ten-word
+        # blurb is a thin basis for a topic; these are curated, and they carry
+        # words the README never uses -- "rest", "orm", "persistence". They need
+        # no special weight: scoring already rewards a term many members share,
+        # and IDF discounts the ubiquitous ones like command-line-utilities.
+        vocab = VOCAB.get(n["id"])
+        if vocab:
+            words.update(vocab.get("keywords", ()))
+            words.update(vocab.get("categories", ()))
+        words_of[n["id"]] = words
 
     docs, df = {}, {}
     for c in cats:
@@ -299,6 +314,18 @@ def score_node(n, qt, cat_scores, name_df, anchored=None):
             s += 1.5
         elif t in desc:
             s += 0.5
+
+    # The crate's own keywords and crates.io categories. Curated rather than
+    # prose, so an exact hit is real evidence -- but kept below a category match,
+    # since a keyword is one author's word for their crate, not a consensus.
+    vocab = VOCAB.get(n["id"])
+    if vocab:
+        own = set(vocab.get("keywords", ())) | set(vocab.get("categories", ()))
+        for t in qt:
+            if t in own:
+                s += 5
+            elif any(term_match(t, k) for k in own):
+                s += 2
 
     # A description containing the query phrase verbatim ("an ergonomic HTTP
     # Client") is direct evidence of what the project actually is.

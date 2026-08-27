@@ -1,0 +1,11744 @@
+{
+ "https://async.rs/": {
+  "categories": [
+   "asynchronous",
+   "concurrency",
+   "network-programming"
+  ],
+  "keywords": [
+   "async",
+   "await",
+   "future",
+   "std",
+   "task"
+  ]
+ },
+ "https://codeberg.org/fosk/emplace": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "shell",
+   "cli",
+   "mirror",
+   "sync"
+  ]
+ },
+ "https://codeberg.org/sugar700/enum-map": {
+  "categories": [
+   "data-structures",
+   "no-std"
+  ],
+  "keywords": [
+   "data-structure",
+   "no_std",
+   "enum"
+  ]
+ },
+ "https://crates.io/crates/battery": {
+  "categories": [
+   "os"
+  ],
+  "keywords": [
+   "battery",
+   "linux",
+   "macos",
+   "windows",
+   "freebsd"
+  ]
+ },
+ "https://crates.io/crates/bincode": {
+  "categories": [
+   "encoding",
+   "network-programming"
+  ],
+  "keywords": [
+   "binary",
+   "encode",
+   "decode",
+   "serialize",
+   "deserialize"
+  ]
+ },
+ "https://crates.io/crates/bincode-next": {
+  "categories": [
+   "encoding",
+   "data-structures",
+   "no-std"
+  ],
+  "keywords": [
+   "binary",
+   "serialization",
+   "serde",
+   "encoding",
+   "performance"
+  ]
+ },
+ "https://crates.io/crates/branca": {
+  "categories": [
+   "cryptography"
+  ],
+  "keywords": [
+   "fernet",
+   "branca",
+   "cryptography",
+   "aead",
+   "xchacha20_poly1305"
+  ]
+ },
+ "https://crates.io/crates/cargo-audit": {
+  "categories": [
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "cargo-subcommand",
+   "security",
+   "audit",
+   "vulnerability"
+  ]
+ },
+ "https://crates.io/crates/cargo-auditable": {
+  "categories": [
+   "development-tools::cargo-plugins",
+   "encoding"
+  ],
+  "keywords": [
+   "security",
+   "supply-chain",
+   "sbom",
+   "vulnerabilities"
+  ]
+ },
+ "https://crates.io/crates/cargo-benchcmp": {
+  "categories": [],
+  "keywords": [
+   "benchmark",
+   "compare",
+   "bench",
+   "micro"
+  ]
+ },
+ "https://crates.io/crates/cargo-bitbake": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cargo-subcommand",
+   "bitbake",
+   "yocto",
+   "recipe"
+  ]
+ },
+ "https://crates.io/crates/cargo-cache": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools::cargo-plugins",
+   "development-tools"
+  ],
+  "keywords": [
+   "cargo",
+   "cache",
+   "cli",
+   "manage",
+   "cargo-home"
+  ]
+ },
+ "https://crates.io/crates/cargo-check": {
+  "categories": [],
+  "keywords": [
+   "subcommand",
+   "cargo"
+  ]
+ },
+ "https://crates.io/crates/cargo-commander": {
+  "categories": [
+   "development-tools",
+   "development-tools::cargo-plugins",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cargo",
+   "commander",
+   "cmd",
+   "scripts",
+   "commands"
+  ]
+ },
+ "https://crates.io/crates/cargo-count": {
+  "categories": [
+   "development-tools",
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "cargo",
+   "subcommand",
+   "statistics",
+   "count",
+   "lines"
+  ]
+ },
+ "https://crates.io/crates/cargo-crev": {
+  "categories": [
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "code",
+   "review",
+   "supply-chain",
+   "security",
+   "distributed"
+  ]
+ },
+ "https://crates.io/crates/cargo-deb": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools::cargo-plugins",
+   "development-tools::build-utils"
+  ],
+  "keywords": [
+   "debian",
+   "ubuntu",
+   "deploy",
+   "cargo-subcommand"
+  ]
+ },
+ "https://crates.io/crates/cargo-deny": {
+  "categories": [
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "cargo",
+   "license",
+   "spdx",
+   "ci",
+   "advisories"
+  ]
+ },
+ "https://crates.io/crates/cargo-depgraph": {
+  "categories": [
+   "development-tools::cargo-plugins",
+   "visualization"
+  ],
+  "keywords": []
+ },
+ "https://crates.io/crates/cargo-dinghy/": {
+  "categories": [
+   "development-tools::cargo-plugins",
+   "development-tools::testing",
+   "development-tools::profiling"
+  ],
+  "keywords": [
+   "tests",
+   "mobile",
+   "ios",
+   "android",
+   "cargo"
+  ]
+ },
+ "https://crates.io/crates/cargo-ebuild": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cargo-subcommand",
+   "ebuild",
+   "gentoo"
+  ]
+ },
+ "https://crates.io/crates/cargo-edit": {
+  "categories": [
+   "development-tools",
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "cargo",
+   "cargo-subcommand",
+   "cli",
+   "dependencies",
+   "crates"
+  ]
+ },
+ "https://crates.io/crates/cargo-info": {
+  "categories": [
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "cargo",
+   "info",
+   "subcommand"
+  ]
+ },
+ "https://crates.io/crates/cargo-limit": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "cargo",
+   "neovim",
+   "filter",
+   "wrapper",
+   "dedup"
+  ]
+ },
+ "https://crates.io/crates/cargo-make": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "development-tools::cargo-plugins",
+   "development-tools::build-utils",
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "task",
+   "build",
+   "cargo",
+   "plugin",
+   "subcommand"
+  ]
+ },
+ "https://crates.io/crates/cargo-modules": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "cargo",
+   "plugin",
+   "module",
+   "mod",
+   "tree"
+  ]
+ },
+ "https://crates.io/crates/cargo-multi": {
+  "categories": [],
+  "keywords": [
+   "cargo",
+   "subcommand",
+   "multi"
+  ]
+ },
+ "https://crates.io/crates/cargo-outdated": {
+  "categories": [
+   "development-tools",
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "cargo",
+   "subcommand",
+   "dependencies",
+   "cargo-subcommand",
+   "deps"
+  ]
+ },
+ "https://crates.io/crates/cargo-release": {
+  "categories": [
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "cargo"
+  ]
+ },
+ "https://crates.io/crates/cargo-script": {
+  "categories": [],
+  "keywords": [
+   "cargo",
+   "script"
+  ]
+ },
+ "https://crates.io/crates/cargo-tarpaulin": {
+  "categories": [
+   "development-tools"
+  ],
+  "keywords": [
+   "cargo",
+   "cargo-subcommand",
+   "testing"
+  ]
+ },
+ "https://crates.io/crates/cargo-update": {
+  "categories": [
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "cargo",
+   "update",
+   "plugin",
+   "subcommand"
+  ]
+ },
+ "https://crates.io/crates/cargo-watch": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "cargo",
+   "watch",
+   "compile",
+   "notify"
+  ]
+ },
+ "https://crates.io/crates/cargo-web": {
+  "categories": [
+   "development-tools",
+   "development-tools::cargo-plugins",
+   "web-programming"
+  ],
+  "keywords": [
+   "cargo",
+   "subcommand",
+   "web",
+   "asmjs",
+   "webasm"
+  ]
+ },
+ "https://crates.io/crates/cassandra-protocol": {
+  "categories": [
+   "asynchronous",
+   "database"
+  ],
+  "keywords": [
+   "cassandra",
+   "client",
+   "cassandradb"
+  ]
+ },
+ "https://crates.io/crates/cdrs-tokio": {
+  "categories": [
+   "asynchronous",
+   "database"
+  ],
+  "keywords": [
+   "cassandra",
+   "driver",
+   "client",
+   "cassandradb",
+   "async"
+  ]
+ },
+ "https://crates.io/crates/cliparser": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "os",
+   "cli",
+   "command",
+   "parser",
+   "params"
+  ]
+ },
+ "https://crates.io/crates/clippy": {
+  "categories": [
+   "development-tools",
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "clippy",
+   "lint",
+   "plugin"
+  ]
+ },
+ "https://crates.io/crates/cpp": {
+  "categories": [
+   "development-tools::ffi"
+  ],
+  "keywords": [
+   "c",
+   "cxx",
+   "ffi",
+   "compiler"
+  ]
+ },
+ "https://crates.io/crates/cucumber": {
+  "categories": [
+   "asynchronous",
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "cucumber",
+   "testing",
+   "bdd",
+   "atdd",
+   "async"
+  ]
+ },
+ "https://crates.io/crates/deboa": {
+  "categories": [],
+  "keywords": [
+   "http",
+   "networking",
+   "client",
+   "fetch",
+   "rest-client"
+  ]
+ },
+ "https://crates.io/crates/demonstrate": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": []
+ },
+ "https://crates.io/crates/duckscript": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "script",
+   "script-engine",
+   "language"
+  ]
+ },
+ "https://crates.io/crates/eureka": {
+  "categories": [
+   "command-line-interface",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "terminal",
+   "productivity",
+   "git",
+   "ideas"
+  ]
+ },
+ "https://crates.io/crates/fitsio": {
+  "categories": [
+   "external-ffi-bindings",
+   "science"
+  ],
+  "keywords": []
+ },
+ "https://crates.io/crates/fselect": {
+  "categories": [
+   "filesystem",
+   "command-line-utilities",
+   "command-line-interface"
+  ],
+  "keywords": [
+   "find",
+   "files",
+   "sql",
+   "query",
+   "tool"
+  ]
+ },
+ "https://crates.io/crates/gemini-client-api": {
+  "categories": [
+   "web-programming",
+   "asynchronous"
+  ],
+  "keywords": [
+   "gemini",
+   "sdk",
+   "client",
+   "api",
+   "ai"
+  ]
+ },
+ "https://crates.io/crates/git-delta": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": []
+ },
+ "https://crates.io/crates/glutin": {
+  "categories": [],
+  "keywords": [
+   "windowing",
+   "opengl",
+   "egl"
+  ]
+ },
+ "https://crates.io/crates/googletest": {
+  "categories": [
+   "development-tools",
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "unit",
+   "matcher",
+   "testing",
+   "assertions"
+  ]
+ },
+ "https://crates.io/crates/googletest-json-serde": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "googletest",
+   "gtest",
+   "json",
+   "serde",
+   "matchers"
+  ]
+ },
+ "https://crates.io/crates/hickory-dns": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "dns",
+   "dnssec"
+  ]
+ },
+ "https://crates.io/crates/hound": {
+  "categories": [
+   "multimedia::encoding",
+   "multimedia::audio"
+  ],
+  "keywords": [
+   "wav",
+   "wave",
+   "audio",
+   "codec"
+  ]
+ },
+ "https://crates.io/crates/indradb": {
+  "categories": [
+   "database",
+   "database-implementations"
+  ],
+  "keywords": [
+   "graph",
+   "database",
+   "graph-database"
+  ]
+ },
+ "https://crates.io/crates/j4rs": {
+  "categories": [
+   "api-bindings"
+  ],
+  "keywords": [
+   "java",
+   "jni"
+  ]
+ },
+ "https://crates.io/crates/jni": {
+  "categories": [
+   "api-bindings"
+  ],
+  "keywords": [
+   "ffi",
+   "jni",
+   "java"
+  ]
+ },
+ "https://crates.io/crates/jni-sys": {
+  "categories": [
+   "external-ffi-bindings"
+  ],
+  "keywords": [
+   "java",
+   "jni"
+  ]
+ },
+ "https://crates.io/crates/mockiato": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "test",
+   "testing",
+   "mock",
+   "mocking"
+  ]
+ },
+ "https://crates.io/crates/mockito": {
+  "categories": [
+   "development-tools::testing",
+   "web-programming"
+  ],
+  "keywords": [
+   "mock",
+   "mocks",
+   "http",
+   "webmock",
+   "webmocks"
+  ]
+ },
+ "https://crates.io/crates/nyx-space": {
+  "categories": [
+   "science",
+   "simulation",
+   "aerospace",
+   "science::robotics"
+  ],
+  "keywords": [
+   "space",
+   "mission",
+   "design",
+   "orbit",
+   "estimation"
+  ]
+ },
+ "https://crates.io/crates/opentelemetry": {
+  "categories": [
+   "development-tools::debugging",
+   "development-tools::profiling",
+   "api-bindings",
+   "asynchronous"
+  ],
+  "keywords": [
+   "opentelemetry",
+   "logging",
+   "tracing",
+   "metrics"
+  ]
+ },
+ "https://crates.io/crates/orx-parallel": {
+  "categories": [
+   "concurrency",
+   "algorithms"
+  ],
+  "keywords": [
+   "parallel",
+   "concurrency",
+   "performance",
+   "thread",
+   "iterator"
+  ]
+ },
+ "https://crates.io/crates/proptest": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "property",
+   "testing",
+   "quickcheck",
+   "fuzz",
+   "hypothesis"
+  ]
+ },
+ "https://crates.io/crates/quickcheck": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "testing",
+   "quickcheck",
+   "property",
+   "shrinking",
+   "fuzz"
+  ]
+ },
+ "https://crates.io/crates/ripgrep": {
+  "categories": [
+   "command-line-utilities",
+   "text-processing"
+  ],
+  "keywords": [
+   "regex",
+   "grep",
+   "egrep",
+   "search",
+   "pattern"
+  ]
+ },
+ "https://crates.io/crates/rstest": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "test",
+   "fixture"
+  ]
+ },
+ "https://crates.io/crates/rucaja": {
+  "categories": [],
+  "keywords": [
+   "java",
+   "jni"
+  ]
+ },
+ "https://crates.io/crates/ruterm": {
+  "categories": [],
+  "keywords": [
+   "terminal",
+   "simple",
+   "tui"
+  ]
+ },
+ "https://crates.io/crates/sd": {
+  "categories": [
+   "command-line-utilities",
+   "text-processing",
+   "development-tools"
+  ],
+  "keywords": [
+   "sed",
+   "find",
+   "replace",
+   "regex"
+  ]
+ },
+ "https://crates.io/crates/serde_cbor": {
+  "categories": [
+   "encoding"
+  ],
+  "keywords": [
+   "serde",
+   "cbor",
+   "serialization",
+   "no_std"
+  ]
+ },
+ "https://crates.io/crates/sevenz-rust": {
+  "categories": [],
+  "keywords": [
+   "7z",
+   "7zip",
+   "sevenz",
+   "decompress"
+  ]
+ },
+ "https://crates.io/crates/sled": {
+  "categories": [
+   "database-implementations",
+   "concurrency",
+   "data-structures",
+   "algorithms",
+   "caching"
+  ],
+  "keywords": [
+   "redis",
+   "mongo",
+   "sqlite",
+   "lmdb",
+   "rocksdb"
+  ]
+ },
+ "https://crates.io/crates/speculate": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "rspec",
+   "test",
+   "testing"
+  ]
+ },
+ "https://crates.io/crates/static_assertions": {
+  "categories": [
+   "no-std",
+   "rust-patterns",
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "assert",
+   "static",
+   "testing"
+  ]
+ },
+ "https://crates.io/crates/stdweb": {
+  "categories": [
+   "api-bindings",
+   "gui",
+   "web-programming"
+  ],
+  "keywords": [
+   "web",
+   "asmjs",
+   "webasm",
+   "javascript"
+  ]
+ },
+ "https://crates.io/crates/stl_io": {
+  "categories": [],
+  "keywords": [
+   "stl",
+   "binary",
+   "ascii",
+   "3d",
+   "mesh"
+  ]
+ },
+ "https://crates.io/crates/strsim": {
+  "categories": [
+   "text-processing"
+  ],
+  "keywords": [
+   "string",
+   "similarity",
+   "hamming",
+   "levenshtein",
+   "jaro"
+  ]
+ },
+ "https://crates.io/crates/vtcode": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "api-bindings"
+  ],
+  "keywords": [
+   "ai",
+   "coding",
+   "agent",
+   "llm",
+   "cli"
+  ]
+ },
+ "https://crates.io/crates/xsv": {
+  "categories": [],
+  "keywords": [
+   "csv",
+   "tsv",
+   "slice",
+   "command"
+  ]
+ },
+ "https://crates.io/crates/yew": {
+  "categories": [
+   "gui",
+   "wasm",
+   "web-programming"
+  ],
+  "keywords": [
+   "web",
+   "webasm",
+   "javascript"
+  ]
+ },
+ "https://crates.io/crates/zerocopy": {
+  "categories": [
+   "embedded",
+   "encoding",
+   "no-std::no-alloc",
+   "parsing",
+   "rust-patterns"
+  ],
+  "keywords": [
+   "cast",
+   "convert",
+   "transmute",
+   "transmutation",
+   "type-punning"
+  ]
+ },
+ "https://git.sr.ht/~lessa/pepper": {
+  "categories": [
+   "command-line-utilities",
+   "text-editors"
+  ],
+  "keywords": []
+ },
+ "https://git.sr.ht/~lessa/verco": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "version-control",
+   "git",
+   "hg",
+   "mercurial",
+   "plastic"
+  ]
+ },
+ "https://git.sr.ht/~pyrossh/rust-embed": {
+  "categories": [
+   "web-programming",
+   "filesystem"
+  ],
+  "keywords": [
+   "http",
+   "rocket",
+   "static",
+   "web",
+   "server"
+  ]
+ },
+ "https://github.com/06chaynes/http-cache": {
+  "categories": [
+   "caching",
+   "web-programming::http-client"
+  ],
+  "keywords": [
+   "cache",
+   "http",
+   "middleware"
+  ]
+ },
+ "https://github.com/0x676e67/vproxy": {
+  "categories": [
+   "network-programming",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "http",
+   "https",
+   "socks5",
+   "proxy",
+   "server"
+  ]
+ },
+ "https://github.com/0x676e67/wreq": {
+  "categories": [
+   "web-programming::http-client"
+  ],
+  "keywords": [
+   "http",
+   "client",
+   "websocket",
+   "ja3",
+   "ja4"
+  ]
+ },
+ "https://github.com/0xdea/augur": {
+  "categories": [
+   "security",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "reverse-engineering",
+   "binary-file",
+   "vuln-dev",
+   "ida",
+   "idalib"
+  ]
+ },
+ "https://github.com/0xdea/haruspex": {
+  "categories": [
+   "security",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "reverse-engineering",
+   "binary-file",
+   "vuln-dev",
+   "ida",
+   "idalib"
+  ]
+ },
+ "https://github.com/0xdea/jiggy": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "mouse",
+   "jiggler",
+   "windows",
+   "linux",
+   "macos"
+  ]
+ },
+ "https://github.com/0xdea/oneiromancer": {
+  "categories": [
+   "security",
+   "artificial-intelligence",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "reverse-engineering",
+   "pseudocode",
+   "vuln-dev",
+   "ollama",
+   "aidapal"
+  ]
+ },
+ "https://github.com/0xdea/rhabdomancer": {
+  "categories": [
+   "security",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "reverse-engineering",
+   "binary-file",
+   "vuln-dev",
+   "ida",
+   "idalib"
+  ]
+ },
+ "https://github.com/0xlane/pe-sign": {
+  "categories": [
+   "command-line-utilities",
+   "no-std",
+   "authentication",
+   "parsing"
+  ],
+  "keywords": [
+   "portable-executable",
+   "blue-team",
+   "signature",
+   "certificate",
+   "openssl"
+  ]
+ },
+ "https://github.com/1c3t3a/rust-socketio": {
+  "categories": [
+   "network-programming",
+   "web-programming",
+   "web-programming::websocket"
+  ],
+  "keywords": [
+   "socketio",
+   "engineio",
+   "network",
+   "protocol",
+   "client"
+  ]
+ },
+ "https://github.com/3Hren/msgpack-rust": {
+  "categories": [
+   "encoding"
+  ],
+  "keywords": [
+   "msgpack",
+   "messagepack"
+  ]
+ },
+ "https://github.com/64bit/async-openai": {
+  "categories": [
+   "api-bindings",
+   "web-programming",
+   "asynchronous"
+  ],
+  "keywords": [
+   "openai",
+   "async",
+   "openapi",
+   "ai"
+  ]
+ },
+ "https://github.com/AFLplusplus/LibAFL": {
+  "categories": [
+   "development-tools::testing",
+   "emulators",
+   "embedded",
+   "os",
+   "no-std"
+  ],
+  "keywords": [
+   "fuzzing",
+   "testing",
+   "security"
+  ]
+ },
+ "https://github.com/AlKass/polish": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "rust",
+   "testing",
+   "test-driven"
+  ]
+ },
+ "https://github.com/AlexPikalov/cdrs": {
+  "categories": [],
+  "keywords": [
+   "cassandra",
+   "driver",
+   "client",
+   "cassandradb",
+   "db"
+  ]
+ },
+ "https://github.com/AlexsJones/llmfit": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "llm",
+   "tui",
+   "hardware",
+   "inference",
+   "models"
+  ]
+ },
+ "https://github.com/AlexsJones/llmserve": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "llm",
+   "tui",
+   "inference",
+   "server",
+   "models"
+  ]
+ },
+ "https://github.com/AreevAI/flowcat": {
+  "categories": [
+   "multimedia::audio",
+   "network-programming"
+  ],
+  "keywords": [
+   "voice",
+   "telephony",
+   "sip",
+   "webrtc",
+   "realtime"
+  ]
+ },
+ "https://github.com/ArroyoSystems/arroyo": {
+  "categories": [
+   "database-implementations",
+   "web-programming"
+  ],
+  "keywords": [
+   "streaming",
+   "data",
+   "sql",
+   "event-processing"
+  ]
+ },
+ "https://github.com/AscendingCreations/AscendingGraphics": {
+  "categories": [
+   "game-development",
+   "graphics",
+   "rendering"
+  ],
+  "keywords": [
+   "wgpu",
+   "rendering",
+   "2d"
+  ]
+ },
+ "https://github.com/Ave-Sergeev/Tictonix": {
+  "categories": [
+   "encoding",
+   "mathematics",
+   "science"
+  ],
+  "keywords": [
+   "embeddings",
+   "positional-encoding",
+   "deep-learning",
+   "machine-learning"
+  ]
+ },
+ "https://github.com/Axect/Peroxide": {
+  "categories": [
+   "science"
+  ],
+  "keywords": [
+   "numeric",
+   "science",
+   "dataframe",
+   "plot",
+   "linearalgebra"
+  ]
+ },
+ "https://github.com/Azure/azure-sdk-for-rust": {
+  "categories": [
+   "api-bindings"
+  ],
+  "keywords": [
+   "sdk",
+   "cloud",
+   "rest",
+   "iot"
+  ]
+ },
+ "https://github.com/BinChengZhao/delay-timer": {
+  "categories": [
+   "development-tools",
+   "data-structures",
+   "asynchronous",
+   "data-structures",
+   "accessibility"
+  ],
+  "keywords": [
+   "cron",
+   "scheduler",
+   "timer",
+   "crontab",
+   "delay"
+  ]
+ },
+ "https://github.com/BoundaryML/baml": {
+  "categories": [
+   "development-tools",
+   "web-programming"
+  ],
+  "keywords": [
+   "baml",
+   "boundaryml",
+   "boundary",
+   "llm",
+   "programming-language"
+  ]
+ },
+ "https://github.com/BurntSushi/byteorder": {
+  "categories": [
+   "encoding",
+   "parsing",
+   "no-std"
+  ],
+  "keywords": [
+   "byte",
+   "endian",
+   "big-endian",
+   "little-endian",
+   "binary"
+  ]
+ },
+ "https://github.com/BurntSushi/fst": {
+  "categories": [],
+  "keywords": [
+   "search",
+   "information",
+   "retrieval",
+   "dictionary",
+   "map"
+  ]
+ },
+ "https://github.com/BurntSushi/jiff": {
+  "categories": [
+   "date-and-time",
+   "no-std"
+  ],
+  "keywords": [
+   "date",
+   "time",
+   "calendar",
+   "zone",
+   "duration"
+  ]
+ },
+ "https://github.com/BurntSushi/rust-csv": {
+  "categories": [
+   "encoding",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "csv",
+   "comma",
+   "parser",
+   "delimited",
+   "serde"
+  ]
+ },
+ "https://github.com/BurntSushi/suffix": {
+  "categories": [],
+  "keywords": [
+   "suffix",
+   "text",
+   "search",
+   "index"
+  ]
+ },
+ "https://github.com/BurntSushi/tabwriter": {
+  "categories": [],
+  "keywords": [
+   "tabs",
+   "elastic",
+   "aligned",
+   "whitespace",
+   "table"
+  ]
+ },
+ "https://github.com/Canop/bacon": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "rust",
+   "background",
+   "compiler",
+   "watch",
+   "inotify"
+  ]
+ },
+ "https://github.com/Canop/broot": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "fuzzy",
+   "tree",
+   "search",
+   "file"
+  ]
+ },
+ "https://github.com/ChurchTao/clipboard-rs": {
+  "categories": [],
+  "keywords": [
+   "clipboard"
+  ]
+ },
+ "https://github.com/ClementTsang/bottom": {
+  "categories": [
+   "command-line-utilities",
+   "visualization"
+  ],
+  "keywords": [
+   "cross-platform",
+   "monitoring",
+   "cli",
+   "top",
+   "tui"
+  ]
+ },
+ "https://github.com/Covertness/coap-rs": {
+  "categories": [],
+  "keywords": [
+   "coap"
+  ]
+ },
+ "https://github.com/CurrySoftware/perlin": {
+  "categories": [],
+  "keywords": [
+   "information",
+   "retrieval",
+   "search",
+   "text",
+   "engine"
+  ]
+ },
+ "https://github.com/Cysharp/csbindgen": {
+  "categories": [
+   "external-ffi-bindings",
+   "development-tools::ffi"
+  ],
+  "keywords": [
+   "bindings",
+   "ffi",
+   "code-generation",
+   "csharp"
+  ]
+ },
+ "https://github.com/DaGenix/rust-crypto": {
+  "categories": [],
+  "keywords": [
+   "crypto",
+   "md5",
+   "sha1",
+   "sha2",
+   "aes"
+  ]
+ },
+ "https://github.com/Daniel-Liu-c0deb0t/triple_accel": {
+  "categories": [
+   "algorithms",
+   "hardware-support",
+   "science",
+   "text-processing"
+  ],
+  "keywords": [
+   "simd",
+   "levenshtein",
+   "hamming",
+   "string-search",
+   "string-distance"
+  ]
+ },
+ "https://github.com/DataBora/elusion": {
+  "categories": [
+   "data-structures"
+  ],
+  "keywords": [
+   "data",
+   "engineering",
+   "dataframe",
+   "analysis"
+  ]
+ },
+ "https://github.com/DaveKram/coord_transforms": {
+  "categories": [
+   "algorithms",
+   "embedded",
+   "science",
+   "parsing"
+  ],
+  "keywords": [
+   "coordinates",
+   "geospatial",
+   "transforms",
+   "transformations"
+  ]
+ },
+ "https://github.com/DefGuard/wireguard-rs": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "wireguard",
+   "network",
+   "vpn"
+  ]
+ },
+ "https://github.com/EasyTier/EasyTier": {
+  "categories": [
+   "network-programming",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "vpn",
+   "p2p",
+   "network",
+   "easytier"
+  ]
+ },
+ "https://github.com/Eliah-Lakhin/lady-deirdre": {
+  "categories": [
+   "compilers",
+   "data-structures",
+   "wasm",
+   "parsing",
+   "text-editors"
+  ],
+  "keywords": [
+   "parsing",
+   "parser",
+   "incremental",
+   "compiler",
+   "editor"
+  ]
+ },
+ "https://github.com/Eoin-McMahon/Blindfold": {
+  "categories": [
+   "development-tools"
+  ],
+  "keywords": [
+   "gitignore",
+   "git",
+   "generator",
+   "cli"
+  ]
+ },
+ "https://github.com/EricLBuehler/mistral.rs": {
+  "categories": [
+   "science",
+   "api-bindings",
+   "text-processing"
+  ],
+  "keywords": [
+   "llm",
+   "inference",
+   "machine-learning",
+   "ai",
+   "transformers"
+  ]
+ },
+ "https://github.com/FGRibreau/spinners": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "spinner",
+   "spin",
+   "loader",
+   "term",
+   "terminal"
+  ]
+ },
+ "https://github.com/FedericoBruzzone/tdlib-rs": {
+  "categories": [],
+  "keywords": [
+   "telegram",
+   "tdlib",
+   "tdjson",
+   "tdlib-rs",
+   "telegram-api"
+  ]
+ },
+ "https://github.com/FedericoBruzzone/tgt": {
+  "categories": [],
+  "keywords": [
+   "tgt",
+   "tgtui",
+   "telegram",
+   "tui",
+   "tdlib"
+  ]
+ },
+ "https://github.com/FerrisMind/shadcn-rs": {
+  "categories": [
+   "gui",
+   "visualization",
+   "rendering::graphics-api",
+   "game-development"
+  ],
+  "keywords": [
+   "iced",
+   "ui",
+   "components",
+   "shadcn",
+   "radix"
+  ]
+ },
+ "https://github.com/Florob/RustyXML": {
+  "categories": [],
+  "keywords": [
+   "xml",
+   "parser"
+  ]
+ },
+ "https://github.com/Folyd/robotstxt": {
+  "categories": [
+   "parser-implementations",
+   "parsing"
+  ],
+  "keywords": [
+   "robotstxt",
+   "robots",
+   "parser"
+  ]
+ },
+ "https://github.com/FuGangqiang/mdblog.rs": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "blog",
+   "markdown",
+   "static",
+   "site",
+   "generator"
+  ]
+ },
+ "https://github.com/GildedHonour/frank_jwt": {
+  "categories": [],
+  "keywords": [
+   "jwt",
+   "json",
+   "token",
+   "encryption",
+   "auth0-jwt"
+  ]
+ },
+ "https://github.com/GoPlasmatic/datalogic-rs": {
+  "categories": [
+   "parser-implementations",
+   "wasm",
+   "development-tools"
+  ],
+  "keywords": [
+   "jsonlogic",
+   "json-logic",
+   "rules-engine",
+   "business-rules",
+   "feature-flags"
+  ]
+ },
+ "https://github.com/Goldziher/scythe": {
+  "categories": [
+   "database",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "sql",
+   "parser",
+   "type-inference",
+   "catalog",
+   "analyzer"
+  ]
+ },
+ "https://github.com/Goldziher/spikard": {
+  "categories": [
+   "web-programming::http-server",
+   "web-programming::http-client"
+  ],
+  "keywords": [
+   "http",
+   "framework",
+   "axum",
+   "tower",
+   "api"
+  ]
+ },
+ "https://github.com/Goldziher/uncomment": {
+  "categories": [],
+  "keywords": [
+   "comments",
+   "cli",
+   "tree-sitter",
+   "ast"
+  ]
+ },
+ "https://github.com/GuillaumeGomez/rust-GSL": {
+  "categories": [],
+  "keywords": [
+   "mathematics",
+   "library",
+   "gsl"
+  ]
+ },
+ "https://github.com/GuillaumeGomez/sysinfo": {
+  "categories": [],
+  "keywords": [
+   "system-information",
+   "disk",
+   "process",
+   "network",
+   "cpu"
+  ]
+ },
+ "https://github.com/GyulyVGC/sniffnet": {
+  "categories": [
+   "visualization",
+   "gui",
+   "network-programming"
+  ],
+  "keywords": [
+   "filter",
+   "network",
+   "packet",
+   "sniffer",
+   "gui"
+  ]
+ },
+ "https://github.com/Harry-kp/vortix": {
+  "categories": [
+   "command-line-utilities",
+   "network-programming"
+  ],
+  "keywords": [
+   "vpn",
+   "tui",
+   "wireguard",
+   "openvpn",
+   "terminal"
+  ]
+ },
+ "https://github.com/HelixDB/helix-db": {
+  "categories": [
+   "database",
+   "data-structures"
+  ],
+  "keywords": [
+   "graph",
+   "database",
+   "helixdb",
+   "dsl",
+   "query"
+  ]
+ },
+ "https://github.com/Hugo-Dz/spritefusion-pixel-snapper": {
+  "categories": [
+   "command-line-utilities",
+   "multimedia::images"
+  ],
+  "keywords": [
+   "pixel-art",
+   "image-processing",
+   "cli",
+   "wasm",
+   "gamedev"
+  ]
+ },
+ "https://github.com/IBM/mocktail": {
+  "categories": [
+   "development-tools",
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "mocking",
+   "grpc-mocking",
+   "http-mocking",
+   "grpc",
+   "testing"
+  ]
+ },
+ "https://github.com/IvanWng97/pixtuoid": {
+  "categories": [
+   "command-line-utilities",
+   "visualization"
+  ],
+  "keywords": [
+   "terminal",
+   "tui",
+   "pixel-art",
+   "ai-agents",
+   "claude"
+  ]
+ },
+ "https://github.com/J-F-Liu/lopdf": {
+  "categories": [
+   "text-processing"
+  ],
+  "keywords": [
+   "pdf",
+   "editing",
+   "manipulation",
+   "merge"
+  ]
+ },
+ "https://github.com/JayanAXHF/FileSSH": {
+  "categories": [
+   "command-line-utilities",
+   "command-line-interface",
+   "filesystem"
+  ],
+  "keywords": [
+   "tui",
+   "cli",
+   "sftp",
+   "ssh",
+   "file-browser"
+  ]
+ },
+ "https://github.com/Julien-cpsn/ATAC": {
+  "categories": [],
+  "keywords": [
+   "api",
+   "client",
+   "tui",
+   "postman",
+   "insomnia"
+  ]
+ },
+ "https://github.com/Keats/jsonwebtoken": {
+  "categories": [],
+  "keywords": [
+   "jwt",
+   "api",
+   "token",
+   "jwk"
+  ]
+ },
+ "https://github.com/Keats/tera": {
+  "categories": [
+   "template-engine"
+  ],
+  "keywords": [
+   "template",
+   "html",
+   "django",
+   "markup",
+   "jinja2"
+  ]
+ },
+ "https://github.com/KipData/KiteSQL": {
+  "categories": [
+   "development-tools",
+   "database"
+  ],
+  "keywords": [
+   "sql",
+   "sqlite",
+   "database",
+   "mysql"
+  ]
+ },
+ "https://github.com/Kixunil/configure_me": {
+  "categories": [
+   "command-line-interface",
+   "config",
+   "encoding"
+  ],
+  "keywords": [
+   "configuration",
+   "arguments",
+   "environment",
+   "codegen"
+  ]
+ },
+ "https://github.com/LargeModGames/spotatui": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "spotify",
+   "tui",
+   "cli",
+   "terminal"
+  ]
+ },
+ "https://github.com/LaurentMazare/tch-rs": {
+  "categories": [
+   "science"
+  ],
+  "keywords": [
+   "pytorch",
+   "deep-learning",
+   "machine-learning"
+  ]
+ },
+ "https://github.com/LeChatP/RootAsRole": {
+  "categories": [
+   "command-line-utilities",
+   "os::linux-apis",
+   "config"
+  ],
+  "keywords": [
+   "sudo",
+   "capabilities",
+   "rbac",
+   "linux",
+   "security"
+  ]
+ },
+ "https://github.com/Linus-Mussmaecher/rucola": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "markdown",
+   "notes",
+   "zettelkasten",
+   "tui",
+   "terminal"
+  ]
+ },
+ "https://github.com/Lissy93/AdGuardian-Term": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "adguard",
+   "monitoring",
+   "statistics"
+  ]
+ },
+ "https://github.com/Lucretiel/joinery": {
+  "categories": [
+   "no-std",
+   "rust-patterns",
+   "value-formatting"
+  ],
+  "keywords": []
+ },
+ "https://github.com/LukasKalbertodt/bunt": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "color",
+   "term",
+   "terminal",
+   "format",
+   "style"
+  ]
+ },
+ "https://github.com/LukasKalbertodt/term-painter": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "terminal",
+   "color",
+   "format",
+   "paint"
+  ]
+ },
+ "https://github.com/LukeMathWalker/cargo-chef": {
+  "categories": [
+   "development-tools::cargo-plugins",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cargo",
+   "docker",
+   "caching",
+   "dependencies"
+  ]
+ },
+ "https://github.com/Mapika/portview": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "port",
+   "process",
+   "diagnostic",
+   "network",
+   "cli"
+  ]
+ },
+ "https://github.com/Martin1887/oxigen": {
+  "categories": [
+   "algorithms",
+   "science"
+  ],
+  "keywords": [
+   "oxigen",
+   "genetic",
+   "algorithm",
+   "heuristic",
+   "search"
+  ]
+ },
+ "https://github.com/Marwes/combine": {
+  "categories": [
+   "parsing",
+   "no-std"
+  ],
+  "keywords": [
+   "parser",
+   "parsing",
+   "combinators",
+   "ll"
+  ]
+ },
+ "https://github.com/MaterializeInc/materialize": {
+  "categories": [
+   "network-programming",
+   "web-programming::http-client"
+  ],
+  "keywords": [
+   "http",
+   "proxy"
+  ]
+ },
+ "https://github.com/Michael-A-Kuykendall/crabcamera": {
+  "categories": [
+   "multimedia",
+   "gui"
+  ],
+  "keywords": [
+   "tauri",
+   "camera",
+   "cross-platform",
+   "desktop",
+   "rust"
+  ]
+ },
+ "https://github.com/Michael-A-Kuykendall/muxide": {
+  "categories": [
+   "multimedia",
+   "multimedia::encoding",
+   "multimedia::video",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "mp4",
+   "video",
+   "muxer",
+   "h264",
+   "hevc"
+  ]
+ },
+ "https://github.com/Michael-A-Kuykendall/shimmy": {
+  "categories": [
+   "command-line-utilities",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "llm",
+   "local-ai",
+   "inference",
+   "server",
+   "api"
+  ]
+ },
+ "https://github.com/Michael-A-Kuykendall/shimmytok": {
+  "categories": [
+   "text-processing",
+   "encoding",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "tokenizer",
+   "gguf",
+   "llama",
+   "sentencepiece",
+   "llm"
+  ]
+ },
+ "https://github.com/Mnwa/ms": {
+  "categories": [
+   "date-and-time"
+  ],
+  "keywords": [
+   "ms",
+   "milliseconds",
+   "converter"
+  ]
+ },
+ "https://github.com/Mottl/lightgbm3-rs": {
+  "categories": [
+   "api-bindings",
+   "science"
+  ],
+  "keywords": [
+   "lightgbm",
+   "machine-learning",
+   "gradient-boosting"
+  ]
+ },
+ "https://github.com/MovingtoMars/liner": {
+  "categories": [],
+  "keywords": [
+   "readline",
+   "line",
+   "input",
+   "editor",
+   "completion"
+  ]
+ },
+ "https://github.com/Muvon/octocode": {
+  "categories": [
+   "development-tools",
+   "command-line-utilities",
+   "parsing",
+   "text-processing",
+   "algorithms"
+  ],
+  "keywords": [
+   "mcp-server",
+   "code-intelligence",
+   "semantic-search",
+   "graphrag",
+   "code-search"
+  ]
+ },
+ "https://github.com/NikitaSmithTheOne/rate-limiters-rs": {
+  "categories": [
+   "algorithms",
+   "concurrency",
+   "network-programming",
+   "asynchronous",
+   "web-programming"
+  ],
+  "keywords": [
+   "rate-limiter",
+   "ratelimit",
+   "throttle",
+   "token-bucket",
+   "sliding-window"
+  ]
+ },
+ "https://github.com/Nonanti/mathcore": {
+  "categories": [
+   "mathematics",
+   "science"
+  ],
+  "keywords": [
+   "math",
+   "symbolic",
+   "algebra",
+   "calculus",
+   "cas"
+  ]
+ },
+ "https://github.com/PaddiM8/kalker": {
+  "categories": [
+   "mathematics",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "math",
+   "calculator",
+   "cli",
+   "command-line"
+  ]
+ },
+ "https://github.com/ParthJadhav/Rust_Search": {
+  "categories": [
+   "filesystem",
+   "algorithms"
+  ],
+  "keywords": [
+   "search",
+   "files",
+   "directories",
+   "library"
+  ]
+ },
+ "https://github.com/PistonDevelopers/conrod/": {
+  "categories": [
+   "gui"
+  ],
+  "keywords": [
+   "ui",
+   "widgets",
+   "gui",
+   "interface",
+   "graphics"
+  ]
+ },
+ "https://github.com/PistonDevelopers/dyon": {
+  "categories": [],
+  "keywords": [
+   "script",
+   "scripting",
+   "game",
+   "language",
+   "piston"
+  ]
+ },
+ "https://github.com/ProbablyClem/utoipauto": {
+  "categories": [
+   "parsing",
+   "development-tools::procedural-macro-helpers",
+   "web-programming"
+  ],
+  "keywords": [
+   "utoipa",
+   "openapi",
+   "swagger",
+   "path",
+   "auto"
+  ]
+ },
+ "https://github.com/PumpkinDB/PumpkinDB": {
+  "categories": [
+   "database",
+   "parsing"
+  ],
+  "keywords": [
+   "pumpkindb",
+   "pumpkinscript",
+   "parsing"
+  ]
+ },
+ "https://github.com/PyO3/PyO3": {
+  "categories": [
+   "api-bindings",
+   "development-tools::ffi"
+  ],
+  "keywords": [
+   "pyo3",
+   "python",
+   "cpython",
+   "ffi"
+  ]
+ },
+ "https://github.com/Qrlew/qrlew": {
+  "categories": [],
+  "keywords": [
+   "sql",
+   "data"
+  ]
+ },
+ "https://github.com/Rafaelpta/dupehound": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "duplicate",
+   "clone-detection",
+   "code-quality",
+   "cli",
+   "winnowing"
+  ]
+ },
+ "https://github.com/RibirX/Ribir": {
+  "categories": [
+   "gui"
+  ],
+  "keywords": [
+   "gui",
+   "ui",
+   "declarative",
+   "compose-ui"
+  ]
+ },
+ "https://github.com/RoaringBitmap/roaring-rs": {
+  "categories": [
+   "data-structures"
+  ],
+  "keywords": [
+   "roaring",
+   "data-structure",
+   "bitmap"
+  ]
+ },
+ "https://github.com/Rust-SDL2/rust-sdl2": {
+  "categories": [
+   "rendering",
+   "api-bindings",
+   "game-engines",
+   "multimedia"
+  ],
+  "keywords": [
+   "sdl",
+   "windowing",
+   "graphics",
+   "api",
+   "engine"
+  ]
+ },
+ "https://github.com/RustAudio/cpal": {
+  "categories": [
+   "multimedia::audio"
+  ],
+  "keywords": [
+   "audio",
+   "sound",
+   "playback",
+   "recording",
+   "cross-platform"
+  ]
+ },
+ "https://github.com/RustAudio/rodio": {
+  "categories": [],
+  "keywords": [
+   "audio",
+   "playback",
+   "recording",
+   "gamedev"
+  ]
+ },
+ "https://github.com/RustCrypto/hashes": {
+  "categories": [
+   "cryptography",
+   "no-std"
+  ],
+  "keywords": [
+   "sha2",
+   "hash",
+   "digest"
+  ]
+ },
+ "https://github.com/Rustixir/darkbird": {
+  "categories": [],
+  "keywords": [
+   "in-memory",
+   "storage",
+   "durable",
+   "high-concurrency",
+   "database"
+  ]
+ },
+ "https://github.com/Ryan-D-Gast/differential-equations": {
+  "categories": [
+   "science",
+   "mathematics",
+   "algorithms"
+  ],
+  "keywords": [
+   "differential",
+   "equations",
+   "solver",
+   "ode",
+   "ivp"
+  ]
+ },
+ "https://github.com/SSheldon/rust-objc": {
+  "categories": [],
+  "keywords": [
+   "objective-c",
+   "osx",
+   "ios",
+   "cocoa",
+   "uikit"
+  ]
+ },
+ "https://github.com/SeaQL/sea-orm": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "async",
+   "orm",
+   "mysql",
+   "postgres",
+   "sqlite"
+  ]
+ },
+ "https://github.com/SeaQL/sea-query": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "database",
+   "sql",
+   "mysql",
+   "postgres",
+   "sqlite"
+  ]
+ },
+ "https://github.com/SeaQL/sea-schema": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "database",
+   "sql",
+   "mysql",
+   "postgres"
+  ]
+ },
+ "https://github.com/SeaQL/seaography": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "async",
+   "graphql",
+   "mysql",
+   "postgres",
+   "sqlite"
+  ]
+ },
+ "https://github.com/Sean1708/rusty-cheddar": {
+  "categories": [],
+  "keywords": [
+   "c",
+   "header",
+   "ffi"
+  ]
+ },
+ "https://github.com/SeekStorm/SeekStorm": {
+  "categories": [
+   "database-implementations",
+   "data-structures"
+  ],
+  "keywords": [
+   "search",
+   "information",
+   "retrieval"
+  ]
+ },
+ "https://github.com/Sensirion/lin-bus-rs": {
+  "categories": [
+   "no-std",
+   "hardware-support"
+  ],
+  "keywords": [
+   "lin",
+   "local",
+   "interconnect",
+   "network"
+  ]
+ },
+ "https://github.com/SergioBenitez/Figment": {
+  "categories": [
+   "config"
+  ],
+  "keywords": [
+   "config",
+   "configuration",
+   "toml",
+   "json",
+   "yaml"
+  ]
+ },
+ "https://github.com/SergioBenitez/yansi": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "ansi",
+   "terminal",
+   "color",
+   "format",
+   "paint"
+  ]
+ },
+ "https://github.com/Serial-ATA/lofty-rs": {
+  "categories": [
+   "multimedia",
+   "multimedia::audio",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "tags",
+   "audio",
+   "metadata",
+   "id3",
+   "vorbis"
+  ]
+ },
+ "https://github.com/ShadoySV/work-break": {
+  "categories": [],
+  "keywords": [
+   "productivity",
+   "app",
+   "cross-platform",
+   "time-tracker"
+  ]
+ },
+ "https://github.com/SiegeLord/RustAllegro": {
+  "categories": [
+   "multimedia",
+   "rendering::graphics-api",
+   "external-ffi-bindings"
+  ],
+  "keywords": [
+   "input",
+   "windowing",
+   "opengl",
+   "direct3d"
+  ]
+ },
+ "https://github.com/Skallwar/suckit": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli"
+  ]
+ },
+ "https://github.com/SoCkEt7/Livediff": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "cli",
+   "tui",
+   "monitoring",
+   "diff",
+   "developer-tools"
+  ]
+ },
+ "https://github.com/StardustDL/Linq-in-Rust": {
+  "categories": [],
+  "keywords": [
+   "linq",
+   "functional"
+  ]
+ },
+ "https://github.com/Stebalien/horrorshow-rs": {
+  "categories": [
+   "template-engine"
+  ],
+  "keywords": [
+   "xml",
+   "html",
+   "template"
+  ]
+ },
+ "https://github.com/Stebalien/tempfile": {
+  "categories": [],
+  "keywords": [
+   "tempfile",
+   "tmpfile",
+   "filesystem"
+  ]
+ },
+ "https://github.com/Stebalien/xattr": {
+  "categories": [],
+  "keywords": [
+   "xattr",
+   "filesystem",
+   "unix"
+  ]
+ },
+ "https://github.com/Strophox/tetro-tui": {
+  "categories": [
+   "games",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "tetromino",
+   "terminal",
+   "game",
+   "tui",
+   "ascii-art"
+  ]
+ },
+ "https://github.com/TeXitoi/structopt": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "clap",
+   "cli",
+   "derive",
+   "docopt"
+  ]
+ },
+ "https://github.com/TeaEntityLab/fpRust": {
+  "categories": [],
+  "keywords": [
+   "functional",
+   "rx",
+   "monad",
+   "optional",
+   "pubsub"
+  ]
+ },
+ "https://github.com/Tencent/tquic": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "quic"
+  ]
+ },
+ "https://github.com/TheWaWaR/simple-http-server": {
+  "categories": [],
+  "keywords": [
+   "simple",
+   "http",
+   "server",
+   "static",
+   "file"
+  ]
+ },
+ "https://github.com/TimNN/cargo-lipo": {
+  "categories": [],
+  "keywords": [
+   "cargo",
+   "ios"
+  ]
+ },
+ "https://github.com/Tuntii/RustAPI": {
+  "categories": [
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "web",
+   "framework",
+   "api",
+   "rest",
+   "http"
+  ]
+ },
+ "https://github.com/Vaishnav-Sabari-Girish/ComChan": {
+  "categories": [
+   "command-line-utilities",
+   "embedded"
+  ],
+  "keywords": [
+   "cli",
+   "embedded-systems",
+   "serial-communication"
+  ]
+ },
+ "https://github.com/Veirt/weathr": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "weather",
+   "terminal",
+   "ascii",
+   "cli",
+   "tui"
+  ]
+ },
+ "https://github.com/VictoremWinbringer/Victorem": {
+  "categories": [
+   "game-engines",
+   "network-programming"
+  ],
+  "keywords": [
+   "game",
+   "udp",
+   "server"
+  ]
+ },
+ "https://github.com/Wilfred/difftastic": {
+  "categories": [
+   "development-tools",
+   "command-line-utilities",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "diff",
+   "syntax"
+  ]
+ },
+ "https://github.com/Wulf/create-rust-app": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "web-programming",
+   "config",
+   "database"
+  ],
+  "keywords": [
+   "react",
+   "typescript",
+   "generation",
+   "backend",
+   "frontend"
+  ]
+ },
+ "https://github.com/WyvernIXTL/license-fetcher": {
+  "categories": [
+   "development-tools::build-utils",
+   "parsing"
+  ],
+  "keywords": [
+   "license",
+   "embed",
+   "fetch",
+   "about",
+   "find"
+  ]
+ },
+ "https://github.com/XAMPPRocky/tokei": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "visualization"
+  ],
+  "keywords": [
+   "utility",
+   "cli",
+   "cloc",
+   "lines",
+   "statistics"
+  ]
+ },
+ "https://github.com/Xudong-Huang/may": {
+  "categories": [
+   "concurrency"
+  ],
+  "keywords": [
+   "coroutine",
+   "async",
+   "multi-thread"
+  ]
+ },
+ "https://github.com/a8m/pb": {
+  "categories": [],
+  "keywords": [
+   "cli",
+   "progress",
+   "terminal",
+   "pb"
+  ]
+ },
+ "https://github.com/aaronriekenberg/rust-parallel": {
+  "categories": [
+   "asynchronous",
+   "command-line-interface",
+   "concurrency"
+  ],
+  "keywords": [
+   "cli",
+   "parallel",
+   "tokio"
+  ]
+ },
+ "https://github.com/abonander/img_hash": {
+  "categories": [],
+  "keywords": [
+   "image",
+   "hash",
+   "perceptual",
+   "difference"
+  ]
+ },
+ "https://github.com/achanda/ipnetwork": {
+  "categories": [
+   "network-programming",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "network",
+   "ip",
+   "address",
+   "cidr"
+  ]
+ },
+ "https://github.com/actix/actix": {
+  "categories": [
+   "network-programming",
+   "asynchronous"
+  ],
+  "keywords": [
+   "actor",
+   "futures",
+   "actix",
+   "async",
+   "tokio"
+  ]
+ },
+ "https://github.com/actix/actix-web": {
+  "categories": [
+   "network-programming",
+   "asynchronous",
+   "web-programming::http-server",
+   "web-programming::websocket"
+  ],
+  "keywords": [
+   "actix",
+   "http",
+   "web",
+   "framework",
+   "async"
+  ]
+ },
+ "https://github.com/ad-si/Woxi": {
+  "categories": [],
+  "keywords": [
+   "wolfram",
+   "wolfram-language",
+   "mathematica",
+   "cas",
+   "math"
+  ]
+ },
+ "https://github.com/aembke/fred.rs": {
+  "categories": [
+   "asynchronous",
+   "database",
+   "web-programming"
+  ],
+  "keywords": [
+   "redis",
+   "valkey",
+   "cluster",
+   "sentinel"
+  ]
+ },
+ "https://github.com/agavra/tuicr": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "tui",
+   "git",
+   "code-review",
+   "diff",
+   "cli"
+  ]
+ },
+ "https://github.com/aguacero7/rkik": {
+  "categories": [
+   "command-line-utilities",
+   "network-programming"
+  ],
+  "keywords": [
+   "ntp",
+   "cli",
+   "time",
+   "network",
+   "tool"
+  ]
+ },
+ "https://github.com/aisk/rust-memcache": {
+  "categories": [],
+  "keywords": [
+   "memcache",
+   "memcached",
+   "driver",
+   "cache",
+   "database"
+  ]
+ },
+ "https://github.com/ajeetdsouza/zoxide/": {
+  "categories": [
+   "command-line-utilities",
+   "filesystem"
+  ],
+  "keywords": [
+   "cli",
+   "filesystem",
+   "shell",
+   "tool",
+   "utility"
+  ]
+ },
+ "https://github.com/al8n/stretto": {
+  "categories": [
+   "caching",
+   "concurrency",
+   "asynchronous",
+   "data-structures"
+  ],
+  "keywords": [
+   "cache",
+   "caching",
+   "concurrent",
+   "tinylfu",
+   "async"
+  ]
+ },
+ "https://github.com/alex/rust-asn1": {
+  "categories": [
+   "parser-implementations",
+   "encoding",
+   "no-std"
+  ],
+  "keywords": [
+   "asn1"
+  ]
+ },
+ "https://github.com/alexcrichton/curl-rust": {
+  "categories": [
+   "api-bindings",
+   "web-programming::http-client"
+  ],
+  "keywords": []
+ },
+ "https://github.com/alexcrichton/ssh2-rs": {
+  "categories": [],
+  "keywords": [
+   "ssh"
+  ]
+ },
+ "https://github.com/alexpasmantier/television": {
+  "categories": [
+   "command-line-utilities",
+   "command-line-interface",
+   "concurrency",
+   "development-tools"
+  ],
+  "keywords": [
+   "search",
+   "fuzzy",
+   "preview",
+   "tui",
+   "terminal"
+  ]
+ },
+ "https://github.com/alphaville/optimization-engine": {
+  "categories": [
+   "embedded",
+   "algorithms",
+   "science::robotics",
+   "development-tools",
+   "simulation"
+  ],
+  "keywords": [
+   "embedded",
+   "optimization",
+   "solver",
+   "nmpc",
+   "mpc"
+  ]
+ },
+ "https://github.com/alvaro17f/wrestic": {
+  "categories": [],
+  "keywords": [
+   "restic",
+   "wrapper",
+   "rust",
+   "backup",
+   "tool"
+  ]
+ },
+ "https://github.com/alvaroparker/libfprint-rs": {
+  "categories": [],
+  "keywords": [
+   "libfprint",
+   "sensor",
+   "hardware",
+   "linux"
+  ]
+ },
+ "https://github.com/amethyst/bracket-lib": {
+  "categories": [
+   "game-engines"
+  ],
+  "keywords": [
+   "roguelike",
+   "gamedev",
+   "terminal",
+   "ascii",
+   "cp437"
+  ]
+ },
+ "https://github.com/amethyst/legion": {
+  "categories": [
+   "game-engines",
+   "data-structures"
+  ],
+  "keywords": [
+   "ecs",
+   "game"
+  ]
+ },
+ "https://github.com/amrdeveloper/gql": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "gql",
+   "language",
+   "git",
+   "sql"
+  ]
+ },
+ "https://github.com/amv-dev/yata": {
+  "categories": [
+   "mathematics",
+   "science"
+  ],
+  "keywords": [
+   "technical",
+   "analysis",
+   "trading",
+   "indicators"
+  ]
+ },
+ "https://github.com/andoriyu/uclicious": {
+  "categories": [
+   "config"
+  ],
+  "keywords": [
+   "config",
+   "uclicious",
+   "ucl",
+   "libuc"
+  ]
+ },
+ "https://github.com/andylokandy/simsearch": {
+  "categories": [
+   "algorithms",
+   "text-processing"
+  ],
+  "keywords": [
+   "fuzzy",
+   "search",
+   "lightweight",
+   "pattern",
+   "autocomplete"
+  ]
+ },
+ "https://github.com/anima-engine/mrusty": {
+  "categories": [],
+  "keywords": [
+   "mruby",
+   "ruby",
+   "bindings",
+   "repl"
+  ]
+ },
+ "https://github.com/antimonyproject/antimony": {
+  "categories": [],
+  "keywords": [
+   "stream-processing",
+   "distributed",
+   "real-time",
+   "drpc"
+  ]
+ },
+ "https://github.com/antoyo/relm": {
+  "categories": [
+   "asynchronous",
+   "gui"
+  ],
+  "keywords": []
+ },
+ "https://github.com/aome510/spotify-player": {
+  "categories": [],
+  "keywords": [
+   "spotify",
+   "tui",
+   "ratatui",
+   "player"
+  ]
+ },
+ "https://github.com/apache/datafusion": {
+  "categories": [],
+  "keywords": [
+   "arrow",
+   "query",
+   "sql"
+  ]
+ },
+ "https://github.com/apache/iggy": {
+  "categories": [
+   "command-line-utilities",
+   "database",
+   "network-programming"
+  ],
+  "keywords": [
+   "iggy",
+   "messaging",
+   "streaming"
+  ]
+ },
+ "https://github.com/apache/opendal": {
+  "categories": [
+   "filesystem"
+  ],
+  "keywords": [
+   "storage",
+   "fs",
+   "s3",
+   "azblob",
+   "gcs"
+  ]
+ },
+ "https://github.com/apache/sedona-db": {
+  "categories": [
+   "science::geo",
+   "database"
+  ],
+  "keywords": [
+   "geospatial",
+   "gis",
+   "spatial",
+   "datafusion",
+   "arrow"
+  ]
+ },
+ "https://github.com/aravpanwar/decayfmt": {
+  "categories": [
+   "command-line-utilities",
+   "filesystem"
+  ],
+  "keywords": [
+   "file-format",
+   "corruption",
+   "decay",
+   "cli",
+   "entropy"
+  ]
+ },
+ "https://github.com/ardaku/whoami": {
+  "categories": [
+   "os",
+   "wasm",
+   "internationalization",
+   "localization",
+   "value-formatting"
+  ],
+  "keywords": [
+   "user",
+   "username",
+   "whoami",
+   "platform",
+   "detect"
+  ]
+ },
+ "https://github.com/argmin-rs/argmin": {
+  "categories": [
+   "science"
+  ],
+  "keywords": [
+   "optimization",
+   "math",
+   "science"
+  ]
+ },
+ "https://github.com/arimxyer/models": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "tui",
+   "ai",
+   "models",
+   "llm"
+  ]
+ },
+ "https://github.com/armgabrielyan/deadbranch": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "git",
+   "cli",
+   "branches",
+   "cleanup"
+  ]
+ },
+ "https://github.com/arrayfire/arrayfire-rust": {
+  "categories": [],
+  "keywords": [
+   "cuda",
+   "opencl",
+   "arrayfire",
+   "compute"
+  ]
+ },
+ "https://github.com/arthurhenrique/rusti-cal": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "calendar",
+   "cal"
+  ]
+ },
+ "https://github.com/artob/edky": {
+  "categories": [
+   "command-line-utilities",
+   "value-formatting",
+   "encoding",
+   "cryptography",
+   "no-std"
+  ],
+  "keywords": [
+   "ed25519",
+   "curve25519",
+   "ecc",
+   "cryptography"
+  ]
+ },
+ "https://github.com/artob/readmer": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "template-engine",
+   "text-processing"
+  ],
+  "keywords": [
+   "readme",
+   "markdown"
+  ]
+ },
+ "https://github.com/aschey/stream-download-rs": {
+  "categories": [
+   "multimedia",
+   "asynchronous",
+   "caching"
+  ],
+  "keywords": [
+   "audio",
+   "stream",
+   "media"
+  ]
+ },
+ "https://github.com/ashvardanian/NumKong": {
+  "categories": [
+   "mathematics",
+   "hardware-support",
+   "no-std",
+   "wasm",
+   "external-ffi-bindings"
+  ],
+  "keywords": [
+   "simd",
+   "search",
+   "linear-algebra",
+   "vector"
+  ]
+ },
+ "https://github.com/ashvardanian/StringZilla": {
+  "categories": [
+   "text-processing",
+   "hardware-support",
+   "no-std",
+   "wasm"
+  ],
+  "keywords": [
+   "simd",
+   "search",
+   "retrieval",
+   "hash",
+   "sort"
+  ]
+ },
+ "https://github.com/askama-rs/askama": {
+  "categories": [
+   "template-engine"
+  ],
+  "keywords": [
+   "markup",
+   "template",
+   "jinja2",
+   "html"
+  ]
+ },
+ "https://github.com/asomers/mockall": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "mock",
+   "mocking",
+   "testing"
+  ]
+ },
+ "https://github.com/ast-grep/ast-grep": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "parsing"
+  ],
+  "keywords": [
+   "ast",
+   "pattern",
+   "codemod",
+   "search",
+   "rewrite"
+  ]
+ },
+ "https://github.com/async-graphql/async-graphql": {
+  "categories": [
+   "network-programming",
+   "asynchronous"
+  ],
+  "keywords": [
+   "futures",
+   "async",
+   "graphql"
+  ]
+ },
+ "https://github.com/ataraxy-labs/sem": {
+  "categories": [
+   "development-tools",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "diff",
+   "semantic",
+   "tree-sitter",
+   "ast",
+   "code-analysis"
+  ]
+ },
+ "https://github.com/ataraxy-labs/weave": {
+  "categories": [
+   "development-tools",
+   "algorithms"
+  ],
+  "keywords": [
+   "merge",
+   "semantic",
+   "git",
+   "tree-sitter",
+   "conflict-resolution"
+  ]
+ },
+ "https://github.com/atomflunder/skillratings": {
+  "categories": [
+   "game-development",
+   "algorithms",
+   "mathematics"
+  ],
+  "keywords": [
+   "elo",
+   "glicko",
+   "trueskill",
+   "multiplayer",
+   "rating"
+  ]
+ },
+ "https://github.com/autopilot-rs/autopilot-rs": {
+  "categories": [
+   "api-bindings",
+   "gui",
+   "os::macos-apis",
+   "os::unix-apis",
+   "os::windows-apis"
+  ],
+  "keywords": [
+   "cross-platform",
+   "gui",
+   "automation",
+   "input",
+   "simulation"
+  ]
+ },
+ "https://github.com/autumnai/collenchyma": {
+  "categories": [],
+  "keywords": [
+   "backend",
+   "computation",
+   "opencl",
+   "cuda",
+   "hpc"
+  ]
+ },
+ "https://github.com/autumnai/leaf": {
+  "categories": [],
+  "keywords": [
+   "deep-learning",
+   "neural-networks",
+   "machine-learning",
+   "framework"
+  ]
+ },
+ "https://github.com/avhz/RustQuant": {
+  "categories": [
+   "finance",
+   "mathematics",
+   "science",
+   "algorithms",
+   "simulation"
+  ],
+  "keywords": [
+   "quantitative",
+   "finance",
+   "option-pricing",
+   "monte-carlo",
+   "quantlib"
+  ]
+ },
+ "https://github.com/avifenesh/memra": {
+  "categories": [
+   "artificial-intelligence",
+   "hardware-support"
+  ],
+  "keywords": [
+   "llm",
+   "inference",
+   "cuda",
+   "gguf",
+   "safetensors"
+  ]
+ },
+ "https://github.com/avr-rust/ruduino": {
+  "categories": [],
+  "keywords": [
+   "avr",
+   "arduino",
+   "uno"
+  ]
+ },
+ "https://github.com/awakenworks/awaken": {
+  "categories": [
+   "artificial-intelligence",
+   "asynchronous"
+  ],
+  "keywords": [
+   "ai-agent",
+   "llm",
+   "agent-framework",
+   "tool-use",
+   "multi-agent"
+  ]
+ },
+ "https://github.com/aws/aws-lambda-rust-runtime": {
+  "categories": [
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "aws",
+   "lambda",
+   "api"
+  ]
+ },
+ "https://github.com/aya-rs/aya": {
+  "categories": [],
+  "keywords": [
+   "bpf",
+   "ebpf",
+   "kernel",
+   "linux"
+  ]
+ },
+ "https://github.com/ayarotsky/diesel-guard": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "linter",
+   "orm",
+   "postgresql",
+   "sqlx",
+   "diesel"
+  ]
+ },
+ "https://github.com/b23r0/rust-raknet": {
+  "categories": [],
+  "keywords": [
+   "raknet",
+   "networking",
+   "game"
+  ]
+ },
+ "https://github.com/bastibense/libharu_ng": {
+  "categories": [
+   "external-ffi-bindings",
+   "api-bindings"
+  ],
+  "keywords": []
+ },
+ "https://github.com/bcheidemann/fixtures-rs/tree/main/fixtures": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": []
+ },
+ "https://github.com/becheran/grid": {
+  "categories": [
+   "science",
+   "data-structures"
+  ],
+  "keywords": [
+   "2d",
+   "array",
+   "matrix",
+   "data-structure",
+   "2d-vector"
+  ]
+ },
+ "https://github.com/becheran/wildmatch": {
+  "categories": [
+   "algorithms"
+  ],
+  "keywords": [
+   "globbing",
+   "matching",
+   "questionmark",
+   "star",
+   "string-matching"
+  ]
+ },
+ "https://github.com/benashford/rs-es": {
+  "categories": [],
+  "keywords": [
+   "elasticsearch",
+   "elastic"
+  ]
+ },
+ "https://github.com/bevyengine/bevy": {
+  "categories": [
+   "game-engines",
+   "graphics",
+   "gui",
+   "rendering"
+  ],
+  "keywords": [
+   "game",
+   "engine",
+   "gamedev",
+   "graphics",
+   "bevy"
+  ]
+ },
+ "https://github.com/bheisler/criterion.rs": {
+  "categories": [],
+  "keywords": [
+   "statistics",
+   "stats",
+   "criterion"
+  ]
+ },
+ "https://github.com/biandratti/huginn-net": {
+  "categories": [
+   "network-programming",
+   "cryptography",
+   "development-tools"
+  ],
+  "keywords": [
+   "p0f",
+   "ja4",
+   "fingerprinting",
+   "network",
+   "security"
+  ]
+ },
+ "https://github.com/bigduu/Bamboo-agent": {
+  "categories": [
+   "artificial-intelligence",
+   "development-tools",
+   "web-programming",
+   "asynchronous"
+  ],
+  "keywords": [
+   "ai",
+   "agent",
+   "llm",
+   "automation",
+   "mcp"
+  ]
+ },
+ "https://github.com/billyevans/tst": {
+  "categories": [
+   "data-structures",
+   "text-processing"
+  ],
+  "keywords": [
+   "data-structures"
+  ]
+ },
+ "https://github.com/biomejs/biome": {
+  "categories": [
+   "development-tools",
+   "web-programming"
+  ],
+  "keywords": [
+   "parser",
+   "linter",
+   "formatter"
+  ]
+ },
+ "https://github.com/bitfield/cargo-testdox": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "development-tools::cargo-plugins",
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "test",
+   "testdox",
+   "unit-tests"
+  ]
+ },
+ "https://github.com/blackbeam/mysql_async": {
+  "categories": [
+   "asynchronous",
+   "database"
+  ],
+  "keywords": [
+   "mysql",
+   "database",
+   "asynchronous",
+   "async"
+  ]
+ },
+ "https://github.com/blackbeam/rust-mysql-simple": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "database",
+   "sql"
+  ]
+ },
+ "https://github.com/blas-lapack-rs/lapack": {
+  "categories": [
+   "api-bindings",
+   "science"
+  ],
+  "keywords": [
+   "linear-algebra"
+  ]
+ },
+ "https://github.com/blitzarx1/egui_graphs": {
+  "categories": [
+   "gui",
+   "visualization"
+  ],
+  "keywords": [
+   "egui",
+   "ui",
+   "graph",
+   "node-graph"
+  ]
+ },
+ "https://github.com/bloznelis/kbt": {
+  "categories": [],
+  "keywords": [
+   "terminal",
+   "keyboard",
+   "tester",
+   "tui"
+  ]
+ },
+ "https://github.com/blst-security/cherrybomb": {
+  "categories": [
+   "command-line-utilities",
+   "web-programming"
+  ],
+  "keywords": [
+   "api",
+   "security",
+   "cli",
+   "openapi",
+   "scanning"
+  ]
+ },
+ "https://github.com/bluealloy/revm": {
+  "categories": [],
+  "keywords": [
+   "revm",
+   "evm",
+   "ethereum",
+   "blockchain",
+   "no_std"
+  ]
+ },
+ "https://github.com/bluez/bluer": {
+  "categories": [
+   "asynchronous",
+   "hardware-support",
+   "os::linux-apis"
+  ],
+  "keywords": [
+   "bluetooth",
+   "gatt",
+   "l2cap",
+   "rfcomm",
+   "mesh"
+  ]
+ },
+ "https://github.com/boa-dev/boa": {
+  "categories": [
+   "parser-implementations",
+   "compilers"
+  ],
+  "keywords": [
+   "javascript",
+   "js",
+   "compiler",
+   "lexer",
+   "parser"
+  ]
+ },
+ "https://github.com/bonifaido/rust-zookeeper": {
+  "categories": [],
+  "keywords": [
+   "zk",
+   "zookeeper",
+   "distributed",
+   "coordination"
+  ]
+ },
+ "https://github.com/bootandy/dust": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "du",
+   "command-line",
+   "disk",
+   "disk-usage"
+  ]
+ },
+ "https://github.com/bountyyfi/lonkero": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "security",
+   "scanner",
+   "vulnerability",
+   "pentest",
+   "web-security"
+  ]
+ },
+ "https://github.com/bourumir-wyngs/serde-saphyr": {
+  "categories": [
+   "encoding",
+   "parser-implementations",
+   "config",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "yaml",
+   "serde",
+   "config",
+   "ros",
+   "wasm"
+  ]
+ },
+ "https://github.com/brentongunning/rust-sv": {
+  "categories": [],
+  "keywords": [
+   "bitcoin",
+   "sv",
+   "cash",
+   "crypto"
+  ]
+ },
+ "https://github.com/brevity1swos/rgx": {
+  "categories": [
+   "command-line-utilities",
+   "text-processing",
+   "development-tools"
+  ],
+  "keywords": [
+   "regex",
+   "tui",
+   "terminal",
+   "cli",
+   "developer-tools"
+  ]
+ },
+ "https://github.com/briansmith/ring": {
+  "categories": [
+   "cryptography",
+   "no-std"
+  ],
+  "keywords": [
+   "crypto",
+   "cryptography",
+   "rand",
+   "ecc",
+   "rsa"
+  ]
+ },
+ "https://github.com/briansmith/webpki": {
+  "categories": [
+   "cryptography",
+   "no-std"
+  ],
+  "keywords": []
+ },
+ "https://github.com/brocode/fblog": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "json",
+   "log",
+   "viewer"
+  ]
+ },
+ "https://github.com/brocode/fw": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "workspace",
+   "productivity",
+   "cli",
+   "automation",
+   "developer-tools"
+  ]
+ },
+ "https://github.com/brycx/checkpwn": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "password",
+   "security",
+   "hibp"
+  ]
+ },
+ "https://github.com/build-trust/ockam": {
+  "categories": [
+   "cryptography",
+   "asynchronous",
+   "authentication",
+   "network-programming",
+   "embedded"
+  ],
+  "keywords": [
+   "ockam",
+   "crypto",
+   "cryptography",
+   "network-programming",
+   "encryption"
+  ]
+ },
+ "https://github.com/buster/rrun": {
+  "categories": [],
+  "keywords": [
+   "gtk",
+   "tool",
+   "bash"
+  ]
+ },
+ "https://github.com/bytebeamio/rumqtt": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "mqtt",
+   "iot",
+   "coap",
+   "http"
+  ]
+ },
+ "https://github.com/bytecodealliance/rustix": {
+  "categories": [
+   "os::unix-apis",
+   "date-and-time",
+   "filesystem",
+   "network-programming"
+  ],
+  "keywords": [
+   "api",
+   "file",
+   "network",
+   "safe",
+   "syscall"
+  ]
+ },
+ "https://github.com/c410-f3r/wtx": {
+  "categories": [
+   "asynchronous",
+   "database",
+   "network-programming",
+   "no-std",
+   "web-programming"
+  ],
+  "keywords": [
+   "api",
+   "database",
+   "http",
+   "tls",
+   "websocket"
+  ]
+ },
+ "https://github.com/calder/rust-goldenfile": {
+  "categories": [],
+  "keywords": [
+   "goldenfile",
+   "test",
+   "library"
+  ]
+ },
+ "https://github.com/calebwin/emu": {
+  "categories": [
+   "science",
+   "asynchronous",
+   "concurrency",
+   "multimedia",
+   "rendering"
+  ],
+  "keywords": [
+   "emu",
+   "em",
+   "gpu",
+   "gpgpu",
+   "acceleration"
+  ]
+ },
+ "https://github.com/camino-rs/camino": {
+  "categories": [
+   "development-tools",
+   "filesystem",
+   "os"
+  ],
+  "keywords": [
+   "paths",
+   "utf8",
+   "unicode",
+   "filesystem"
+  ]
+ },
+ "https://github.com/cantino/mcfly": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": []
+ },
+ "https://github.com/capnproto/capnproto-rust": {
+  "categories": [],
+  "keywords": [
+   "encoding",
+   "protocol",
+   "serialization"
+  ]
+ },
+ "https://github.com/carllerche/tower-web": {
+  "categories": [
+   "asynchronous",
+   "web-programming::http-server"
+  ],
+  "keywords": []
+ },
+ "https://github.com/casey/just": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "command-line",
+   "task",
+   "runner",
+   "development",
+   "utility"
+  ]
+ },
+ "https://github.com/cassandra-rs/cassandra-rs": {
+  "categories": [
+   "api-bindings",
+   "database",
+   "external-ffi-bindings",
+   "asynchronous"
+  ],
+  "keywords": [
+   "cassandra",
+   "binding",
+   "cql",
+   "client",
+   "database"
+  ]
+ },
+ "https://github.com/cel-rust/cel-rust": {
+  "categories": [
+   "compilers"
+  ],
+  "keywords": []
+ },
+ "https://github.com/cfal/shoes": {
+  "categories": [
+   "command-line-utilities",
+   "network-programming"
+  ],
+  "keywords": [
+   "proxy",
+   "proxy-server",
+   "shadowsocks",
+   "v2ray",
+   "vmess"
+  ]
+ },
+ "https://github.com/cfal/tobaru": {
+  "categories": [
+   "command-line-utilities",
+   "network-programming"
+  ],
+  "keywords": [
+   "tunnel",
+   "proxy",
+   "forward",
+   "port",
+   "http"
+  ]
+ },
+ "https://github.com/chaosprint/glicol": {
+  "categories": [],
+  "keywords": [
+   "audio",
+   "music",
+   "dsp",
+   "synth",
+   "synthesizer"
+  ]
+ },
+ "https://github.com/chill-rs/chill": {
+  "categories": [],
+  "keywords": [
+   "couchdb",
+   "database",
+   "nosql"
+  ]
+ },
+ "https://github.com/chojs23/concord": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "discord",
+   "tui",
+   "terminal",
+   "ratatui",
+   "client"
+  ]
+ },
+ "https://github.com/chronotope/chrono": {
+  "categories": [
+   "date-and-time"
+  ],
+  "keywords": [
+   "date",
+   "time",
+   "calendar"
+  ]
+ },
+ "https://github.com/cksac/fake-rs": {
+  "categories": [],
+  "keywords": [
+   "faker",
+   "data",
+   "generator",
+   "random"
+  ]
+ },
+ "https://github.com/clap-rs/clap": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "argument",
+   "cli",
+   "arg",
+   "parser",
+   "parse"
+  ]
+ },
+ "https://github.com/clitic/kdam": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "colors",
+   "cli",
+   "pb",
+   "progress",
+   "progressbar"
+  ]
+ },
+ "https://github.com/clog-tool/clog-cli": {
+  "categories": [],
+  "keywords": [
+   "git",
+   "log",
+   "changelog",
+   "parser",
+   "parse"
+  ]
+ },
+ "https://github.com/cloudflare/foundations": {
+  "categories": [
+   "config",
+   "development-tools",
+   "external-ffi-bindings",
+   "memory-management"
+  ],
+  "keywords": [
+   "service",
+   "telemetry",
+   "settings",
+   "seccomp",
+   "metrics"
+  ]
+ },
+ "https://github.com/cloudflare/pingora": {
+  "categories": [
+   "asynchronous",
+   "network-programming"
+  ],
+  "keywords": [
+   "async",
+   "proxy",
+   "http",
+   "pingora"
+  ]
+ },
+ "https://github.com/cloudflare/quiche": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "quic",
+   "http3"
+  ]
+ },
+ "https://github.com/cloudwego/sonic-rs": {
+  "categories": [
+   "encoding",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "json",
+   "simd",
+   "serde",
+   "serialization"
+  ]
+ },
+ "https://github.com/cobalt-org/cobalt.rs": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "static",
+   "site",
+   "generator"
+  ]
+ },
+ "https://github.com/codecoradev/uteke": {
+  "categories": [
+   "science",
+   "data-structures"
+  ],
+  "keywords": [
+   "memory",
+   "ai",
+   "embedding",
+   "vector-search",
+   "semantic"
+  ]
+ },
+ "https://github.com/colored-rs/colored": {
+  "categories": [],
+  "keywords": [
+   "color",
+   "string",
+   "term",
+   "ansi_term",
+   "term-painter"
+  ]
+ },
+ "https://github.com/comex/rust-shlex": {
+  "categories": [
+   "command-line-interface",
+   "parser-implementations"
+  ],
+  "keywords": []
+ },
+ "https://github.com/conradkleinespel/rooster": {
+  "categories": [],
+  "keywords": [
+   "password",
+   "security"
+  ]
+ },
+ "https://github.com/console-rs/dialoguer": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "cli",
+   "menu",
+   "prompt"
+  ]
+ },
+ "https://github.com/console-rs/indicatif": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "cli",
+   "progress",
+   "pb",
+   "colors",
+   "progressbar"
+  ]
+ },
+ "https://github.com/constantoine/totp-rs": {
+  "categories": [
+   "authentication",
+   "web-programming"
+  ],
+  "keywords": [
+   "authentication",
+   "2fa",
+   "totp",
+   "hmac",
+   "otp"
+  ]
+ },
+ "https://github.com/cooklang/CookCLI": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cooklang",
+   "recipes",
+   "cli",
+   "cooking"
+  ]
+ },
+ "https://github.com/cool-japan/scirs": {
+  "categories": [
+   "science",
+   "mathematics"
+  ],
+  "keywords": [
+   "scientific",
+   "computing",
+   "scipy",
+   "deprecated"
+  ]
+ },
+ "https://github.com/cortex/ripasso/": {
+  "categories": [],
+  "keywords": [
+   "password-manager",
+   "pass"
+  ]
+ },
+ "https://github.com/cossacklabs/themis": {
+  "categories": [
+   "cryptography",
+   "api-bindings"
+  ],
+  "keywords": [
+   "crypto",
+   "themis"
+  ]
+ },
+ "https://github.com/cot-rs/cot": {
+  "categories": [
+   "web-programming",
+   "web-programming::http-server",
+   "network-programming"
+  ],
+  "keywords": [
+   "web",
+   "framework",
+   "server",
+   "backend"
+  ]
+ },
+ "https://github.com/cpmech/plotpy": {
+  "categories": [
+   "mathematics",
+   "science"
+  ],
+  "keywords": [
+   "plot",
+   "2d",
+   "3d",
+   "python",
+   "matplotlib"
+  ]
+ },
+ "https://github.com/cpmech/russell": {
+  "categories": [
+   "mathematics",
+   "science"
+  ],
+  "keywords": [
+   "matrix",
+   "vector",
+   "linspace"
+  ]
+ },
+ "https://github.com/crate-ci/typos": {
+  "categories": [
+   "development-tools",
+   "text-processing"
+  ],
+  "keywords": [
+   "development",
+   "spelling"
+  ]
+ },
+ "https://github.com/creusot-rs/creusot": {
+  "categories": [
+   "development-tools"
+  ],
+  "keywords": [
+   "verification"
+  ]
+ },
+ "https://github.com/crossbeam-rs/crossbeam": {
+  "categories": [
+   "concurrency",
+   "memory-management",
+   "data-structures",
+   "no-std"
+  ],
+  "keywords": [
+   "atomic",
+   "garbage",
+   "non-blocking",
+   "lock-free",
+   "rcu"
+  ]
+ },
+ "https://github.com/crossterm-rs/crossterm": {
+  "categories": [
+   "command-line-interface",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "event",
+   "color",
+   "cli",
+   "input",
+   "terminal"
+  ]
+ },
+ "https://github.com/cuppar/rtd": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "tutorial",
+   "guide",
+   "todo",
+   "learning-by-doing",
+   "step-by-step-guide"
+  ]
+ },
+ "https://github.com/cyberlife-coder/VelesDB": {
+  "categories": [
+   "database",
+   "data-structures",
+   "algorithms",
+   "science"
+  ],
+  "keywords": [
+   "vector-database",
+   "embeddings",
+   "rag",
+   "local-first",
+   "semantic-search"
+  ]
+ },
+ "https://github.com/cyndis/qmlrs": {
+  "categories": [],
+  "keywords": [
+   "qml",
+   "qtquick",
+   "qt",
+   "gui"
+  ]
+ },
+ "https://github.com/d-e-s-o/apca": {
+  "categories": [
+   "api-bindings",
+   "asynchronous",
+   "network-programming",
+   "web-programming::http-client",
+   "web-programming::websocket"
+  ],
+  "keywords": [
+   "trading",
+   "finance",
+   "async",
+   "stocks"
+  ]
+ },
+ "https://github.com/d-e-s-o/test-log": {
+  "categories": [
+   "development-tools::testing",
+   "development-tools",
+   "config",
+   "api-bindings"
+  ],
+  "keywords": [
+   "env_logger",
+   "log",
+   "logging",
+   "testing",
+   "tracing"
+  ]
+ },
+ "https://github.com/dagrs-dev/dagrs": {
+  "categories": [],
+  "keywords": [
+   "dag",
+   "task",
+   "async",
+   "fbp",
+   "tokio"
+  ]
+ },
+ "https://github.com/dalance/procs": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "process"
+  ]
+ },
+ "https://github.com/dalance/ptags": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "ctags",
+   "universal-ctags"
+  ]
+ },
+ "https://github.com/dalek-cryptography/curve25519-dalek": {
+  "categories": [
+   "cryptography",
+   "no-std"
+  ],
+  "keywords": [
+   "cryptography",
+   "crypto",
+   "ristretto",
+   "curve25519",
+   "ristretto255"
+  ]
+ },
+ "https://github.com/danielpclark/array_tool": {
+  "categories": [
+   "text-processing",
+   "data-structures",
+   "value-formatting"
+  ],
+  "keywords": [
+   "vector",
+   "string",
+   "grapheme",
+   "unique",
+   "substitution"
+  ]
+ },
+ "https://github.com/danielpclark/rutie": {
+  "categories": [],
+  "keywords": [
+   "cruby",
+   "ruby",
+   "rutie"
+  ]
+ },
+ "https://github.com/darkly-art/darkly": {
+  "categories": [
+   "graphics",
+   "rendering",
+   "wasm"
+  ],
+  "keywords": [
+   "paint",
+   "gpu",
+   "webgpu",
+   "graphics",
+   "wgpu"
+  ]
+ },
+ "https://github.com/dathere/qsv": {
+  "categories": [
+   "command-line-utilities",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "csv",
+   "geocode",
+   "data-engineering",
+   "etl",
+   "opendata"
+  ]
+ },
+ "https://github.com/davidmoreno/tailtales": {
+  "categories": [],
+  "keywords": [
+   "tail",
+   "logs",
+   "logfmt",
+   "monitoring",
+   "development"
+  ]
+ },
+ "https://github.com/debris/tiny-keccak": {
+  "categories": [
+   "cryptography",
+   "no-std"
+  ],
+  "keywords": [
+   "hash",
+   "sha3",
+   "keccak",
+   "crypto",
+   "kangarootwelve"
+  ]
+ },
+ "https://github.com/deltaphc/raylib-rs": {
+  "categories": [
+   "api-bindings",
+   "game-engines",
+   "graphics"
+  ],
+  "keywords": [
+   "bindings",
+   "raylib",
+   "gamedev"
+  ]
+ },
+ "https://github.com/dermesser/yup-oauth2": {
+  "categories": [],
+  "keywords": [
+   "google",
+   "oauth",
+   "oauth2"
+  ]
+ },
+ "https://github.com/dertuxmalwieder/yaydl": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "youtube",
+   "downloading",
+   "video"
+  ]
+ },
+ "https://github.com/deshaw/procfd": {
+  "categories": [
+   "command-line-utilities",
+   "os::linux-apis",
+   "filesystem"
+  ],
+  "keywords": [
+   "lsof",
+   "lsfd",
+   "procfs",
+   "open-files"
+  ]
+ },
+ "https://github.com/dgrunwald/rust-cpython": {
+  "categories": [
+   "api-bindings",
+   "development-tools::ffi"
+  ],
+  "keywords": [
+   "python",
+   "cpython",
+   "libpython27"
+  ]
+ },
+ "https://github.com/diesel-rs/diesel": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "orm",
+   "database",
+   "sql"
+  ]
+ },
+ "https://github.com/dimforge/kiss3d": {
+  "categories": [],
+  "keywords": [
+   "graphics",
+   "wgpu",
+   "kiss"
+  ]
+ },
+ "https://github.com/dimforge/nalgebra": {
+  "categories": [
+   "science",
+   "mathematics",
+   "wasm",
+   "no-std"
+  ],
+  "keywords": [
+   "linear",
+   "algebra",
+   "matrix",
+   "vector",
+   "math"
+  ]
+ },
+ "https://github.com/dinakars777/git-time-machine": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "git",
+   "tui",
+   "undo",
+   "reflog",
+   "cli"
+  ]
+ },
+ "https://github.com/dioxuslabs/dioxus": {
+  "categories": [],
+  "keywords": [
+   "web",
+   "desktop",
+   "mobile",
+   "gui",
+   "wasm"
+  ]
+ },
+ "https://github.com/djduque/pgfplots": {
+  "categories": [
+   "visualization"
+  ],
+  "keywords": [
+   "pgfplots",
+   "plotting",
+   "plot",
+   "visualization",
+   "latex"
+  ]
+ },
+ "https://github.com/docopt/docopt.rs": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "docopt",
+   "argument",
+   "command",
+   "argv"
+  ]
+ },
+ "https://github.com/domcyrus/rustnet": {
+  "categories": [
+   "command-line-utilities",
+   "network-programming",
+   "visualization"
+  ],
+  "keywords": [
+   "network",
+   "monitoring",
+   "tui",
+   "ebpf",
+   "packet-capture"
+  ]
+ },
+ "https://github.com/dominikwilkowski/cfonts": {
+  "categories": [
+   "command-line-interface",
+   "command-line-utilities",
+   "graphics"
+  ],
+  "keywords": [
+   "fonts",
+   "color",
+   "console",
+   "ascii",
+   "ansi"
+  ]
+ },
+ "https://github.com/donnie4w/tklog": {
+  "categories": [
+   "development-tools::debugging"
+  ],
+  "keywords": [
+   "log",
+   "logger",
+   "logging"
+  ]
+ },
+ "https://github.com/doom-fish/screencapturekit-rs": {
+  "categories": [
+   "multimedia",
+   "os::macos-apis",
+   "api-bindings"
+  ],
+  "keywords": [
+   "screencapturekit",
+   "screen-capture",
+   "macos",
+   "video",
+   "audio"
+  ]
+ },
+ "https://github.com/doprz/dipc": {
+  "categories": [
+   "command-line-interface",
+   "command-line-utilities",
+   "graphics",
+   "multimedia::images",
+   "rendering"
+  ],
+  "keywords": [
+   "cli",
+   "graphics",
+   "utility",
+   "image",
+   "tool"
+  ]
+ },
+ "https://github.com/dotenv-linter/dotenv-linter": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "dotenv",
+   "environment",
+   "env",
+   "linter"
+  ]
+ },
+ "https://github.com/dpc/mioco": {
+  "categories": [],
+  "keywords": [
+   "mio",
+   "asynchronous",
+   "coroutine",
+   "async",
+   "fiber"
+  ]
+ },
+ "https://github.com/dprint/dprint": {
+  "categories": [
+   "development-tools"
+  ],
+  "keywords": [
+   "code-formatter",
+   "formatter"
+  ]
+ },
+ "https://github.com/driftluo/InfluxDBClient-rs": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "influxdb"
+  ]
+ },
+ "https://github.com/dropbox/rust-brotli": {
+  "categories": [
+   "compression",
+   "no-std"
+  ],
+  "keywords": [
+   "brotli",
+   "decompression",
+   "lz77",
+   "huffman",
+   "nostd"
+  ]
+ },
+ "https://github.com/dsplce-co/supabase-plus": {
+  "categories": [
+   "command-line-utilities",
+   "database"
+  ],
+  "keywords": [
+   "cli",
+   "dx",
+   "supabase",
+   "qol"
+  ]
+ },
+ "https://github.com/dtolnay/cargo-expand": {
+  "categories": [
+   "development-tools::cargo-plugins",
+   "development-tools::debugging"
+  ],
+  "keywords": [
+   "cargo",
+   "subcommand",
+   "macros"
+  ]
+ },
+ "https://github.com/dtolnay/cxx": {
+  "categories": [
+   "development-tools::ffi",
+   "api-bindings",
+   "no-std"
+  ],
+  "keywords": [
+   "ffi",
+   "c++"
+  ]
+ },
+ "https://github.com/ducaale/xh": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "http"
+  ]
+ },
+ "https://github.com/duesee/imap-codec": {
+  "categories": [
+   "email",
+   "parser-implementations",
+   "encoding",
+   "network-programming"
+  ],
+  "keywords": [
+   "email",
+   "imap",
+   "codec",
+   "parser"
+  ]
+ },
+ "https://github.com/dusk-network/Poseidon252": {
+  "categories": [
+   "algorithms",
+   "cryptography",
+   "no-std",
+   "wasm"
+  ],
+  "keywords": [
+   "cryptography",
+   "zero-knowledge",
+   "crypto"
+  ]
+ },
+ "https://github.com/dusk-network/bls12_381": {
+  "categories": [
+   "algorithms",
+   "cryptography",
+   "development-tools"
+  ],
+  "keywords": [
+   "cryptography",
+   "bls12_381",
+   "zk-snarks",
+   "ecc",
+   "elliptic-curve"
+  ]
+ },
+ "https://github.com/dusk-network/plonk/": {
+  "categories": [
+   "algorithms",
+   "cryptography",
+   "science",
+   "mathematics"
+  ],
+  "keywords": [
+   "cryptography",
+   "plonk",
+   "zk-snarks",
+   "zero-knowledge",
+   "crypto"
+  ]
+ },
+ "https://github.com/dylanmckay/protocol": {
+  "categories": [],
+  "keywords": [
+   "protocol",
+   "tcp",
+   "udp",
+   "connection",
+   "encoding"
+  ]
+ },
+ "https://github.com/eclipse-zenoh/zenoh": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": []
+ },
+ "https://github.com/edezhic/prest": {
+  "categories": [
+   "development-tools",
+   "wasm",
+   "web-programming"
+  ],
+  "keywords": [
+   "fullstack",
+   "progressive",
+   "restful",
+   "pwa"
+  ]
+ },
+ "https://github.com/ekzhang/bore": {
+  "categories": [
+   "network-programming",
+   "web-programming",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "network",
+   "cli",
+   "tunnel",
+   "tcp"
+  ]
+ },
+ "https://github.com/elastic-rs/elastic": {
+  "categories": [],
+  "keywords": [
+   "elasticsearch",
+   "search"
+  ]
+ },
+ "https://github.com/elastio/bon": {
+  "categories": [
+   "rust-patterns",
+   "data-structures",
+   "asynchronous",
+   "no-std",
+   "no-std::no-alloc"
+  ],
+  "keywords": [
+   "builder",
+   "macro",
+   "derive",
+   "constructor",
+   "setter"
+  ]
+ },
+ "https://github.com/elio-fm/elio": {
+  "categories": [
+   "command-line-utilities",
+   "filesystem"
+  ],
+  "keywords": [
+   "terminal",
+   "file-manager",
+   "tui",
+   "preview",
+   "images"
+  ]
+ },
+ "https://github.com/ellisonch/rust-stopwatch": {
+  "categories": [],
+  "keywords": [
+   "stopwatch",
+   "timing"
+  ]
+ },
+ "https://github.com/emanuele-em/proxelar": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "network-programming"
+  ],
+  "keywords": [
+   "proxy",
+   "mitm",
+   "http",
+   "https",
+   "lua"
+  ]
+ },
+ "https://github.com/emilk/egui": {
+  "categories": [
+   "gui",
+   "game-development"
+  ],
+  "keywords": [
+   "gui",
+   "imgui",
+   "immediate",
+   "portable",
+   "gamedev"
+  ]
+ },
+ "https://github.com/emoon/rust_minifb": {
+  "categories": [
+   "rendering"
+  ],
+  "keywords": [
+   "windowing",
+   "window",
+   "framebuffer"
+  ]
+ },
+ "https://github.com/entropic-security/xgadget": {
+  "categories": [
+   "algorithms",
+   "development-tools",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "rop",
+   "jop",
+   "gadget",
+   "x86",
+   "x64"
+  ]
+ },
+ "https://github.com/epi052/feroxbuster": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "pentest",
+   "enumeration",
+   "url-bruteforce",
+   "content-discovery",
+   "web"
+  ]
+ },
+ "https://github.com/erickochen/purple": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "ssh",
+   "ssh-client",
+   "tui",
+   "ssh-manager",
+   "mcp"
+  ]
+ },
+ "https://github.com/erickt/rust-zmq": {
+  "categories": [
+   "api-bindings",
+   "network-programming"
+  ],
+  "keywords": [
+   "bindings",
+   "protocol"
+  ]
+ },
+ "https://github.com/esp-rs/esp-hal": {
+  "categories": [
+   "embedded",
+   "hardware-support",
+   "no-std"
+  ],
+  "keywords": [
+   "embedded",
+   "embedded-hal",
+   "esp32",
+   "espressif",
+   "hal"
+  ]
+ },
+ "https://github.com/est31/cargo-udeps": {
+  "categories": [
+   "development-tools",
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "cargo"
+  ]
+ },
+ "https://github.com/estk/log4rs": {
+  "categories": [],
+  "keywords": [
+   "log",
+   "logger",
+   "logging",
+   "log4"
+  ]
+ },
+ "https://github.com/etienne-napoleone/spinach": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "spinner",
+   "terminal-ui",
+   "loader",
+   "cli",
+   "terminal"
+  ]
+ },
+ "https://github.com/euv-dev/euv": {
+  "categories": [
+   "network-programming",
+   "web-programming"
+  ],
+  "keywords": [
+   "cross-platform"
+  ]
+ },
+ "https://github.com/evansmurithi/cloak": {
+  "categories": [
+   "command-line-utilities",
+   "authentication"
+  ],
+  "keywords": [
+   "otp",
+   "cli",
+   "authentication"
+  ]
+ },
+ "https://github.com/exonum/exonum": {
+  "categories": [
+   "cryptography",
+   "database-implementations"
+  ],
+  "keywords": [
+   "database",
+   "distributed",
+   "blockchain",
+   "framework",
+   "exonum"
+  ]
+ },
+ "https://github.com/eza-community/eza": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": []
+ },
+ "https://github.com/fMeow/arangors": {
+  "categories": [],
+  "keywords": [
+   "nosql",
+   "database",
+   "client",
+   "driver",
+   "arangodb"
+  ]
+ },
+ "https://github.com/facebook/opaque-ke": {
+  "categories": [
+   "no-std"
+  ],
+  "keywords": [
+   "cryptography",
+   "crypto",
+   "opaque",
+   "passwords",
+   "authentication"
+  ]
+ },
+ "https://github.com/facebook/starlark-rust": {
+  "categories": [
+   "parser-implementations",
+   "development-tools"
+  ],
+  "keywords": [
+   "starlark",
+   "skylark",
+   "bazel",
+   "language",
+   "interpreter"
+  ]
+ },
+ "https://github.com/faiscadev/fakecloud": {
+  "categories": [
+   "development-tools::testing",
+   "simulation"
+  ],
+  "keywords": [
+   "aws",
+   "cloud",
+   "emulator",
+   "localstack",
+   "testing"
+  ]
+ },
+ "https://github.com/fancy-regex/fancy-regex": {
+  "categories": [
+   "text-processing"
+  ],
+  "keywords": []
+ },
+ "https://github.com/fast/logforth": {
+  "categories": [
+   "development-tools::debugging"
+  ],
+  "keywords": [
+   "logging",
+   "log",
+   "opentelemetry",
+   "fastrace"
+  ]
+ },
+ "https://github.com/fcsonline/drill": {
+  "categories": [],
+  "keywords": [
+   "performance",
+   "http",
+   "ansible",
+   "jmeter"
+  ]
+ },
+ "https://github.com/fede1024/rust-rdkafka": {
+  "categories": [
+   "api-bindings"
+  ],
+  "keywords": [
+   "kafka",
+   "rdkafka"
+  ]
+ },
+ "https://github.com/figsoda/mmtc": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "mpd",
+   "music",
+   "terminal",
+   "tui"
+  ]
+ },
+ "https://github.com/fizyk20/generic-array": {
+  "categories": [
+   "data-structures",
+   "no-std"
+  ],
+  "keywords": [
+   "generic",
+   "array"
+  ]
+ },
+ "https://github.com/fkiene/llmtrim": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "compression"
+  ],
+  "keywords": [
+   "llm",
+   "mcp",
+   "compression",
+   "openai",
+   "anthropic"
+  ]
+ },
+ "https://github.com/flosse/rust-sun": {
+  "categories": [],
+  "keywords": [
+   "sun",
+   "position"
+  ]
+ },
+ "https://github.com/fltk-rs/fltk-rs": {
+  "categories": [
+   "gui"
+  ],
+  "keywords": [
+   "gui",
+   "ui",
+   "toolkit",
+   "widgets",
+   "user-interface"
+  ]
+ },
+ "https://github.com/freestrings/jsonpath": {
+  "categories": [
+   "wasm",
+   "parser-implementations",
+   "api-bindings"
+  ],
+  "keywords": [
+   "jsonpath",
+   "json",
+   "webassembly",
+   "lua",
+   "query"
+  ]
+ },
+ "https://github.com/frol/flatc-rust": {
+  "categories": [
+   "development-tools::build-utils",
+   "development-tools",
+   "api-bindings",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "flatbuffers",
+   "flatc",
+   "compiler",
+   "code-generation"
+  ]
+ },
+ "https://github.com/fschutt/azul": {
+  "categories": [
+   "gui"
+  ],
+  "keywords": [
+   "gui",
+   "gui",
+   "user-interface",
+   "svg",
+   "graphics"
+  ]
+ },
+ "https://github.com/fschutt/printpdf": {
+  "categories": [
+   "gui"
+  ],
+  "keywords": [
+   "pdf",
+   "gui",
+   "graphics",
+   "wkhtmltopdf"
+  ]
+ },
+ "https://github.com/fubarnetes/libjail-rs/": {
+  "categories": [
+   "os::unix-apis",
+   "api-bindings"
+  ],
+  "keywords": [
+   "freebsd",
+   "jail",
+   "container",
+   "chroot"
+  ]
+ },
+ "https://github.com/fujiapple852/trippy": {
+  "categories": [
+   "command-line-utilities",
+   "network-programming"
+  ],
+  "keywords": [
+   "cli",
+   "tui",
+   "traceroute",
+   "ping",
+   "icmp"
+  ]
+ },
+ "https://github.com/fulsomenko/kanban": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "kanban",
+   "tui",
+   "terminal",
+   "ratatui",
+   "project-management"
+  ]
+ },
+ "https://github.com/fussybeaver/bollard": {
+  "categories": [],
+  "keywords": [
+   "docker",
+   "podman",
+   "container"
+  ]
+ },
+ "https://github.com/fzyzcjy/flutter_rust_bridge": {
+  "categories": [
+   "development-tools::ffi"
+  ],
+  "keywords": [
+   "flutter",
+   "dart",
+   "ffi",
+   "code-generation",
+   "bindings"
+  ]
+ },
+ "https://github.com/gamedig/rust-gamedig": {
+  "categories": [
+   "parser-implementations",
+   "parsing",
+   "network-programming",
+   "encoding"
+  ],
+  "keywords": [
+   "server",
+   "query",
+   "game",
+   "check",
+   "status"
+  ]
+ },
+ "https://github.com/garro95/priority-queue": {
+  "categories": [
+   "data-structures",
+   "algorithms"
+  ],
+  "keywords": [
+   "priority",
+   "queue",
+   "heap"
+  ]
+ },
+ "https://github.com/gastongouron/ironpress": {
+  "categories": [
+   "text-processing",
+   "encoding",
+   "template-engine"
+  ],
+  "keywords": [
+   "pdf",
+   "html",
+   "css",
+   "markdown",
+   "converter"
+  ]
+ },
+ "https://github.com/gchp/iota": {
+  "categories": [],
+  "keywords": [
+   "editor",
+   "text",
+   "terminal"
+  ]
+ },
+ "https://github.com/gchp/rustbox": {
+  "categories": [],
+  "keywords": [
+   "termbox",
+   "terminal",
+   "gui"
+  ]
+ },
+ "https://github.com/gdt050579/AppCUI-rs": {
+  "categories": [
+   "gui",
+   "command-line-interface",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "tui",
+   "cui",
+   "ui",
+   "terminal"
+  ]
+ },
+ "https://github.com/georust/geojson": {
+  "categories": [],
+  "keywords": [
+   "geojson",
+   "gis",
+   "json",
+   "geo"
+  ]
+ },
+ "https://github.com/georust/netcdf": {
+  "categories": [
+   "science",
+   "filesystem"
+  ],
+  "keywords": [
+   "netcdf",
+   "hdf",
+   "hdf5",
+   "libnetcdf",
+   "netcdf4"
+  ]
+ },
+ "https://github.com/getnora-io/nora": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "web-programming"
+  ],
+  "keywords": [
+   "registry",
+   "docker",
+   "artifacts",
+   "cloud-native",
+   "devops"
+  ]
+ },
+ "https://github.com/getprovenant/provenant": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "sbom",
+   "license",
+   "copyright",
+   "provenance",
+   "compliance"
+  ]
+ },
+ "https://github.com/gfx-rs/gfx": {
+  "categories": [
+   "rendering::graphics-api"
+  ],
+  "keywords": [
+   "graphics",
+   "gamedev"
+  ]
+ },
+ "https://github.com/gfx-rs/wgpu": {
+  "categories": [],
+  "keywords": [
+   "graphics"
+  ]
+ },
+ "https://github.com/ggez/ggez": {
+  "categories": [
+   "game-engines"
+  ],
+  "keywords": [
+   "ggez",
+   "graphics",
+   "2d",
+   "game",
+   "engine"
+  ]
+ },
+ "https://github.com/giraffekey/tatami": {
+  "categories": [
+   "game-development",
+   "visualization"
+  ],
+  "keywords": [
+   "gamedev",
+   "roguelike",
+   "dungeon",
+   "generation",
+   "algorithm"
+  ]
+ },
+ "https://github.com/giraffekey/xylo": {
+  "categories": [
+   "command-line-utilities",
+   "graphics",
+   "no-std",
+   "rendering",
+   "visualization"
+  ],
+  "keywords": [
+   "language",
+   "procedural",
+   "art"
+  ]
+ },
+ "https://github.com/gitui-org/gitui": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "git",
+   "gui",
+   "terminal",
+   "ui"
+  ]
+ },
+ "https://github.com/gklijs/schema_registry_converter": {
+  "categories": [
+   "encoding",
+   "parsing"
+  ],
+  "keywords": [
+   "kafka",
+   "schema",
+   "avro",
+   "protobuf",
+   "jsonschema"
+  ]
+ },
+ "https://github.com/glium/glium": {
+  "categories": [
+   "api-bindings",
+   "rendering::graphics-api"
+  ],
+  "keywords": [
+   "opengl",
+   "gamedev"
+  ]
+ },
+ "https://github.com/gluesql/gluesql": {
+  "categories": [],
+  "keywords": [
+   "sql-database",
+   "sql",
+   "websql",
+   "webassembly"
+  ]
+ },
+ "https://github.com/gluon-lang/gluon": {
+  "categories": [],
+  "keywords": [
+   "script",
+   "scripting",
+   "language"
+  ]
+ },
+ "https://github.com/godot-rust/gdnative": {
+  "categories": [],
+  "keywords": [
+   "gamedev",
+   "godot",
+   "engine",
+   "bindings"
+  ]
+ },
+ "https://github.com/godzie44/BugStalker": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools::debugging"
+  ],
+  "keywords": [
+   "debugger",
+   "debug",
+   "gdb"
+  ]
+ },
+ "https://github.com/google/argh": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "args",
+   "arguments",
+   "derive",
+   "cli"
+  ]
+ },
+ "https://github.com/google/mdbook-i18n-helpers": {
+  "categories": [
+   "command-line-utilities",
+   "localization"
+  ],
+  "keywords": [
+   "mdbook",
+   "i18n",
+   "translation",
+   "gettext"
+  ]
+ },
+ "https://github.com/gorilla-devs/ferium": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "minecraft",
+   "mod-manager",
+   "modrinth",
+   "curseforge",
+   "github"
+  ]
+ },
+ "https://github.com/gotham-rs/gotham": {
+  "categories": [
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "http",
+   "async",
+   "web",
+   "framework",
+   "server"
+  ]
+ },
+ "https://github.com/graphform/ratchet": {
+  "categories": [
+   "network-programming",
+   "asynchronous",
+   "web-programming::websocket"
+  ],
+  "keywords": [
+   "websocket",
+   "async",
+   "futures",
+   "tokio",
+   "deflate"
+  ]
+ },
+ "https://github.com/graphql-rust/graphql-client": {
+  "categories": [
+   "network-programming",
+   "web-programming",
+   "wasm"
+  ],
+  "keywords": [
+   "graphql",
+   "api",
+   "web",
+   "webassembly",
+   "wasm"
+  ]
+ },
+ "https://github.com/graphql-rust/juniper": {
+  "categories": [
+   "asynchronous",
+   "web-programming",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "apollo",
+   "graphql",
+   "server",
+   "web"
+  ]
+ },
+ "https://github.com/graphul-rs/graphul": {
+  "categories": [
+   "asynchronous",
+   "network-programming",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "http",
+   "web",
+   "framework"
+  ]
+ },
+ "https://github.com/graves/awful_aj": {
+  "categories": [],
+  "keywords": [
+   "openai",
+   "chatgpt",
+   "llm",
+   "cli",
+   "embeddings"
+  ]
+ },
+ "https://github.com/graykode/abtop": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "tui",
+   "monitor",
+   "claude",
+   "ai",
+   "agent"
+  ]
+ },
+ "https://github.com/grego/blades": {
+  "categories": [
+   "command-line-utilities",
+   "web-programming"
+  ],
+  "keywords": [
+   "website",
+   "site",
+   "generator"
+  ]
+ },
+ "https://github.com/greyblake/nutype": {
+  "categories": [
+   "data-structures",
+   "rust-patterns"
+  ],
+  "keywords": [
+   "newtype",
+   "validation",
+   "sanitization",
+   "derive",
+   "invariant"
+  ]
+ },
+ "https://github.com/greyblake/whatlang-rs": {
+  "categories": [
+   "text-processing",
+   "algorithms"
+  ],
+  "keywords": [
+   "language",
+   "nlp",
+   "lang",
+   "whatlang",
+   "text"
+  ]
+ },
+ "https://github.com/gsquire/sendgrid-rs": {
+  "categories": [],
+  "keywords": [
+   "email"
+  ]
+ },
+ "https://github.com/gtk-rs/gtk4-rs": {
+  "categories": [
+   "api-bindings",
+   "gui"
+  ],
+  "keywords": [
+   "gtk",
+   "gtk4",
+   "gtk-rs",
+   "gnome",
+   "gui"
+  ]
+ },
+ "https://github.com/guillaume-be/rust-bert": {
+  "categories": [],
+  "keywords": [
+   "nlp",
+   "deep-learning",
+   "machine-learning",
+   "transformers",
+   "translation"
+  ]
+ },
+ "https://github.com/guoxbin/dtool": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "tools",
+   "conversion",
+   "codec",
+   "utilities",
+   "develop"
+  ]
+ },
+ "https://github.com/gx0r/rrgeo": {
+  "categories": [
+   "science"
+  ],
+  "keywords": [
+   "reverse",
+   "geocoding",
+   "geocoder",
+   "location"
+  ]
+ },
+ "https://github.com/gyscos/Cursive": {
+  "categories": [
+   "command-line-interface",
+   "gui"
+  ],
+  "keywords": [
+   "ncurses",
+   "tui",
+   "ui"
+  ]
+ },
+ "https://github.com/gyscos/zstd-rs": {
+  "categories": [
+   "compression",
+   "api-bindings"
+  ],
+  "keywords": [
+   "zstd",
+   "zstandard",
+   "compression"
+  ]
+ },
+ "https://github.com/h2337/tsink": {
+  "categories": [
+   "database",
+   "embedded",
+   "data-structures"
+  ],
+  "keywords": [
+   "time-series",
+   "database",
+   "embedded",
+   "tsdb",
+   "metrics"
+  ]
+ },
+ "https://github.com/hannobraun/inotify-rs": {
+  "categories": [
+   "api-bindings",
+   "filesystem"
+  ],
+  "keywords": [
+   "inotify",
+   "linux"
+  ]
+ },
+ "https://github.com/harehare/mq": {
+  "categories": [
+   "command-line-utilities",
+   "text-processing"
+  ],
+  "keywords": [
+   "markdown",
+   "jq",
+   "query"
+  ]
+ },
+ "https://github.com/harfbuzz/rustybuzz": {
+  "categories": [
+   "text-processing"
+  ],
+  "keywords": [
+   "text",
+   "shaping",
+   "opentype",
+   "truetype"
+  ]
+ },
+ "https://github.com/harlanc/xiu": {
+  "categories": [
+   "multimedia",
+   "multimedia::video",
+   "multimedia::audio"
+  ],
+  "keywords": [
+   "rtmp",
+   "hls",
+   "httpflv",
+   "video",
+   "streaming"
+  ]
+ },
+ "https://github.com/helsing-ai/buffrs": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "protobuf",
+   "protocol",
+   "buffers",
+   "package",
+   "distribution"
+  ]
+ },
+ "https://github.com/hexagonal-sun/moss-kernel": {
+  "categories": [
+   "no-std",
+   "os",
+   "embedded"
+  ],
+  "keywords": [
+   "kernel",
+   "os",
+   "no-std",
+   "operating-system",
+   "embedded"
+  ]
+ },
+ "https://github.com/hinto-janai/festival": {
+  "categories": [
+   "multimedia"
+  ],
+  "keywords": [
+   "music",
+   "player",
+   "audio",
+   "festival",
+   "shukusai"
+  ]
+ },
+ "https://github.com/hit-box/hitbox": {
+  "categories": [
+   "caching",
+   "asynchronous"
+  ],
+  "keywords": [
+   "cache",
+   "async",
+   "cache-backend",
+   "hitbox",
+   "tokio"
+  ]
+ },
+ "https://github.com/hniksic/rust-subprocess": {
+  "categories": [],
+  "keywords": [
+   "execute",
+   "process",
+   "command",
+   "redirect",
+   "pipe"
+  ]
+ },
+ "https://github.com/hominee/dyer": {
+  "categories": [
+   "network-programming",
+   "web-programming"
+  ],
+  "keywords": [
+   "request-response",
+   "data-processing",
+   "web-crawling",
+   "web-framework",
+   "spider"
+  ]
+ },
+ "https://github.com/hook0/hook0": {
+  "categories": [],
+  "keywords": [
+   "webhooks",
+   "webhook",
+   "mcp",
+   "llm",
+   "ai"
+  ]
+ },
+ "https://github.com/housleyjk/ws-rs": {
+  "categories": [],
+  "keywords": [
+   "websocket",
+   "mio",
+   "event-driven",
+   "io",
+   "web"
+  ]
+ },
+ "https://github.com/hovinen/test-that": {
+  "categories": [
+   "development-tools",
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "unit",
+   "matcher",
+   "testing",
+   "assertions"
+  ]
+ },
+ "https://github.com/howardwu/wagyu": {
+  "categories": [
+   "command-line-utilities",
+   "cryptocurrency"
+  ],
+  "keywords": [
+   "blockchain",
+   "command-line",
+   "crypto",
+   "cryptocurrency",
+   "wallet"
+  ]
+ },
+ "https://github.com/hrkfdn/ncspot": {
+  "categories": [],
+  "keywords": [
+   "spotify",
+   "ncurses",
+   "librespot",
+   "terminal"
+  ]
+ },
+ "https://github.com/hsivonen/encoding_rs": {
+  "categories": [
+   "text-processing",
+   "encoding",
+   "web-programming",
+   "internationalization"
+  ],
+  "keywords": [
+   "encoding",
+   "web",
+   "unicode",
+   "charset"
+  ]
+ },
+ "https://github.com/httpmock/httpmock": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "http",
+   "mock",
+   "test"
+  ]
+ },
+ "https://github.com/huggingface/candle": {
+  "categories": [
+   "science"
+  ],
+  "keywords": [
+   "blas",
+   "tensor",
+   "machine-learning"
+  ]
+ },
+ "https://github.com/huggingface/tokenizers": {
+  "categories": [],
+  "keywords": [
+   "tokenizer",
+   "nlp",
+   "huggingface",
+   "bpe",
+   "wordpiece"
+  ]
+ },
+ "https://github.com/hyperb1iss/unifly": {
+  "categories": [
+   "command-line-utilities",
+   "network-programming"
+  ],
+  "keywords": [
+   "unifi",
+   "ubiquiti",
+   "networking",
+   "cli",
+   "tui"
+  ]
+ },
+ "https://github.com/hyperium/hyper": {
+  "categories": [
+   "network-programming",
+   "web-programming::http-client",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "http",
+   "hyper",
+   "hyperium"
+  ]
+ },
+ "https://github.com/hyperium/tonic": {
+  "categories": [
+   "web-programming",
+   "network-programming",
+   "asynchronous"
+  ],
+  "keywords": [
+   "rpc",
+   "grpc",
+   "async",
+   "futures",
+   "protobuf"
+  ]
+ },
+ "https://github.com/hyperlane-dev/hyperlane": {
+  "categories": [
+   "network-programming",
+   "web-programming"
+  ],
+  "keywords": [
+   "http",
+   "request",
+   "response",
+   "tcp",
+   "cross-platform"
+  ]
+ },
+ "https://github.com/hyunsik/hdfs-rs": {
+  "categories": [],
+  "keywords": [
+   "hdfs",
+   "hadoop"
+  ]
+ },
+ "https://github.com/iBz-04/gloamy": {
+  "categories": [
+   "command-line-utilities",
+   "network-programming",
+   "asynchronous"
+  ],
+  "keywords": [
+   "agent-runtime",
+   "llm",
+   "automation",
+   "cli",
+   "gateway"
+  ]
+ },
+ "https://github.com/iced-rs/iced": {
+  "categories": [
+   "gui"
+  ],
+  "keywords": [
+   "gui",
+   "ui",
+   "graphics",
+   "interface",
+   "widgets"
+  ]
+ },
+ "https://github.com/idalib-rs/idalib": {
+  "categories": [
+   "security"
+  ],
+  "keywords": [
+   "reverse-engineering",
+   "ida",
+   "ida-pro",
+   "idalib"
+  ]
+ },
+ "https://github.com/iddm/challonge-rs": {
+  "categories": [],
+  "keywords": [
+   "game",
+   "challonge",
+   "tournament",
+   "api",
+   "system"
+  ]
+ },
+ "https://github.com/iddm/serde-aux/": {
+  "categories": [],
+  "keywords": [
+   "serde",
+   "serialization",
+   "deserialization"
+  ]
+ },
+ "https://github.com/iddm/thread-priority/": {
+  "categories": [
+   "concurrency",
+   "asynchronous",
+   "os"
+  ],
+  "keywords": [
+   "thread",
+   "schedule",
+   "priority",
+   "pthread"
+  ]
+ },
+ "https://github.com/iddm/urlshortener-rs": {
+  "categories": [],
+  "keywords": [
+   "url",
+   "short",
+   "shortener",
+   "link"
+  ]
+ },
+ "https://github.com/igor-petruk/scriptisto": {
+  "categories": [
+   "development-tools::build-utils",
+   "command-line-utilities"
+  ],
+  "keywords": []
+ },
+ "https://github.com/igumnoff/gabriel2": {
+  "categories": [
+   "concurrency"
+  ],
+  "keywords": [
+   "actor"
+  ]
+ },
+ "https://github.com/igumnoff/shiva": {
+  "categories": [
+   "parser-implementations",
+   "text-processing",
+   "command-line-utilities",
+   "data-structures",
+   "data-structures"
+  ],
+  "keywords": [
+   "parser",
+   "conversion",
+   "transformer",
+   "text-processing",
+   "data-conversion"
+  ]
+ },
+ "https://github.com/ihalila/pancurses": {
+  "categories": [],
+  "keywords": [
+   "pancurses",
+   "curses",
+   "ncurses",
+   "pdcurses"
+  ]
+ },
+ "https://github.com/iii-hq/iii": {
+  "categories": [
+   "api-bindings",
+   "asynchronous",
+   "development-tools"
+  ],
+  "keywords": [
+   "iii",
+   "sdk",
+   "engine",
+   "distributed"
+  ]
+ },
+ "https://github.com/ilai-deutel/kibi": {
+  "categories": [
+   "text-editors",
+   "development-tools"
+  ],
+  "keywords": [
+   "editor",
+   "terminal",
+   "text-editor"
+  ]
+ },
+ "https://github.com/image-rs/image": {
+  "categories": [
+   "multimedia::images",
+   "multimedia::encoding",
+   "encoding"
+  ],
+  "keywords": []
+ },
+ "https://github.com/imager-io/imager": {
+  "categories": [],
+  "keywords": [
+   "image",
+   "optimization",
+   "compression"
+  ]
+ },
+ "https://github.com/imgui-rs/imgui-rs": {
+  "categories": [
+   "gui",
+   "api-bindings"
+  ],
+  "keywords": []
+ },
+ "https://github.com/immortal/fork": {
+  "categories": [
+   "os::unix-apis",
+   "api-bindings"
+  ],
+  "keywords": [
+   "fork",
+   "setsid",
+   "daemon",
+   "process",
+   "daemonize"
+  ]
+ },
+ "https://github.com/immunant/c2rust": {
+  "categories": [
+   "development-tools",
+   "development-tools::ffi",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "transpiler",
+   "migration",
+   "translation",
+   "c"
+  ]
+ },
+ "https://github.com/importcjj/rust-ajson": {
+  "categories": [
+   "encoding"
+  ],
+  "keywords": [
+   "json",
+   "json-parser",
+   "gjson",
+   "ajson"
+  ]
+ },
+ "https://github.com/imsnif/bandwhich": {
+  "categories": [
+   "network-programming",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "networking",
+   "utilization",
+   "cli"
+  ]
+ },
+ "https://github.com/infincia/bip39-rs": {
+  "categories": [],
+  "keywords": [
+   "crypto",
+   "bitcoin",
+   "bip39",
+   "mnemonic"
+  ]
+ },
+ "https://github.com/informalsystems/hermes": {
+  "categories": [],
+  "keywords": [
+   "blockchain",
+   "consensus",
+   "cosmos",
+   "ibc",
+   "tendermint"
+  ]
+ },
+ "https://github.com/innoave/genevo": {
+  "categories": [],
+  "keywords": [
+   "genetic",
+   "evolutionary",
+   "algorithm"
+  ]
+ },
+ "https://github.com/insomnimus/nodi": {
+  "categories": [
+   "multimedia::audio",
+   "multimedia::encoding"
+  ],
+  "keywords": [
+   "midi",
+   "audio",
+   "music",
+   "smf"
+  ]
+ },
+ "https://github.com/insomnimus/tidier": {
+  "categories": [
+   "api-bindings",
+   "value-formatting"
+  ],
+  "keywords": [
+   "html",
+   "xml",
+   "format",
+   "pretty",
+   "tidy"
+  ]
+ },
+ "https://github.com/inv2004/coinbase-pro-rs": {
+  "categories": [
+   "api-bindings",
+   "cryptography::cryptocurrencies"
+  ],
+  "keywords": [
+   "exchange",
+   "coinbase",
+   "bitcoin",
+   "websocket"
+  ]
+ },
+ "https://github.com/isdaniel/pg-walstream": {
+  "categories": [
+   "database",
+   "parsing",
+   "network-programming",
+   "no-std"
+  ],
+  "keywords": [
+   "postgresql",
+   "replication",
+   "wal",
+   "logical-decoding",
+   "streaming"
+  ]
+ },
+ "https://github.com/ivanceras/rustorm": {
+  "categories": [],
+  "keywords": [
+   "orm",
+   "postgresql",
+   "sqlite"
+  ]
+ },
+ "https://github.com/ivanceras/sauron": {
+  "categories": [],
+  "keywords": [
+   "html",
+   "dom",
+   "web"
+  ]
+ },
+ "https://github.com/ivanceras/sauron-native": {
+  "categories": [],
+  "keywords": [
+   "html",
+   "dom",
+   "web"
+  ]
+ },
+ "https://github.com/ivanceras/svgbob": {
+  "categories": [],
+  "keywords": [
+   "ascii",
+   "text",
+   "diagram",
+   "svg",
+   "bob"
+  ]
+ },
+ "https://github.com/ivanceras/titik": {
+  "categories": [],
+  "keywords": [
+   "text",
+   "tui",
+   "terminal",
+   "widget"
+  ]
+ },
+ "https://github.com/j0ru/kickoff": {
+  "categories": [],
+  "keywords": [
+   "wayland",
+   "launcher",
+   "wlroots"
+  ]
+ },
+ "https://github.com/jacek-kurlit/pik": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "terminal",
+   "process",
+   "linux",
+   "system",
+   "kill"
+  ]
+ },
+ "https://github.com/jacobdeichert/mask": {
+  "categories": [
+   "command-line-interface",
+   "command-line-utilities",
+   "development-tools::build-utils",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "cli",
+   "task",
+   "command",
+   "make",
+   "markdown"
+  ]
+ },
+ "https://github.com/jaemk/cached": {
+  "categories": [
+   "caching",
+   "data-structures"
+  ],
+  "keywords": [
+   "cache",
+   "memoize",
+   "lru",
+   "redis",
+   "disk"
+  ]
+ },
+ "https://github.com/jamesmunns/postcard": {
+  "categories": [
+   "embedded",
+   "no-std"
+  ],
+  "keywords": [
+   "serde",
+   "cobs",
+   "framing"
+  ]
+ },
+ "https://github.com/janreges/siteone-crawler": {
+  "categories": [
+   "command-line-utilities",
+   "web-programming"
+  ],
+  "keywords": [
+   "crawler",
+   "seo",
+   "website-analysis",
+   "accessibility",
+   "security"
+  ]
+ },
+ "https://github.com/japaric/xargo": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "embedded"
+  ],
+  "keywords": [
+   "cli",
+   "cross",
+   "compilation",
+   "std"
+  ]
+ },
+ "https://github.com/jcmoyer/rust-lua53": {
+  "categories": [],
+  "keywords": [
+   "lua",
+   "lua53",
+   "rust-lua53",
+   "bindings"
+  ]
+ },
+ "https://github.com/jcreekmore/pem-rs": {
+  "categories": [
+   "cryptography"
+  ],
+  "keywords": [
+   "no-std",
+   "no_std",
+   "pem"
+  ]
+ },
+ "https://github.com/jdrouet/mrml": {
+  "categories": [],
+  "keywords": [
+   "email",
+   "mjml"
+  ]
+ },
+ "https://github.com/jdx/mise": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "mise"
+  ]
+ },
+ "https://github.com/jeaye/ncurses-rs": {
+  "categories": [],
+  "keywords": [
+   "ncurses",
+   "tui"
+  ]
+ },
+ "https://github.com/jeremyletang/rust-sfml": {
+  "categories": [],
+  "keywords": [
+   "sfml",
+   "multimedia",
+   "game"
+  ]
+ },
+ "https://github.com/jeromefroe/lru-rs": {
+  "categories": [
+   "caching",
+   "no-std"
+  ],
+  "keywords": [
+   "lru",
+   "cache"
+  ]
+ },
+ "https://github.com/jimmycuadra/rust-etcd": {
+  "categories": [],
+  "keywords": [
+   "etcd",
+   "coreos",
+   "database"
+  ]
+ },
+ "https://github.com/jinxdash/prettier-plugin-rust": {
+  "categories": [
+   "development-tools",
+   "text-editors",
+   "web-programming"
+  ],
+  "keywords": [
+   "format",
+   "rustfmt",
+   "tool",
+   "development",
+   "editor"
+  ]
+ },
+ "https://github.com/jjyr/hdwallet": {
+  "categories": [],
+  "keywords": [
+   "hdwallet",
+   "bip32",
+   "wallet",
+   "bitcoin",
+   "crypto"
+  ]
+ },
+ "https://github.com/joamag/boytacean": {
+  "categories": [],
+  "keywords": [
+   "gameboy",
+   "emulator",
+   "rust"
+  ]
+ },
+ "https://github.com/joaoh82/rustunnel": {
+  "categories": [
+   "network-programming",
+   "data-structures"
+  ],
+  "keywords": [
+   "tunnel",
+   "ngrok",
+   "protocol",
+   "rustunnel"
+  ]
+ },
+ "https://github.com/jolars/basin": {
+  "categories": [
+   "mathematics",
+   "science",
+   "algorithms"
+  ],
+  "keywords": [
+   "optimization",
+   "math",
+   "numerics",
+   "solver",
+   "nonlinear"
+  ]
+ },
+ "https://github.com/jonaylor89/sherlock-rs": {
+  "categories": [],
+  "keywords": [
+   "osint",
+   "reconnaissance",
+   "information",
+   "gathering"
+  ]
+ },
+ "https://github.com/juhaku/utoipa": {
+  "categories": [
+   "web-programming"
+  ],
+  "keywords": [
+   "rest-api",
+   "openapi",
+   "auto-generate",
+   "documentation",
+   "compile-time"
+  ]
+ },
+ "https://github.com/k06a/macpow": {
+  "categories": [
+   "command-line-utilities",
+   "hardware-support"
+  ],
+  "keywords": [
+   "apple-silicon",
+   "power",
+   "monitor",
+   "tui",
+   "macos"
+  ]
+ },
+ "https://github.com/kafka-rust/kafka-rust": {
+  "categories": [
+   "api-bindings"
+  ],
+  "keywords": [
+   "kafka",
+   "queue"
+  ]
+ },
+ "https://github.com/kaj/ructe": {
+  "categories": [
+   "template-engine",
+   "web-programming"
+  ],
+  "keywords": [
+   "web",
+   "templating",
+   "template",
+   "html"
+  ]
+ },
+ "https://github.com/kaj/rust-pdf": {
+  "categories": [
+   "graphics"
+  ],
+  "keywords": [
+   "pdf",
+   "graphics",
+   "vector",
+   "text"
+  ]
+ },
+ "https://github.com/kamiyaa/joshuto": {
+  "categories": [
+   "command-line-interface",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "ratatui",
+   "ranger",
+   "file_manager",
+   "termion"
+  ]
+ },
+ "https://github.com/kand-ta/kand": {
+  "categories": [
+   "finance",
+   "algorithms",
+   "data-structures",
+   "science",
+   "mathematics"
+  ],
+  "keywords": [
+   "technical-analysis",
+   "finance",
+   "rust",
+   "talib",
+   "indicators"
+  ]
+ },
+ "https://github.com/kata-containers/kata-containers": {
+  "categories": [
+   "parser-implementations",
+   "filesystem"
+  ],
+  "keywords": [
+   "kata",
+   "container",
+   "path",
+   "securejoin"
+  ]
+ },
+ "https://github.com/kcl-lang/kcl": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "compiler",
+   "error"
+  ]
+ },
+ "https://github.com/kevinmehall/rust-peg": {
+  "categories": [
+   "parsing"
+  ],
+  "keywords": [
+   "peg",
+   "parser",
+   "parsing",
+   "grammar"
+  ]
+ },
+ "https://github.com/killercup/quicli": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "cli",
+   "prelude"
+  ]
+ },
+ "https://github.com/kimono-koans/dano": {
+  "categories": [
+   "command-line-utilities",
+   "os"
+  ],
+  "keywords": [
+   "checksum",
+   "verify",
+   "media",
+   "cli-utility",
+   "storage"
+  ]
+ },
+ "https://github.com/kimono-koans/httm": {
+  "categories": [
+   "command-line-utilities",
+   "os"
+  ],
+  "keywords": [
+   "zfs",
+   "backup",
+   "restore",
+   "cli-utility",
+   "snapshot"
+  ]
+ },
+ "https://github.com/kkawakam/rustyline": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "readline"
+  ]
+ },
+ "https://github.com/kn0sys/ecc-rs": {
+  "categories": [
+   "mathematics"
+  ],
+  "keywords": [
+   "cryptography"
+  ]
+ },
+ "https://github.com/kn0sys/valentinus": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "nlp",
+   "deep-learning",
+   "machine-learning",
+   "transformers",
+   "vector-database"
+  ]
+ },
+ "https://github.com/kongbytes/arp-scan-rs": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "arp",
+   "scan",
+   "network",
+   "security"
+  ]
+ },
+ "https://github.com/konippi/servo-fetch": {
+  "categories": [
+   "web-programming",
+   "web-programming::http-client"
+  ],
+  "keywords": [
+   "servo",
+   "headless-browser",
+   "web-scraping",
+   "readability",
+   "content-extraction"
+  ]
+ },
+ "https://github.com/kornelski/rust-security-framework": {
+  "categories": [
+   "os::macos-apis",
+   "cryptography",
+   "api-bindings"
+  ],
+  "keywords": [
+   "ios",
+   "tls",
+   "ssl",
+   "crypto",
+   "keychain"
+  ]
+ },
+ "https://github.com/kpcyrd/authoscope": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": []
+ },
+ "https://github.com/kpcyrd/rshijack": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": []
+ },
+ "https://github.com/kpcyrd/sn0int": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": []
+ },
+ "https://github.com/kpcyrd/sniffglue": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": []
+ },
+ "https://github.com/krojew/cdrs-tokio": {
+  "categories": [
+   "asynchronous",
+   "database"
+  ],
+  "keywords": [
+   "cassandra",
+   "driver",
+   "client",
+   "cassandradb",
+   "async"
+  ]
+ },
+ "https://github.com/krojew/rust-zookeeper": {
+  "categories": [],
+  "keywords": [
+   "zk",
+   "zookeeper",
+   "distributed",
+   "coordination",
+   "async"
+  ]
+ },
+ "https://github.com/kruseio/hygg": {
+  "categories": [
+   "command-line-utilities",
+   "parser-implementations",
+   "text-processing"
+  ],
+  "keywords": [
+   "pdf",
+   "cli",
+   "parser",
+   "terminal",
+   "utility"
+  ]
+ },
+ "https://github.com/ksk001100/seahorse": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "argument",
+   "cli",
+   "arg",
+   "parser",
+   "parse"
+  ]
+ },
+ "https://github.com/kubo/rust-oracle": {
+  "categories": [],
+  "keywords": [
+   "oracle",
+   "database"
+  ]
+ },
+ "https://github.com/kweonminsung/bind9_rndc_rust": {
+  "categories": [],
+  "keywords": [
+   "bind9",
+   "rndc",
+   "rust"
+  ]
+ },
+ "https://github.com/kxxt/tracexec": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools::debugging"
+  ],
+  "keywords": [
+   "trace",
+   "ptrace",
+   "exec",
+   "execve",
+   "utility"
+  ]
+ },
+ "https://github.com/lalrpop/lalrpop": {
+  "categories": [
+   "parsing"
+  ],
+  "keywords": [
+   "parser",
+   "generator",
+   "lr",
+   "yacc",
+   "grammar"
+  ]
+ },
+ "https://github.com/lambda-fairy/maud": {
+  "categories": [
+   "template-engine"
+  ],
+  "keywords": []
+ },
+ "https://github.com/lancedb/lancedb": {
+  "categories": [
+   "database-implementations"
+  ],
+  "keywords": [
+   "lancedb",
+   "lance",
+   "database",
+   "vector",
+   "search"
+  ]
+ },
+ "https://github.com/larksuite/perf-monitor-rs": {
+  "categories": [
+   "api-bindings",
+   "accessibility",
+   "development-tools"
+  ],
+  "keywords": [
+   "perf",
+   "statistics",
+   "monitor",
+   "performance"
+  ]
+ },
+ "https://github.com/lasantosr/intelli-shell": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "intellisense",
+   "autocomplete",
+   "cli",
+   "shell",
+   "bookmark"
+  ]
+ },
+ "https://github.com/lemunozm/message-io": {
+  "categories": [
+   "asynchronous",
+   "game-development",
+   "network-programming",
+   "rust-patterns",
+   "web-programming::websocket"
+  ],
+  "keywords": [
+   "network",
+   "message",
+   "events",
+   "non-blocking",
+   "tcp"
+  ]
+ },
+ "https://github.com/lenra-io/dofigen": {
+  "categories": [],
+  "keywords": [
+   "dockerfile",
+   "generator",
+   "yaml",
+   "json"
+  ]
+ },
+ "https://github.com/leptonyu/cfg-rs": {
+  "categories": [
+   "config"
+  ],
+  "keywords": [
+   "configuration",
+   "config",
+   "settings",
+   "env",
+   "environment"
+  ]
+ },
+ "https://github.com/lettre/lettre": {
+  "categories": [
+   "email",
+   "network-programming"
+  ],
+  "keywords": [
+   "email",
+   "smtp",
+   "mailer",
+   "message",
+   "sendmail"
+  ]
+ },
+ "https://github.com/libbpf/libbpf-rs": {
+  "categories": [],
+  "keywords": [
+   "bpf",
+   "ebpf",
+   "libbpf"
+  ]
+ },
+ "https://github.com/libp2p/rust-libp2p": {
+  "categories": [
+   "network-programming",
+   "asynchronous"
+  ],
+  "keywords": [
+   "peer-to-peer",
+   "libp2p",
+   "networking"
+  ]
+ },
+ "https://github.com/libpnet/libpnet": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "networking",
+   "ethernet"
+  ]
+ },
+ "https://github.com/lifthrasiir/rust-encoding": {
+  "categories": [],
+  "keywords": [
+   "encoding",
+   "unicode",
+   "charset"
+  ]
+ },
+ "https://github.com/linebender/resvg": {
+  "categories": [],
+  "keywords": [
+   "svg",
+   "render",
+   "raster"
+  ]
+ },
+ "https://github.com/linebender/xilem": {
+  "categories": [
+   "gui",
+   "graphics",
+   "internationalization",
+   "accessibility"
+  ],
+  "keywords": [
+   "gui",
+   "ui",
+   "native",
+   "gpu",
+   "performance"
+  ]
+ },
+ "https://github.com/liquidos-ai/AutoAgents": {
+  "categories": [],
+  "keywords": [
+   "agents",
+   "llm"
+  ]
+ },
+ "https://github.com/llogiq/mutagen": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "testing"
+  ]
+ },
+ "https://github.com/localfirstapp/1History": {
+  "categories": [],
+  "keywords": [
+   "cli",
+   "history",
+   "backup",
+   "browser"
+  ]
+ },
+ "https://github.com/locka99/opcua": {
+  "categories": [
+   "embedded",
+   "network-programming"
+  ],
+  "keywords": [
+   "opcua",
+   "opc",
+   "ua"
+  ]
+ },
+ "https://github.com/lockbook/lockbook": {
+  "categories": [],
+  "keywords": [
+   "notes",
+   "encryption",
+   "productivity",
+   "automation",
+   "security"
+  ]
+ },
+ "https://github.com/logisky/LogiSheets": {
+  "categories": [
+   "parser-implementations",
+   "data-structures"
+  ],
+  "keywords": [
+   "excel",
+   "spreadsheet",
+   "xlsx",
+   "ooxml",
+   "formula"
+  ]
+ },
+ "https://github.com/longbridge/gpui-component": {
+  "categories": [],
+  "keywords": [
+   "desktop",
+   "gpui",
+   "shadcn",
+   "ui",
+   "uikit"
+  ]
+ },
+ "https://github.com/lotabout/rargs": {
+  "categories": [],
+  "keywords": [
+   "xargs",
+   "awk",
+   "regex",
+   "cli"
+  ]
+ },
+ "https://github.com/lsd-rs/lsd": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "ls"
+  ]
+ },
+ "https://github.com/m-decoster/RsGenetic": {
+  "categories": [],
+  "keywords": [
+   "genetic",
+   "algorithm",
+   "evolution"
+  ]
+ },
+ "https://github.com/m4b/bingrep": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "binary",
+   "elf",
+   "mach",
+   "pe",
+   "cross-platform"
+  ]
+ },
+ "https://github.com/m4b/goblin": {
+  "categories": [
+   "parsing",
+   "development-tools::debugging"
+  ],
+  "keywords": [
+   "binary",
+   "elf",
+   "mach",
+   "pe",
+   "archive"
+  ]
+ },
+ "https://github.com/m4rw3r/chomp": {
+  "categories": [],
+  "keywords": [
+   "parser",
+   "parser-combinators",
+   "parsing",
+   "streaming"
+  ]
+ },
+ "https://github.com/maciejkula/rustlearn": {
+  "categories": [],
+  "keywords": [
+   "machine-learning"
+  ]
+ },
+ "https://github.com/mandrean/har-rs": {
+  "categories": [],
+  "keywords": [
+   "har",
+   "serialization",
+   "deserialization",
+   "json",
+   "yaml"
+  ]
+ },
+ "https://github.com/maplibre/martin": {
+  "categories": [
+   "science::geo",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "maps",
+   "tiles",
+   "mbtiles",
+   "pmtiles",
+   "postgis"
+  ]
+ },
+ "https://github.com/marcelbuesing/tokio-socketcan-bcm": {
+  "categories": [],
+  "keywords": [
+   "can",
+   "socketcan",
+   "bcm"
+  ]
+ },
+ "https://github.com/marcodpt/minirps": {
+  "categories": [
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "reverse-proxy",
+   "server",
+   "single-binary",
+   "axum",
+   "minijinja"
+  ]
+ },
+ "https://github.com/marekm4/dominant_color": {
+  "categories": [
+   "algorithms",
+   "multimedia::images"
+  ],
+  "keywords": []
+ },
+ "https://github.com/matheus-git/systemd-manager-tui": {
+  "categories": [],
+  "keywords": [
+   "ratatui",
+   "systemd",
+   "manager",
+   "tui"
+  ]
+ },
+ "https://github.com/matheuswhite/scope-rs": {
+  "categories": [],
+  "keywords": [
+   "serial",
+   "monitor",
+   "windows",
+   "linux",
+   "plugin"
+  ]
+ },
+ "https://github.com/mattgathu/cute": {
+  "categories": [
+   "rust-patterns"
+  ],
+  "keywords": [
+   "macro",
+   "comprehensions",
+   "python",
+   "list",
+   "hashmaps"
+  ]
+ },
+ "https://github.com/matthart1983/diskwatch": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "disk",
+   "storage",
+   "tui",
+   "diagnostics",
+   "observability"
+  ]
+ },
+ "https://github.com/matthart1983/netwatch": {
+  "categories": [
+   "command-line-utilities",
+   "network-programming"
+  ],
+  "keywords": [
+   "network",
+   "tui",
+   "terminal",
+   "packet-capture",
+   "diagnostics"
+  ]
+ },
+ "https://github.com/matthart1983/syswatch": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "system",
+   "monitoring",
+   "tui",
+   "diagnostics",
+   "observability"
+  ]
+ },
+ "https://github.com/mattnenterprise/rust-ftp": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "ftp"
+  ]
+ },
+ "https://github.com/mayocream/koharu": {
+  "categories": [],
+  "keywords": [
+   "manga",
+   "ocr",
+   "translation",
+   "deep_learning",
+   "computer_vision"
+  ]
+ },
+ "https://github.com/mazznoer/colorgrad-rs": {
+  "categories": [
+   "graphics",
+   "visualization",
+   "no-std"
+  ],
+  "keywords": [
+   "color",
+   "colormap",
+   "color-scales",
+   "visualization",
+   "gradient"
+  ]
+ },
+ "https://github.com/meilisearch/heed": {
+  "categories": [
+   "database",
+   "data-structures"
+  ],
+  "keywords": [
+   "lmdb",
+   "database",
+   "storage",
+   "typed"
+  ]
+ },
+ "https://github.com/memvid/memvid": {
+  "categories": [
+   "database",
+   "data-structures"
+  ],
+  "keywords": [
+   "ai",
+   "memory",
+   "search",
+   "vector",
+   "embeddings"
+  ]
+ },
+ "https://github.com/mercurialsolo/claudectl": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "claude-code",
+   "agent-orchestration",
+   "local-llm",
+   "tui",
+   "hive-mind"
+  ]
+ },
+ "https://github.com/metacall/core": {
+  "categories": [],
+  "keywords": [
+   "ffi",
+   "polyglot",
+   "metacall",
+   "inter-language",
+   "polyglot-programming"
+  ]
+ },
+ "https://github.com/mgeisler/textwrap": {
+  "categories": [
+   "text-processing",
+   "command-line-interface"
+  ],
+  "keywords": [
+   "text",
+   "formatting",
+   "wrap",
+   "typesetting",
+   "hyphenation"
+  ]
+ },
+ "https://github.com/mgrachev/update-informer": {
+  "categories": [
+   "web-programming",
+   "caching"
+  ],
+  "keywords": [
+   "update",
+   "version-check",
+   "notifier",
+   "github",
+   "cli"
+  ]
+ },
+ "https://github.com/micahkepe/jsongrep": {
+  "categories": [
+   "command-line-utilities",
+   "text-processing"
+  ],
+  "keywords": [
+   "json",
+   "grep",
+   "search",
+   "pattern"
+  ]
+ },
+ "https://github.com/microsoft/edit": {
+  "categories": [
+   "text-editors"
+  ],
+  "keywords": []
+ },
+ "https://github.com/microsoft/windows-rs": {
+  "categories": [
+   "os::windows-apis"
+  ],
+  "keywords": []
+ },
+ "https://github.com/mikaelmello/inquire": {
+  "categories": [
+   "command-line-interface",
+   "value-formatting"
+  ],
+  "keywords": [
+   "cli",
+   "ask",
+   "prompt",
+   "question",
+   "interactive"
+  ]
+ },
+ "https://github.com/mikkyang/rust-blas": {
+  "categories": [],
+  "keywords": [
+   "blas"
+  ]
+ },
+ "https://github.com/mikwielgus/undoredo": {
+  "categories": [
+   "gui",
+   "compression",
+   "data-structures",
+   "no-std",
+   "rust-patterns"
+  ],
+  "keywords": [
+   "delta",
+   "diff",
+   "undo",
+   "redo",
+   "no_std"
+  ]
+ },
+ "https://github.com/milliams/plotlib": {
+  "categories": [
+   "visualization",
+   "science"
+  ],
+  "keywords": [
+   "plotting",
+   "plot",
+   "graph",
+   "chart",
+   "histogram"
+  ]
+ },
+ "https://github.com/mimblewimble/grin/": {
+  "categories": [],
+  "keywords": [
+   "crypto",
+   "grin",
+   "mimblewimble"
+  ]
+ },
+ "https://github.com/mit-pdos/noria": {
+  "categories": [
+   "api-bindings",
+   "database"
+  ],
+  "keywords": [
+   "database",
+   "dataflow",
+   "backend",
+   "storage",
+   "sql"
+  ]
+ },
+ "https://github.com/mitnk/cicada": {
+  "categories": [
+   "command-line-utilities",
+   "command-line-interface",
+   "development-tools"
+  ],
+  "keywords": [
+   "shell",
+   "unix"
+  ]
+ },
+ "https://github.com/mlua-rs/mlua": {
+  "categories": [
+   "api-bindings",
+   "asynchronous"
+  ],
+  "keywords": [
+   "lua",
+   "luajit",
+   "luau",
+   "async",
+   "scripting"
+  ]
+ },
+ "https://github.com/mmstick/tv-renamer": {
+  "categories": [],
+  "keywords": [
+   "gtk",
+   "media",
+   "rename",
+   "tv",
+   "tvdb"
+  ]
+ },
+ "https://github.com/moka-rs/moka": {
+  "categories": [
+   "caching",
+   "concurrency"
+  ],
+  "keywords": [
+   "cache",
+   "concurrent"
+  ]
+ },
+ "https://github.com/mongodb/bson-rust": {
+  "categories": [
+   "encoding"
+  ],
+  "keywords": [
+   "bson",
+   "mongodb",
+   "serde",
+   "serialization",
+   "deserialization"
+  ]
+ },
+ "https://github.com/mongodb/mongo-rust-driver": {
+  "categories": [
+   "asynchronous",
+   "database",
+   "web-programming"
+  ],
+  "keywords": [
+   "mongo",
+   "mongodb",
+   "database",
+   "bson",
+   "nosql"
+  ]
+ },
+ "https://github.com/morganlinton/Albatross": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "ai",
+   "coding-agent",
+   "llm",
+   "cli",
+   "ollama"
+  ]
+ },
+ "https://github.com/mozilla/cbindgen": {
+  "categories": [
+   "external-ffi-bindings",
+   "development-tools::ffi"
+  ],
+  "keywords": [
+   "bindings",
+   "ffi",
+   "code-generation"
+  ]
+ },
+ "https://github.com/mozilla/neqo": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "mozilla",
+   "interface",
+   "mtu"
+  ]
+ },
+ "https://github.com/mozilla/sccache/": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools::build-utils"
+  ],
+  "keywords": [
+   "ccache"
+  ]
+ },
+ "https://github.com/mrhooray/crc-rs": {
+  "categories": [
+   "algorithms",
+   "no-std"
+  ],
+  "keywords": [
+   "crc",
+   "crc16",
+   "crc32",
+   "crc64",
+   "hash"
+  ]
+ },
+ "https://github.com/mrhooray/kdtree-rs": {
+  "categories": [],
+  "keywords": [
+   "tree",
+   "nearest",
+   "neighbor",
+   "search",
+   "geo"
+  ]
+ },
+ "https://github.com/mrjackwills/oxker": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "docker",
+   "tui",
+   "tokio",
+   "terminal",
+   "podman"
+  ]
+ },
+ "https://github.com/mthom/scryer-prolog/": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "prolog",
+   "prolog-interpreter",
+   "prolog-system"
+  ]
+ },
+ "https://github.com/mun-lang/mun": {
+  "categories": [
+   "command-line-interface",
+   "game-development",
+   "mun"
+  ],
+  "keywords": [
+   "game",
+   "hot-reloading",
+   "language",
+   "mun",
+   "scripting"
+  ]
+ },
+ "https://github.com/murarth/ketos": {
+  "categories": [],
+  "keywords": [
+   "scripting",
+   "extension",
+   "functional",
+   "language",
+   "lisp"
+  ]
+ },
+ "https://github.com/murarth/linefeed": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "console",
+   "terminal",
+   "input",
+   "readline"
+  ]
+ },
+ "https://github.com/museslabs/phonto": {
+  "categories": [
+   "multimedia"
+  ],
+  "keywords": [
+   "wayland",
+   "macos",
+   "wallpaper",
+   "gpu"
+  ]
+ },
+ "https://github.com/musitdev/portmidi-rs": {
+  "categories": [],
+  "keywords": [
+   "midi",
+   "music",
+   "audio"
+  ]
+ },
+ "https://github.com/muvon/octomind": {
+  "categories": [
+   "development-tools",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "ai",
+   "development",
+   "assistant",
+   "productivity",
+   "conversational"
+  ]
+ },
+ "https://github.com/mxsm/rocketmq-rust": {
+  "categories": [],
+  "keywords": [
+   "apache-rocketmq",
+   "rocketmq-rust",
+   "rocketmq-rs",
+   "rust",
+   "rocketmq-client"
+  ]
+ },
+ "https://github.com/myrrlyn/tap": {
+  "categories": [
+   "no-std",
+   "rust-patterns"
+  ],
+  "keywords": [
+   "tap",
+   "pipe",
+   "functional",
+   "tap_ok",
+   "tap_some"
+  ]
+ },
+ "https://github.com/n0-computer/iroh": {
+  "categories": [],
+  "keywords": [
+   "quic",
+   "networking",
+   "holepunching",
+   "p2p"
+  ]
+ },
+ "https://github.com/nabijaczleweli/BearLibTerminal.rs": {
+  "categories": [
+   "external-ffi-bindings",
+   "gui",
+   "multimedia"
+  ],
+  "keywords": [
+   "bearlibterminal",
+   "ffi",
+   "tui",
+   "ui"
+  ]
+ },
+ "https://github.com/naomijub/edn-rs": {
+  "categories": [],
+  "keywords": [
+   "edn",
+   "no_std"
+  ]
+ },
+ "https://github.com/naomijub/wooridb": {
+  "categories": [],
+  "keywords": [
+   "wql"
+  ]
+ },
+ "https://github.com/nathanbabcock/ffmpeg-sidecar": {
+  "categories": [
+   "multimedia"
+  ],
+  "keywords": [
+   "ffmpeg",
+   "video"
+  ]
+ },
+ "https://github.com/nats-io/nats.rs": {
+  "categories": [
+   "network-programming",
+   "api-bindings"
+  ],
+  "keywords": [
+   "nats",
+   "client",
+   "messaging",
+   "api"
+  ]
+ },
+ "https://github.com/nautechsystems/nautilus_trader": {
+  "categories": [
+   "finance",
+   "simulation",
+   "asynchronous"
+  ],
+  "keywords": [
+   "finance",
+   "trading",
+   "trading-platform",
+   "algorithmic-trading",
+   "quantitative-finance"
+  ]
+ },
+ "https://github.com/neo4j-labs/graph": {
+  "categories": [],
+  "keywords": [
+   "graph",
+   "algorithms",
+   "parallel"
+  ]
+ },
+ "https://github.com/neogenie/fastnum": {
+  "categories": [
+   "mathematics",
+   "science",
+   "no-std"
+  ],
+  "keywords": [
+   "numeric",
+   "decimal",
+   "const",
+   "fixed-point",
+   "crypto"
+  ]
+ },
+ "https://github.com/nextest-rs/future-queue": {
+  "categories": [
+   "asynchronous"
+  ],
+  "keywords": [
+   "stream",
+   "futures",
+   "async",
+   "buffer_unordered"
+  ]
+ },
+ "https://github.com/nextest-rs/nextest": {
+  "categories": [
+   "development-tools::cargo-plugins",
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "nextest",
+   "test-runner",
+   "flaky-tests",
+   "junit"
+  ]
+ },
+ "https://github.com/nickel-org/nickel.rs/": {
+  "categories": [],
+  "keywords": [
+   "nickel",
+   "server",
+   "web",
+   "express"
+  ]
+ },
+ "https://github.com/nickgerace/gfold": {
+  "categories": [
+   "command-line-utilities",
+   "command-line-interface"
+  ],
+  "keywords": [
+   "git",
+   "cli"
+  ]
+ },
+ "https://github.com/nikolassv/bartib": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli"
+  ]
+ },
+ "https://github.com/nivekuil/rip": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": []
+ },
+ "https://github.com/nix-community/nix-init": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "interactive",
+   "generate",
+   "nix",
+   "package"
+  ]
+ },
+ "https://github.com/nix-community/nix-melt": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "flake",
+   "nix",
+   "tui",
+   "viewer"
+  ]
+ },
+ "https://github.com/nix-community/nurl": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "fetch",
+   "git",
+   "nix",
+   "prefetch"
+  ]
+ },
+ "https://github.com/nix-rust/nix": {
+  "categories": [
+   "os::unix-apis"
+  ],
+  "keywords": []
+ },
+ "https://github.com/njord-rs/njord": {
+  "categories": [],
+  "keywords": [
+   "orm",
+   "database",
+   "sql"
+  ]
+ },
+ "https://github.com/nrf-rs/nrf-hal": {
+  "categories": [
+   "embedded",
+   "hardware-support",
+   "no-std"
+  ],
+  "keywords": [
+   "arm",
+   "cortex-m",
+   "nrf52",
+   "nrf",
+   "hal"
+  ]
+ },
+ "https://github.com/nrxus/faux/": {
+  "categories": [],
+  "keywords": [
+   "mock",
+   "mocking",
+   "test",
+   "testing",
+   "faux"
+  ]
+ },
+ "https://github.com/nukesor/comfy-table": {
+  "categories": [],
+  "keywords": [
+   "table",
+   "terminal",
+   "unicode"
+  ]
+ },
+ "https://github.com/nukesor/pueue": {
+  "categories": [],
+  "keywords": [
+   "command",
+   "parallel",
+   "queue",
+   "shell",
+   "task"
+  ]
+ },
+ "https://github.com/null8626/decancer": {
+  "categories": [
+   "parsing",
+   "text-processing",
+   "value-formatting"
+  ],
+  "keywords": [
+   "security",
+   "unicode",
+   "homoglyphs",
+   "moderation",
+   "confusables"
+  ]
+ },
+ "https://github.com/nvzqz/divan": {
+  "categories": [
+   "development-tools::profiling"
+  ],
+  "keywords": [
+   "benchmark",
+   "criterion",
+   "instrument",
+   "measure",
+   "performance"
+  ]
+ },
+ "https://github.com/nwiizo/cargo-coupling": {
+  "categories": [
+   "development-tools",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "coupling",
+   "analysis",
+   "architecture",
+   "metrics",
+   "cargo-subcommand"
+  ]
+ },
+ "https://github.com/nwiizo/cargo.nvim": {
+  "categories": [
+   "development-tools",
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "neovim",
+   "rust",
+   "cargo",
+   "plugin"
+  ]
+ },
+ "https://github.com/nwiizo/tfmcp": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "terraform",
+   "mcp",
+   "llm",
+   "ai",
+   "claude"
+  ]
+ },
+ "https://github.com/nwiizo/tfocus": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "terraform",
+   "opentofu",
+   "cli",
+   "workspace"
+  ]
+ },
+ "https://github.com/oconnor663/duct.rs": {
+  "categories": [],
+  "keywords": [
+   "process",
+   "subprocess",
+   "command",
+   "child",
+   "pipe"
+  ]
+ },
+ "https://github.com/ogulcancelik/herdr": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "terminal",
+   "tui",
+   "ai",
+   "agents",
+   "multiplexer"
+  ]
+ },
+ "https://github.com/openooxml/betteroffice": {
+  "categories": [
+   "parser-implementations",
+   "compression",
+   "encoding"
+  ],
+  "keywords": [
+   "ooxml",
+   "opc",
+   "office",
+   "zip",
+   "docx"
+  ]
+ },
+ "https://github.com/ophi-dev/antlr-rust-runtime": {
+  "categories": [
+   "parser-implementations",
+   "development-tools",
+   "parsing"
+  ],
+  "keywords": [
+   "antlr",
+   "antlr4",
+   "parser",
+   "lexer",
+   "runtime"
+  ]
+ },
+ "https://github.com/orhun/git-cliff": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "changelog",
+   "generator",
+   "conventional",
+   "commit"
+  ]
+ },
+ "https://github.com/orhun/kmon": {
+  "categories": [
+   "command-line-utilities",
+   "os"
+  ],
+  "keywords": [
+   "linux",
+   "kernel",
+   "module",
+   "activity",
+   "monitor"
+  ]
+ },
+ "https://github.com/orhun/rustypaste": {
+  "categories": [
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "paste",
+   "pastebin",
+   "upload"
+  ]
+ },
+ "https://github.com/orhun/systeroid": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "linux",
+   "kernel",
+   "parameter",
+   "sysctl"
+  ]
+ },
+ "https://github.com/orion-rs/orion": {
+  "categories": [
+   "cryptography",
+   "no-std"
+  ],
+  "keywords": [
+   "cryptography",
+   "crypto",
+   "aead",
+   "pqc",
+   "kem"
+  ]
+ },
+ "https://github.com/orium/archery": {
+  "categories": [
+   "concurrency",
+   "memory-management",
+   "rust-patterns"
+  ],
+  "keywords": [
+   "rc",
+   "arc",
+   "reference-counting",
+   "no_std"
+  ]
+ },
+ "https://github.com/orium/cargo-rdme": {
+  "categories": [
+   "development-tools::cargo-plugins"
+  ],
+  "keywords": [
+   "readme",
+   "cargo",
+   "documentation"
+  ]
+ },
+ "https://github.com/orium/rpds": {
+  "categories": [
+   "data-structures"
+  ],
+  "keywords": [
+   "data-structure",
+   "data-structures",
+   "persistent",
+   "immutable",
+   "no_std"
+  ]
+ },
+ "https://github.com/osa1/tiny": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "irc"
+  ]
+ },
+ "https://github.com/ouch-org/ouch": {
+  "categories": [
+   "command-line-utilities",
+   "compression",
+   "encoding"
+  ],
+  "keywords": [
+   "decompression",
+   "compression",
+   "cli"
+  ]
+ },
+ "https://github.com/oxc-project/oxc": {
+  "categories": [
+   "compilers",
+   "development-tools",
+   "web-programming"
+  ],
+  "keywords": [
+   "javascript",
+   "typescript",
+   "linter",
+   "minifier",
+   "parser"
+  ]
+ },
+ "https://github.com/oxibus/can-dbc": {
+  "categories": [
+   "embedded",
+   "no-std",
+   "encoding",
+   "parsing"
+  ],
+  "keywords": [
+   "dbc",
+   "can",
+   "automotive",
+   "ecu"
+  ]
+ },
+ "https://github.com/oxigraph/oxigraph": {
+  "categories": [
+   "database-implementations"
+  ],
+  "keywords": [
+   "rdf",
+   "sparql",
+   "graph-database",
+   "database"
+  ]
+ },
+ "https://github.com/oxipng/oxipng": {
+  "categories": [
+   "command-line-utilities",
+   "compression"
+  ],
+  "keywords": [
+   "png",
+   "image-compression",
+   "optimization",
+   "multi-threading",
+   "lossless"
+  ]
+ },
+ "https://github.com/ozankasikci/rust-music-theory": {
+  "categories": [],
+  "keywords": [
+   "music",
+   "music-theory"
+  ]
+ },
+ "https://github.com/ozkriff/zemeroth": {
+  "categories": [],
+  "keywords": [
+   "gamedev"
+  ]
+ },
+ "https://github.com/pawurb/hotpath-rs": {
+  "categories": [
+   "development-tools"
+  ],
+  "keywords": []
+ },
+ "https://github.com/pdeljanov/Symphonia": {
+  "categories": [
+   "multimedia",
+   "multimedia::audio",
+   "multimedia::encoding",
+   "multimedia::video"
+  ],
+  "keywords": [
+   "audio",
+   "codec",
+   "decoder",
+   "multimedia",
+   "media"
+  ]
+ },
+ "https://github.com/pemistahl/grex": {
+  "categories": [
+   "command-line-utilities",
+   "parsing"
+  ],
+  "keywords": [
+   "pattern",
+   "regex",
+   "regexp"
+  ]
+ },
+ "https://github.com/perpetual-ml/perpetual": {
+  "categories": [
+   "algorithms",
+   "mathematics",
+   "science"
+  ],
+  "keywords": [
+   "machine-learning",
+   "perpetual",
+   "ai",
+   "ml"
+  ]
+ },
+ "https://github.com/pest-parser/pest": {
+  "categories": [
+   "parsing"
+  ],
+  "keywords": [
+   "pest",
+   "parser",
+   "peg",
+   "grammar"
+  ]
+ },
+ "https://github.com/petgraph/petgraph": {
+  "categories": [
+   "data-structures"
+  ],
+  "keywords": [
+   "data-structure",
+   "graph",
+   "unionfind",
+   "graph-algorithms"
+  ]
+ },
+ "https://github.com/phper-framework/phper": {
+  "categories": [],
+  "keywords": [
+   "php",
+   "binding",
+   "extension",
+   "module"
+  ]
+ },
+ "https://github.com/pkalivas/radiate": {
+  "categories": [
+   "science",
+   "simulation",
+   "algorithms"
+  ],
+  "keywords": [
+   "simulation",
+   "genetic",
+   "learning",
+   "artificial",
+   "evolution"
+  ]
+ },
+ "https://github.com/pkolaczk/fclones": {
+  "categories": [
+   "filesystem",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "duplicate",
+   "dupe",
+   "finder",
+   "search",
+   "cleaner"
+  ]
+ },
+ "https://github.com/plabayo/rama": {
+  "categories": [
+   "asynchronous",
+   "network-programming",
+   "web-programming",
+   "web-programming::http-client",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "io",
+   "async",
+   "non-blocking",
+   "service",
+   "rama"
+  ]
+ },
+ "https://github.com/plotly/plotly.rs": {
+  "categories": [],
+  "keywords": [
+   "plot",
+   "chart",
+   "plotly"
+  ]
+ },
+ "https://github.com/plotters-rs/plotters": {
+  "categories": [
+   "visualization",
+   "wasm"
+  ],
+  "keywords": [
+   "webassembly",
+   "visualization",
+   "plotting",
+   "drawing"
+  ]
+ },
+ "https://github.com/poem-web/poem": {
+  "categories": [
+   "network-programming",
+   "asynchronous",
+   "web-programming::http-server",
+   "web-programming::websocket"
+  ],
+  "keywords": [
+   "http",
+   "web",
+   "framework",
+   "async"
+  ]
+ },
+ "https://github.com/pola-rs/polars": {
+  "categories": [],
+  "keywords": [
+   "dataframe",
+   "query-engine",
+   "arrow"
+  ]
+ },
+ "https://github.com/pop-os/sys-mount": {
+  "categories": [
+   "external-ffi-bindings",
+   "filesystem",
+   "os::unix-apis"
+  ],
+  "keywords": [
+   "linux",
+   "sys",
+   "mount",
+   "umount"
+  ]
+ },
+ "https://github.com/pragma-org/amaru": {
+  "categories": [
+   "cryptography::cryptocurrencies"
+  ],
+  "keywords": [
+   "cardano",
+   "blockchain",
+   "node",
+   "ouroboros",
+   "crypto"
+  ]
+ },
+ "https://github.com/printfn/fend": {
+  "categories": [
+   "command-line-utilities",
+   "mathematics",
+   "science"
+  ],
+  "keywords": [
+   "calculator",
+   "cli",
+   "conversion",
+   "math",
+   "tool"
+  ]
+ },
+ "https://github.com/prisma/tiberius": {
+  "categories": [],
+  "keywords": [
+   "tds",
+   "mssql",
+   "sql"
+  ]
+ },
+ "https://github.com/ps1dr3x/easy_reader": {
+  "categories": [],
+  "keywords": [
+   "lines",
+   "reader",
+   "reverse",
+   "backwards",
+   "random"
+  ]
+ },
+ "https://github.com/ptal/oak": {
+  "categories": [
+   "parsing"
+  ],
+  "keywords": [
+   "parser",
+   "peg",
+   "grammar",
+   "typing",
+   "parsing"
+  ]
+ },
+ "https://github.com/pvolok/mprocs": {
+  "categories": [
+   "command-line-interface",
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "cli",
+   "terminal",
+   "tui",
+   "utility"
+  ]
+ },
+ "https://github.com/pydantic/monty": {
+  "categories": [
+   "compilers",
+   "emulators",
+   "development-tools"
+  ],
+  "keywords": [
+   "python",
+   "interpreter",
+   "sandbox",
+   "embedded"
+  ]
+ },
+ "https://github.com/quickwit-oss/tantivy": {
+  "categories": [
+   "database-implementations",
+   "data-structures"
+  ],
+  "keywords": [
+   "search",
+   "information",
+   "retrieval"
+  ]
+ },
+ "https://github.com/quilt/etk": {
+  "categories": [
+   "cryptography::cryptocurrencies"
+  ],
+  "keywords": [
+   "etk",
+   "ethereum",
+   "assembler"
+  ]
+ },
+ "https://github.com/quinn-rs/quinn": {
+  "categories": [
+   "network-programming",
+   "asynchronous"
+  ],
+  "keywords": [
+   "quic"
+  ]
+ },
+ "https://github.com/racum/rust-djangohashers": {
+  "categories": [
+   "algorithms",
+   "authentication",
+   "cryptography"
+  ],
+  "keywords": [
+   "hash",
+   "password",
+   "python",
+   "django",
+   "crypto"
+  ]
+ },
+ "https://github.com/raftario/licensor": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "license",
+   "cli",
+   "spdx",
+   "licensing"
+  ]
+ },
+ "https://github.com/raphaelmansuy/edgequake": {
+  "categories": [
+   "api-bindings",
+   "web-programming::http-client"
+  ],
+  "keywords": [
+   "rag",
+   "knowledge-graph",
+   "llm",
+   "edgequake"
+  ]
+ },
+ "https://github.com/ratatui/ratatui": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "dashboard",
+   "terminal",
+   "tui"
+  ]
+ },
+ "https://github.com/rayon-rs/rayon": {
+  "categories": [
+   "concurrency"
+  ],
+  "keywords": [
+   "parallel",
+   "thread",
+   "concurrency",
+   "join",
+   "performance"
+  ]
+ },
+ "https://github.com/rbatis/fast_log": {
+  "categories": [],
+  "keywords": [
+   "metrics",
+   "async",
+   "tracing"
+  ]
+ },
+ "https://github.com/rbatis/rbatis": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "database",
+   "orm",
+   "mysql",
+   "postgres",
+   "sqlite"
+  ]
+ },
+ "https://github.com/reacherhq/check-if-email-exists": {
+  "categories": [
+   "email"
+  ],
+  "keywords": [
+   "email",
+   "smtp",
+   "mx",
+   "verification"
+  ]
+ },
+ "https://github.com/redbadger/crux": {
+  "categories": [
+   "gui",
+   "wasm",
+   "development-tools::ffi"
+  ],
+  "keywords": [
+   "cross-platform-ui",
+   "crux",
+   "crux_core",
+   "ffi",
+   "wasm"
+  ]
+ },
+ "https://github.com/redis-rs/redis-rs": {
+  "categories": [],
+  "keywords": [
+   "redis",
+   "valkey",
+   "cluster",
+   "sentinel",
+   "pubsub"
+  ]
+ },
+ "https://github.com/redox-os/orbtk": {
+  "categories": [],
+  "keywords": [
+   "orbital",
+   "redox",
+   "ui"
+  ]
+ },
+ "https://github.com/redox-os/termion": {
+  "categories": [],
+  "keywords": [
+   "tty",
+   "color",
+   "terminal",
+   "password",
+   "tui"
+  ]
+ },
+ "https://github.com/release-plz/release-plz": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "release",
+   "please",
+   "semver",
+   "conventional",
+   "commits"
+  ]
+ },
+ "https://github.com/remoc-rs/remoc": {
+  "categories": [
+   "asynchronous",
+   "network-programming"
+  ],
+  "keywords": [
+   "remote",
+   "channel",
+   "rpc",
+   "stream",
+   "multiplexer"
+  ]
+ },
+ "https://github.com/replydev/cotp": {
+  "categories": [
+   "command-line-utilities",
+   "authentication"
+  ],
+  "keywords": [
+   "cotp",
+   "totp",
+   "authenticator",
+   "google-authenticator",
+   "argon2"
+  ]
+ },
+ "https://github.com/rerun-io/ewebsock": {
+  "categories": [
+   "web-programming",
+   "wasm"
+  ],
+  "keywords": [
+   "websocket",
+   "websockets",
+   "portable",
+   "native",
+   "web"
+  ]
+ },
+ "https://github.com/rerun-io/rerun": {
+  "categories": [
+   "visualization",
+   "computer-vision"
+  ],
+  "keywords": [
+   "mesh",
+   "plotting",
+   "point-cloud",
+   "robotics",
+   "visualization"
+  ]
+ },
+ "https://github.com/restsend/rsipstack": {
+  "categories": [
+   "network-programming",
+   "multimedia"
+  ],
+  "keywords": [
+   "sip",
+   "voip",
+   "telephony",
+   "sipstack"
+  ]
+ },
+ "https://github.com/restsend/rustpbx": {
+  "categories": [
+   "network-programming",
+   "multimedia"
+  ],
+  "keywords": [
+   "sip",
+   "voip",
+   "telephony",
+   "pbx",
+   "webrtc"
+  ]
+ },
+ "https://github.com/retep998/winapi-rs": {
+  "categories": [
+   "external-ffi-bindings",
+   "no-std",
+   "os::windows-apis"
+  ],
+  "keywords": [
+   "windows",
+   "ffi",
+   "win32",
+   "com",
+   "directx"
+  ]
+ },
+ "https://github.com/reubeno/brush": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "cli",
+   "shell",
+   "sh",
+   "bash",
+   "script"
+  ]
+ },
+ "https://github.com/rhaiscript/rhai": {
+  "categories": [
+   "no-std",
+   "embedded",
+   "wasm",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "scripting",
+   "scripting-engine",
+   "scripting-language",
+   "embedded"
+  ]
+ },
+ "https://github.com/rhysd/wain": {
+  "categories": [
+   "wasm"
+  ],
+  "keywords": [
+   "wasm",
+   "webassembly",
+   "interpreter",
+   "wat"
+  ]
+ },
+ "https://github.com/richerarc/saphir": {
+  "categories": [],
+  "keywords": [
+   "hyper",
+   "http",
+   "server",
+   "web",
+   "async"
+  ]
+ },
+ "https://github.com/riii111/sabiql": {
+  "categories": [
+   "command-line-utilities",
+   "database"
+  ],
+  "keywords": [
+   "postgresql",
+   "sqlite",
+   "tui",
+   "database",
+   "sql"
+  ]
+ },
+ "https://github.com/rksm/hot-lib-reloader-rs": {
+  "categories": [
+   "development-tools"
+  ],
+  "keywords": [
+   "hot-reloading",
+   "hot-reload",
+   "autoreload",
+   "live-programming"
+  ]
+ },
+ "https://github.com/rkyv/rkyv": {
+  "categories": [
+   "encoding",
+   "no-std",
+   "no-std::no-alloc"
+  ],
+  "keywords": [
+   "archive",
+   "rkyv",
+   "serialization",
+   "zero-copy",
+   "no_std"
+  ]
+ },
+ "https://github.com/rmqtt/rmqtt": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "mqtt",
+   "iot",
+   "messaging",
+   "mqtt-server",
+   "mqtt-broker"
+  ]
+ },
+ "https://github.com/rochacbruno/marmite/": {
+  "categories": [],
+  "keywords": [
+   "web",
+   "blog",
+   "static",
+   "site",
+   "html"
+  ]
+ },
+ "https://github.com/romanz/electrs": {
+  "categories": [],
+  "keywords": [
+   "bitcoin",
+   "electrum",
+   "server",
+   "index",
+   "database"
+  ]
+ },
+ "https://github.com/ron-rs/ron": {
+  "categories": [
+   "encoding"
+  ],
+  "keywords": [
+   "parser",
+   "serde",
+   "serialization"
+  ]
+ },
+ "https://github.com/rsasaki0109/rust_robotics": {
+  "categories": [
+   "algorithms",
+   "science::robotics",
+   "simulation"
+  ],
+  "keywords": [
+   "robotics",
+   "path-planning",
+   "localization",
+   "slam",
+   "control"
+  ]
+ },
+ "https://github.com/rtic-rs/rtic": {
+  "categories": [
+   "concurrency",
+   "embedded",
+   "no-std",
+   "asynchronous"
+  ],
+  "keywords": [
+   "embedded",
+   "async",
+   "runtime",
+   "no-std",
+   "rtos"
+  ]
+ },
+ "https://github.com/rtk-ai/rtk": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "cli",
+   "llm",
+   "token",
+   "filter",
+   "productivity"
+  ]
+ },
+ "https://github.com/rune-rs/rune": {
+  "categories": [
+   "parser-implementations"
+  ],
+  "keywords": [
+   "language",
+   "scripting",
+   "scripting-language"
+  ]
+ },
+ "https://github.com/rusoto/rusoto": {
+  "categories": [],
+  "keywords": [
+   "aws",
+   "amazon"
+  ]
+ },
+ "https://github.com/rusqlite/rusqlite": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "sqlite",
+   "database",
+   "ffi"
+  ]
+ },
+ "https://github.com/rust-bakery/nom": {
+  "categories": [
+   "parsing"
+  ],
+  "keywords": [
+   "parser",
+   "parser-combinators",
+   "parsing",
+   "streaming",
+   "bit"
+  ]
+ },
+ "https://github.com/rust-bitcoin/rust-bitcoin": {
+  "categories": [
+   "cryptography::cryptocurrencies"
+  ],
+  "keywords": [
+   "crypto",
+   "bitcoin"
+  ]
+ },
+ "https://github.com/rust-cli/config-rs": {
+  "categories": [
+   "config"
+  ],
+  "keywords": [
+   "config",
+   "configuration",
+   "settings",
+   "env",
+   "environment"
+  ]
+ },
+ "https://github.com/rust-cli/human-panic": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "cli",
+   "panic"
+  ]
+ },
+ "https://github.com/rust-cli/rexpect": {
+  "categories": [
+   "os::unix-apis"
+  ],
+  "keywords": [
+   "pty",
+   "automation",
+   "testing",
+   "expect",
+   "pexpect"
+  ]
+ },
+ "https://github.com/rust-cv/cv": {
+  "categories": [
+   "computer-vision"
+  ],
+  "keywords": [
+   "computer",
+   "vision",
+   "photogrammetry",
+   "camera"
+  ]
+ },
+ "https://github.com/rust-dd/stochastic-rs": {
+  "categories": [
+   "finance",
+   "mathematics",
+   "science",
+   "simulation",
+   "algorithms"
+  ],
+  "keywords": [
+   "quantitative-finance",
+   "option-pricing",
+   "quantlib",
+   "stochastic-processes",
+   "monte-carlo"
+  ]
+ },
+ "https://github.com/rust-dd/tako": {
+  "categories": [
+   "web-programming::http-server",
+   "web-programming::websocket",
+   "asynchronous",
+   "network-programming"
+  ],
+  "keywords": [
+   "web",
+   "framework",
+   "realtime",
+   "network",
+   "http3"
+  ]
+ },
+ "https://github.com/rust-itertools/itertools": {
+  "categories": [
+   "algorithms",
+   "rust-patterns",
+   "no-std",
+   "no-std::no-alloc"
+  ],
+  "keywords": [
+   "iterator",
+   "data-structure",
+   "zip",
+   "product"
+  ]
+ },
+ "https://github.com/rust-lang/flate2-rs": {
+  "categories": [
+   "compression",
+   "api-bindings"
+  ],
+  "keywords": [
+   "gzip",
+   "deflate",
+   "zlib",
+   "zlib-ng",
+   "encoding"
+  ]
+ },
+ "https://github.com/rust-lang/futures-rs": {
+  "categories": [
+   "asynchronous"
+  ],
+  "keywords": [
+   "futures",
+   "async",
+   "future"
+  ]
+ },
+ "https://github.com/rust-lang/log": {
+  "categories": [
+   "development-tools::debugging"
+  ],
+  "keywords": [
+   "logging"
+  ]
+ },
+ "https://github.com/rust-lang/mdBook": {
+  "categories": [],
+  "keywords": [
+   "book",
+   "gitbook",
+   "rustbook",
+   "markdown"
+  ]
+ },
+ "https://github.com/rust-lang/regex": {
+  "categories": [
+   "text-processing"
+  ],
+  "keywords": []
+ },
+ "https://github.com/rust-lang/rust-bindgen": {
+  "categories": [
+   "external-ffi-bindings",
+   "development-tools::ffi"
+  ],
+  "keywords": [
+   "bindings",
+   "ffi",
+   "code-generation"
+  ]
+ },
+ "https://github.com/rust-lang/rustfmt": {
+  "categories": [
+   "development-tools"
+  ],
+  "keywords": []
+ },
+ "https://github.com/rust-lang/rustlings": {
+  "categories": [],
+  "keywords": [
+   "exercise",
+   "learning"
+  ]
+ },
+ "https://github.com/rust-lang/rustup": {
+  "categories": [],
+  "keywords": [
+   "huskyup",
+   "multihusky",
+   "install",
+   "proxy"
+  ]
+ },
+ "https://github.com/rust-ml/linfa": {
+  "categories": [
+   "algorithms",
+   "mathematics",
+   "science"
+  ],
+  "keywords": [
+   "machine-learning",
+   "linfa",
+   "ai",
+   "ml"
+  ]
+ },
+ "https://github.com/rust-native-tls/rust-native-tls": {
+  "categories": [
+   "network-programming",
+   "cryptography"
+  ],
+  "keywords": [
+   "tls",
+   "https",
+   "secure-transport",
+   "platform",
+   "abstraction"
+  ]
+ },
+ "https://github.com/rust-ndarray/ndarray": {
+  "categories": [
+   "data-structures",
+   "science"
+  ],
+  "keywords": [
+   "array",
+   "data-structure",
+   "multidimensional",
+   "matrix",
+   "blas"
+  ]
+ },
+ "https://github.com/rust-openssl/rust-openssl": {
+  "categories": [
+   "cryptography",
+   "api-bindings"
+  ],
+  "keywords": [
+   "crypto",
+   "tls",
+   "ssl",
+   "dtls"
+  ]
+ },
+ "https://github.com/rust-osdev/uefi-rs": {
+  "categories": [
+   "embedded",
+   "no-std",
+   "api-bindings"
+  ],
+  "keywords": [
+   "uefi",
+   "efi"
+  ]
+ },
+ "https://github.com/rust-postgres/rust-postgres": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "database",
+   "postgres",
+   "postgresql",
+   "sql"
+  ]
+ },
+ "https://github.com/rust-random/rand": {
+  "categories": [
+   "algorithms",
+   "no-std"
+  ],
+  "keywords": [
+   "random",
+   "rng"
+  ]
+ },
+ "https://github.com/rust-rocksdb/rust-rocksdb": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "database",
+   "embedded",
+   "lsm-tree",
+   "persistence"
+  ]
+ },
+ "https://github.com/rust-scraper/scraper": {
+  "categories": [
+   "web-programming",
+   "text-processing"
+  ],
+  "keywords": [
+   "html",
+   "css",
+   "selector",
+   "scraping"
+  ]
+ },
+ "https://github.com/rustache/rustache": {
+  "categories": [],
+  "keywords": [
+   "template"
+  ]
+ },
+ "https://github.com/rustfs/rustfs": {
+  "categories": [
+   "web-programming",
+   "development-tools",
+   "filesystem",
+   "network-programming"
+  ],
+  "keywords": [
+   "object-storage",
+   "rustfs",
+   "oss",
+   "filesystem",
+   "s3"
+  ]
+ },
+ "https://github.com/rustic-rs/rustic": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "backup",
+   "restic",
+   "deduplication",
+   "encryption",
+   "cli"
+  ]
+ },
+ "https://github.com/rustless/rustless": {
+  "categories": [],
+  "keywords": [
+   "api",
+   "web",
+   "hyper",
+   "iron",
+   "rest"
+  ]
+ },
+ "https://github.com/rustls/rustls": {
+  "categories": [
+   "network-programming",
+   "cryptography"
+  ],
+  "keywords": []
+ },
+ "https://github.com/rustzx/rustzx": {
+  "categories": [],
+  "keywords": [
+   "emulator",
+   "game",
+   "z80"
+  ]
+ },
+ "https://github.com/rwf2/Rocket": {
+  "categories": [
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "rocket",
+   "web",
+   "framework",
+   "server"
+  ]
+ },
+ "https://github.com/salvo-rs/salvo": {
+  "categories": [
+   "web-programming::http-server",
+   "web-programming::websocket",
+   "network-programming",
+   "asynchronous"
+  ],
+  "keywords": [
+   "http",
+   "async",
+   "web",
+   "framework",
+   "server"
+  ]
+ },
+ "https://github.com/samyama-ai/samyama-graph": {
+  "categories": [
+   "algorithms",
+   "science"
+  ],
+  "keywords": [
+   "graph",
+   "algorithms",
+   "pagerank",
+   "bfs",
+   "wcc"
+  ]
+ },
+ "https://github.com/santhreal/keyhog": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "filesystem"
+  ],
+  "keywords": [
+   "secret-scanner",
+   "security",
+   "credentials",
+   "gpu",
+   "devsecops"
+  ]
+ },
+ "https://github.com/saphyr-rs/saphyr": {
+  "categories": [
+   "encoding",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "yaml",
+   "parser"
+  ]
+ },
+ "https://github.com/sarah-quinones/faer-rs": {
+  "categories": [],
+  "keywords": [
+   "math",
+   "linear-algebra"
+  ]
+ },
+ "https://github.com/saru-tora/anansi": {
+  "categories": [
+   "web-programming",
+   "asynchronous"
+  ],
+  "keywords": [
+   "http",
+   "web",
+   "framework",
+   "async"
+  ]
+ },
+ "https://github.com/saschagrunert/git-journal/": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "parser",
+   "git",
+   "log",
+   "changelog",
+   "journal"
+  ]
+ },
+ "https://github.com/saurvs/astro-rust": {
+  "categories": [],
+  "keywords": [
+   "astronomy",
+   "algorithms",
+   "ephemeris",
+   "planet",
+   "solar"
+  ]
+ },
+ "https://github.com/saurvs/hypervisor-rs": {
+  "categories": [],
+  "keywords": [
+   "hypervisor",
+   "virtualization",
+   "osx",
+   "x86",
+   "vt-x"
+  ]
+ },
+ "https://github.com/saurvs/nfd-rs": {
+  "categories": [],
+  "keywords": [
+   "file",
+   "dialog",
+   "ui"
+  ]
+ },
+ "https://github.com/sayanarijit/xplr": {
+  "categories": [
+   "command-line-interface",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "terminal",
+   "file",
+   "explorer",
+   "manager",
+   "tui"
+  ]
+ },
+ "https://github.com/sciter-sdk/rust-sciter": {
+  "categories": [
+   "gui",
+   "web-programming",
+   "rendering::graphics-api",
+   "api-bindings"
+  ],
+  "keywords": [
+   "gui",
+   "gtk",
+   "cocoa",
+   "opengl",
+   "skia"
+  ]
+ },
+ "https://github.com/screenpipe/screenpipe": {
+  "categories": [
+   "multimedia"
+  ],
+  "keywords": [
+   "screenpipe",
+   "screen-recording",
+   "sdk",
+   "placeholder"
+  ]
+ },
+ "https://github.com/seanmonstar/pretty-env-logger": {
+  "categories": [
+   "development-tools::debugging"
+  ],
+  "keywords": [
+   "log",
+   "logger",
+   "logging"
+  ]
+ },
+ "https://github.com/seanmonstar/reqwest": {
+  "categories": [
+   "web-programming::http-client",
+   "wasm"
+  ],
+  "keywords": [
+   "http",
+   "request",
+   "client"
+  ]
+ },
+ "https://github.com/seanmonstar/warp": {
+  "categories": [
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "warp",
+   "server",
+   "http",
+   "hyper"
+  ]
+ },
+ "https://github.com/sebadob/hiqlite": {
+  "categories": [
+   "database",
+   "caching"
+  ],
+  "keywords": [
+   "database",
+   "sql",
+   "sqlite",
+   "raft",
+   "cache"
+  ]
+ },
+ "https://github.com/sebadob/rauthy": {
+  "categories": [
+   "web-programming"
+  ],
+  "keywords": [
+   "rauthy",
+   "rauthy-client",
+   "oidc"
+  ]
+ },
+ "https://github.com/seed-rs/seed": {
+  "categories": [
+   "wasm",
+   "web-programming"
+  ],
+  "keywords": [
+   "wasm",
+   "webassembly",
+   "frontend",
+   "framework",
+   "web"
+  ]
+ },
+ "https://github.com/seladb/pickledb-rs": {
+  "categories": [
+   "database-implementations",
+   "data-structures"
+  ],
+  "keywords": [
+   "database",
+   "key-value-store",
+   "db",
+   "kv",
+   "pickledb"
+  ]
+ },
+ "https://github.com/serayuzgur/weld": {
+  "categories": [],
+  "keywords": [
+   "json",
+   "mock",
+   "server",
+   "fake",
+   "api"
+  ]
+ },
+ "https://github.com/serde-rs/json": {
+  "categories": [
+   "encoding",
+   "parser-implementations",
+   "no-std"
+  ],
+  "keywords": [
+   "json",
+   "serde",
+   "serialization"
+  ]
+ },
+ "https://github.com/serenity-rs/serenity": {
+  "categories": [],
+  "keywords": [
+   "discord",
+   "api"
+  ]
+ },
+ "https://github.com/sergree/whatbpm": {
+  "categories": [
+   "multimedia",
+   "multimedia::audio",
+   "science",
+   "text-processing",
+   "visualization"
+  ],
+  "keywords": [
+   "bpm",
+   "key",
+   "beatport",
+   "music",
+   "analytics"
+  ]
+ },
+ "https://github.com/serialport/serialport-rs": {
+  "categories": [
+   "hardware-support"
+  ],
+  "keywords": [
+   "serial",
+   "hardware",
+   "system",
+   "rs232"
+  ]
+ },
+ "https://github.com/serverlesstechnology/cqrs": {
+  "categories": [],
+  "keywords": [
+   "cqrs",
+   "event-sourcing",
+   "serverless"
+  ]
+ },
+ "https://github.com/servo/core-foundation-rs": {
+  "categories": [
+   "os::macos-apis"
+  ],
+  "keywords": [
+   "macos",
+   "framework",
+   "objc"
+  ]
+ },
+ "https://github.com/servo/html5ever": {
+  "categories": [
+   "parser-implementations",
+   "web-programming"
+  ],
+  "keywords": [
+   "html",
+   "html5",
+   "parser",
+   "parsing"
+  ]
+ },
+ "https://github.com/sfackler/r2d2": {
+  "categories": [],
+  "keywords": [
+   "database",
+   "pool"
+  ]
+ },
+ "https://github.com/sgrust01/jwtvault": {
+  "categories": [
+   "authentication",
+   "web-programming"
+  ],
+  "keywords": [
+   "jwt",
+   "jsonwebtoken",
+   "session",
+   "management",
+   "security"
+  ]
+ },
+ "https://github.com/sharkdp/bat": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": []
+ },
+ "https://github.com/sharkdp/fd": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "search",
+   "find",
+   "file",
+   "filesystem",
+   "tool"
+  ]
+ },
+ "https://github.com/sharkdp/hexyl": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "hex",
+   "viewer"
+  ]
+ },
+ "https://github.com/sharkdp/hyperfine": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": []
+ },
+ "https://github.com/shepmaster/sxd-document": {
+  "categories": [],
+  "keywords": [
+   "xml"
+  ]
+ },
+ "https://github.com/shepmaster/sxd-xpath": {
+  "categories": [],
+  "keywords": [
+   "xml",
+   "xpath"
+  ]
+ },
+ "https://github.com/shergin/malevich": {
+  "categories": [
+   "visualization",
+   "command-line-interface"
+  ],
+  "keywords": [
+   "plot",
+   "chart",
+   "terminal",
+   "ascii",
+   "visualization"
+  ]
+ },
+ "https://github.com/shnewto/bnf": {
+  "categories": [
+   "parser-implementations",
+   "parsing",
+   "development-tools"
+  ],
+  "keywords": [
+   "bnf",
+   "earley",
+   "parser"
+  ]
+ },
+ "https://github.com/shouya/rss-funnel": {
+  "categories": [
+   "command-line-interface",
+   "web-programming"
+  ],
+  "keywords": [
+   "rss",
+   "feed",
+   "cli"
+  ]
+ },
+ "https://github.com/sigoden/aichat": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "chatgpt",
+   "llm",
+   "cli",
+   "ai",
+   "repl"
+  ]
+ },
+ "https://github.com/sinelaw/fresh": {
+  "categories": [
+   "command-line-utilities",
+   "text-editors"
+  ],
+  "keywords": [
+   "editor",
+   "terminal",
+   "tui",
+   "text-editor",
+   "lsp"
+  ]
+ },
+ "https://github.com/sipemu/anofox-regression": {
+  "categories": [
+   "science",
+   "algorithms"
+  ],
+  "keywords": [
+   "statistics",
+   "regression",
+   "linear-regression",
+   "inference"
+  ]
+ },
+ "https://github.com/sitkevij/hex": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "hexdump",
+   "hexadecimal",
+   "tools",
+   "ascii",
+   "hex"
+  ]
+ },
+ "https://github.com/skim-rs/skim": {
+  "categories": [],
+  "keywords": [
+   "fuzzy",
+   "menu",
+   "util"
+  ]
+ },
+ "https://github.com/slimreaper35/dockerfile-parser-rs": {
+  "categories": [
+   "filesystem",
+   "parsing",
+   "virtualization"
+  ],
+  "keywords": [
+   "containers",
+   "docker",
+   "dockerfile",
+   "library",
+   "parser"
+  ]
+ },
+ "https://github.com/slint-ui/slint": {
+  "categories": [
+   "gui",
+   "rendering::engine",
+   "no-std"
+  ],
+  "keywords": [
+   "gui",
+   "toolkit",
+   "graphics",
+   "design",
+   "ui"
+  ]
+ },
+ "https://github.com/slog-rs/slog": {
+  "categories": [
+   "development-tools::debugging"
+  ],
+  "keywords": [
+   "log",
+   "logging",
+   "structured",
+   "hierarchical"
+  ]
+ },
+ "https://github.com/slowtec/tokio-modbus": {
+  "categories": [],
+  "keywords": [
+   "fieldbus",
+   "modbus",
+   "hardware",
+   "automation"
+  ]
+ },
+ "https://github.com/smallnest/rpcx-rs": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "rpc",
+   "network",
+   "microservice"
+  ]
+ },
+ "https://github.com/smartcorelib/smartcore": {
+  "categories": [
+   "science"
+  ],
+  "keywords": [
+   "machine-learning",
+   "statistical",
+   "ai",
+   "optimization",
+   "linear-algebra"
+  ]
+ },
+ "https://github.com/smoltcp-rs/smoltcp": {
+  "categories": [
+   "embedded",
+   "network-programming"
+  ],
+  "keywords": [
+   "ip",
+   "tcp",
+   "udp",
+   "ethernet",
+   "network"
+  ]
+ },
+ "https://github.com/snapview/tungstenite-rs": {
+  "categories": [
+   "web-programming::websocket",
+   "network-programming"
+  ],
+  "keywords": [
+   "websocket",
+   "io",
+   "web"
+  ]
+ },
+ "https://github.com/snuk182/nuklear-rust": {
+  "categories": [],
+  "keywords": [
+   "ui",
+   "widgets",
+   "gui",
+   "interface",
+   "graphics"
+  ]
+ },
+ "https://github.com/softdevteam/grmtools/": {
+  "categories": [
+   "parsing"
+  ],
+  "keywords": [
+   "yacc",
+   "grammar"
+  ]
+ },
+ "https://github.com/softprops/dynomite": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "dynamodb",
+   "rusoto",
+   "rusoto_dynamodb"
+  ]
+ },
+ "https://github.com/softprops/envy": {
+  "categories": [
+   "config"
+  ],
+  "keywords": [
+   "serde",
+   "env"
+  ]
+ },
+ "https://github.com/softprops/openapi": {
+  "categories": [],
+  "keywords": [
+   "openapi",
+   "swagger"
+  ]
+ },
+ "https://github.com/sorairolake/abcrypt": {
+  "categories": [
+   "cryptography",
+   "no-std"
+  ],
+  "keywords": [
+   "abcrypt",
+   "crypto"
+  ]
+ },
+ "https://github.com/sorairolake/nt-time": {
+  "categories": [
+   "date-and-time",
+   "no-std"
+  ],
+  "keywords": [
+   "date",
+   "time",
+   "windows"
+  ]
+ },
+ "https://github.com/sorairolake/qrtool": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "qrcode"
+  ]
+ },
+ "https://github.com/sorairolake/scryptenc-rs": {
+  "categories": [
+   "cryptography",
+   "no-std"
+  ],
+  "keywords": [
+   "crypto",
+   "scrypt"
+  ]
+ },
+ "https://github.com/sorairolake/sysexits-rs": {
+  "categories": [
+   "command-line-interface",
+   "no-std",
+   "os"
+  ],
+  "keywords": [
+   "exitcode",
+   "sysexits"
+  ]
+ },
+ "https://github.com/sourcefrog/cargo-mutants": {
+  "categories": [
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "testing",
+   "mutants",
+   "cargo",
+   "mutation-testing",
+   "coverage"
+  ]
+ },
+ "https://github.com/sozu-proxy/sozu": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": []
+ },
+ "https://github.com/srijs/rust-copperline": {
+  "categories": [],
+  "keywords": [
+   "readline",
+   "linenoise",
+   "command",
+   "line",
+   "editing"
+  ]
+ },
+ "https://github.com/ssh-vault/ssh-vault": {
+  "categories": [
+   "command-line-utilities",
+   "cryptography"
+  ],
+  "keywords": [
+   "ssh",
+   "encryption",
+   "fingerprint"
+  ]
+ },
+ "https://github.com/sstadick/crabz": {
+  "categories": [
+   "compression",
+   "concurrency"
+  ],
+  "keywords": [
+   "compression",
+   "parallel",
+   "pigz"
+  ]
+ },
+ "https://github.com/sstadick/gzp/": {
+  "categories": [
+   "compression",
+   "concurrency"
+  ],
+  "keywords": [
+   "compression",
+   "parallel",
+   "pigz"
+  ]
+ },
+ "https://github.com/sstadick/hck": {
+  "categories": [
+   "text-processing",
+   "command-line-interface"
+  ],
+  "keywords": [
+   "text",
+   "cli"
+  ]
+ },
+ "https://github.com/staktrace/mailparse": {
+  "categories": [
+   "email",
+   "parsing"
+  ],
+  "keywords": [
+   "parser",
+   "email",
+   "rfc822",
+   "mime",
+   "maildir"
+  ]
+ },
+ "https://github.com/stalwartlabs/mail-auth": {
+  "categories": [
+   "email",
+   "authentication"
+  ],
+  "keywords": [
+   "dkim",
+   "dmarc",
+   "spf",
+   "arc",
+   "mail"
+  ]
+ },
+ "https://github.com/stalwartlabs/mail-parser": {
+  "categories": [
+   "email",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "email",
+   "mail",
+   "parser",
+   "parse",
+   "mime"
+  ]
+ },
+ "https://github.com/stalwartlabs/mail-send": {
+  "categories": [
+   "email"
+  ],
+  "keywords": [
+   "smtp",
+   "dkim",
+   "email",
+   "mime",
+   "mail"
+  ]
+ },
+ "https://github.com/static-web-server/static-web-server": {
+  "categories": [
+   "network-programming",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "static-web-server",
+   "file-server",
+   "http-server"
+  ]
+ },
+ "https://github.com/statrs-dev/statrs": {
+  "categories": [
+   "science"
+  ],
+  "keywords": [
+   "probability",
+   "statistics",
+   "stats",
+   "distribution",
+   "math"
+  ]
+ },
+ "https://github.com/stav121/tasklet": {
+  "categories": [],
+  "keywords": [
+   "cron",
+   "scheduling",
+   "tasks",
+   "tasklet",
+   "async"
+  ]
+ },
+ "https://github.com/str4d/rage": {
+  "categories": [
+   "command-line-utilities",
+   "cryptography"
+  ],
+  "keywords": [
+   "age",
+   "cli",
+   "encryption"
+  ]
+ },
+ "https://github.com/subinium/SuperLightTUI": {
+  "categories": [
+   "command-line-interface"
+  ],
+  "keywords": [
+   "tui",
+   "terminal",
+   "cli",
+   "ui",
+   "immediate-mode"
+  ]
+ },
+ "https://github.com/summer-rs/summer-rs": {
+  "categories": [
+   "config"
+  ],
+  "keywords": [
+   "framework",
+   "summer",
+   "spring"
+  ]
+ },
+ "https://github.com/sunng87/handlebars-rust": {
+  "categories": [
+   "template-engine",
+   "web-programming"
+  ],
+  "keywords": [
+   "handlebars",
+   "templating",
+   "web"
+  ]
+ },
+ "https://github.com/supercilex/fuc": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools",
+   "filesystem"
+  ],
+  "keywords": [
+   "tools",
+   "files",
+   "rm"
+  ]
+ },
+ "https://github.com/suptejas/fleet": {
+  "categories": [
+   "build",
+   "rust-build-tools"
+  ],
+  "keywords": [
+   "rust",
+   "build",
+   "tool"
+  ]
+ },
+ "https://github.com/surrealdb/surrealdb": {
+  "categories": [
+   "database-implementations",
+   "data-structures",
+   "embedded"
+  ],
+  "keywords": [
+   "database",
+   "embedded-database",
+   "key-value",
+   "key-value-store",
+   "kv-store"
+  ]
+ },
+ "https://github.com/svenstaro/miniserve": {
+  "categories": [
+   "command-line-utilities",
+   "network-programming",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "serve",
+   "http-server",
+   "static-files",
+   "http",
+   "server"
+  ]
+ },
+ "https://github.com/svix/svix-webhooks": {
+  "categories": [
+   "development-tools",
+   "asynchronous",
+   "network-programming",
+   "web-programming"
+  ],
+  "keywords": [
+   "svix",
+   "webhooks",
+   "diahook"
+  ]
+ },
+ "https://github.com/swatteau/sokoban-rs": {
+  "categories": [],
+  "keywords": [
+   "game",
+   "sokoban"
+  ]
+ },
+ "https://github.com/synphonyte/leptos-use": {
+  "categories": [
+   "gui",
+   "wasm",
+   "web-programming"
+  ],
+  "keywords": [
+   "leptos",
+   "utilities"
+  ]
+ },
+ "https://github.com/t3hmrman/async-dropper": {
+  "categories": [
+   "asynchronous"
+  ],
+  "keywords": []
+ },
+ "https://github.com/tackler-ng/tackler": {
+  "categories": [
+   "finance",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "accounting",
+   "finance"
+  ]
+ },
+ "https://github.com/tafia/quick-xml": {
+  "categories": [
+   "asynchronous",
+   "encoding",
+   "parsing",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "xml",
+   "serde",
+   "parser",
+   "writer",
+   "html"
+  ]
+ },
+ "https://github.com/tamasfe/taplo": {
+  "categories": [
+   "parser-implementations",
+   "parsing"
+  ],
+  "keywords": [
+   "toml",
+   "parser",
+   "formatter",
+   "linter"
+  ]
+ },
+ "https://github.com/tareqmy/gitwig": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "git",
+   "cli",
+   "terminal",
+   "tui",
+   "rust"
+  ]
+ },
+ "https://github.com/tarkah/tickrs": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "tui",
+   "terminal",
+   "stocks"
+  ]
+ },
+ "https://github.com/tassiovirginio/try-rs": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "cli",
+   "experiments",
+   "ratatui",
+   "tui",
+   "workspace"
+  ]
+ },
+ "https://github.com/tauri-apps/tauri": {
+  "categories": [
+   "gui",
+   "web-programming"
+  ],
+  "keywords": []
+ },
+ "https://github.com/tauri-apps/wry": {
+  "categories": [
+   "gui"
+  ],
+  "keywords": []
+ },
+ "https://github.com/tbillington/kondo": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "clean",
+   "cleanup",
+   "delete",
+   "free"
+  ]
+ },
+ "https://github.com/teloxide/teloxide/": {
+  "categories": [
+   "web-programming",
+   "api-bindings",
+   "asynchronous"
+  ],
+  "keywords": [
+   "teloxide",
+   "telegram",
+   "telegram-bot",
+   "telegram-bot-api",
+   "bot"
+  ]
+ },
+ "https://github.com/tempoxyz/tempo": {
+  "categories": [
+   "cryptography::cryptocurrencies"
+  ],
+  "keywords": [
+   "blockchain",
+   "ethereum",
+   "evm",
+   "payments",
+   "tempo"
+  ]
+ },
+ "https://github.com/tensorflow/rust": {
+  "categories": [],
+  "keywords": [
+   "tensorflow",
+   "bindings"
+  ]
+ },
+ "https://github.com/teovoinea/steganography": {
+  "categories": [
+   "encoding"
+  ],
+  "keywords": [
+   "image",
+   "steganography"
+  ]
+ },
+ "https://github.com/thaw-ui/thaw": {
+  "categories": [],
+  "keywords": [
+   "web",
+   "leptos",
+   "ui",
+   "thaw",
+   "component"
+  ]
+ },
+ "https://github.com/thecoshman/http": {
+  "categories": [
+   "network-programming",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "http",
+   "server",
+   "https",
+   "webdav",
+   "directory"
+  ]
+ },
+ "https://github.com/thehydroimpulse/nanomsg.rs": {
+  "categories": [
+   "network-programming"
+  ],
+  "keywords": [
+   "nanomsg",
+   "binding",
+   "network",
+   "pub",
+   "sub"
+  ]
+ },
+ "https://github.com/thewh1teagle/rookie": {
+  "categories": [],
+  "keywords": [
+   "windows",
+   "cookies",
+   "rust",
+   "web"
+  ]
+ },
+ "https://github.com/thomas-mauran/chess-tui": {
+  "categories": [],
+  "keywords": [
+   "chess",
+   "tui",
+   "terminal",
+   "lichess",
+   "uci"
+  ]
+ },
+ "https://github.com/thomasschafer/scooter": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "find",
+   "search",
+   "replace"
+  ]
+ },
+ "https://github.com/tickbh/td_rlua": {
+  "categories": [],
+  "keywords": [
+   "lua",
+   "wrapper"
+  ]
+ },
+ "https://github.com/tikv/grpc-rs": {
+  "categories": [
+   "external-ffi-bindings",
+   "network-programming"
+  ],
+  "keywords": [
+   "grpc",
+   "bindings"
+  ]
+ },
+ "https://github.com/time-rs/time": {
+  "categories": [
+   "date-and-time",
+   "no-std",
+   "parser-implementations",
+   "value-formatting"
+  ],
+  "keywords": [
+   "date",
+   "time",
+   "calendar",
+   "duration"
+  ]
+ },
+ "https://github.com/tiny-http/tiny-http": {
+  "categories": [],
+  "keywords": [
+   "http",
+   "server",
+   "web"
+  ]
+ },
+ "https://github.com/tnballo/scapegoat": {
+  "categories": [
+   "algorithms",
+   "data-structures",
+   "no-std",
+   "embedded"
+  ],
+  "keywords": [
+   "stack",
+   "set",
+   "map",
+   "no_std",
+   "fallible"
+  ]
+ },
+ "https://github.com/tock/tock": {
+  "categories": [
+   "database-implementations",
+   "no-std"
+  ],
+  "keywords": [
+   "flash",
+   "key-value-store"
+  ]
+ },
+ "https://github.com/tokio-rs/axum": {
+  "categories": [
+   "asynchronous",
+   "network-programming",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "http",
+   "web",
+   "routing"
+  ]
+ },
+ "https://github.com/tokio-rs/mio": {
+  "categories": [
+   "asynchronous"
+  ],
+  "keywords": [
+   "io",
+   "async",
+   "non-blocking"
+  ]
+ },
+ "https://github.com/tokio-rs/prost": {
+  "categories": [
+   "encoding"
+  ],
+  "keywords": [
+   "protobuf",
+   "serialization"
+  ]
+ },
+ "https://github.com/tokio-rs/toasty": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "orm",
+   "database",
+   "sql",
+   "nosql",
+   "async"
+  ]
+ },
+ "https://github.com/tokio-rs/tokio": {
+  "categories": [
+   "asynchronous",
+   "network-programming"
+  ],
+  "keywords": [
+   "io",
+   "async",
+   "non-blocking",
+   "futures"
+  ]
+ },
+ "https://github.com/tokio-rs/topcoat": {
+  "categories": [
+   "web-programming",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "web",
+   "framework",
+   "ssr",
+   "html",
+   "server"
+  ]
+ },
+ "https://github.com/tokio-rs/tracing": {
+  "categories": [
+   "development-tools::debugging",
+   "development-tools::profiling",
+   "asynchronous",
+   "no-std"
+  ],
+  "keywords": [
+   "logging",
+   "tracing",
+   "metrics",
+   "async"
+  ]
+ },
+ "https://github.com/tomaka/hlua": {
+  "categories": [],
+  "keywords": [
+   "lua"
+  ]
+ },
+ "https://github.com/tomaka/rouille": {
+  "categories": [
+   "web-programming::http-server",
+   "web-programming::websocket"
+  ],
+  "keywords": [
+   "web",
+   "framework",
+   "http",
+   "rest"
+  ]
+ },
+ "https://github.com/toml-rs/toml": {
+  "categories": [
+   "encoding",
+   "parser-implementations",
+   "parsing",
+   "config"
+  ],
+  "keywords": [
+   "encoding",
+   "toml",
+   "no_std"
+  ]
+ },
+ "https://github.com/tonarino/innernet": {
+  "categories": [
+   "command-line-utilities",
+   "network-programming"
+  ],
+  "keywords": [
+   "innernet",
+   "networking",
+   "overlay",
+   "vpn",
+   "wireguard"
+  ]
+ },
+ "https://github.com/topheman/snake-pipe-rust": {
+  "categories": [],
+  "keywords": [
+   "cli",
+   "game",
+   "snake",
+   "unix",
+   "pipe"
+  ]
+ },
+ "https://github.com/topheman/webassembly-component-model-experiments": {
+  "categories": [
+   "command-line-interface",
+   "wasm"
+  ],
+  "keywords": [
+   "webassembly",
+   "component-model",
+   "wasmtime",
+   "wit-bindgen",
+   "plugin-system"
+  ]
+ },
+ "https://github.com/tqwewe/kameo": {
+  "categories": [
+   "asynchronous",
+   "concurrency",
+   "rust-patterns"
+  ],
+  "keywords": [
+   "actor",
+   "tokio"
+  ]
+ },
+ "https://github.com/tracel-ai/burn": {
+  "categories": [
+   "science",
+   "no-std",
+   "embedded",
+   "wasm"
+  ],
+  "keywords": [
+   "deep-learning",
+   "machine-learning",
+   "tensor",
+   "pytorch",
+   "autodiff"
+  ]
+ },
+ "https://github.com/tramhao/termusic": {
+  "categories": [
+   "command-line-interface",
+   "command-line-utilities",
+   "multimedia::audio"
+  ],
+  "keywords": [
+   "terminal",
+   "tui",
+   "music",
+   "youtube",
+   "podcast"
+  ]
+ },
+ "https://github.com/tree-sitter/tree-sitter": {
+  "categories": [
+   "api-bindings",
+   "external-ffi-bindings",
+   "parsing",
+   "text-editors"
+  ],
+  "keywords": [
+   "incremental",
+   "parsing"
+  ]
+ },
+ "https://github.com/trifectatechfoundation/bzip2-rs": {
+  "categories": [
+   "compression",
+   "api-bindings"
+  ],
+  "keywords": [
+   "bzip",
+   "encoding"
+  ]
+ },
+ "https://github.com/tsirysndr/tunein-cli": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "radio",
+   "api",
+   "tokio",
+   "web",
+   "tunein"
+  ]
+ },
+ "https://github.com/ttytm/wthrr-the-weathercrab": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "weather",
+   "meteorological",
+   "terminal"
+  ]
+ },
+ "https://github.com/tu6ge/valitron": {
+  "categories": [],
+  "keywords": [
+   "validator",
+   "serde",
+   "ergonomics"
+  ]
+ },
+ "https://github.com/twistedfall/opencv-rust": {
+  "categories": [
+   "api-bindings",
+   "computer-vision",
+   "external-ffi-bindings",
+   "multimedia"
+  ],
+  "keywords": [
+   "opencv",
+   "vision",
+   "cv"
+  ]
+ },
+ "https://github.com/typst/typst": {
+  "categories": [
+   "compilers",
+   "science"
+  ],
+  "keywords": [
+   "markup",
+   "typesetting",
+   "typst"
+  ]
+ },
+ "https://github.com/unhappychoice/gittype": {
+  "categories": [
+   "command-line-utilities",
+   "games"
+  ],
+  "keywords": [
+   "typing",
+   "practice",
+   "cli",
+   "git",
+   "code"
+  ]
+ },
+ "https://github.com/unhappychoice/splashboard": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "tui",
+   "splash",
+   "dashboard",
+   "terminal",
+   "ratatui"
+  ]
+ },
+ "https://github.com/uutils/coreutils": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "coreutils",
+   "uutils",
+   "cross-platform",
+   "cli",
+   "utility"
+  ]
+ },
+ "https://github.com/vcschapp/bufjson": {
+  "categories": [
+   "parser-implementations",
+   "encoding",
+   "network-programming",
+   "no-std",
+   "web-programming"
+  ],
+  "keywords": [
+   "json",
+   "parser",
+   "streaming",
+   "performance",
+   "no-std"
+  ]
+ },
+ "https://github.com/vectordotdev/vector": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "cli",
+   "developer-tools",
+   "vector",
+   "vdev"
+  ]
+ },
+ "https://github.com/verus-lang/verus": {
+  "categories": [
+   "development-tools",
+   "development-tools::testing"
+  ],
+  "keywords": [
+   "verus",
+   "verified-rust"
+  ]
+ },
+ "https://github.com/vetis-server/vetis": {
+  "categories": [],
+  "keywords": [
+   "http",
+   "networking",
+   "server",
+   "rest-server"
+  ]
+ },
+ "https://github.com/vhbit/lmdb-rs": {
+  "categories": [],
+  "keywords": [
+   "lmdb",
+   "db",
+   "key-value",
+   "kvs",
+   "kv"
+  ]
+ },
+ "https://github.com/vi/websocat": {
+  "categories": [],
+  "keywords": [
+   "websocket",
+   "socat",
+   "rfc6455",
+   "netcat",
+   "cli"
+  ]
+ },
+ "https://github.com/vincent-herlemont/native_db": {
+  "categories": [
+   "database-implementations",
+   "concurrency",
+   "data-structures",
+   "caching",
+   "algorithms"
+  ],
+  "keywords": [
+   "embedded-database",
+   "database",
+   "multi-platform",
+   "android",
+   "ios"
+  ]
+ },
+ "https://github.com/visioncortex/vtracer": {
+  "categories": [
+   "graphics",
+   "computer-vision"
+  ],
+  "keywords": [
+   "svg",
+   "vectorization",
+   "computer-graphics"
+  ]
+ },
+ "https://github.com/vitiral/path_abs": {
+  "categories": [],
+  "keywords": [
+   "filesystem",
+   "path",
+   "file",
+   "types",
+   "serde"
+  ]
+ },
+ "https://github.com/vitiral/stfu8": {
+  "categories": [],
+  "keywords": [
+   "text",
+   "binary",
+   "repr",
+   "invalid",
+   "unicode"
+  ]
+ },
+ "https://github.com/vlopes11/geomorph": {
+  "categories": [],
+  "keywords": [
+   "geo",
+   "geospatial",
+   "coordinates",
+   "transforms",
+   "transformations"
+  ]
+ },
+ "https://github.com/vorot93/libmdbx-rs": {
+  "categories": [
+   "database",
+   "external-ffi-bindings"
+  ],
+  "keywords": [
+   "mdbx",
+   "database",
+   "storage-engine",
+   "bindings",
+   "library"
+  ]
+ },
+ "https://github.com/vrmiguel/bustd": {
+  "categories": [
+   "command-line-utilities",
+   "memory-management"
+  ],
+  "keywords": []
+ },
+ "https://github.com/vulkano-rs/vulkano": {
+  "categories": [
+   "rendering::graphics-api"
+  ],
+  "keywords": [
+   "vulkan",
+   "bindings",
+   "graphics",
+   "gpu",
+   "rendering"
+  ]
+ },
+ "https://github.com/vyfor/rattles": {
+  "categories": [
+   "command-line-interface",
+   "no-std",
+   "no-std::no-alloc"
+  ],
+  "keywords": [
+   "terminal",
+   "tui",
+   "spinner",
+   "animation",
+   "ratatui"
+  ]
+ },
+ "https://github.com/wahn/rs_pbrt": {
+  "categories": [
+   "rendering::engine",
+   "multimedia::images",
+   "graphics",
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "graphics",
+   "pathtracer",
+   "pathtracing",
+   "pbrt"
+  ]
+ },
+ "https://github.com/wasm-bindgen/wasm-bindgen": {
+  "categories": [
+   "wasm"
+  ],
+  "keywords": []
+ },
+ "https://github.com/wasm-bindgen/wasm-pack": {
+  "categories": [
+   "wasm"
+  ],
+  "keywords": []
+ },
+ "https://github.com/wasmerio/wasmer": {
+  "categories": [
+   "wasm"
+  ],
+  "keywords": [
+   "wasm",
+   "webassembly",
+   "runtime",
+   "vm"
+  ]
+ },
+ "https://github.com/wasmi-labs/wasmi": {
+  "categories": [
+   "wasm",
+   "no-std",
+   "virtualization"
+  ],
+  "keywords": [
+   "wasm",
+   "webassembly",
+   "interpreter",
+   "vm"
+  ]
+ },
+ "https://github.com/watchexec/watchexec": {
+  "categories": [],
+  "keywords": [
+   "watcher",
+   "filesystem",
+   "watchexec"
+  ]
+ },
+ "https://github.com/webdesus/fs_extra": {
+  "categories": [],
+  "keywords": [
+   "filesystem",
+   "recursion",
+   "copy",
+   "dir",
+   "file"
+  ]
+ },
+ "https://github.com/websockets-rs/rust-websocket": {
+  "categories": [
+   "asynchronous",
+   "network-programming",
+   "web-programming",
+   "web-programming::websocket"
+  ],
+  "keywords": [
+   "websocket",
+   "websockets",
+   "rfc6455",
+   "async",
+   "tokio"
+  ]
+ },
+ "https://github.com/wezterm/wezterm": {
+  "categories": [],
+  "keywords": [
+   "socketpair",
+   "pipe",
+   "poll",
+   "filedescriptor"
+  ]
+ },
+ "https://github.com/wfxr/rlt": {
+  "categories": [
+   "visualization",
+   "command-line-utilities",
+   "development-tools::profiling"
+  ],
+  "keywords": [
+   "performance",
+   "load-testing",
+   "benchmark",
+   "cli"
+  ]
+ },
+ "https://github.com/whispem/minikv": {
+  "categories": [
+   "database-implementations",
+   "network-programming"
+  ],
+  "keywords": [
+   "distributed",
+   "kv-store",
+   "raft",
+   "consensus",
+   "storage"
+  ]
+ },
+ "https://github.com/whitfin/bytelines": {
+  "categories": [
+   "parsing",
+   "text-processing"
+  ],
+  "keywords": [
+   "lines",
+   "bytes"
+  ]
+ },
+ "https://github.com/whitfin/runiq": {
+  "categories": [
+   "algorithms",
+   "command-line-utilities",
+   "text-processing"
+  ],
+  "keywords": [
+   "filtering",
+   "logging",
+   "unique"
+  ]
+ },
+ "https://github.com/willi-kappler/darwin-rs": {
+  "categories": [
+   "algorithms",
+   "science"
+  ],
+  "keywords": [
+   "evolutionary",
+   "algorithm",
+   "ea",
+   "evolution",
+   "genetic"
+  ]
+ },
+ "https://github.com/wingfoil-io/wingfoil": {
+  "categories": [
+   "asynchronous",
+   "concurrency",
+   "finance",
+   "network-programming",
+   "simulation"
+  ],
+  "keywords": [
+   "graph",
+   "stream",
+   "dag",
+   "hft",
+   "trading"
+  ]
+ },
+ "https://github.com/woboq/qmetaobject-rs": {
+  "categories": [
+   "api-bindings",
+   "gui"
+  ],
+  "keywords": [
+   "qt",
+   "qml",
+   "qmetaobject"
+  ]
+ },
+ "https://github.com/xberg-io/crawlberg": {
+  "categories": [
+   "web-programming",
+   "network-programming"
+  ],
+  "keywords": [
+   "crawl",
+   "scrape",
+   "web",
+   "spider",
+   "rust"
+  ]
+ },
+ "https://github.com/xberg-io/html-to-markdown": {
+  "categories": [
+   "parsing",
+   "text-processing",
+   "web-programming"
+  ],
+  "keywords": [
+   "html",
+   "markdown",
+   "converter",
+   "astral-tl",
+   "doc-processing"
+  ]
+ },
+ "https://github.com/xberg-io/liter-llm": {
+  "categories": [
+   "api-bindings",
+   "web-programming::http-client"
+  ],
+  "keywords": [
+   "llm",
+   "openai",
+   "api-client",
+   "ai",
+   "xberg"
+  ]
+ },
+ "https://github.com/xberg-io/xberg": {
+  "categories": [
+   "parser-implementations",
+   "text-processing"
+  ],
+  "keywords": [
+   "document",
+   "extraction",
+   "pdf",
+   "ocr",
+   "parser"
+  ]
+ },
+ "https://github.com/yaa110/nomino": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": []
+ },
+ "https://github.com/yaa110/rake-rs": {
+  "categories": [
+   "algorithms",
+   "text-processing"
+  ],
+  "keywords": [
+   "rake",
+   "algorithm",
+   "keyword"
+  ]
+ },
+ "https://github.com/yaa110/rust-iptables": {
+  "categories": [
+   "api-bindings"
+  ],
+  "keywords": [
+   "iptables",
+   "netfilter",
+   "bindings"
+  ]
+ },
+ "https://github.com/yamafaktory/hypergraph": {
+  "categories": [
+   "data-structures",
+   "mathematics",
+   "science"
+  ],
+  "keywords": [
+   "data-structure",
+   "graph",
+   "hypergraph"
+  ]
+ },
+ "https://github.com/yashs662/rust_kanban": {
+  "categories": [
+   "command-line-utilities",
+   "text-editors"
+  ],
+  "keywords": [
+   "tui",
+   "kanban",
+   "cli",
+   "terminal"
+  ]
+ },
+ "https://github.com/yfedoseev/pdf_oxide": {
+  "categories": [
+   "parsing",
+   "text-processing"
+  ],
+  "keywords": [
+   "pdf",
+   "text-extraction",
+   "pdf-parser",
+   "pdf-to-markdown",
+   "document-parser"
+  ]
+ },
+ "https://github.com/yoav-lavi/melody": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "melody",
+   "melodylang",
+   "language",
+   "cli"
+  ]
+ },
+ "https://github.com/youki-dev/youki": {
+  "categories": [],
+  "keywords": [
+   "youki",
+   "container"
+  ]
+ },
+ "https://github.com/your-tools/ruplacer": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "ruplacer",
+   "find",
+   "grep",
+   "command",
+   "line"
+  ]
+ },
+ "https://github.com/yvgude/lean-ctx": {
+  "categories": [
+   "command-line-utilities",
+   "development-tools"
+  ],
+  "keywords": [
+   "mcp",
+   "llm",
+   "tokens",
+   "compression",
+   "ai"
+  ]
+ },
+ "https://github.com/zannis/shove": {
+  "categories": [
+   "asynchronous"
+  ],
+  "keywords": [
+   "messaging",
+   "rabbitmq",
+   "pubsub",
+   "consumer-groups",
+   "autoscaling"
+  ]
+ },
+ "https://github.com/zboxfs/zbox": {
+  "categories": [
+   "filesystem",
+   "cryptography"
+  ],
+  "keywords": [
+   "filesystem",
+   "crypto",
+   "security",
+   "privacy",
+   "storage"
+  ]
+ },
+ "https://github.com/zed-industries/zed": {
+  "categories": [],
+  "keywords": [
+   "zed",
+   "extension"
+  ]
+ },
+ "https://github.com/zhiburt/expectrl": {
+  "categories": [
+   "development-tools::testing",
+   "os::unix-apis",
+   "os::windows-apis"
+  ],
+  "keywords": [
+   "expect",
+   "pty",
+   "testing",
+   "terminal",
+   "automation"
+  ]
+ },
+ "https://github.com/zhiburt/tabled": {
+  "categories": [
+   "text-processing",
+   "visualization"
+  ],
+  "keywords": [
+   "table",
+   "print",
+   "pretty-table",
+   "format",
+   "terminal"
+  ]
+ },
+ "https://github.com/zhitongblog/solomd": {
+  "categories": [
+   "command-line-utilities",
+   "text-processing"
+  ],
+  "keywords": [
+   "mcp",
+   "markdown",
+   "agent",
+   "note-taking",
+   "knowledge-base"
+  ]
+ },
+ "https://github.com/zino-rs/zino": {
+  "categories": [
+   "asynchronous",
+   "network-programming",
+   "web-programming::http-server"
+  ],
+  "keywords": [
+   "http",
+   "web",
+   "framework"
+  ]
+ },
+ "https://github.com/zip-rs/zip2": {
+  "categories": [
+   "compression",
+   "filesystem",
+   "parser-implementations"
+  ],
+  "keywords": [
+   "zip",
+   "archive",
+   "compression"
+  ]
+ },
+ "https://github.com/zipxing/rust_pixel": {
+  "categories": [
+   "game-engines",
+   "gui",
+   "graphics"
+  ],
+  "keywords": []
+ },
+ "https://github.com/zitsen/unqlite.rs": {
+  "categories": [],
+  "keywords": [
+   "unqlite",
+   "kv",
+   "nosql"
+  ]
+ },
+ "https://github.com/zizmorcore/zizmor": {
+  "categories": [
+   "command-line-utilities",
+   "security"
+  ],
+  "keywords": [
+   "cli",
+   "github-actions",
+   "static-analysis",
+   "security"
+  ]
+ },
+ "https://github.com/zkat/cacache-rs": {
+  "categories": [
+   "caching",
+   "filesystem"
+  ],
+  "keywords": []
+ },
+ "https://github.com/zopfli-rs/zopfli": {
+  "categories": [
+   "compression",
+   "no-std"
+  ],
+  "keywords": [
+   "compression"
+  ]
+ },
+ "https://github.com/zslayton/stomp-rs": {
+  "categories": [],
+  "keywords": [
+   "stomp",
+   "mq",
+   "activemq",
+   "rabbitmq",
+   "queue"
+  ]
+ },
+ "https://github.com/zurawiki/tiktoken-rs": {
+  "categories": [],
+  "keywords": [
+   "openai",
+   "ai",
+   "gpt",
+   "bpe"
+  ]
+ },
+ "https://gitlab.com/Douman/yukikaze": {
+  "categories": [
+   "web-programming::http-client"
+  ],
+  "keywords": [
+   "http",
+   "http-client"
+  ]
+ },
+ "https://gitlab.com/Friz64/erupt": {
+  "categories": [
+   "api-bindings",
+   "game-development",
+   "graphics",
+   "rendering::graphics-api"
+  ],
+  "keywords": [
+   "gamedev",
+   "graphics",
+   "vulkan",
+   "bindings"
+  ]
+ },
+ "https://gitlab.com/SnejUgal/tbot": {
+  "categories": [
+   "api-bindings",
+   "asynchronous"
+  ],
+  "keywords": [
+   "telegram",
+   "telegram-bot",
+   "telegram-bot-api"
+  ]
+ },
+ "https://gitlab.com/imp/pager-rs": {
+  "categories": [
+   "command-line-interface",
+   "text-processing"
+  ],
+  "keywords": [
+   "pager",
+   "less",
+   "more"
+  ]
+ },
+ "https://gitlab.com/neachdainn/nng-rs": {
+  "categories": [
+   "api-bindings",
+   "network-programming"
+  ],
+  "keywords": [
+   "nng",
+   "nanomsg",
+   "zeromq",
+   "zmq"
+  ]
+ },
+ "https://gitlab.com/qonfucius/aragog": {
+  "categories": [
+   "web-programming",
+   "database"
+  ],
+  "keywords": [
+   "arangodb",
+   "arango",
+   "orm",
+   "odm",
+   "ogm"
+  ]
+ },
+ "https://pijul.org/thrussh": {
+  "categories": [],
+  "keywords": [
+   "ssh"
+  ]
+ },
+ "https://starship.rs/": {
+  "categories": [
+   "command-line-utilities"
+  ],
+  "keywords": [
+   "prompt",
+   "shell",
+   "bash",
+   "fish",
+   "zsh"
+  ]
+ },
+ "https://venndb.plabayo.tech/": {
+  "categories": [
+   "database"
+  ],
+  "keywords": [
+   "database",
+   "db",
+   "memory",
+   "bits"
+  ]
+ }
+}

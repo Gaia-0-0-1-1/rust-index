@@ -12,7 +12,8 @@ straight out of the tarball and filtered to our nodes; nothing is unpacked.
 
     python tools/crates_deps.py <path/to/db-dump.tar.gz>
 
-Writes index/crate-identity.json, index/downloads.json, index/dep-edges.jsonl.
+Writes index/crate-identity.json, index/downloads.json, index/dep-edges.jsonl
+and index/crate-vocabulary.json.
 """
 
 import csv
@@ -28,6 +29,7 @@ NODES = ROOT / "index" / "nodes.jsonl"
 IDENTITY = ROOT / "index" / "crate-identity.json"
 DOWNLOADS = ROOT / "index" / "downloads.json"
 DEP_EDGES = ROOT / "index" / "dep-edges.jsonl"
+KEYWORDS = ROOT / "index" / "crate-vocabulary.json"
 
 csv.field_size_limit(1 << 30)
 
@@ -83,6 +85,21 @@ def members(tf_path, wanted):
                 f = tf.extractfile(m)
                 if f is not None:
                     yield base, text_lines(f)
+
+
+def pg_array(raw):
+    """Postgres array literal -> list. '{db,database,memory-map}' -> [...]."""
+    s = (raw or "").strip()
+    if not s or s == "{}":
+        return []
+    if s.startswith("{") and s.endswith("}"):
+        s = s[1:-1]
+    out = []
+    for part in s.split(","):
+        part = part.strip().strip('"').strip()
+        if part:
+            out.append(part.lower())
+    return out
 
 
 def repo_aliases(repo_name):
@@ -164,7 +181,13 @@ def main(argv):
                 created = row.get("created_at") or ""
                 cur = latest.get(cid)
                 if cur is None or created > cur[0]:
-                    latest[cid] = (created, row["id"])
+                    # Keywords are author-assigned synonyms and categories are
+                    # crates.io's own taxonomy -- a second opinion on what this
+                    # crate is, in vocabulary the README never uses.
+                    latest[cid] = (
+                        created, row["id"],
+                        pg_array(row.get("keywords")),
+                        pg_array(row.get("categories")))
             print("  latest versions for %d crates" % len(latest))
 
     # ---- resolve each node to a crate
@@ -248,6 +271,17 @@ def main(argv):
         if first != node_id:
             collisions.setdefault(v["crate"], [first]).append(node_id)
 
+    vocab = {}
+    for node_id, v in identity.items():
+        entry = latest.get(v["crate_id"])
+        if not entry:
+            continue
+        keywords, categories = entry[2], entry[3]
+        if keywords or categories:
+            vocab[node_id] = {"keywords": keywords, "categories": categories}
+    KEYWORDS.write_text(
+        json.dumps(vocab, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+
     IDENTITY.write_text(
         json.dumps(identity, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     downloads = {k: v["downloads"] for k, v in identity.items()}
@@ -279,7 +313,10 @@ def main(argv):
             print("  %s" % crate)
             for i in ids:
                 print("      %s" % i)
-    print("wrote %s, %s, %s" % (IDENTITY.name, DOWNLOADS.name, DEP_EDGES.name))
+    print("vocabulary: %d crates carry keywords or crates.io categories"
+        % len(vocab))
+    print("wrote %s, %s, %s, %s" % (IDENTITY.name, DOWNLOADS.name,
+                                    DEP_EDGES.name, KEYWORDS.name))
     return 0
 
 

@@ -38,6 +38,21 @@
             "q": "terminal ui",
             "top": "crossterm",
             "note": "Regression guard: clap's 1.1B downloads used to win this on fame alone."
+        },
+        {
+            "q": "REST API",
+            "top": "hyper",
+            "note": "README never says REST. Passes only via crates.io keywords; was NO ANCHOR before them."
+        },
+        {
+            "q": "orm",
+            "top": "diesel",
+            "note": "Reached through the crates.io keyword 'orm', not the category name."
+        },
+        {
+            "q": "parallelism",
+            "top": "rayon",
+            "note": "Was right by accident via AI/Genetic algorithms; keywords make it right via Concurrency."
         }
     ],
     "no_anchor": [

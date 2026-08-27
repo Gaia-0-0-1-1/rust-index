@@ -42,9 +42,13 @@ it carries more signal than the prose — matching names alone lets "async" drag
 async-std, async-dropper and async-graphql on nothing but string overlap. Beyond
 the category names, each category also carries the vocabulary its members are
 *described* with, aggregated over its whole subtree; that is what lets
-"serialization" reach Encoding, whose name never says the word. Adoption then
-orders the results, but only *within* the categories that matched: counted
-globally, clap's billion downloads win "terminal ui" on fame alone.
+"serialization" reach Encoding, whose name never says the word. It carries their
+**crates.io keywords and categories** too — author-assigned synonyms and a second
+taxonomy — which is what lets "REST API" reach HTTP Server, "orm" reach
+Database / ORM, and "parallelism" reach Concurrency. None of those words appear
+in `README.md`. Adoption then orders the results, but only *within* the
+categories that matched: counted globally, clap's billion downloads win
+"terminal ui" on fame alone.
 
 ## Regenerate it
 
@@ -73,7 +77,7 @@ Tracked: everything an agent needs on a fresh clone, with no network access and
 no build — the README-derived artifacts (`entries.jsonl`, `nodes.jsonl`,
 `edges.jsonl`, `categories.json`) and the crates.io-derived ones
 (`crate-identity.json`, `downloads.json`, `dep-edges.jsonl`, `dag.json`,
-`crates-provenance.json`). About 2MB in total.
+`crate-vocabulary.json`, `crates-provenance.json`). About 2MB in total.
 
 Ignored: `entries.enriched.jsonl` and `coverage.json`, which reflect local cache
 state and differ per run.
@@ -106,8 +110,8 @@ any diff, the same shape as the existing `lint-markdown-toc` job.
 > and commit the resulting `index/` diff.
 
 **Answers — catches the query surface regressing.** `tools/selftest.json` records
-what "the index works" means: nine queries with their expected top crate, one that
-must find no category at all, and each recipe's resolved/uncovered counts.
+what "the index works" means: twelve queries with their expected top crate, one
+that must find no category at all, and each recipe's resolved/uncovered counts.
 
 ```bash
 python tools/rustgraph.py selftest
