@@ -787,9 +787,18 @@ def cmd_ask(query):
 
     if top_cats:
         print("\nMATCHED CATEGORIES")
+        shown_paths = set()
         for c in top_cats:
             size = len(subtree.get(c["id"], []))
             print("  %-54s %d listed" % (" / ".join(c["path"]), size))
+            shown_paths.add(" / ".join(c["path"]))
+        # The leading answer is often filed under a category that never appears
+        # in this list, which makes the documented next step -- copy a matched
+        # category into `cat` to see alternatives -- browse the wrong list.
+        lead_path = " / ".join(hits[0][1]["category_paths"][0])
+        if lead_path not in shown_paths:
+            aside = "  (top result is filed under %s, which did not match)"
+            print(aside % lead_path)
     else:
         # No category matched, so nothing anchors the ranking and the results
         # below are lexical guesses. Say so: the list has its own vocabulary
@@ -942,6 +951,11 @@ def cmd_node(name):
     dependencies and runtime that `ask` prints for the same project. And printing
     several objects in a loop emitted concatenated top-level JSON, which does not
     parse -- in the one command an agent would actually pipe to a parser."""
+    if not (name or "").strip():
+        # Was matching the empty string and dumping 69 results at exit 0, while
+        # stack, features and example all print usage and exit 1.
+        print("usage: node <name|crate>")
+        return 1
     nodes, _cats = load()
     q = name.strip().lower()
 
@@ -1548,6 +1562,13 @@ def main(argv):
     if cmd == "node":
         return cmd_node(" ".join(rest))
     if cmd == "dag":
+        # A typo of --with-dev used to be ignored, handing back the wrong graph
+        # with no warning.
+        unknown = [a for a in rest if a not in ("--write", "--with-dev")]
+        if unknown:
+            print("unknown option(s): %s" % " ".join(unknown))
+            print("usage: dag [--write] [--with-dev]")
+            return 1
         return cmd_dag("--write" in rest, "--with-dev" in rest)
     if cmd == "recipe":
         return cmd_recipe(" ".join(rest))
