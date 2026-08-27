@@ -40,6 +40,7 @@ example <crate>      the crate's own starting example (44% of crates have one)
 dag                  dependency strata and most load-bearing crates
 stats                index shape
 selftest             verify the index still answers correctly
+eval                 measure retrieval on held-out queries (never fails)
 ```
 
 Recipes: `cli`, `web-service`, `tui`, `parser`, `data`, `http-client`, `wasm`.
@@ -75,9 +76,16 @@ including dev-dependencies, which `dag` excludes by default).
 - **Heed `DORMANT`.** A result marked so has not published in three years or
     more; downloads are cumulative, so a dead crate keeps its popularity. Check
     it is still maintained before depending on it.
-- **`CONFIDENCE high` is weakly calibrated.** Measured externally, roughly a
-    quarter of `high` verdicts were wrong and about half of `LOW` ones were
-    right. Read `high` as "matched most of your query", not "this is correct".
+- **Read the top three, not just the first.** Measured on 50 held-out queries:
+    the first result is right **59%** of the time, and the right answer is in the
+    top three **80%** of the time and returned at all **86%** of the time. The
+    results are mutual alternatives from one category, so scanning three costs
+    nothing. Run `python tools/rustgraph.py eval` to reproduce this.
+- **`CONFIDENCE high` is weakly calibrated.** Roughly a quarter of `high`
+    verdicts were wrong and about half of `LOW` ones were right. Read `high` as
+    "matched most of your query", not "this is correct". On off-distribution
+    wording almost everything comes back `LOW`, which is the tool telling you
+    the truth rather than failing.
 
 ## Known limits
 
@@ -87,6 +95,12 @@ including dev-dependencies, which `dag` excludes by default).
     rustls" gives HTTP clients; query `rustls` separately.
 - Download counts are a snapshot. See `index/crates-provenance.json` for which
     crates.io dump they came from.
+- **The list, not the ranking, is the binding limit.** Of 20 blindly-written
+    queries, 6 named something `awesome-rust` does not carry at all -- password
+    hashing, `uuid`, `base64`, spreadsheets, big integers, state machines. Expect
+    roughly **30% of ordinary questions to hit a crate that is simply absent**.
+    When results look unrelated, that is the likely cause; check crates.io
+    directly rather than accepting the closest thing the list happens to hold.
 - Some ecosystem staples are missing from the underlying list entirely, including
     `serde`, `anyhow`, `thiserror`, `uuid` and `embedded-hal`. `recipe` flags the
     ones it names as NOT IN THIS LIST; for the rest, `node <crate>` returning

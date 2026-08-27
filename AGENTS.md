@@ -265,6 +265,43 @@ depends on serde — which fuses the graph into one component and makes every
 transitive-dependent count saturate at the same value. Pass `--with-dev` to see
 that for yourself.
 
+## Measured accuracy
+
+`selftest` is a gate, not a score. It asserts the exact answers the ranking was
+tuned to give, so it can only ever report the tuning set -- it says the tool has
+not regressed, never that it is good. `python tools/rustgraph.py eval` reports
+the other thing, against 50 held-out queries in `tools/eval/held-out.json` that
+were never tuned against:
+
+| | reachable | first | top three | returned |
+|---|---|---|---|---|
+| reworded (familiar topics, sentence wording) | 30/30 | 60% | 83% | 90% |
+| sealed (unfamiliar topics, written blind) | 14/20 | 57% | 71% | 79% |
+| both | 44/50 | **59%** | **80%** | **86%** |
+
+Two things follow, and they are the difference between using this well and
+being misled by it.
+
+**Read the top three, not the first.** First-place is right 59% of the time and
+the answer is in the top three 80% of the time. That gap is the single most
+useful fact about this tool. The results are mutual alternatives from one
+category, so scanning three costs nothing and buys 21 points.
+
+**The list is the binding limit, not the ranking.** 6 of the 20 blind queries
+name something `awesome-rust` does not carry at all -- password hashing, `uuid`,
+`base64`, spreadsheets, big integers, state machines. No amount of scoring work
+reaches those, and 30% is the rate at which ordinary questions hit one. Of what
+is actually present, the tool returns it 86% of the time. Retrieval headroom is
+the 14 points; corpus headroom is much larger and is upstream's to fix.
+
+The two sets differ on purpose. `reworded` restates the selftest queries as
+sentences, so it isolates wording robustness on topics the index handles.
+`sealed` was written before the last ranking change and not run until after, so
+it carries unfamiliar topics too. It scores lower, and it is the honest number.
+
+Do not tune against either file. The moment you do, they stop measuring
+anything and you are back to reporting the tuning set.
+
 ## Tried and rejected
 
 Four plausible improvements were built, measured, and removed. They are recorded

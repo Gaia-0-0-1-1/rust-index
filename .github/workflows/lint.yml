@@ -75,3 +75,10 @@ jobs:
       # turn a failing gate green. This is also the only Python CI executes.
       - name: Check the query surface still answers correctly
         run: python tools/rustgraph.py selftest
+      # Deliberately not a gate. selftest asserts the answers the ranking was
+      # tuned to give; this reports how it does on 50 held-out queries it was
+      # not. Gating on those would turn them into a second tuning set and cost
+      # us the only honest measurement we have, so the number is printed for a
+      # human to read and never fails the build.
+      - name: Report held-out retrieval accuracy (informational)
+        run: python tools/rustgraph.py eval

@@ -1,0 +1,473 @@
+{
+    "note": "Held-out queries, kept apart from tools/selftest.json. selftest is a regression gate and its wording is what the ranking was tuned on; these are for measuring, and tuning on them destroys their value. 'reworded' restates the selftest queries as sentences, so it measures wording robustness on familiar topics. 'sealed' was written before the last change and never run until after, so it measures unfamiliar topics too -- it is the honest number.",
+    "reworded": [
+        {
+            "q": "make https requests asynchronously",
+            "ok": [
+                "reqwest",
+                "hyper"
+            ]
+        },
+        {
+            "q": "asynchronous web requests over tls",
+            "ok": [
+                "reqwest",
+                "hyper"
+            ]
+        },
+        {
+            "q": "parse flags from the command line",
+            "ok": [
+                "clap",
+                "structopt",
+                "argh",
+                "docopt"
+            ]
+        },
+        {
+            "q": "handle command line options",
+            "ok": [
+                "clap",
+                "structopt",
+                "argh",
+                "docopt"
+            ]
+        },
+        {
+            "q": "build an http backend",
+            "ok": [
+                "axum",
+                "actix-web",
+                "rocket",
+                "warp",
+                "hyper",
+                "tide"
+            ]
+        },
+        {
+            "q": "server side web application framework",
+            "ok": [
+                "axum",
+                "actix-web",
+                "rocket",
+                "warp",
+                "hyper",
+                "tide"
+            ]
+        },
+        {
+            "q": "convert structs to json and back",
+            "ok": [
+                "serde_json",
+                "serde"
+            ]
+        },
+        {
+            "q": "write json output",
+            "ok": [
+                "serde_json",
+                "serde",
+                "json"
+            ]
+        },
+        {
+            "q": "emit log messages",
+            "ok": [
+                "log",
+                "env_logger",
+                "tracing",
+                "fern",
+                "slog"
+            ]
+        },
+        {
+            "q": "application logging facade",
+            "ok": [
+                "log",
+                "env_logger",
+                "tracing",
+                "fern",
+                "slog"
+            ]
+        },
+        {
+            "q": "work with timestamps",
+            "ok": [
+                "chrono",
+                "time"
+            ]
+        },
+        {
+            "q": "gzip a file",
+            "ok": [
+                "flate2",
+                "zstd",
+                "snap",
+                "lz4",
+                "libflate"
+            ]
+        },
+        {
+            "q": "compress bytes",
+            "ok": [
+                "flate2",
+                "zstd",
+                "snap",
+                "lz4",
+                "libflate",
+                "brotli"
+            ]
+        },
+        {
+            "q": "draw an interface in the terminal",
+            "ok": [
+                "crossterm",
+                "ratatui",
+                "tui",
+                "cursive",
+                "termion"
+            ]
+        },
+        {
+            "q": "expose http endpoints",
+            "ok": [
+                "hyper",
+                "axum",
+                "actix-web",
+                "rocket",
+                "warp",
+                "tide"
+            ]
+        },
+        {
+            "q": "map database rows to structs",
+            "ok": [
+                "diesel",
+                "sea-orm",
+                "sqlx",
+                "rustorm"
+            ]
+        },
+        {
+            "q": "typed sql query builder",
+            "ok": [
+                "diesel",
+                "sea-orm",
+                "sqlx",
+                "rustorm"
+            ]
+        },
+        {
+            "q": "run work across cpu cores",
+            "ok": [
+                "rayon",
+                "crossbeam",
+                "rust-threadpool"
+            ]
+        },
+        {
+            "q": "data parallel iterators",
+            "ok": [
+                "rayon"
+            ]
+        },
+        {
+            "q": "extract data from a web page",
+            "ok": [
+                "scraper",
+                "select",
+                "html5ever",
+                "kuchiki"
+            ]
+        },
+        {
+            "q": "parse html with css selectors",
+            "ok": [
+                "scraper",
+                "select",
+                "html5ever",
+                "kuchiki"
+            ]
+        },
+        {
+            "q": "make a 2d game",
+            "ok": [
+                "ggez",
+                "bevy",
+                "piston",
+                "macroquad",
+                "tetra",
+                "amethyst"
+            ]
+        },
+        {
+            "q": "match text with a pattern",
+            "ok": [
+                "regex",
+                "onig",
+                "pcre2",
+                "fancy-regex"
+            ]
+        },
+        {
+            "q": "regex matching",
+            "ok": [
+                "regex",
+                "onig",
+                "pcre2",
+                "fancy-regex"
+            ]
+        },
+        {
+            "q": "handle websocket connections",
+            "ok": [
+                "tungstenite",
+                "ws-rs",
+                "websocket",
+                "tokio-tungstenite"
+            ]
+        },
+        {
+            "q": "desktop window with widgets",
+            "ok": [
+                "iced",
+                "druid",
+                "egui",
+                "gtk-rs",
+                "tauri",
+                "fltk-rs",
+                "slint",
+                "conrod",
+                "relm"
+            ]
+        },
+        {
+            "q": "native gui toolkit",
+            "ok": [
+                "iced",
+                "druid",
+                "egui",
+                "gtk-rs",
+                "tauri",
+                "fltk-rs",
+                "slint",
+                "conrod",
+                "relm"
+            ]
+        },
+        {
+            "q": "generate random numbers",
+            "ok": [
+                "rand"
+            ]
+        },
+        {
+            "q": "load settings from a config file",
+            "ok": [
+                "config",
+                "config-rs",
+                "toml",
+                "figment"
+            ]
+        },
+        {
+            "q": "connect to a postgresql database",
+            "ok": [
+                "postgres",
+                "tokio-postgres",
+                "sqlx",
+                "diesel",
+                "r2d2"
+            ]
+        }
+    ],
+    "sealed": [
+        {
+            "q": "i need to send email from my program",
+            "ok": [
+                "lettre",
+                "mail",
+                "email"
+            ]
+        },
+        {
+            "q": "hash a password securely",
+            "ok": [
+                "argon2",
+                "rust-argon2",
+                "bcrypt",
+                "rust-bcrypt",
+                "scrypt",
+                "libreauth"
+            ]
+        },
+        {
+            "q": "generate a uuid",
+            "ok": [
+                "uuid"
+            ]
+        },
+        {
+            "q": "parse a toml file",
+            "ok": [
+                "toml",
+                "toml-rs",
+                "serde"
+            ]
+        },
+        {
+            "q": "write a unit test with fake data",
+            "ok": [
+                "fake",
+                "fake-rs",
+                "quickcheck",
+                "proptest",
+                "mockall"
+            ]
+        },
+        {
+            "q": "measure how fast my function is",
+            "ok": [
+                "criterion",
+                "criterion-rs",
+                "bencher"
+            ]
+        },
+        {
+            "q": "show a progress bar while downloading",
+            "ok": [
+                "indicatif",
+                "pbr",
+                "linya"
+            ]
+        },
+        {
+            "q": "decode a base64 string",
+            "ok": [
+                "base64",
+                "rust-base64",
+                "data-encoding"
+            ]
+        },
+        {
+            "q": "read an excel spreadsheet",
+            "ok": [
+                "calamine",
+                "xlsxwriter",
+                "simple_excel_writer",
+                "office"
+            ]
+        },
+        {
+            "q": "render a template into html",
+            "ok": [
+                "tera",
+                "handlebars",
+                "askama",
+                "liquid",
+                "maud",
+                "horrorshow",
+                "tinytemplate"
+            ]
+        },
+        {
+            "q": "cache values in memory with expiry",
+            "ok": [
+                "lru",
+                "cached",
+                "moka",
+                "lru-cache",
+                "ttl_cache"
+            ]
+        },
+        {
+            "q": "talk to redis",
+            "ok": [
+                "redis",
+                "redis-rs",
+                "fred"
+            ]
+        },
+        {
+            "q": "schedule a job to run later",
+            "ok": [
+                "cron",
+                "job_scheduler",
+                "clokwerk",
+                "delay_timer",
+                "tokio-cron-scheduler"
+            ]
+        },
+        {
+            "q": "resize an image",
+            "ok": [
+                "image",
+                "imageproc",
+                "raster",
+                "resize"
+            ]
+        },
+        {
+            "q": "speak to an api over grpc",
+            "ok": [
+                "tonic",
+                "grpc",
+                "grpc-rs",
+                "tower"
+            ]
+        },
+        {
+            "q": "watch a directory for changes",
+            "ok": [
+                "notify",
+                "hotwatch",
+                "inotify",
+                "watchexec"
+            ]
+        },
+        {
+            "q": "encrypt a file",
+            "ok": [
+                "ring",
+                "rust-crypto",
+                "sodiumoxide",
+                "openssl",
+                "orion",
+                "age",
+                "rage",
+                "aes"
+            ]
+        },
+        {
+            "q": "pretty print a table to stdout",
+            "ok": [
+                "prettytable",
+                "prettytable-rs",
+                "tabled",
+                "comfy-table",
+                "term-table",
+                "cli-table"
+            ]
+        },
+        {
+            "q": "do math with big integers",
+            "ok": [
+                "num-bigint",
+                "num",
+                "rug",
+                "ramp",
+                "ibig"
+            ]
+        },
+        {
+            "q": "build a state machine",
+            "ok": [
+                "machine",
+                "sm",
+                "rust-fsm",
+                "state_machine_future",
+                "statig"
+            ]
+        }
+    ]
+}

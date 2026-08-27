@@ -83,6 +83,11 @@ POP_WEIGHT = 0.55
 # discounting adoption by staleness was swept and traded misses rather than
 # fixing them, so the fact is reported and not ranked on.
 STALE_YEARS = 3
+# How hard to weight a query token by how rare it is. Swept; see idf().
+IDF_ALPHA = 1.0
+# How sharply the best-matching category outranks the others for fame.
+# 1.0 is proportional; higher concentrates on the top match. Swept.
+ANCHOR_GAMMA = 4.0
 
 STOP = {
     "a", "an", "and", "for", "the", "with", "to", "in", "of", "on", "is", "it",
@@ -432,7 +437,25 @@ def category_terms(nodes, cats):
     return profiles
 
 
-def score_category(cat, qt, profile=None):
+def idf(t, cdf, alpha=None):
+    """How much one query token is worth, against how many projects use it.
+
+    A flat per-token weight makes "gzip a file" a question about files: `gzip`
+    is written by 2 projects and `file` by 47, and they scored the same, so the
+    File manager category outweighed compression. Function words are the same
+    bug at its worst -- `from` appears in 73 projects and was never in the stop
+    list. Weighting by rarity fixes both without anyone having to guess which
+    words to list."""
+    if alpha is None:
+        alpha = IDF_ALPHA
+    if alpha == 0:
+        return 1.0
+    n = max(len(cdf), 2)
+    w = math.log(n / (1 + cdf.get(t, 0))) / math.log(n)
+    return max(w, 0.05) ** alpha
+
+
+def score_category(cat, qt, profile=None, cdf=None):
     """A query naming a category ('http client') should surface that category,
     not every project whose description happens to contain 'http'."""
     path = " / ".join(cat["path"]).lower()
@@ -448,18 +471,19 @@ def score_category(cat, qt, profile=None):
         elif ph in path:
             s += 3 * n
     for t in qt:
+        w = idf(t, cdf) if cdf else 1.0
         if t == leaf:
-            s += 9
+            s += 9 * w
         elif t in expand(leaf.split()) or stem(t) in expand(leaf.split()):
-            s += 5
+            s += 5 * w
         elif t in path:
-            s += 2
+            s += 2 * w
         # Short tokens are too risky for term_match but are exactly how the
         # acronym categories get named: "terminal ui" has to reach TUI, and
         # "ui" only ever appears there as the tail of the acronym itself.
         if 2 <= len(t) <= 4 and len(leaf) <= 6 and t != leaf:
             if leaf.startswith(t) or leaf.endswith(t):
-                s += 6
+                s += 6 * w
     # Fall back to how the members are described. Weighted below any name match,
     # so a category that says the word still beats one that merely implies it.
     if profile:
@@ -468,7 +492,7 @@ def score_category(cat, qt, profile=None):
             for term, weight in profile.items():
                 if term_match(t, term):
                     best = max(best, weight)
-            s += min(best, 8.0) * 0.9
+            s += min(best, 8.0) * 0.9 * (idf(t, cdf) if cdf else 1.0)
     return s
 
 
@@ -655,9 +679,13 @@ def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None,
             # Outside one, damp it to a whisper, or clap's billion downloads
             # win "terminal ui" purely on fame.
             scale = POP_WEIGHT if kind == "dl" else POP_WEIGHT * 2.2
-            inside = (not anchored) or (best_path in anchored)
-            if inside:
-                s += (math.log10(pop + 1) ** 2) * scale
+            # Graded, not binary. Up to three categories are shown, and giving
+            # the third the same fame as the first is how "gzip a file" returned
+            # tempfile: the gzip category ranked first, but Temporary Files was
+            # also anchored and tempfile out-downloads flate2 inside it.
+            weight = 1.0 if not anchored else anchored.get(best_path, 0.0)
+            if weight > 0:
+                s += (math.log10(pop + 1) ** 2) * scale * weight
             else:
                 s += math.log10(pop + 1) * 0.5
     return s
@@ -725,10 +753,10 @@ def rank(nodes, cats, query):
         return [], [], {}, {"confident": False, "coverage": 0.0, "named": False}
 
     profiles = category_terms(nodes, cats)
-    cat_scores = {
-        c["id"]: score_category(c, qt, profiles.get(c["id"])) for c in cats}
-    name_df = name_frequency(nodes)
     cdf = corpus_frequency(nodes)
+    cat_scores = {
+        c["id"]: score_category(c, qt, profiles.get(c["id"]), cdf) for c in cats}
+    name_df = name_frequency(nodes)
     dom = dominated(nodes, cats)
     subtree = subtree_map(cats)
 
@@ -759,7 +787,11 @@ def rank(nodes, cats, query):
     # every category above the floor is too generous: "terminal ui" lifts
     # Command-line enough to clear it, and clap then wins on downloads from a
     # category the user was never offered.
-    anchored = {" / ".join(c["path"]).lower() for c in top_cats}
+    best_cat = cat_scores[top_cats[0]["id"]] if top_cats else 0.0
+    anchored = {
+        " / ".join(c["path"]).lower():
+            (cat_scores[c["id"]] / best_cat) ** ANCHOR_GAMMA
+        for c in top_cats} if best_cat > 0 else {}
 
     scored = sorted(
         ((score_node(n, qt, cat_scores, name_df, anchored, cdf, dom), n)
@@ -1667,6 +1699,95 @@ def cmd_stats():
     return 0
 
 
+def cmd_eval():
+    """Measure retrieval against the held-out queries, and separate what the
+    ranking got wrong from what the list never carried.
+
+    selftest is a gate: it asserts the exact answers the ranking was tuned to
+    give, so it can only ever report the tuning set. This reports the other
+    thing -- how the same ranking does on wording and topics it was not built
+    against, which is the number worth quoting."""
+    path = ROOT / "tools" / "eval" / "held-out.json"
+    if not path.exists():
+        print("missing %s" % path)
+        return 1
+    spec = json.loads(path.read_text(encoding="utf-8"))
+    nodes, cats = load()
+
+    present = set()
+    for n in nodes:
+        c = (crate_candidate(n)[0] or "").lower()
+        if c:
+            present.add(c)
+        for nm in n.get("names", []):
+            present.add(nm.lower())
+
+    print("HELD-OUT EVAL")
+    print("=" * 72)
+    overall = [0, 0, 0, 0, 0]
+    for setname in ("reworded", "sealed"):
+        cases = spec.get(setname) or []
+        if not cases:
+            continue
+        at1 = at3 = at8 = gap = 0
+        misses = []
+        for c in cases:
+            want = {x.lower() for x in c["ok"]}
+            if not (want & present):
+                gap += 1
+                continue
+            hits, _tc, _sub, _conf = rank(nodes, cats, c["q"])
+            names = [
+                (crate_candidate(n)[0] or n["name"]).lower()
+                for _sc, n in hits
+            ]
+            pos = next((i for i, g in enumerate(names) if g in want), None)
+            if pos is None:
+                misses.append((c["q"], names[0] if names else "NO MATCH"))
+                continue
+            at1 += pos == 0
+            at3 += pos < 3
+            at8 += pos < 8
+            if pos:
+                misses.append(("%s (at %d)" % (c["q"], pos + 1), names[0]))
+        n = len(cases)
+        reach = n - gap
+        print()
+        print("%s -- %d queries" % (setname, n))
+        def pct(k, d):
+            return 100.0 * k / max(d, 1)
+
+        print("  not in the list at all   %2d/%-3d  %3.0f%%   no ranking can"
+            " answer these" % (gap, n, pct(gap, n)))
+        print("  answered first           %2d/%-3d  %3.0f%%   of the %d"
+            " reachable" % (at1, reach, pct(at1, reach), reach))
+        print("  in the top three         %2d/%-3d  %3.0f%%"
+            % (at3, reach, pct(at3, reach)))
+        print("  returned anywhere        %2d/%-3d  %3.0f%%"
+            % (at8, reach, pct(at8, reach)))
+        if misses:
+            print("  not first:")
+            for q, got in misses:
+                print("      %-42s -> %s" % (q[:42], got))
+        for i, v in enumerate((n, gap, at1, at3, at8)):
+            overall[i] += v
+    n, gap, at1, at3, at8 = overall
+    reach = n - gap
+    print()
+    print("=" * 72)
+    d = max(reach, 1)
+    print("BOTH SETS  %d queries: %d unanswerable (%.0f%%), %d reachable"
+        % (n, gap, 100.0 * gap / max(n, 1), reach))
+    print("  first %d/%d (%.0f%%)   top three %d/%d (%.0f%%)   "
+        "returned %d/%d (%.0f%%)"
+        % (at1, reach, 100.0 * at1 / d, at3, reach, 100.0 * at3 / d,
+            at8, reach, 100.0 * at8 / d))
+    print()
+    print("This is a measurement, not a gate: it never fails. Tuning against")
+    print("these queries would make the number meaningless, so do not.")
+    return 0
+
+
 def main(argv):
     # A legacy Windows console encodes stdout as cp1252, which cannot represent
     # a query the user actually typed: echoing a Japanese query crashed with
@@ -1706,6 +1827,8 @@ def main(argv):
         return cmd_stack(" ".join(rest))
     if cmd == "selftest":
         return cmd_selftest()
+    if cmd == "eval":
+        return cmd_eval()
     if cmd == "stats":
         return cmd_stats()
     print(__doc__)
