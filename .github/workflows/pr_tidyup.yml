@@ -5,6 +5,9 @@ on:
     types: [opened, reopened, synchronize]
 jobs:
   pr_tidyup:
+    # Upstream-only: this is rust-unofficial's maintenance automation and
+    # needs their API secrets. A fork runs the gates in lint.yml instead.
+    if: github.repository == 'rust-unofficial/awesome-rust'
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7

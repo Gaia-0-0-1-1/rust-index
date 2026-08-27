@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - agent-index
   pull_request:
     branches:
       - main
+      - agent-index
 
 jobs:
   lint-md:
@@ -53,6 +55,10 @@ jobs:
         with:
           toolchain: stable
       - uses: Swatinem/rust-cache@v2
+      # rust.yml is disabled on this fork -- it needs upstream's API secrets --
+      # so its formatting gate is kept here, where the crate is built anyway.
+      - name: Check formatting
+        run: cargo fmt -- --check
       # `extract` also enforces the accounting gate: every "* " bullet outside
       # the TOC must be exactly one entry or one label, or it exits non-zero.
       - name: Regenerate the index from README.md
