@@ -17,7 +17,7 @@ that is worth doing.
 ```
 ask <question>     rank files and symbols, with file:line citations
 context <question> the same candidates with their docs attached, in one call
-                   [--files N] [--source] [--budget CHARS]
+                    [--files N] [--source] [--budget CHARS]
 sym <name>         everything known about one symbol
 file <path>        what a file contains
 callers <name>     which symbols reference it
@@ -78,6 +78,54 @@ to **1%** — a name, path and signature carry almost none of the words a person
 types. `num_seconds_from_midnight` retains midnight/num/seconds and nothing
 else. So `coverage` is a first-class command, and `ask` warns before answering
 when a repository is thinly documented. That is not hedging; it is the finding.
+
+## Does an agent with this tool beat an agent with grep? Measured: no
+
+Nine subagents, three arms on three crates spanning 4x in size, 10 blind
+questions each, matched 30-call budgets, mechanically scored.
+
+| crate | A protocol + tool | B tool only | C grep only |
+|---|---|---|---|
+| flate2 7.3k | 10/10, 13 calls | 10/10, 12 calls | 10/10, 10 calls |
+| serde_json 23k | 10/10, 7 calls | 10/10, 15 calls | 10/10, 8 calls |
+| tracing-subscriber 29k | 7/10, 13 calls | 8/10, 13 calls | 9/10, 15 calls |
+| **pooled** | **27/30** | **28/30** | **29/30** |
+
+**The three arms disagree on 3 of 30 questions.** Every paired comparison is
+noise: protocol worth z = 0.58, tool worth z = 1.41. The honest reading is not
+"grep wins" but "at these sizes, on these questions, a capable agent arrives at
+the same answers with the tool, with the tool plus a protocol, or with neither".
+
+That is worth stating plainly because it deflates the obvious claim. **This tool
+has no measured advantage over ripgrep for an agent that can read code.** Two
+crates saturated at 100% for every arm, so only `tracing-subscriber`
+discriminated at all, and there by three questions.
+
+The prediction fixed before running was that grep would win on the small crate
+and lose on the large one. It won at every size and by the widest margin on the
+largest, which is the opposite of the reasoning behind the prediction.
+
+**One confound, and it is serious.** The blind questions were written by agents
+who found their own ground truth by grepping and reading source. So the
+questions are answerable-by-grep *by construction*, which structurally
+advantages arm C. A fair test needs questions whose answers were established
+some other way -- from a changelog, an issue tracker, or a human who already
+knew the codebase.
+
+What the agents said, consistently, is more useful than the scores:
+
+- The **structural** commands did the work. "The genuinely productive commands
+    were the structural ones"; `file src --all` plus `sym ignore_value` resolved
+    questions outright. `PROTOCOL.md` treats those as the *recovery* path, which
+    looks like the wrong order.
+- `context` is too heavy. Four questions batched produced 47.6KB and had to be
+    spilled to a file. `ask` was "far more economical and sufficient for
+    shortlisting".
+- Ranking put the right file at rank 2 repeatedly, and "read all three" is what
+    saved it -- the one protocol instruction that demonstrably earned its place.
+- Crate-level `coverage` hides what matters. `tracing-subscriber` reports 94%
+    documented while its filter internals carry almost no docs, and that is
+    exactly where retrieval failed. Coverage should be reported per directory.
 
 ## The confidence signal was inverted, so it is gone
 
@@ -164,8 +212,8 @@ The instructions that mattered:
 
 - Read only the crate. Do not read `repograph`, or any eval file.
 - Phrase questions the way a developer talks, **not** the way the crate's own
-  documentation is worded -- otherwise the question is answerable by text
-  matching and measures nothing.
+    documentation is worded -- otherwise the question is answerable by text
+    matching and measures nothing.
 - Verify every answer by opening the file. Discard anything unverifiable.
 - Spread across difficulty and across modules.
 

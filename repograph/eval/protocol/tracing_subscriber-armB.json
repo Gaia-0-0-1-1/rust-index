@@ -1,0 +1,57 @@
+{
+    "arm": "B",
+    "crate": "tracing_subscriber",
+    "tool_calls_used": 13,
+    "answers": [
+        {
+            "n": 1,
+            "file": "src/fmt/mod.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 2,
+            "file": "src/fmt/fmt_layer.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 3,
+            "file": "src/fmt/writer.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 4,
+            "file": "src/util.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 5,
+            "file": "src/fmt/time/datetime.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 6,
+            "file": "src/filter/targets.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 7,
+            "file": "src/filter/env/directive.rs",
+            "confidence": "low"
+        },
+        {
+            "n": 8,
+            "file": "src/filter/env/directive.rs",
+            "confidence": "low"
+        },
+        {
+            "n": 9,
+            "file": "src/filter/env/builder.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 10,
+            "file": "src/filter/env/mod.rs",
+            "confidence": "high"
+        }
+    ]
+}

@@ -27,8 +27,8 @@ So the number `coverage` prints is not decoration, it is the ceiling:
 - **70%+** — description-style questions should work. Proceed.
 - **50–70%** — expect gaps in the undocumented corners.
 - **under 50%** — the tool prints `THIN`. Retrieval will be weak and no amount
-  of rephrasing fixes it, because the text is not there. Skip to step 4 and
-  navigate structurally instead of searching.
+    of rephrasing fixes it, because the text is not there. Skip to step 4 and
+    navigate structurally instead of searching.
 
 ## 2. Ask the question
 
@@ -110,10 +110,10 @@ claims are a real risk.
 ## What the tool will not do
 
 - **Tests, benchmarks and examples are excluded from ranking.** Someone asking
-  where dates are added means the implementation, not `test_date_add_assign`
-  beside it. `file` and `sym` still reach them.
+    where dates are added means the implementation, not `test_date_add_assign`
+    beside it. `file` and `sym` still reach them.
 - **It does not read code for you.** It finds candidates. Steps 3 and 5 are
-  yours.
+    yours.
 - **It has no fuzzy matching.** A misspelling returns nothing rather than a near
-  miss.
+    miss.
 - **It indexes one repository.** Dependencies are invisible.

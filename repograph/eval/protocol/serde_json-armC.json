@@ -1,0 +1,57 @@
+{
+    "arm": "C",
+    "crate": "serde_json",
+    "tool_calls_used": 8,
+    "answers": [
+        {
+            "n": 1,
+            "file": "src/de.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 2,
+            "file": "src/de.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 3,
+            "file": "src/de.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 4,
+            "file": "src/de.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 5,
+            "file": "src/de.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 6,
+            "file": "src/read.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 7,
+            "file": "src/read.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 8,
+            "file": "src/ser.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 9,
+            "file": "src/ser.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 10,
+            "file": "src/ser.rs",
+            "confidence": "high"
+        }
+    ]
+}

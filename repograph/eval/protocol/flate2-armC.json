@@ -1,0 +1,57 @@
+{
+    "arm": "C",
+    "crate": "flate2",
+    "tool_calls_used": 10,
+    "answers": [
+        {
+            "n": 1,
+            "file": "src/lib.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 2,
+            "file": "src/gz/mod.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 3,
+            "file": "src/gz/mod.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 4,
+            "file": "src/gz/mod.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 5,
+            "file": "src/gz/mod.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 6,
+            "file": "src/gz/mod.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 7,
+            "file": "src/gz/write.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 8,
+            "file": "src/gz/write.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 9,
+            "file": "src/gz/bufread.rs",
+            "confidence": "high"
+        },
+        {
+            "n": 10,
+            "file": "src/gz/bufread.rs",
+            "confidence": "high"
+        }
+    ]
+}
