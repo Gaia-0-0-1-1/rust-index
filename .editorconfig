@@ -20,3 +20,7 @@ indent_size = 2
 
 [.github/workflows/*.yml]
 indent_size = 2
+
+[index/**]
+# Generated; the JSON serializer picks the indentation.
+indent_size = unset

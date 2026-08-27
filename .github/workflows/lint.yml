@@ -42,3 +42,24 @@ jobs:
           tar -zxvf mktoc-x86_64-unknown-linux-gnu.tar.gz
       - run: ./mktoc README.md
       - run: git diff --exit-code
+
+  lint-index:
+    runs-on: ubuntu-24.04
+    name: Lint for stale generated index
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: stable
+      - uses: Swatinem/rust-cache@v2
+      # `extract` also enforces the accounting gate: every "* " bullet outside
+      # the TOC must be exactly one entry or one label, or it exits non-zero.
+      - name: Regenerate the index from README.md
+        run: cargo run --bin index -- extract
+      - name: Rebuild nodes, edges and categories
+        run: cargo run --bin index -- graph
+      # Only the README-derived artifacts are rebuilt here. The crates.io ones
+      # need a 1.8GB dump, so they are refreshed deliberately, not in CI.
+      - name: Fail if the committed index is stale
+        run: git diff --exit-code -- index/

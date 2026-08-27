@@ -2,16 +2,15 @@
 """crates_deps.py -- resolve crate identity and dependency edges from the
 crates.io database dump.
 
-Fixes the two things README.md alone cannot supply:
-  * crate identity for entries with no crates.io link (via the dump's
-    `repository` column, reverse-mapped from the GitHub URL)
-  * download counts, so ranking is no longer popularity-blind
-  * depends_on edges between indexed projects -- the actual DAG
+Supplies the three things README.md cannot: crate identity for entries with no
+crates.io link, reverse-mapped from the GitHub URL via the dump's `repository`
+column; download counts, so ranking is no longer popularity-blind; and
+depends_on edges between indexed projects, which is the actual DAG.
 
 The dump is ~1.8GB compressed and ~20GB unpacked, so it is streamed twice
 straight out of the tarball and filtered to our nodes; nothing is unpacked.
 
-  python tools/crates_deps.py <path/to/db-dump.tar.gz>
+    python tools/crates_deps.py <path/to/db-dump.tar.gz>
 
 Writes index/crate-identity.json, index/downloads.json, index/dep-edges.jsonl.
 """
@@ -123,7 +122,7 @@ def main(argv):
         if r:
             repo_to_nodes.setdefault(r, []).append(n)
     print("nodes %d | readme crate names %d | github repos %d"
-          % (len(nodes), len(target_names), len(repo_to_nodes)))
+            % (len(nodes), len(target_names), len(repo_to_nodes)))
 
     # ---- pass 1: crates.csv (identity + downloads) then versions.csv (latest)
     crates = {}          # crate_id -> {name, downloads, repo}
@@ -238,10 +237,11 @@ def main(argv):
     for v in identity.values():
         by_source[v["source"]] = by_source.get(v["source"], 0) + 1
 
-    IDENTITY.write_text(json.dumps(identity, indent=1, sort_keys=True), encoding="utf-8")
-    DOWNLOADS.write_text(json.dumps(
-        {k: v["downloads"] for k, v in identity.items()}, indent=1, sort_keys=True),
-        encoding="utf-8")
+    IDENTITY.write_text(
+        json.dumps(identity, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    downloads = {k: v["downloads"] for k, v in identity.items()}
+    DOWNLOADS.write_text(
+        json.dumps(downloads, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     DEP_EDGES.write_text(
         "".join(json.dumps(e, sort_keys=True) + "\n"
                 for e in sorted(edges, key=lambda e: (e["from"], e["to"]))),
@@ -254,7 +254,7 @@ def main(argv):
         "identity_resolved": len(identity),
         "identity_by_source": by_source,
         "dep_edges": len(edges),
-    }, indent=1, sort_keys=True), encoding="utf-8")
+    }, indent=1, sort_keys=True) + "\n", encoding="utf-8")
 
     print("\ndump snapshot %s" % SNAPSHOT["id"])
     print("identity resolved for %d/%d nodes" % (len(identity), len(nodes)))

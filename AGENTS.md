@@ -119,20 +119,20 @@ that for yourself.
 ## Known limits — read before trusting output
 
 1. **1,264 of 1,702 projects have crate identity; 438 do not.** Those are
-   applications, non-Rust resources, and projects not published to crates.io.
-   They still rank and cite correctly, they just have no deps or downloads.
+    applications, non-Rust resources, and projects not published to crates.io.
+    They still rank and cite correctly, they just have no deps or downloads.
 2. **146 crate names are low-confidence guesses**, marked `?` / `UNVERIFIED`.
-   Confirm on crates.io before running `cargo add` on one.
+    Confirm on crates.io before running `cargo add` on one.
 3. **The DAG covers 1,086 projects**, being those with both crate identity and at
-   least one dependency edge to another indexed project. Dependencies on crates
-   outside this list are not edges here.
+    least one dependency edge to another indexed project. Dependencies on crates
+    outside this list are not edges here.
 4. **Multi-concept queries surface the dominant concept only.** "async http client
-   with rustls" returns HTTP clients; `rustls` needs its own query.
+    with rustls" returns HTTP clients; `rustls` needs its own query.
 5. **Queries must use the list's vocabulary.** The taxonomy anchors the ranking,
-   so a word it does not use finds no category and the results degrade to lexical
-   guesses — the list says "Encoding", never "serialization". `ask` prints
-   `NO CATEGORY MATCHED THIS WORDING` when this happens; browse with `cat` and
-   retry. Compare `ask "serialization"` with `ask "encoding json"`, which returns
-   serde_json at 1.2B downloads.
+    so a word it does not use finds no category and the results degrade to lexical
+    guesses — the list says "Encoding", never "serialization". `ask` prints
+    `NO CATEGORY MATCHED THIS WORDING` when this happens; browse with `cat` and
+    retry. Compare `ask "serialization"` with `ask "encoding json"`, which returns
+    serde_json at 1.2B downloads.
 6. **Dump-derived artifacts are a snapshot.** Check `crates-provenance.json` and
-   re-run `crates_deps.py` if the download counts look stale.
+    re-run `crates_deps.py` if the download counts look stale.

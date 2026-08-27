@@ -199,9 +199,7 @@ fn build_entry(
         .links
         .iter()
         .filter(|l| {
-            !l.url.starts_with('#')
-                && l.url != primary.url
-                && Some(&l.url) != crate_url.as_ref()
+            !l.url.starts_with('#') && l.url != primary.url && Some(&l.url) != crate_url.as_ref()
         })
         .cloned()
         .collect();
@@ -380,6 +378,41 @@ fn extract() -> Result<Vec<Entry>> {
         }
     }
 
+    // The gate, enforced rather than merely reported: every "* " bullet outside
+    // the generated TOC must be accounted for as exactly one entry or exactly
+    // one label. Drift here means parsing changed and the index is untrustworthy,
+    // so fail loudly instead of writing a plausible-looking wrong file.
+    let mut bullets = 0usize;
+    let mut scanning_toc = false;
+    let mut in_fence = false;
+    for line in md.lines() {
+        let t = line.trim_start();
+        // A "* " inside a fenced block is sample text, not a list item. The
+        // README has no fences today, but counting one would fail this gate for
+        // a reason that has nothing to do with parsing drift.
+        if t.starts_with("```") || t.starts_with("~~~") {
+            in_fence = !in_fence;
+        } else if in_fence {
+            continue;
+        } else if line.contains("BEGIN mktoc") {
+            scanning_toc = true;
+        } else if line.contains("END mktoc") {
+            scanning_toc = false;
+        } else if !scanning_toc && t.starts_with("* ") {
+            bullets += 1;
+        }
+    }
+    if entries.len() + labels != bullets {
+        anyhow::bail!(
+            "gate failed: {} entries + {} labels = {}, but README.md has {} bullets \
+                outside the TOC. Parsing has drifted; do not trust the index.",
+            entries.len(),
+            labels,
+            entries.len() + labels,
+            bullets
+        );
+    }
+
     let mut out = String::new();
     for e in &entries {
         out.push_str(&serde_json::to_string(e)?);
@@ -394,7 +427,11 @@ fn extract() -> Result<Vec<Entry>> {
     println!("P0 extract -> {}", ENTRIES);
     println!("  entries       {}", entries.len());
     println!("  labels        {}", labels);
-    println!("  bullets       {} (entries + labels)", entries.len() + labels);
+    println!(
+        "  gate OK       {} == {} bullets outside the TOC",
+        entries.len() + labels,
+        bullets
+    );
     println!(
         "  with crate    {}",
         entries.iter().filter(|e| e.crate_name.is_some()).count()
@@ -509,7 +546,10 @@ fn enrich() -> Result<()> {
             .count(),
         with_rust_percentage: entries
             .iter()
-            .filter(|e| e.metrics.map_or(false, |m| m.github_rust_percentage.is_some()))
+            .filter(|e| {
+                e.metrics
+                    .map_or(false, |m| m.github_rust_percentage.is_some())
+            })
             .count(),
         with_downloads: entries
             .iter()
@@ -517,7 +557,7 @@ fn enrich() -> Result<()> {
             .count(),
         by_section,
     };
-    fs::write(COVERAGE, serde_json::to_string_pretty(&cov)?)
+    fs::write(COVERAGE, serde_json::to_string_pretty(&cov)? + "\n")
         .with_context(|| format!("writing {}", COVERAGE))?;
 
     println!("P1 enrich  -> {}", ENRICHED);
@@ -595,13 +635,13 @@ struct Category {
 
 fn graph() -> Result<()> {
     fs::create_dir_all(INDEX_DIR)?;
-    let src = if std::path::Path::new(ENRICHED).exists() {
-        ENRICHED
-    } else {
-        ENTRIES
-    };
-    let raw =
-        fs::read_to_string(src).with_context(|| format!("reading {} (run `extract` first)", src))?;
+    // Always the plain entries, never the enriched ones. nodes.jsonl is a
+    // committed artifact, so it must not vary with whether the gitignored
+    // popularity cache happens to exist -- otherwise CI regenerates it without
+    // the cache, gets a different file, and fails a diff gate for no reason.
+    // Adoption data reaches queries through downloads.json instead.
+    let raw = fs::read_to_string(ENTRIES)
+        .with_context(|| format!("reading {} (run `extract` first)", ENTRIES))?;
     let entries: Vec<Entry> = raw
         .lines()
         .filter(|l| !l.trim().is_empty())
@@ -676,10 +716,7 @@ fn graph() -> Result<()> {
     let cat_id = |p: &[String]| format!("cat:{}", p.join("/"));
     for n in nodes.values() {
         for path in &n.category_paths {
-            members
-                .entry(cat_id(path))
-                .or_default()
-                .push(n.id.clone());
+            members.entry(cat_id(path)).or_default().push(n.id.clone());
             for i in 1..=path.len() {
                 *subtree.entry(cat_id(&path[..i])).or_default() += 1;
             }
@@ -768,15 +805,26 @@ fn graph() -> Result<()> {
         edges_out.push('\n');
     }
     fs::write(EDGES, edges_out).with_context(|| format!("writing {}", EDGES))?;
-    fs::write(CATEGORIES, serde_json::to_string_pretty(&categories)?)
-        .with_context(|| format!("writing {}", CATEGORIES))?;
+    fs::write(
+        CATEGORIES,
+        serde_json::to_string_pretty(&categories)? + "\n",
+    )
+    .with_context(|| format!("writing {}", CATEGORIES))?;
 
     let multi = nodes.values().filter(|n| n.listings > 1).count();
     let leaves = categories.iter().filter(|c| !c.members.is_empty()).count();
     println!("P2 graph   -> {} / {} / {}", NODES, EDGES, CATEGORIES);
-    println!("  nodes         {} (from {} listings)", nodes.len(), entries.len());
+    println!(
+        "  nodes         {} (from {} listings)",
+        nodes.len(),
+        entries.len()
+    );
     println!("  multi-listed  {}", multi);
-    println!("  categories    {} ({} with direct members)", categories.len(), leaves);
+    println!(
+        "  categories    {} ({} with direct members)",
+        categories.len(),
+        leaves
+    );
     println!(
         "  edges         {} in_category + {} references",
         edges.len() - refs.len(),

@@ -3,18 +3,22 @@
 
 Built on the artifacts `cargo run --bin index` produces. Stdlib only, no network.
 
-  ask <query...>     rank projects against a need, expand to the sibling
-                     alternatives, and emit a context pack: the brief an agent
-                     gets before choosing a crate
-  cat [path]         list a category and its members (members of one category
-                     are mutual alternatives)
-  dag [--write]      dependency DAG: strata + load-bearing rank (needs crates_deps)
-  node <name|crate>  everything known about one project
-  stats              index shape
+    ask <query...>
+        Rank projects against a need, expand to the sibling alternatives, and
+        emit a context pack: the brief an agent gets before choosing a crate.
+    cat [path]
+        List a category and its members. Members of one category are mutual
+        alternatives.
+    dag [--write] [--with-dev]
+        Dependency strata and load-bearing rank. Needs crates_deps.py first.
+    node <name|crate>
+        Everything known about one project.
+    stats
+        Index shape.
 
-  python tools/rustgraph.py ask "async http client with rustls"
-  python tools/rustgraph.py cat "Libraries/Command-line/Argument parsing"
-  python tools/rustgraph.py node reqwest
+    python tools/rustgraph.py ask "async http client with rustls"
+    python tools/rustgraph.py cat "Libraries/Command-line/Argument parsing"
+    python tools/rustgraph.py node reqwest
 
 Ranking note: in a hand-curated list the taxonomy carries more signal than the
 prose, so categories are scored first and nodes inherit their category's score.
@@ -234,7 +238,7 @@ def fmt_node(n, indent="  "):
         out.append("%s  cargo add %s" % (indent, crate))
     elif crate:
         out.append("%s  cargo add %s   (UNVERIFIED: guessed, confirm on"
-                   " crates.io)" % (indent, crate))
+                    " crates.io)" % (indent, crate))
     out.append("%s  README.md:%s | %s" % (
         indent, n["lines"][0], " / ".join(n["category_paths"][0])))
     if n.get("listings", 1) > 1:
@@ -288,7 +292,7 @@ def cmd_ask(query):
     printed_header = False
     for c in top_cats:
         others = [node_by_id[m] for m in c["members"]
-                  if m in node_by_id and m not in shown]
+                    if m in node_by_id and m not in shown]
         if not others:
             continue
         if not printed_header:
@@ -300,7 +304,7 @@ def cmd_ask(query):
             crate, verified = crate_candidate(o)
             label = (crate or "-") + ("" if verified else "?")
             print("    %-26s %-18s %s" % (o["name"][:26], label[:18],
-                                          (o.get("description") or "")[:66]))
+                                            (o.get("description") or "")[:66]))
 
     picks, unverified = [], False
     for _, n in hits[:6]:
@@ -313,9 +317,9 @@ def cmd_ask(query):
         print("  cargo add %s" % " ".join(picks[:4]))
         if unverified:
             print("  (names marked ? are guessed from the repo name -- verify"
-                  " on crates.io)")
+                    " on crates.io)")
     print("\nEVIDENCE  every line cites README.md; regenerate with"
-          " `cargo run --bin index`")
+            " `cargo run --bin index`")
     return 0
 
 
@@ -329,7 +333,7 @@ def cmd_cat(path):
         return 0
     want = path.strip("/").lower()
     matches = [c for c in cats if "/".join(c["path"]).lower() == want] or \
-              [c for c in cats if want in "/".join(c["path"]).lower()]
+                [c for c in cats if want in "/".join(c["path"]).lower()]
     if not matches:
         print("no category matching %r" % path)
         return 1
@@ -350,9 +354,9 @@ def cmd_node(name):
     nodes, _ = load()
     q = name.lower()
     exact = [n for n in nodes if (n.get("crate_name") or "").lower() == q
-             or any(x.lower() == q for x in n.get("names", []))]
+                or any(x.lower() == q for x in n.get("names", []))]
     hits = exact or [n for n in nodes if q in " ".join(n.get("names", [])).lower()
-                     or q in (n.get("crate_name") or "").lower()]
+                        or q in (n.get("crate_name") or "").lower()]
     if not hits:
         print("no project matching %r" % name)
         return 1
@@ -425,7 +429,7 @@ def cmd_dag(write, with_dev=False):
     for k in sorted(layers):
         names = sorted(name_of.get(n, n) for n in layers[k])
         print("  L%-2d %4d  %s%s" % (k, len(names), ", ".join(names[:6]),
-                                     " ..." if len(names) > 6 else ""))
+                                        " ..." if len(names) > 6 else ""))
     print("\nmost load-bearing (transitive dependents inside the index):")
     for nid, c in sorted(rank.items(), key=lambda kv: (-kv[1], kv[0]))[:15]:
         crate = (IDENT.get(nid) or {}).get("crate", "")
@@ -436,7 +440,7 @@ def cmd_dag(write, with_dev=False):
             "strata": {str(k): sorted(v) for k, v in sorted(layers.items())},
             "layer_of": layer_of,
             "dependents_rank": dict(sorted(rank.items(), key=lambda kv: -kv[1])),
-        }, indent=1, sort_keys=True), encoding="utf-8")
+        }, indent=1, sort_keys=True) + "\n", encoding="utf-8")
         print("\nwrote %s" % DAG)
     return 0
 
