@@ -1,4 +1,10 @@
 {
+ "crate_collisions": {
+  "cdrs-tokio": [
+   "https://crates.io/crates/cdrs-tokio",
+   "https://github.com/krojew/cdrs-tokio"
+  ]
+ },
  "dep_edges": 6974,
  "dump_snapshot": "2026-08-26-020014",
  "identity_by_source": {

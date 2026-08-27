@@ -237,6 +237,17 @@ def main(argv):
     for v in identity.values():
         by_source[v["source"]] = by_source.get(v["source"], 0) + 1
 
+    # Two nodes resolving to one crate means either the list entered the same
+    # project twice under different URLs -- which node collapse cannot see,
+    # since it keys on the URL -- or we misresolved one of them. Either way it
+    # should be visible rather than silently averaged away.
+    seen_crate = {}
+    collisions = {}
+    for node_id, v in identity.items():
+        first = seen_crate.setdefault(v["crate"], node_id)
+        if first != node_id:
+            collisions.setdefault(v["crate"], [first]).append(node_id)
+
     IDENTITY.write_text(
         json.dumps(identity, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     downloads = {k: v["downloads"] for k, v in identity.items()}
@@ -254,6 +265,7 @@ def main(argv):
         "identity_resolved": len(identity),
         "identity_by_source": by_source,
         "dep_edges": len(edges),
+        "crate_collisions": {k: sorted(v) for k, v in collisions.items()},
     }, indent=1, sort_keys=True) + "\n", encoding="utf-8")
 
     print("\ndump snapshot %s" % SNAPSHOT["id"])
@@ -261,6 +273,12 @@ def main(argv):
     for k in sorted(by_source):
         print("  %-16s %d" % (k, by_source[k]))
     print("depends_on edges between indexed projects: %d" % len(edges))
+    if collisions:
+        print("\ncrate collisions (one crate, several list entries):")
+        for crate, ids in sorted(collisions.items()):
+            print("  %s" % crate)
+            for i in ids:
+                print("      %s" % i)
     print("wrote %s, %s, %s" % (IDENTITY.name, DOWNLOADS.name, DEP_EDGES.name))
     return 0
 

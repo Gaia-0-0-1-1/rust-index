@@ -395,8 +395,25 @@ def rank(nodes, cats, query):
     # incidental substring ("flux" finding InfluxDB). Below the floor there is
     # no anchor, so say so rather than dressing a guess up as a ranking.
     ANCHOR = 4.0
-    top_cats = [c for c in sorted(cats, key=lambda c: -cat_scores[c["id"]])
-                if cat_scores[c["id"]] >= ANCHOR and subtree.get(c["id"])][:3]
+    # A depth-1 category is a whole section of the list ("Applications", 631
+    # projects). It is never an actionable answer, and it matches broadly
+    # precisely because it contains everything.
+    def shown(c):
+        return (cat_scores[c["id"]] >= ANCHOR and c["depth"] > 1
+                and subtree.get(c["id"]))
+
+    by_score = sorted(cats, key=lambda c: -cat_scores[c["id"]])
+    ranked = [c for c in by_score if shown(c)]
+    # Keep only what is close to the best match. Broad categories saturate at an
+    # identical score -- a query for terminal tables tied Audio and Music with
+    # File manager, since some of each are terminal apps -- and showing that tail
+    # implies a relevance the tie does not support.
+    # 0.75 is measured, not guessed: across sample queries the genuinely related
+    # neighbours land at 75% of the best (web framework -> Frameworks and
+    # Runners, Backend) while the saturated ties land at 69%.
+    top_cats = [c for c in ranked
+                if cat_scores[c["id"]] >= 0.75 * cat_scores[ranked[0]["id"]]][:3] \
+        if ranked else []
     # Fame counts fully only inside the categories actually shown. Anchoring on
     # every category above the floor is too generous: "terminal ui" lifts
     # Command-line enough to clear it, and clap then wins on downloads from a

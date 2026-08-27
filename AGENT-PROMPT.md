@@ -11,12 +11,12 @@ get back crates with real adoption numbers and exact source citations.
 ## Get it
 
 ```bash
-git clone https://github.com/cruise118/rust-index.git
+git clone https://github.com/Gaia-0-0-1-1/rust-index.git
 cd rust-index
 python tools/rustgraph.py ask "async http client"
 ```
 
-Private repo — you need access to `cruise118/rust-index`. It clones straight onto
+Private repo — you need access to `Gaia-0-0-1-1/rust-index`. It clones straight onto
 the `agent-index` branch, so there is no checkout step.
 
 Python 3, stdlib only. No install, no network, no build: the index is committed,
