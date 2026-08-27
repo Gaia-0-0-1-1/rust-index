@@ -79,6 +79,28 @@ types. `num_seconds_from_midnight` retains midnight/num/seconds and nothing
 else. So `coverage` is a first-class command, and `ask` warns before answering
 when a repository is thinly documented. That is not hedging; it is the finding.
 
+## The confidence signal was inverted, so it is gone
+
+The tool used to print `CONFIDENCE high` or `CONFIDENCE LOW`. Measured on the
+100 blind questions, that label was worse than useless:
+
+| | questions | top-1 right |
+|---|---|---|
+| high | 7 | **14%** |
+| LOW | 92 | **29%** |
+
+High word-overlap correlates with being *wrong*. The reason is boilerplate:
+the way to match many query words at once is to hit a stock sentence repeated
+across several files. Three of flate2's decoders share one about trailing data,
+so any question about trailing data matches all three strongly and is answered
+by none of them — a subagent hit exactly that and reported the high score as
+actively misleading.
+
+It now prints `QUERY MATCH n%` with those numbers attached, because the honest
+description of the quantity is "how many of your words appear in the top
+result", and that is not a correctness estimate. Renaming is not a fix; a real
+fix needs a mechanism and a measurement, and neither exists yet.
+
 ## What was tried and does not work
 
 Both were built, measured, and removed. They are recorded because both look

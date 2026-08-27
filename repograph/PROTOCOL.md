@@ -60,10 +60,20 @@ is where an agent beats one-shot search. In rough order of cost:
 
 **Reformulate in the repository's own vocabulary.** The candidate output shows
 you how this codebase words things. A question phrased in those words will
-match; a question phrased in yours may not. `CONFIDENCE LOW` on the output means
-the index matched only part of what you typed — that is the signal to rephrase.
+match; a question phrased in yours may not.
 
-**Navigate structurally.**
+**Ignore `QUERY MATCH` when deciding whether an answer is right.** It reports
+how many of your words appear in the top result, and that is all it reports. On
+100 blind questions a *high* match was right 14% of the time and a low match
+29% — the signal is inverted, because the way to match many words at once is to
+hit repeated boilerplate. Three of flate2's decoders share a stock sentence
+about trailing data, so every question about trailing data matches all three
+strongly and is answered by none of them. A low match is still a reasonable
+prompt to rephrase, since it means the index did not understand your wording.
+A high match means nothing about correctness.
+
+**Navigate structurally.** `file` on a directory lists everything in it with
+symbol counts, so it is the cheapest way to see the shape of a crate.
 
 ```bash
 python repograph/repograph.py /tmp/idx file src/codecs      # what is in here

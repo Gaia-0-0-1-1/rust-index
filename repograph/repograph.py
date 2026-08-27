@@ -9,7 +9,7 @@ Commands
                         in one call, for an agent to read and decide
                         [--files N] [--source] [--budget CHARS]
     sym <name>         everything known about one symbol
-    file <path>        what a file contains
+    file <path>        what a file contains, or what a directory holds [--all]
     callers <name>     which symbols reference it
     coverage           documentation coverage, and whether to trust answers
     eval <file>        measure retrieval against a question set
@@ -294,9 +294,19 @@ class Index(object):
 
 
 def confidence(idx, qt, scored):
-    """How much of the question the index actually explained. A score can be
-    non-zero while matching one word of six, and saying `high` there is how a
-    tool teaches an agent to trust it when it should not."""
+    """What share of the question's words the index matched. NOT a prediction
+    that the answer is right, and it was called CONFIDENCE until that claim was
+    measured on 100 blind questions:
+
+        matched a lot   7 questions, top-1 right 14%
+        matched a little 92 questions, top-1 right 29%
+
+    High word-overlap correlates with being *wrong*, because the way to match
+    many words at once is to hit repeated boilerplate prose -- three flate2
+    decoders share a stock sentence about trailing data, so any question about
+    trailing data matches all three strongly and answers none of them. A label
+    reading "CONFIDENCE high" on that is worse than no label, so the number is
+    still shown, under a name that says what it is."""
     if not scored:
         return 0.0, False
     top_bag = idx.bags[scored[0][1]]
@@ -321,8 +331,12 @@ def cmd_ask(idx, question, prior=None):
     ratio, cov = idx.coverage_note()
     print('QUESTION  %s' % question)
     print('=' * 68)
-    print('CONFIDENCE  %s  (matched %.0f%% of the question)'
-            % ('high' if conf else 'LOW ', 100 * share))
+    print('QUERY MATCH  %.0f%% of your words appear in the top result'
+            % (100 * share))
+    print('  This is word overlap, not a correctness estimate. Measured on'
+            ' blind')
+    print('  questions, a high match was right 14% of the time and a low one'
+            ' 29%.')
     if ratio < THIN_DOCS:
         print('  THIN DOCS: only %.0f%% of %s here carry documentation.'
                 % (100 * ratio, cov.get('basis', 'public symbols')))
@@ -400,8 +414,12 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
     out = []
     out.append('QUESTION  %s' % question)
     out.append('REPO      %s' % (idx.meta.get('name') or '?'))
-    out.append('CONFIDENCE %s (matched %.0f%% of the question)'
-        % ('high' if conf else 'LOW', 100 * share))
+    out.append('QUERY MATCH %.0f%% of your words appear in the top result.'
+        % (100 * share))
+    out.append('  Word overlap, not a correctness estimate -- on blind '
+        'questions a high')
+    out.append('  match was right 14% of the time and a low match 29%. Do not '
+        'rank on it.')
     if ratio < THIN_DOCS:
         out.append('WARNING   only %.0f%% of %s here are documented; retrieval '
             'runs on documentation, so these candidates are weak.'
@@ -479,19 +497,45 @@ def cmd_sym(idx, name):
     return 0
 
 
-def cmd_file(idx, path):
+def cmd_file(idx, path, limit=40):
+    """List a directory, or the contents of a file.
+
+    Never silently shortens either. An earlier version printed the first three
+    matching files with no marker, so asking for `src` in a 49-file crate
+    showed three of them and looked complete -- an agent reading that concluded
+    the gzip writer did not exist. A wrong ranking is at least visible; a
+    missing entry is not, so anything dropped here says so.
+    """
     syms = [s for s in idx.symbols if path.lower() in s['file'].lower()]
     if not syms:
         print('no file matching %r' % path)
         return 1
     files = sorted({s['file'] for s in syms})
-    for f in files[:3]:
-        print(f)
+
+    # A path matching many files is a browse, not a read. Show every file --
+    # that is the question being asked -- rather than dumping the symbols of an
+    # arbitrary few.
+    if len(files) > 3:
+        print('%d files match %r' % (len(files), path))
+        for f in files:
+            n = sum(1 for s in syms if s['file'] == f)
+            md = idx.modules.get(f) or ''
+            print('  %-52s %3d symbols  %s' % (f, n, md[:60]))
+        print()
+        print('Name one of them to see inside it.')
+        return 0
+
+    for f in files:
+        inside = [x for x in syms if x['file'] == f]
+        print('%s  (%d symbols)' % (f, len(inside)))
         if idx.modules.get(f):
             print('  %s' % idx.modules[f][:160])
-        for s in [x for x in syms if x['file'] == f][:40]:
+        for s in inside[:limit]:
             flag = ' [test]' if s.get('test') else ''
             print('  %5d  %-8s %s%s' % (s['line'], s['kind'], s['name'], flag))
+        if len(inside) > limit:
+            print('  ... %d more not shown; raise with `file <path> --all`'
+                % (len(inside) - limit))
         print()
     return 0
 
@@ -692,7 +736,28 @@ def cmd_selftest(idx):
         fails.append('context: unformatted %% reached the output')
     if got.count('CANDIDATE ') < 1:
         fails.append('context: printed no candidates')
-    if 'QUESTION' not in got or 'CONFIDENCE' not in got:
+
+    # `file` on a directory must never quietly shorten its listing. It used to
+    # print three of forty-nine matches with no marker, and an agent reading
+    # that concluded a whole module did not exist.
+    dirs = {}
+    for sym in idx.symbols:
+        head = sym['file'].rsplit('/', 1)[0]
+        dirs.setdefault(head, set()).add(sym['file'])
+    big = max(dirs.items(), key=lambda kv: len(kv[1]), default=(None, set()))
+    if big[0] and len(big[1]) > 3:
+        buf2, real2 = io.StringIO(), sys.stdout
+        sys.stdout = buf2
+        try:
+            cmd_file(idx, big[0])
+        finally:
+            sys.stdout = real2
+        listed = buf2.getvalue()
+        missing = [f for f in big[1] if f not in listed]
+        if missing:
+            fails.append('file: listed %d of %d files in %s without saying so'
+                % (len(big[1]) - len(missing), len(big[1]), big[0]))
+    if 'QUESTION' not in got or 'QUERY MATCH' not in got:
         fails.append('context: dropped its header')
 
     saved = globals()['PRIOR_WEIGHT']
@@ -704,7 +769,7 @@ def cmd_selftest(idx):
 
     for f in fails:
         print('  FAIL %s' % f)
-    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 10))
+    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 11))
     return 1 if fails else 0
 
 
@@ -749,7 +814,9 @@ def main(argv):
     if cmd == 'sym':
         return cmd_sym(idx, joined)
     if cmd == 'file':
-        return cmd_file(idx, joined)
+        want_all = '--all' in rest
+        rest = [a for a in rest if a != '--all']
+        return cmd_file(idx, ' '.join(rest), 100000 if want_all else 40)
     if cmd == 'callers':
         return cmd_callers(idx, joined)
     if cmd == 'coverage':
