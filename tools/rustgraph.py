@@ -8,7 +8,7 @@ Built on the artifacts `cargo run --bin index` produces. Stdlib only, no network
                      gets before choosing a crate
   cat [path]         list a category and its members (members of one category
                      are mutual alternatives)
-  dag [--write]     dependency DAG: strata + load-bearing rank (needs crates_deps)
+  dag [--write]      dependency DAG: strata + load-bearing rank (needs crates_deps)
   node <name|crate>  everything known about one project
   stats              index shape
 

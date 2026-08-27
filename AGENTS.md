@@ -51,9 +51,11 @@ no build — the README-derived artifacts (`entries.jsonl`, `nodes.jsonl`,
 Ignored: `entries.enriched.jsonl` and `coverage.json`, which reflect local cache
 state and differ per run.
 
-Every tracked artifact regenerates byte-identically, so a re-run leaves a clean
-tree. They are pinned to LF in `.gitattributes`; without that, autocrlf rewrites
-them on checkout and every regeneration shows a whole-file diff.
+Every tracked artifact regenerates byte-identically **from the same README and
+the same dump snapshot**, so a re-run leaves a clean tree. A newer dump will
+legitimately dirty it — that is what `crates-provenance.json` is for. They are
+pinned to LF in `.gitattributes`; without that, autocrlf rewrites them on
+checkout and every regeneration shows a whole-file diff.
 
 ## The gate
 
