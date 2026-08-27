@@ -13,6 +13,8 @@ Built on the artifacts `cargo run --bin index` produces. Stdlib only, no network
         Dependency strata and load-bearing rank. Needs crates_deps.py first.
     node <name|crate>
         Everything known about one project.
+    recipe [name]
+        Authored stacks per archetype, each crate resolved against the index.
     stats
         Index shape.
 
@@ -39,6 +41,7 @@ IDENTITY = ROOT / "index" / "crate-identity.json"
 DOWNLOADS = ROOT / "index" / "downloads.json"
 DEP_EDGES = ROOT / "index" / "dep-edges.jsonl"
 DAG = ROOT / "index" / "dag.json"
+RECIPES = ROOT / "tools" / "recipes.json"
 
 # Filled by load(). Absent until tools/crates_deps.py has run.
 IDENT = {}
@@ -581,6 +584,66 @@ def cmd_dag(write, with_dev=False):
     return 0
 
 
+def cmd_recipe(name):
+    """Authored stacks per archetype, every crate resolved against the index.
+
+    A recipe is the one hand-written thing here, so it is also the one thing that
+    can quietly rot. Resolving each crate on every run means a name that is stale,
+    mistyped or invented shows up as NOT IN THIS LIST instead of as advice."""
+    if not RECIPES.exists():
+        print("tools/recipes.json missing")
+        return 1
+    data = json.loads(RECIPES.read_text(encoding="utf-8"))["recipes"]
+    nodes, _ = load()
+    by_crate = {}
+    for n in nodes:
+        crate, _verified = crate_candidate(n)
+        if crate:
+            by_crate.setdefault(crate.lower(), n)
+
+    if not name:
+        print("recipes (python tools/rustgraph.py recipe <name>)\n")
+        for r in data:
+            print("  %-14s %s" % (r["name"], r["title"]))
+            print("  %-14s %s" % ("", r["when"]))
+        return 0
+
+    r = next((x for x in data if x["name"] == name.strip().lower()), None)
+    if not r:
+        print("no recipe %r. Known: %s" % (name, ", ".join(x["name"] for x in data)))
+        return 1
+
+    print("%s -- %s" % (r["name"], r["title"]))
+    print(r["when"])
+    print("=" * 72)
+    covered, missing = [], []
+    for step in r["steps"]:
+        n = by_crate.get(step["crate"].lower())
+        print("\n  %s" % step["role"])
+        if n:
+            pop, kind = popularity(n)
+            tag = "  %s%s" % (human(pop), " downloads" if kind == "dl" else "*") if pop else ""
+            print("    %s%s" % (step["crate"], tag))
+            where = " / ".join(n["category_paths"][0])
+            print("    README.md:%s | %s" % (n["lines"][0], where))
+            if step["crate"] not in covered:
+                covered.append(step["crate"])
+        else:
+            print("    %s   NOT IN THIS LIST" % step["crate"])
+            if step["crate"] not in missing:
+                missing.append(step["crate"])
+        print("    %s" % step["why"])
+
+    if covered:
+        print("\nINSTALL")
+        print("  cargo add %s" % " ".join(covered))
+    if missing:
+        print("\nNOT COVERED BY THIS LIST: %s" % ", ".join(missing))
+        print("  Real stacks need these, but awesome-rust does not list them, so")
+        print("  nothing here can vouch for them. Check crates.io directly.")
+    return 0
+
+
 def cmd_stats():
     nodes, cats = load()
     print("nodes          %d" % len(nodes))
@@ -607,6 +670,8 @@ def main(argv):
         return cmd_node(" ".join(rest))
     if cmd == "dag":
         return cmd_dag("--write" in rest, "--with-dev" in rest)
+    if cmd == "recipe":
+        return cmd_recipe(" ".join(rest))
     if cmd == "stats":
         return cmd_stats()
     print(__doc__)

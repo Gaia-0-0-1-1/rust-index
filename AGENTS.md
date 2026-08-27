@@ -14,7 +14,22 @@ python tools/rustgraph.py ask "async http client"
 
 Also: `cat "<category path>"` (a category's members are mutual alternatives),
 `node <name|crate>` (everything known about one project), `dag` (dependency
-strata and which projects are most load-bearing), `stats`.
+strata and which projects are most load-bearing), `recipe [name]`, `stats`.
+
+```bash
+python tools/rustgraph.py recipe cli
+```
+
+Recipes are stacks per archetype — cli, web-service, tui, parser, data,
+http-client, wasm — in `tools/recipes.json`. They are the one **hand-authored**
+thing here, so every crate they name is resolved against the index on each run: a
+name that is stale, mistyped or invented prints `NOT IN THIS LIST` rather than
+passing as advice. Each step leads with the *role* ("Argument parsing") and the
+crate second, because the role is the durable half.
+
+That resolution doubles as a gap report on the list itself. `recipe cli` marks
+**anyhow** uncovered and `recipe parser` marks **serde** — neither is in
+`README.md`, though real stacks need both.
 
 Every line of output cites `README.md:<line>`, so a claim can always be checked
 against the source.

@@ -1,0 +1,82 @@
+{
+    "$comment": "Hand-authored, unlike everything in index/. Each step names the role first and the crate second, because the role is the durable part -- crates get replaced, 'you need argument parsing' does not. `rustgraph.py recipe` resolves every crate named here against the index and marks any that this list does not cover, so a stale or invented name shows up as a failure rather than as confident advice.",
+    "recipes": [
+        {
+            "name": "cli",
+            "title": "Command-line tool",
+            "when": "A binary that parses arguments, reads configuration, reports progress and fails with a readable message.",
+            "steps": [
+                {"role": "Argument parsing", "crate": "clap", "why": "Derive-based, and the default the ecosystem converges on."},
+                {"role": "Error handling", "crate": "anyhow", "why": "Application-level errors with context; use thiserror instead when you are writing a library others match on."},
+                {"role": "Config file", "crate": "config", "why": "Layers file, environment and defaults into one struct."},
+                {"role": "Config format", "crate": "toml", "why": "What Cargo itself uses; least surprising for a Rust tool."},
+                {"role": "Progress display", "crate": "indicatif", "why": "Progress bars and spinners that behave when output is piped."},
+                {"role": "Logging facade", "crate": "log", "why": "Library-agnostic; pair with a subscriber in the binary."}
+            ]
+        },
+        {
+            "name": "web-service",
+            "title": "HTTP service",
+            "when": "A server exposing JSON endpoints, usually over a database.",
+            "steps": [
+                {"role": "Async runtime", "crate": "tokio", "why": "The runtime the rest of this stack is written against."},
+                {"role": "Web framework", "crate": "axum", "why": "Built on hyper and tower by the tokio team; see actix-web for an alternative with its own runtime story."},
+                {"role": "HTTP implementation", "crate": "hyper", "why": "Underneath axum. Reach for it directly only when you need the lower layer."},
+                {"role": "JSON", "crate": "serde_json", "why": "Request and response bodies."},
+                {"role": "Database", "crate": "sqlx", "why": "Async, compile-time-checked SQL; see sea-orm or diesel if you want an ORM."},
+                {"role": "Structured logging", "crate": "tracing", "why": "Spans survive across await points, which plain log does not."}
+            ]
+        },
+        {
+            "name": "tui",
+            "title": "Terminal user interface",
+            "when": "A full-screen interactive terminal application.",
+            "steps": [
+                {"role": "Terminal backend", "crate": "crossterm", "why": "Cross-platform raw mode, input events and cursor control."},
+                {"role": "Widget layer", "crate": "ratatui", "why": "Immediate-mode widgets and layout; renders through crossterm."},
+                {"role": "Error handling", "crate": "anyhow", "why": "A TUI must restore the terminal on the way out, so failures need context."}
+            ]
+        },
+        {
+            "name": "parser",
+            "title": "Parser or data format",
+            "when": "Reading a grammar, wire format or domain-specific language.",
+            "steps": [
+                {"role": "Combinator parsing", "crate": "nom", "why": "Byte and text parsers built from small combinators; strong on binary formats."},
+                {"role": "Grammar parsing", "crate": "pest", "why": "Choose instead of nom when a written PEG grammar is clearer than combinator code."},
+                {"role": "Serialization", "crate": "serde", "why": "Once parsed, this is how the value reaches every other format."}
+            ]
+        },
+        {
+            "name": "data",
+            "title": "Data processing",
+            "when": "Reading tabular or record data, transforming it, writing it back.",
+            "steps": [
+                {"role": "CSV", "crate": "csv", "why": "Streaming reader and writer with serde integration."},
+                {"role": "Dataframes", "crate": "polars", "why": "When the work is columnar and would otherwise be pandas."},
+                {"role": "Parallelism", "crate": "rayon", "why": "Turns an iterator chain parallel by changing iter to par_iter."},
+                {"role": "Scratch files", "crate": "tempfile", "why": "Intermediates that clean themselves up on drop."}
+            ]
+        },
+        {
+            "name": "http-client",
+            "title": "API client",
+            "when": "Calling someone else's HTTP API.",
+            "steps": [
+                {"role": "HTTP client", "crate": "reqwest", "why": "Connection pooling, TLS and JSON in one place."},
+                {"role": "Async runtime", "crate": "tokio", "why": "Required by reqwest's async API; the blocking feature avoids it for simple tools."},
+                {"role": "JSON", "crate": "serde_json", "why": "Decoding responses."},
+                {"role": "Retries and backoff", "crate": "tokio", "why": "No dedicated crate in this list; tokio::time is usually enough."}
+            ]
+        },
+        {
+            "name": "wasm",
+            "title": "WebAssembly in the browser",
+            "when": "Rust compiled to wasm and called from JavaScript.",
+            "steps": [
+                {"role": "JS interop", "crate": "wasm-bindgen", "why": "Generates the bindings in both directions."},
+                {"role": "Serialization", "crate": "serde_json", "why": "The simplest way to pass structured values across the boundary."}
+            ]
+        }
+    ]
+}
