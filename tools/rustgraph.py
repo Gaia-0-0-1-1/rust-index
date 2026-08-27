@@ -268,6 +268,16 @@ def cmd_ask(query):
         print("\nMATCHED CATEGORIES")
         for c in top_cats:
             print("  %-54s %d listed" % (" / ".join(c["path"]), len(c["members"])))
+    else:
+        # No category matched, so nothing anchors the ranking and the results
+        # below are lexical guesses. Say so: the list has its own vocabulary
+        # (it says "Encoding", never "serialization") and silently returning
+        # near-random projects is worse than reporting the miss.
+        print("\nNO CATEGORY MATCHED THIS WORDING")
+        print("  Results below are lexical guesses only, not a ranking. This")
+        print("  list uses its own vocabulary -- browse it and retry with the")
+        print("  term it actually uses:")
+        print("      python tools/rustgraph.py cat")
 
     print("\nBEST MATCHES")
     for _, n in hits[:6]:

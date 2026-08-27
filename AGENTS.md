@@ -116,5 +116,11 @@ that for yourself.
    outside this list are not edges here.
 4. **Multi-concept queries surface the dominant concept only.** "async http client
    with rustls" returns HTTP clients; `rustls` needs its own query.
-5. **Dump-derived artifacts are a snapshot.** Check `crates-provenance.json` and
+5. **Queries must use the list's vocabulary.** The taxonomy anchors the ranking,
+   so a word it does not use finds no category and the results degrade to lexical
+   guesses — the list says "Encoding", never "serialization". `ask` prints
+   `NO CATEGORY MATCHED THIS WORDING` when this happens; browse with `cat` and
+   retry. Compare `ask "serialization"` with `ask "encoding json"`, which returns
+   serde_json at 1.2B downloads.
+6. **Dump-derived artifacts are a snapshot.** Check `crates-provenance.json` and
    re-run `crates_deps.py` if the download counts look stale.
