@@ -13,7 +13,8 @@ python tools/rustgraph.py ask "async http client"
 ```
 
 Also: `cat "<category path>"` (a category's members are mutual alternatives),
-`node <name|crate>` (everything known about one project), `stats`.
+`node <name|crate>` (everything known about one project), `dag` (dependency
+strata and which projects are most load-bearing), `stats`.
 
 Every line of output cites `README.md:<line>`, so a claim can always be checked
 against the source.
@@ -41,9 +42,18 @@ for downloads.
 
 ## What's committed
 
-Tracked: artifacts reproducible from `README.md` alone — `entries.jsonl`,
-`nodes.jsonl`, `edges.jsonl`, `categories.json`. Ignored: artifacts reflecting
-network state — `entries.enriched.jsonl`, `coverage.json`.
+Tracked: everything an agent needs on a fresh clone, with no network access and
+no build — the README-derived artifacts (`entries.jsonl`, `nodes.jsonl`,
+`edges.jsonl`, `categories.json`) and the crates.io-derived ones
+(`crate-identity.json`, `downloads.json`, `dep-edges.jsonl`, `dag.json`,
+`crates-provenance.json`). About 2MB in total.
+
+Ignored: `entries.enriched.jsonl` and `coverage.json`, which reflect local cache
+state and differ per run.
+
+Every tracked artifact regenerates byte-identically, so a re-run leaves a clean
+tree. They are pinned to LF in `.gitattributes`; without that, autocrlf rewrites
+them on checkout and every regeneration shows a whole-file diff.
 
 ## The gate
 
