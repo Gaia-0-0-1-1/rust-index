@@ -79,6 +79,10 @@ IDENT_DF_MAX = 30
 # macOS-only binding, won "cross platform gui" over iced, which is
 # literally described as one); too low and obscure crates win on wording.
 POP_WEIGHT = 0.55
+# Years of silence before a result is flagged as dormant. Display only:
+# discounting adoption by staleness was swept and traded misses rather than
+# fixing them, so the fact is reported and not ranked on.
+STALE_YEARS = 3
 
 STOP = {
     "a", "an", "and", "for", "the", "with", "to", "in", "of", "on", "is", "it",
@@ -262,6 +266,44 @@ def affinity(min_support=4):
         out[k].sort(key=lambda x: (-x[0], x[2]))
     _AFFINITY_CACHE[min_support] = out
     return out
+
+
+PROVENANCE = ROOT / "index" / "crates-provenance.json"
+
+
+def snapshot_year():
+    """The dump's year, not today's. Ranking must not drift with the clock, or
+    a regenerated index stops reproducing byte-for-byte."""
+    if "snapyear" in _AFFINITY_CACHE:
+        return _AFFINITY_CACHE["snapyear"]
+    year = 0
+    if PROVENANCE.exists():
+        try:
+            snap = json.loads(PROVENANCE.read_text(encoding="utf-8"))
+            year = int(str(snap.get("dump_snapshot") or "")[:4])
+        except (ValueError, TypeError):
+            year = 0
+    _AFFINITY_CACHE["snapyear"] = year
+    return year
+
+
+def staleness(node_id):
+    """Years since the crate last published, against the dump snapshot.
+
+    Downloads are cumulative and never decay, so a crate that was popular and
+    then stopped outranks its living replacement forever. rust-crypto last
+    shipped in 2016 and is RUSTSEC-flagged. Damping adoption by this was swept
+    and traded misses rather than fixing them, so it is shown, not ranked on --
+    an agent can weigh "last published 2016" for itself."""
+    year = snapshot_year()
+    when = (VOCAB.get(node_id) or {}).get("last_published") or ""
+    if not year or len(when) < 4:
+        return 0.0
+    try:
+        age = year - int(when[:4])
+    except ValueError:
+        return 0.0
+    return max(age, 0)
 
 
 def popularity(n):
@@ -657,6 +699,11 @@ def fmt_node(n, indent="  "):
     if n.get("description"):
         out.append("%s  %s" % (indent, n["description"]))
     out.append("%s  %s" % (indent, n["primary_url"]))
+    years = staleness(n["id"])
+    if years >= STALE_YEARS:
+        when = (VOCAB.get(n["id"]) or {}).get("last_published", "")
+        row = "%s  DORMANT: last published %s (%d years before this index)"
+        out.append(row % (indent, when, years))
     if crate and verified:
         out.append("%s  cargo add %s" % (indent, crate))
     elif crate:
@@ -1324,6 +1371,21 @@ def cmd_selftest():
                             % (case["crate"], case["expect"], got))
         mark = "ok" if ok else "FAIL"
         print("  %-4s %-32s -> %s" % (mark, "example " + case["crate"], got))
+
+    for case in spec.get("dormant", []):
+        want_crate = case["crate"].lower()
+        node = next((n for n in nodes
+                        if (crate_candidate(n)[0] or "").lower() == want_crate),
+                    None)
+        years = staleness(node["id"]) if node else 0
+        got = "dormant" if years >= STALE_YEARS else "current"
+        ok = got == case["expect"]
+        if not ok:
+            failures.append("dormant %s: expected %s, got %s (%d years)"
+                            % (case["crate"], case["expect"], got, years))
+        mark = "ok" if ok else "FAIL"
+        label = "dormant " + case["crate"]
+        print("  %-4s %-32s -> %s" % (mark, label, got))
 
     if spec.get("runtime"):
         by_crate = {}

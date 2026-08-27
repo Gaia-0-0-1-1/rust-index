@@ -72,6 +72,9 @@ including dev-dependencies, which `dag` excludes by default).
     capability, which is what you want.
 - **`ask` returns alternatives, not a set.** The results share a category and
     compete with each other. Install one, not all of them.
+- **Heed `DORMANT`.** A result marked so has not published in three years or
+    more; downloads are cumulative, so a dead crate keeps its popularity. Check
+    it is still maintained before depending on it.
 - **`CONFIDENCE high` is weakly calibrated.** Measured externally, roughly a
     quarter of `high` verdicts were wrong and about half of `LOW` ones were
     right. Read `high` as "matched most of your query", not "this is correct".

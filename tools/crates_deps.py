@@ -376,6 +376,7 @@ def main(argv):
         if keywords or categories or default_on or declared or implied:
             vocab[node_id] = {
                 "keywords": keywords,
+                "last_published": (entry[0] or "")[:10] if entry else "",
                 "categories": categories,
                 "default_features": default_on,
                 "features": declared,

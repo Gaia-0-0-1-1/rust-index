@@ -77,6 +77,17 @@ Libraries/Configuration and naming it means it — from "websocket server", wher
 the `websocket` crate is outdownloaded 110x by tungstenite and the words are
 plainly a capability, not a brand.
 
+**Dormancy.** Downloads are cumulative and never decay, so a crate that was
+popular and then stopped outranks its living replacement forever — `rust-crypto`
+last shipped in 2016, is RUSTSEC-flagged, and answered a query about AES
+encryption. Results not published for three years or more are marked `DORMANT`
+with the date, measured against the dump snapshot rather than today's clock so
+regeneration stays byte-identical.
+
+It is **shown, not ranked on**: discounting adoption by staleness was swept and
+traded misses rather than fixing them, so the tool reports the fact and lets the
+reader weigh it.
+
 **Confidence.** Every `ask` prints `CONFIDENCE high|LOW` with the share of the
 query — measured in characters, so a non-ASCII query cannot claim full coverage
 off one surviving word — that the index actually matched.
@@ -148,7 +159,7 @@ any diff, the same shape as the existing `lint-markdown-toc` job.
 > and commit the resulting `index/` diff.
 
 **Answers — catches the query surface regressing.** `tools/selftest.json` records
-what "the index works" means: 55 checks across twenty-six queries with their
+what "the index works" means: 59 checks across twenty-six queries with their
 expected top crate, six confidence verdicts, one query that must find no category
 at all, each recipe's resolved/uncovered counts, three graph affinities, two
 runtime constraints, five feature lookups and three example lookups.
