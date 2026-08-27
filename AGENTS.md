@@ -321,6 +321,13 @@ obvious cause was not the real one.
 2. **146 crate names are low-confidence guesses**, marked `?` / `UNVERIFIED`.
     Confirm on crates.io before running `cargo add` on one.
 3. **A crate whose category does not match the query cannot be surfaced.**
+    Three separate mechanisms were tried against this and all three measured
+    worse: splitting compound keywords into parts (22/27 against 25/27), a
+    phrase bonus for compounds (returned yukikaze for "async http client"), and
+    the same phrase bonus capped so it cannot out-earn the words spelled apart
+    (28/30 with it off, 27/30 or worse with it on). `crossbeam` was never
+    surfaced at any setting, because `rpds` draws 71.7 points from its category
+    alone and no node-level evidence overcomes that.
     This is the architecture's ceiling, not a tuning gap. `crossbeam` provides
     lock-free structures but lives in `Libraries/Concurrency`, which scores 0.0
     for "lock free data structures", while `Libraries/Data structures` scores
