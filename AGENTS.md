@@ -59,7 +59,15 @@ taxonomy — which is what lets "REST API" reach HTTP Server, "orm" reach
 Database / ORM, and "parallelism" reach Concurrency. None of those words appear
 in `README.md`. Adoption then orders the results, but only *within* the
 categories that matched: counted globally, clap's billion downloads win
-"terminal ui" on fame alone.
+"terminal ui" on fame alone. Adoption *orders* results without deciding them:
+name, keyword and description matching still reorder within a category, which is
+why reqwest sits above hyper despite having fewer downloads.
+
+**Confidence.** Every `ask` prints a `CONFIDENCE high|LOW` line with the share of
+the query the index actually matched. LOW means verify. The tool errs toward it:
+weak-but-correct and weak-and-wrong overlap in both score and coverage, so they
+cannot be cleanly separated, and presenting nonsense confidently is the worse
+failure. Four of the guarded queries return the right crate and are still LOW.
 
 ## Regenerate it
 

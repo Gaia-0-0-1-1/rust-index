@@ -21,6 +21,9 @@ the `agent-index` branch, so there is no checkout step.
 
 Python 3, stdlib only. No install, no network, no build: the index is committed,
 so a fresh clone answers immediately. `cargo` is needed only to regenerate it.
+If `python` is not on your PATH, try `py` or `python3` — on Windows it varies.
+
+Already have a checkout? The commands below run from its root; ignore the clone.
 
 Read `AGENTS.md` in the repo root for the full reference.
 
@@ -29,7 +32,7 @@ Read `AGENTS.md` in the repo root for the full reference.
 ```
 ask <query>          rank projects for a need, with alternatives + install line
 cat "<path>"         list a category (its members are mutual alternatives)
-node <name|crate>    everything known about one project
+node <name|crate>    everything known about one project (JSON)
 recipe [name]        archetype stacks (see list below)
 stack <crate>        what a crate is really built alongside (from dep graph)
 dag                  dependency strata and most load-bearing crates
@@ -46,6 +49,10 @@ and 6,974 dependency edges from the crates.io database dump.
 
 ## Rules
 
+- **Check `CONFIDENCE` before trusting an order.** Every `ask` prints
+    `CONFIDENCE high` or `CONFIDENCE LOW` with the share of your query the index
+    matched. LOW means the results are candidates to verify, not a ranking.
+    `NO MATCH` (exit 1) means nothing scored at all.
 - **Cite, don't assert.** Every result carries `README.md:<line>`. Quote it.
 - **Never hand-edit anything in `index/`.** It is generated. Regenerate it with
     `cargo run --bin index`.

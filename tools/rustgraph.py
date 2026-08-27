@@ -35,6 +35,9 @@ the word -- and through their crates.io keywords and categories, which is how
 "REST API" reaches HTTP Server in a list that only ever writes "HTTP". Adoption
 then orders results within the categories that matched, and is damped outside
 them: counted globally, clap's billion downloads win "terminal ui" on fame.
+Adoption orders results but does not decide them on its own -- name, keyword and
+description matching still reorder within a category, which is why reqwest can
+sit above hyper despite fewer downloads.
 """
 
 import json
@@ -80,7 +83,8 @@ MAX_TOKENS = 32
 def tokens(s):
     """Query tokens, bounded. Scoring is linear in token count across 2,057
     scored objects, so an unbounded paste is a denial of service on itself."""
-    out = [t for t in re.split(r"[^a-z0-9+#.]+", s.lower()) if t and t not in STOP]
+    raw = re.split(r"[^a-z0-9+#.]+", s.lower())
+    out = [t for t in raw if len(t) > 1 and t not in STOP]
     return out[:MAX_TOKENS]
 
 
@@ -587,7 +591,7 @@ def rank(nodes, cats, query):
     what ask does. Returns (hits, top_cats, subtree)."""
     qt = tokens(query)
     if not qt:
-        return [], [], {}
+        return [], [], {}, {"confident": False, "coverage": 0.0, "named": False}
 
     profiles = category_terms(nodes, cats)
     cat_scores = {
@@ -629,21 +633,81 @@ def rank(nodes, cats, query):
         ((score_node(n, qt, cat_scores, name_df, anchored, cdf), n)
             for n in nodes),
         key=lambda x: (-x[0], x[1]["name"]))
-    return [(sc, n) for sc, n in scored if sc > 0][:8], top_cats, subtree
+    hits = [(sc, n) for sc, n in scored if sc > 0][:8]
+
+    # Confidence is coverage, not score. A category can clear the floor while
+    # explaining one token out of five -- "garbage collection tuning for the JVM
+    # heap" anchors on Resources/Learning at 7.2 and returns Rustlings with no
+    # hedge, while real queries explain nearly every token they are given. An
+    # exact crate name is its own answer and needs no category to back it.
+    covered = 0
+    if top_cats:
+        path = " / ".join(top_cats[0]["path"]).lower()
+        profile = profiles.get(top_cats[0]["id"]) or {}
+        for t in qt:
+            if t in path or any(term_match(t, k) for k in profile):
+                covered += 1
+    # A name match only speaks for the whole query when it IS most of the query.
+    # "quantum flux capacitor" hit the obscure crate `quantum` on one token of
+    # three and called the whole thing confident.
+    named = False
+    if hits and len(qt) <= 2:
+        top_crate = (crate_candidate(hits[0][1])[0] or "").lower()
+        named = any(t == top_crate and cdf.get(t, 0) <= IDENT_DF_MAX for t in qt)
+    coverage = covered / len(qt) if qt else 0.0
+    # Coverage alone still calls "frobnicate-o-matic" confident at 67%. Real
+    # queries anchor at 16-54; incidental collisions land at 4-7. Both tests
+    # must pass, unless the query simply named a crate.
+    # Deliberately conservative. Weak-but-correct and weak-and-wrong overlap in
+    # both score (6.9 vs 7.2) and coverage, so they cannot be separated cleanly.
+    # Given that, err toward LOW: telling an agent to verify a correct answer
+    # costs little, and presenting nonsense confidently is the failure that
+    # matters. Queries reached through indirect vocabulary rather than a
+    # category name genuinely are weaker evidence, and are marked as such.
+    best_cat_score = cat_scores[top_cats[0]["id"]] if top_cats else 0.0
+    confident = bool(named or (coverage >= 0.5 and best_cat_score >= 10.0))
+    conf = {"confident": confident, "coverage": coverage, "named": named}
+    return hits, top_cats, subtree, conf
 
 
 def cmd_ask(query):
     nodes, cats = load()
     if not tokens(query):
         sys.exit("empty query")
-    hits, top_cats, subtree = rank(nodes, cats, query)
+    hits, top_cats, subtree, conf = rank(nodes, cats, query)
     node_by_id = {n["id"]: n for n in nodes}
+
+    # One guidance block for every unhelpful outcome. Previously there were
+    # three divergent paths and only the third was documented: a real technical
+    # term the list lacks ("mmap") dead-ended with a bare "no match" and exit 1,
+    # while pure punctuation got the full explanation and exit 0.
+    def guidance():
+        print("  The list has its own vocabulary and its own scope. Browse it")
+        print("  and retry in its terms:")
+        print("      python tools/rustgraph.py cat")
+        print("      python tools/rustgraph.py recipe")
+
     if not hits:
-        print("no match for %r" % query)
+        print("NO MATCH for %r" % query)
+        print("  Nothing in the index scored against any word in this query.")
+        guidance()
         return 1
 
     print("QUERY  %s" % query)
     print("=" * 72)
+    # One explicit confidence line, always present and machine-readable. The old
+    # signal was inverted: punctuation got a hedge and exit 0, a real term the
+    # list lacks got a bare dead end and exit 1, and confident nonsense got
+    # neither -- an agent could only tell them apart by scraping prose.
+    label = "high" if conf["confident"] else "LOW"
+    extra = ", exact crate name" if conf["named"] else ""
+    banner = "CONFIDENCE  %s  (query coverage %.0f%%%s)"
+    print(banner % (label, 100 * conf["coverage"], extra))
+    if not conf["confident"]:
+        print("  Verify before use. The index matched only part of this")
+        print("  query, so the order below carries less evidence than usual.")
+        guidance()
+
     if top_cats:
         print("\nMATCHED CATEGORIES")
         for c in top_cats:
@@ -695,13 +759,22 @@ def cmd_ask(query):
         if rt:
             print("RUNTIME  %s %s" % (lead_crate or lead["name"], rt))
         print("COMMONLY USED WITH %s" % (lead_crate or lead["name"]))
+        thin = False
         for score, count, other in partners[:5]:
             o = node_by_id.get(other)
             if not o:
                 continue
             oc, _ov = crate_candidate(o)
-            blurb = (o.get("description") or "")[:42]
-            print("    %-22s x%-5.1f  %s" % (oc or o["name"], score, blurb))
+            blurb = (o.get("description") or "")[:34]
+            thin = thin or count < 8
+            row = "    %-20s x%-5.1f in %2d  %s"
+            print(row % (oc or o["name"], score, count, blurb))
+        if thin:
+            # The support count was printed but never characterised, so a pair
+            # seen in five manifests read like a recommendation. For axum the
+            # top partner is an SMTP library.
+            print("    (co-occurrence across few manifests is weak evidence,")
+            print("     not a recommendation -- check the count)")
         print()
 
     # Only verified names go in the runnable line. The per-result output marks
@@ -979,7 +1052,7 @@ def cmd_selftest():
     failures = []
 
     for case in spec.get("queries", []):
-        hits, top_cats, _ = rank(nodes, cats, case["q"])
+        hits, top_cats, _sub, _conf = rank(nodes, cats, case["q"])
         got = None
         if hits:
             got, _v = crate_candidate(hits[0][1])
@@ -990,7 +1063,7 @@ def cmd_selftest():
         print("  %-4s %-32s -> %s" % ("ok" if ok else "FAIL", case["q"], got))
 
     for case in spec.get("no_anchor", []):
-        _hits, top_cats, _ = rank(nodes, cats, case["q"])
+        _hits, top_cats, _sub, _conf = rank(nodes, cats, case["q"])
         ok = not top_cats
         if not ok:
             failures.append("no_anchor %r: anchored on %s"
@@ -1052,6 +1125,17 @@ def cmd_selftest():
             mark = "ok" if ok else "FAIL"
             label = "affinity " + case["crate"]
             print("  %-4s %-32s -> %s" % (mark, label, top))
+
+    for case in spec.get("confidence", []):
+        _h, _t, _s, conf = rank(nodes, cats, case["q"])
+        got = "high" if conf["confident"] else "low"
+        ok = got == case["expect"]
+        if not ok:
+            failures.append("confidence %r: expected %s, got %s"
+                            % (case["q"], case["expect"], got))
+        mark = "ok" if ok else "FAIL"
+        label = "confidence " + case["q"][:20]
+        print("  %-4s %-32s -> %s" % (mark, label, got))
 
     if spec.get("runtime"):
         by_crate = {}

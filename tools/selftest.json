@@ -88,6 +88,37 @@
             "note": "Must report no category match rather than dressing a guess as a ranking."
         }
     ],
+    "confidence": [
+        {
+            "q": "frobnicate-o-matic",
+            "expect": "low",
+            "note": "Gibberish must not be answered confidently."
+        },
+        {
+            "q": "quantum flux capacitor",
+            "expect": "low",
+            "note": "One token hits the obscure crate `quantum`; a name match on part of a query is not confidence in the query."
+        },
+        {
+            "q": "garbage collection tuning for the JVM heap",
+            "expect": "low",
+            "note": "Out of scope for a Rust list."
+        },
+        {
+            "q": "something fast",
+            "expect": "low",
+            "note": "Vague; matches brand names containing 'fast'."
+        },
+        {
+            "q": "async http client",
+            "expect": "high"
+        },
+        {
+            "q": "wgpu",
+            "expect": "high",
+            "note": "Confident via exact crate name rather than category."
+        }
+    ],
     "recipes": [
         {
             "name": "cli",
