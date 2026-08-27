@@ -57,16 +57,30 @@ legitimately dirty it — that is what `crates-provenance.json` is for. They are
 pinned to LF in `.gitattributes`; without that, autocrlf rewrites them on
 checkout and every regeneration shows a whole-file diff.
 
-## The gate
+## The two gates
 
-`extract` prints an exact accounting invariant:
+**Accounting — catches parsing drift.** `extract` enforces, and exits non-zero on:
 
 ```
-entries + labels == every "* " bullet in README.md   (1718 + 240 == 1958)
+entries + labels == every "* " bullet in README.md outside the TOC
+                    (1718 + 240 == 1958)
 ```
 
-Every bullet is classified as exactly one of the two. If that sum stops matching,
-parsing has drifted and the index should not be trusted.
+Every bullet must be exactly one of the two. Fenced code blocks are skipped, so a
+`* ` in a sample never counts. A mismatch means parsing has drifted, and the run
+fails rather than writing a plausible-looking wrong file.
+
+**Staleness — catches an index older than the README.** The `lint-index` job in
+`.github/workflows/lint.yml` regenerates the README-derived artifacts and fails on
+any diff, the same shape as the existing `lint-markdown-toc` job.
+
+> **If `lint-index` fails after a README change** — which is expected after
+> merging upstream — the index is simply out of date. Run `cargo run --bin index`
+> and commit the resulting `index/` diff.
+
+CI rebuilds only the README-derived artifacts. The crates.io ones need a 1.8GB
+dump, so they are refreshed deliberately by running `tools/crates_deps.py`, not on
+every push.
 
 ## Model
 
