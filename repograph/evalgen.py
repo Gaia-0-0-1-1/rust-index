@@ -54,7 +54,10 @@ def clean(text):
 
 def from_modules(idx):
     out = []
+    lib = {s['file'] for s in idx.symbols if s.get('role', 'lib') == 'lib'}
     for f, md in sorted(idx.modules.items()):
+        if f not in lib:
+            continue
         head, rest = first_sentence(clean(md))
         if not head or len(RG.tokens(head)) < 3:
             continue
@@ -70,7 +73,7 @@ def from_modules(idx):
 def from_docs(idx, limit=400):
     out = []
     for i, s in enumerate(idx.symbols):
-        if s.get('test') or not s['doc']:
+        if s.get('test') or not s['doc'] or s.get('role', 'lib') != 'lib':
             continue
         head, rest = first_sentence(clean(s['doc']))
         if not head or not rest:
@@ -94,8 +97,11 @@ def from_tests(idx):
     """`fn test_date_add_assign` -> "date add assign". The test sits in the
     file it exercises, so the file is the answer, and none of this depends on
     anybody having written documentation."""
+    lib = {s['file'] for s in idx.symbols if s.get('role', 'lib') == 'lib'}
     out, seen = [], set()
     for t in idx.tests:
+        if t['file'] not in lib:
+            continue
         name = TEST_PREFIX.sub('', t['name'])
         words = RG.tokens(name)
         if len(words) < 2:
@@ -121,7 +127,10 @@ def main(argv):
     qs = from_modules(idx) + from_docs(idx) + from_tests(idx)
     # Ground truth must be a file the index actually holds, or a question is
     # unanswerable for reasons that have nothing to do with ranking.
-    files = {s['file'] for s in idx.symbols}
+    # Ground truth has to be somewhere the ranker can actually return, or a
+    # question is unanswerable for reasons that have nothing to do with
+    # ranking. Benchmarks and integration tests are indexed but not ranked.
+    files = {s['file'] for s in idx.symbols if s.get('role', 'lib') == 'lib'}
     qs = [q for q in qs if all(f in files for f in q['ok'])]
 
     payload = {

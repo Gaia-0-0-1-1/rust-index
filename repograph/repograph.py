@@ -226,8 +226,11 @@ class Index(object):
         for i, bag in enumerate(self.bags):
             sym = self.symbols[i]
             # Tests are not answers. Someone asking where dates are added means
-            # the implementation, not `test_date_add_assign` beside it.
-            if sym.get('test'):
+            # the implementation, not `test_date_add_assign` beside it. Nor are
+            # benchmarks, examples or integration tests: they are in the
+            # repository but they are not the thing being asked about. `sym`
+            # and `file` still reach them.
+            if sym.get('test') or sym.get('role', 'lib') != 'lib':
                 continue
             if held and sym['file'] == hold_file:
                 bag = dict(bag)

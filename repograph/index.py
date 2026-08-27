@@ -27,6 +27,17 @@ DECL = re.compile(
 USE = re.compile(r'^\s*(?:pub\s+)?use\s+([^;]+);')
 IDENT = re.compile(r'[A-Za-z_][A-Za-z0-9_]{2,}')
 SKIP_DIRS = {'target', '.git', 'node_modules', '.github'}
+# Directories that are part of the repository but not part of the library.
+# Indexed and kept, because "where is the benchmark for X" is a fair question,
+# but excluded from coverage and from ranking -- somebody asking how PNG is
+# decoded does not want a benchmark harness.
+ROLES = {'benches': 'bench', 'examples': 'example', 'tests': 'test',
+    'fuzz': 'fuzz'}
+
+
+def file_role(rel):
+    head = rel.split('/')[0]
+    return ROLES.get(head, 'lib')
 
 
 def strip_noise(line):
@@ -116,6 +127,7 @@ def parse_file(path, rel):
             'name': name,
             'kind': kind.rstrip('!'),
             'file': rel,
+            'role': file_role(rel),
             'line': i + 1,
             'end': end + 1,
             'doc': ' '.join(doc).strip(),
@@ -198,6 +210,43 @@ def build_edges(root, symbols, df_max=3):
     return edges
 
 
+def is_public(sig):
+    """`pub` alone is public. `pub(crate)`, `pub(super)` and `pub(in path)` are
+    restricted, and counting them as API is most of why syn looked badly
+    documented: `pub(crate) mod parsing` is not something a user can call."""
+    sig = sig.lstrip()
+    if not sig.startswith('pub'):
+        return False
+    rest = sig[3:]
+    return not rest.startswith('(')
+
+
+def mark_visibility(symbols):
+    """A `pub fn` inside a private `mod` is not public API.
+
+    syn declares most of its parsing in `mod parsing`, which is private, so 766
+    of its 871 "undocumented public functions" were never public at all --
+    which is most of why it reported 30% documented against chrono's 83%.
+    Enclosing modules are found by span containment, which the extractor
+    already records.
+    """
+    mods = [s for s in symbols if s['kind'] == 'mod']
+    by_file = {}
+    for m in mods:
+        by_file.setdefault(m['file'], []).append(m)
+    for s in symbols:
+        pub = is_public(s['sig'])
+        if pub:
+            for m in by_file.get(s['file'], ()):
+                if m is s or not (m['line'] < s['line'] <= m['end']):
+                    continue
+                if not is_public(m['sig']):
+                    pub = False
+                    break
+        s['public'] = pub
+    return symbols
+
+
 def coverage(symbols, mods, nfiles):
     """Documentation coverage, reported as a first-class number.
 
@@ -208,7 +257,9 @@ def coverage(symbols, mods, nfiles):
     a thinly documented repository is close to unsearchable by description, and
     the tool has to say so rather than answer confidently.
     """
-    pub = [s for s in symbols if s['sig'].lstrip().startswith('pub')]
+    lib = [s for s in symbols if s.get('role', 'lib') == 'lib']
+    symbols = lib or symbols
+    pub = [s for s in symbols if s.get('public')]
     # A binary crate exports nothing, so judging it on public items reports
     # 0/0 and calls a perfectly ordinary program undocumented. Fall back to
     # every symbol when there is no meaningful public surface to measure.
@@ -217,6 +268,7 @@ def coverage(symbols, mods, nfiles):
     return {
         'basis': 'public' if basis is pub else 'all symbols',
         'files': nfiles,
+        'lib_files': len({s['file'] for s in symbols}),
         'files_with_module_doc': len(mods),
         'symbols': len(symbols),
         'public_symbols': len(pub),
@@ -243,6 +295,7 @@ def main(argv):
         return 1
 
     symbols, uses, mods, tests = walk(root)
+    symbols = mark_visibility(symbols)
     if not symbols:
         print('no .rs files found under %s' % root)
         return 1

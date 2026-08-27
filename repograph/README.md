@@ -32,6 +32,17 @@ across `syn`, `chrono` and `image`: the first answer is right **31%** of the
 time, and the answer is in the top three **65%** of the time. That gap is the
 single most useful fact about this tool, so `ask` prints three files and says so.
 
+**Coverage counts library code, and only what is really public.** Three things
+had to be fixed before the number meant anything, and the first was a hypothesis
+that turned out to be wrong -- syn's low score is *not* items hidden inside
+`ast_struct!` macros, which extract fine. It was that `benches/`, `examples/`
+and `tests/` were indexed as if they were the library (20% of syn's symbols),
+that a `pub fn` inside a private `mod` counted as API, and that `pub(crate)`
+counted as `pub`. Correcting those moved chrono from 83% to 93%, image to 96%
+and regex to 99% -- which is what those crates actually look like. syn stays at
+34%, and that is now honest: 564 of its undocumented public functions are the
+generated visitors in `src/gen/`.
+
 **Documentation is the ceiling, not the ranking.** Retrieval runs on prose, and
 almost all the prose about a Rust symbol is its doc comment. Remove an item's
 doc from the index and the chance of finding it from a description of it drops
