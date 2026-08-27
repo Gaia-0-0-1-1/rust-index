@@ -308,11 +308,17 @@ def confidence(idx, qt, scored):
     reading "CONFIDENCE high" on that is worse than no label, so the number is
     still shown, under a name that says what it is."""
     if not scored:
-        return 0.0, False
+        return 0.0, False, list(qt)
     top_bag = idx.bags[scored[0][1]]
     covered = sum(1 for t in qt if t in top_bag)
+    # Which words the whole index has never heard of. This is the actionable
+    # half: a percentage tells a reader nothing they can act on, while "no
+    # entry anywhere for: tty, terminal" tells them exactly which word to drop
+    # or replace. tracing-subscriber has no terminal detection at all, and an
+    # agent asking about it spent calls discovering that.
+    unknown = [t for t in qt if t not in idx.idf]
     share = covered / max(len(qt), 1)
-    return share, share >= 0.6
+    return share, share >= 0.6, unknown
 
 
 def cmd_ask(idx, question, prior=None):
@@ -327,16 +333,14 @@ def cmd_ask(idx, question, prior=None):
         print('  vocabulary -- `coverage` shows how much there is to search.')
         return 1
 
-    share, conf = confidence(idx, qt, scored)
+    share, conf, unknown = confidence(idx, qt, scored)
     ratio, cov = idx.coverage_note()
     print('QUESTION  %s' % question)
     print('=' * 68)
-    print('QUERY MATCH  %.0f%% of your words appear in the top result'
-            % (100 * share))
-    print('  This is word overlap, not a correctness estimate. Measured on'
-            ' blind')
-    print('  questions, a high match was right 14% of the time and a low one'
-            ' 29%.')
+    if unknown:
+        print('NOT IN THIS INDEX  %s' % ', '.join(unknown))
+        print('  Those words appear nowhere in the repository. Replace them'
+                ' or drop them.')
     if ratio < THIN_DOCS:
         print('  THIN DOCS: only %.0f%% of %s here carry documentation.'
                 % (100 * ratio, cov.get('basis', 'public symbols')))
@@ -394,6 +398,13 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
     actually applies.
 
     So this prints candidates, plural, and never pretends to have decided.
+
+    Kept deliberately small. Its job is to let a reader choose between three
+    files, not to reproduce them -- an earlier version showed six symbols per
+    candidate with long doc extracts, and four batched questions produced 47KB
+    that a test agent had to spill to a file and read back. Three symbols and a
+    short doc are enough to choose; `--source` and `--budget` are there for
+    when they are not.
     """
     qt = tokens(question)
     if not qt:
@@ -404,7 +415,7 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
         print('NO MATCH for %r' % question)
         return 1
 
-    share, conf = confidence(idx, qt, scored)
+    share, conf, unknown = confidence(idx, qt, scored)
     ratio, cov = idx.coverage_note()
     per_file = {}
     for sc, i in scored:
@@ -414,12 +425,10 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
     out = []
     out.append('QUESTION  %s' % question)
     out.append('REPO      %s' % (idx.meta.get('name') or '?'))
-    out.append('QUERY MATCH %.0f%% of your words appear in the top result.'
-        % (100 * share))
-    out.append('  Word overlap, not a correctness estimate -- on blind '
-        'questions a high')
-    out.append('  match was right 14% of the time and a low match 29%. Do not '
-        'rank on it.')
+    if unknown:
+        out.append('NOT IN THIS INDEX  %s' % ', '.join(unknown))
+        out.append('  Those words appear nowhere in the repository -- replace'
+            ' or drop them.')
     if ratio < THIN_DOCS:
         out.append('WARNING   only %.0f%% of %s here are documented; retrieval '
             'runs on documentation, so these candidates are weak.'
@@ -440,8 +449,8 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
         blk = ['', '=' * 70, 'CANDIDATE %d  %s' % (rank, f)]
         md = idx.modules.get(f)
         if md:
-            blk.append('  module doc: %s' % md[:400])
-        picks = sorted(per_file.get(f, []), key=lambda x: -x[0])[:6]
+            blk.append('  module doc: %s' % md[:200])
+        picks = sorted(per_file.get(f, []), key=lambda x: -x[0])[:3]
         for sc, i in picks:
             sym = idx.symbols[i]
             blk.append('')
@@ -449,7 +458,7 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
                 % (sym['kind'], sym['name'], sym['file'], sym['line']))
             blk.append('      %s' % sym['sig'][:160])
             if sym['doc']:
-                for chunk in wrap(sym['doc'], 400):
+                for chunk in wrap(sym['doc'], 200)[:2]:
                     blk.append('      %s' % chunk)
             if source:
                 body = read_span(idx, sym, 40)
@@ -575,7 +584,8 @@ def cmd_coverage(idx):
                 100 * cov.get('module_doc_ratio', 0)))
     print()
     if ratio >= 0.7:
-        print('  WELL DOCUMENTED. Description-style questions should work.')
+        print('  WELL DOCUMENTED overall. Description-style questions should')
+        print('  work -- but read the breakdown below before believing that.')
     elif ratio >= THIN_DOCS:
         print('  PARTLY DOCUMENTED. Expect gaps in undocumented corners.')
     else:
@@ -583,6 +593,46 @@ def cmd_coverage(idx):
         print('  item\'s doc removed the chance of finding it from a')
         print('  description of it falls to 1%. Answers will be weak, and no')
         print('  amount of rephrasing fixes it -- the text is not there.')
+
+    # A crate-wide average hides exactly what a reader needs. tracing-subscriber
+    # reports 94% documented while its filter internals carry almost no doc
+    # comments, and the filter internals are precisely where retrieval failed
+    # in testing. The average was true and useless; the breakdown is what says
+    # "searching will not work *here*".
+    # Counted over EVERY library symbol, not just the public ones, because
+    # that is what retrieval searches. The distinction is the whole point here:
+    # tracing-subscriber documents 94% of its public API and 18% of what is
+    # actually in src/filter, and the filter internals are where a test agent's
+    # questions failed. `src/filter/directive.rs` documents 3 of 42 symbols
+    # while exporting one documented public item, so a public-API measure calls
+    # it perfect and a searcher finds nothing.
+    by_dir = {}
+    for s in idx.symbols:
+        if s.get('role', 'lib') != 'lib':
+            continue
+        d = s['file'].rsplit('/', 1)[0] if '/' in s['file'] else '.'
+        cell = by_dir.setdefault(d, [0, 0])
+        cell[0] += 1 if s.get('doc') else 0
+        cell[1] += 1
+    rows = [(d, a, b) for d, (a, b) in by_dir.items() if b >= 5]
+    if not rows:
+        return 0
+    rows.sort(key=lambda r: (r[1] / r[2], -r[2]))
+    print()
+    print('  BY DIRECTORY -- every symbol, documented or not, worst first.')
+    print('  This is what retrieval searches, so it predicts where asking')
+    print('  questions works and where it does not.')
+    for d, a, b in rows[:12]:
+        share = a / b
+        flag = '  <-- ask here and expect misses' if share < 0.25 else ''
+        print('    %-42s %4d/%-5d %3.0f%%%s' % (d, a, b, 100 * share, flag))
+    thin = [r for r in rows if r[1] / r[2] < 0.25]
+    if thin:
+        print()
+        print('  %d of %d directories fall below 25%%. Navigate those with'
+            % (len(thin), len(rows)))
+        print('  `file` and `callers` rather than by asking about them --')
+        print('  the words you would search for are not written down there.')
     return 0
 
 
@@ -757,7 +807,7 @@ def cmd_selftest(idx):
         if missing:
             fails.append('file: listed %d of %d files in %s without saying so'
                 % (len(big[1]) - len(missing), len(big[1]), big[0]))
-    if 'QUESTION' not in got or 'QUERY MATCH' not in got:
+    if 'QUESTION' not in got or 'CANDIDATE' not in got:
         fails.append('context: dropped its header')
 
     saved = globals()['PRIOR_WEIGHT']
@@ -794,7 +844,7 @@ def main(argv):
     if cmd == 'ask':
         return cmd_ask(idx, joined, prior)
     if cmd == 'context':
-        nfiles, source, budget = 3, False, 12000
+        nfiles, source, budget = 3, False, 4000
         rest2 = []
         k = 0
         while k < len(rest):

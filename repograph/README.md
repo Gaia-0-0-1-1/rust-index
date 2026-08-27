@@ -127,29 +127,44 @@ What the agents said, consistently, is more useful than the scores:
     documented while its filter internals carry almost no docs, and that is
     exactly where retrieval failed. Coverage should be reported per directory.
 
-## The confidence signal was inverted, so it is gone
+## Four fixes the experiment produced
 
-The tool used to print `CONFIDENCE high` or `CONFIDENCE LOW`. Measured on the
-100 blind questions, that label was worse than useless:
+The scores said nothing; the agents' reports said plenty, and all four of these
+come from what three independent agents complained about.
 
-| | questions | top-1 right |
-|---|---|---|
-| high | 7 | **14%** |
-| LOW | 92 | **29%** |
+**`coverage` now breaks down by directory, counting every symbol.** The
+headline counts public API and averages across the crate, which hid the thing
+that mattered: `tracing-subscriber` documents 94% of its public API and 18% of
+what is in `src/filter`, and `src/filter` is where the test questions failed.
+`src/filter/directive.rs` documents 3 of its 42 symbols while exporting one
+documented public item -- a public-API measure calls that perfect and a
+searcher finds nothing. Directories under 25% are flagged as places to navigate
+rather than interrogate.
 
-High word-overlap correlates with being *wrong*. The reason is boilerplate:
-the way to match many query words at once is to hit a stock sentence repeated
-across several files. Three of flate2's decoders share one about trailing data,
-so any question about trailing data matches all three strongly and is answered
-by none of them — a subagent hit exactly that and reported the high score as
-actively misleading.
+**`context` is a third of its former size.** It showed six symbols per
+candidate with long doc extracts; four batched questions produced 47KB that an
+agent had to spill to a file and read back. Now three symbols and a short doc
+per candidate: the two queries measured went from 4,121 and 9,022 characters to
+2,694 and 3,553, with all three candidates still intact.
 
-It now prints `QUERY MATCH n%` with those numbers attached, because the honest
-description of the quantity is "how many of your words appear in the top
-result", and that is not a correctness estimate. Renaming is not a fix; a real
-fix needs a mechanism and a measurement, and neither exists yet.
+**The confidence percentage is replaced by the words that missed.** It used to
+print `CONFIDENCE high`, which was measurably inverted -- on 100 blind
+questions `high` was right 14% of the time and `LOW` 29%, because the way to
+match many words at once is to hit boilerplate repeated across files. Renaming
+it to `QUERY MATCH` was honest but still useless. It now prints **NOT IN THIS
+INDEX** followed by the words that appear nowhere in the repository, which is
+the actionable half. The agent who asked why colours vanish when piping to a
+file is told immediately that `tty` and `terminal` are absent -- because
+`tracing-subscriber` has no terminal detection at all, so the premise was
+wrong.
 
-## What was tried and does not work
+**`PROTOCOL.md` is reordered.** It used to say: ask, then navigate structurally
+if that fails. Every agent that succeeded did the opposite -- `file src --all`
+first for the shape, `sym` when they had a name, ranked search afterwards. The
+protocol now says that, and opens by admitting the tool has no measured
+advantage over grep so a reader can choose on cost rather than obligation.
+
+## What was tried and does not work## What was tried and does not work
 
 Both were built, measured, and removed. They are recorded because both look
 obviously correct until measured.
