@@ -98,6 +98,40 @@ def tokens(s):
     return out[:MAX_TOKENS]
 
 
+def stem(w):
+    """Fold the endings that split a query from an index entry.
+
+    structopt is described as parsing a "command line argument"; asking for
+    "command line arguments" matched neither its description nor its category,
+    and a line-editing crate won on a phrase bonus. British spelling splits the
+    same way -- "serialisation" found nothing while "serialization" worked. This
+    is not a stemmer, it is the four endings that actually cost hits."""
+    if len(w) < 4:
+        return w
+    if w.endswith("isation"):
+        return w[:-7] + "ization"
+    if w.endswith("ise"):
+        return w[:-3] + "ize"
+    if w.endswith("ies") and len(w) > 4:
+        return w[:-3] + "y"
+    for suf in ("sses", "ches", "shes", "xes", "zes"):
+        if w.endswith(suf):
+            return w[:-2]
+    if w.endswith("s") and not w.endswith("ss") and not w.endswith("us"):
+        return w[:-1]
+    return w
+
+
+def expand(words):
+    """A matching set that holds each word and its folded form."""
+    out = set()
+    for w in words:
+        if w:
+            out.add(w)
+            out.add(stem(w))
+    return out
+
+
 def load():
     global IDENT, DL, VOCAB
     if not NODES.exists():
@@ -312,10 +346,9 @@ def category_terms(nodes, cats):
     subtree = subtree_map(cats)
     words_of = {}
     for n in nodes:
-        words = {
+        words = expand(
             w for w in re.split(r"[^a-z0-9]+", (n.get("description") or "").lower())
-            if len(w) >= 4 and w not in STOP
-        }
+            if len(w) >= 4 and w not in STOP)
         # Fold in the crate's own keywords and crates.io categories. A ten-word
         # blurb is a thin basis for a topic; these are curated, and they carry
         # words the README never uses -- "rest", "orm", "persistence". They need
@@ -375,7 +408,7 @@ def score_category(cat, qt, profile=None):
     for t in qt:
         if t == leaf:
             s += 9
-        elif t in leaf.split():
+        elif t in expand(leaf.split()) or stem(t) in expand(leaf.split()):
             s += 5
         elif t in path:
             s += 2
@@ -483,7 +516,7 @@ def name_frequency(nodes):
 def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None,
                 dominated_ids=None):
     name = " ".join(n.get("names", [])).lower()
-    name_parts = {p for p in re.split(r"[^a-z0-9]+", name) if p}
+    name_parts = expand(p for p in re.split(r"[^a-z0-9]+", name) if p)
     # The RESOLVED crate, not the README-derived field. crate_name is populated
     # only where the list linked crates.io directly -- 536 of 1,633 -- so wiring
     # the exact-name bonus to it made the bonus unreachable for two thirds of the
@@ -491,7 +524,7 @@ def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None,
     crate = (crate_candidate(n)[0] or "").lower()
     corpus_df = corpus_df or {}
     desc = (n.get("description") or "").lower()
-    desc_words = set(re.split(r"[^a-z0-9]+", desc))
+    desc_words = expand(re.split(r"[^a-z0-9]+", desc))
 
     # Inherit the best-matching category's score: membership of a well-matched
     # category is stronger evidence than any wording in the one-line blurb.
@@ -533,14 +566,14 @@ def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None,
             # "date and time" names the concept, and crediting it at all
             # puts the crate `time` above chrono on a coincidence.
             s += 80 if corpus_df.get(t, 0) <= IDENT_DF_MAX else 0
-        elif t in name_parts:
+        elif t in name_parts or stem(t) in name_parts:
             if t in covered:
                 s += 1.0
             else:
                 s += 14 if name_df.get(t, 0) <= 3 else 6
         elif t in name:
             s += 0.5          # substring only: weak, this is the "async-*" trap
-        if t in desc_words:
+        if t in desc_words or stem(t) in desc_words:
             s += 1.5
         elif t in desc:
             s += 0.5
@@ -550,10 +583,11 @@ def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None,
     # since a keyword is one author's word for their crate, not a consensus.
     vocab = VOCAB.get(n["id"])
     if vocab:
-        own = set(vocab.get("keywords", ())) | set(vocab.get("categories", ()))
+        raw_own = set(vocab.get("keywords", ())) | set(vocab.get("categories", ()))
+        own = expand(raw_own)
         kwdf = keyword_frequency()
         for t in qt:
-            if t in own:
+            if t in own or stem(t) in own:
                 held = kwdf.get(t, 0)
                 s += 20 if held <= 3 else (9 if held <= 12 else 3)
             elif any(term_match(t, k) for k in own):
@@ -734,6 +768,17 @@ def rank(nodes, cats, query):
     # an UNVERIFIED guess; the marker existed but never reached the verdict.
     if hits and not crate_candidate(hits[0][1])[1]:
         confident = False
+    # The tool already noticed this and printed it as an aside while still
+    # stamping high: "command line arguments" led with a line-editing crate and
+    # said so on its own line. A leading answer from a category the query never
+    # matched is exactly the case to be unsure about.
+    if hits and top_cats and not named:
+        # Unless the query named the crate outright, in which case its category
+        # is beside the point -- wgpu lives in Graphics, which never matches the
+        # query "wgpu".
+        lead_path = " / ".join(hits[0][1]["category_paths"][0])
+        if lead_path not in {" / ".join(c["path"]) for c in top_cats}:
+            confident = False
     conf = {"confident": confident, "coverage": coverage, "named": named}
     return hits, top_cats, subtree, conf
 
@@ -1388,8 +1433,14 @@ def cmd_stack(name):
     if crate:
         picks.insert(0, crate)
     if picks:
-        print("\nINSTALL")
-        print("  cargo add %s" % " ".join(picks[:5]))
+        # ask warns that a handful of manifests is weak evidence; this line was
+        # emitting the same pairs as one runnable command with no caveat at all.
+        print("\nINSTALL  (the crate, plus what is most often beside it)")
+        print("  cargo add %s" % picks[0])
+        if len(picks) > 1:
+            print("  often added with: %s" % " ".join(picks[1:5]))
+            print("  Co-occurrence, not requirements: the strongest partner for")
+            print("  axum is an SMTP library seen in five manifests.")
     manifests = len(load_deps())
     note = "\nEvidence: co-occurrence across %d dependency manifests here."
     print(note % manifests)
@@ -1542,7 +1593,11 @@ def cmd_stats():
     print("  with crate   %d resolved" % resolved)
     print("  guessed name %d (repo-derived, unverified)" % guessed)
     print("  multi-listed %d" % sum(1 for n in nodes if n.get("listings", 1) > 1))
-    print("  enriched     %d" % sum(1 for n in nodes if n.get("metrics")))
+    # Always zero on a fresh clone, since the enriched artifact is gitignored;
+    # a permanent "enriched 0" reads as a defect rather than an absent input.
+    enriched = sum(1 for n in nodes if n.get("metrics"))
+    if enriched:
+        print("  enriched     %d" % enriched)
     print("categories     %d" % len(cats))
     print("\nlargest categories:")
     for c in sorted(cats, key=lambda c: -len(c["members"]))[:12]:
@@ -1551,7 +1606,16 @@ def cmd_stats():
 
 
 def main(argv):
-    if len(argv) < 2:
+    # A legacy Windows console encodes stdout as cp1252, which cannot represent
+    # a query the user actually typed: echoing a Japanese query crashed with
+    # UnicodeEncodeError and exit 120. Degrade the echo rather than the run.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(errors="replace")
+        except (AttributeError, ValueError):
+            pass
+
+    if len(argv) < 2 or argv[1] in ("-h", "--help", "help"):
         print(__doc__)
         return 0
     cmd, rest = argv[1], argv[2:]

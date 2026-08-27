@@ -45,8 +45,11 @@ That resolution doubles as a gap report on the list itself. `recipe cli` marks
 **anyhow** uncovered and `recipe parser` marks **serde** — neither is in
 `README.md`, though real stacks need both.
 
-Every line of output cites `README.md:<line>`, so a claim can always be checked
-against the source.
+`ask`'s BEST MATCHES and each `recipe` step cite `README.md:<line>`, so those
+claims can be checked against the source. **Other blocks do not** — `cat`,
+`stack`, `dag`, `features`, `example`, and `ask`'s own OTHER OPTIONS and
+COMMONLY USED WITH carry no citation. Where citations appear they are accurate:
+all 303 URL-bearing ones were verified against README.md externally.
 
 **How `ask` ranks.** The taxonomy is matched first, because in a hand-curated list
 it carries more signal than the prose — matching names alone lets "async" drag in
@@ -145,7 +148,7 @@ any diff, the same shape as the existing `lint-markdown-toc` job.
 > and commit the resulting `index/` diff.
 
 **Answers — catches the query surface regressing.** `tools/selftest.json` records
-what "the index works" means: 52 checks across twenty-three queries with their
+what "the index works" means: 55 checks across twenty-six queries with their
 expected top crate, six confidence verdicts, one query that must find no category
 at all, each recipe's resolved/uncovered counts, three graph affinities, two
 runtime constraints, five feature lookups and three example lookups.

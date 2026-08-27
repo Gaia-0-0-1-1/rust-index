@@ -56,12 +56,16 @@ including dev-dependencies, which `dag` excludes by default).
     `CONFIDENCE high` or `CONFIDENCE LOW` with the share of your query the index
     matched. LOW means the results are candidates to verify, not a ranking.
     `NO MATCH` (exit 1) means nothing scored at all.
-- **Cite, don't assert.** Every result carries `README.md:<line>`. Quote it.
+- **Cite, don't assert.** `ask`'s best matches and `recipe` steps carry
+    `README.md:<line>` — quote it. Other blocks (`stack`, `cat`, `features`,
+    `example`, and ask's own alternatives list) do not cite; do not invent one.
 - **Never hand-edit anything in `index/`.** It is generated. Regenerate it with
     `cargo run --bin index`.
 - **Never run a `cargo add` marked `UNVERIFIED` or `?` without checking
-    crates.io first.** 146 crate names are inferred from a repo name, and they are
-    wrong whenever the repo and crate names differ — `curl-rust` ships `curl`.
+    crates.io first.** 515 names are repo-derived rather than read from
+    crates.io — 146 resolved to a crate by download count, plus 369 with no
+    resolved identity at all. They are wrong whenever repo and crate names
+    differ: `curl-rust` ships `curl`.
 - **Query capabilities, not brands**: "http client", "argument parsing",
     "terminal ui". Naming a crate outright also works, but only when the name is
     the whole query — `wgpu` finds wgpu, while `websocket server` is read as a
@@ -81,8 +85,12 @@ including dev-dependencies, which `dag` excludes by default).
 - Download counts are a snapshot. See `index/crates-provenance.json` for which
     crates.io dump they came from.
 - Some ecosystem staples are missing from the underlying list entirely, including
-    `serde`, `anyhow` and `thiserror`. `recipe` flags these as NOT IN THIS LIST
-    rather than pretending they are covered.
+    `serde`, `anyhow`, `thiserror`, `uuid` and `embedded-hal`. `recipe` flags the
+    ones it names as NOT IN THIS LIST; for the rest, `node <crate>` returning
+    `"matches": 0` means the list does not carry it, not that it does not exist.
+- Plurals and British spelling are folded (`arguments`/`argument`,
+    `serialisation`/`serialization`), but there is **no fuzzy matching**. A
+    misspelling is a dead end: `webscoket servr` returns NO MATCH.
 
 ## If you change README.md
 

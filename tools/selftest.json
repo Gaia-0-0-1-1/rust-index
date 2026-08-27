@@ -104,6 +104,21 @@
         {
             "q": "talk to Postgres from Rust",
             "top": "postgres"
+        },
+        {
+            "q": "command line arguments",
+            "top": "clap",
+            "note": "Paraphrase of a tuned query. Returned a line-editing crate until plural folding let structopt's 'command line argument' match 'arguments'."
+        },
+        {
+            "q": "serialisation",
+            "top": "serde_json",
+            "note": "British spelling; was NO MATCH."
+        },
+        {
+            "q": "dates and times",
+            "top": "time",
+            "note": "Plural paraphrase of 'date and time'; was returning cargo-update."
         }
     ],
     "no_anchor": [
