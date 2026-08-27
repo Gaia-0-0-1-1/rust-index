@@ -36,6 +36,7 @@ node <name|crate>    everything known about one project (JSON)
 recipe [name]        archetype stacks (see list below)
 stack <crate>        what a crate is really built alongside (from dep graph)
 features <crate> [x] which Cargo feature to turn on, and the Cargo.toml line
+example <crate>      the crate's own starting example (44% of crates have one)
 dag                  dependency strata and most load-bearing crates
 stats                index shape
 selftest             verify the index still answers correctly

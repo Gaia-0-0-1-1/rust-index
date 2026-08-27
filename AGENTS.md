@@ -18,7 +18,7 @@ python tools/rustgraph.py ask "async http client"
 Also: `cat "<category path>"` (a category's members are mutual alternatives),
 `node <name|crate>` (everything known about one project), `dag` (dependency
 strata and which projects are most load-bearing), `recipe [name]`,
-`stack <crate>`, `features <crate> [what]`, `stats`.
+`stack <crate>`, `features <crate> [what]`, `example <crate>`, `stats`.
 
 ```bash
 python tools/rustgraph.py stack axum
@@ -129,9 +129,10 @@ any diff, the same shape as the existing `lint-markdown-toc` job.
 > and commit the resulting `index/` diff.
 
 **Answers — catches the query surface regressing.** `tools/selftest.json` records
-what "the index works" means: twelve queries with their expected top crate, one
-that must find no category at all, each recipe's resolved/uncovered counts,
-three graph affinities, and two runtime constraints.
+what "the index works" means: 44 checks across eighteen queries with their
+expected top crate, six confidence verdicts, one query that must find no category
+at all, each recipe's resolved/uncovered counts, three graph affinities, two
+runtime constraints, five feature lookups and three example lookups.
 
 **Runtime constraints.** `ask` and `stack` report when a crate pins an async
 runtime, three ways, because Cargo's `optional` flag alone misleads: axum gates
@@ -189,6 +190,15 @@ not just the ones indexed here.
 
 Covers **841 of 1,264** resolved crates (67%); Cargo internals (`__tls`, weak-dep
 `foo?` syntax) are filtered out as noise.
+
+```bash
+python tools/rustgraph.py example reqwest
+```
+
+`example` prints the crate's own starting example, lifted verbatim from its
+crates.io README, with its runtime constraint. **559 of 1,264 crates (44%)** have
+one. An absent example means that README carried none, not that none exists —
+`clap` is the notable gap, since its README defers to docs.rs.
 
 ## Dependency data
 

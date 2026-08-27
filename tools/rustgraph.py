@@ -20,6 +20,8 @@ Built on the artifacts `cargo run --bin index` produces. Stdlib only, no network
     features <crate> [what]
         Cargo features: what is on by default, what to opt into, and the
         Cargo.toml line for it.
+    example <crate>
+        The crate's own starting example, from its README. 44% coverage.
     selftest
         Run tools/selftest.json; non-zero exit on any mismatch.
     stats
@@ -1164,6 +1166,20 @@ def cmd_selftest():
         label = "features %s/%s" % (case["crate"], case["expect"])
         print("  %-4s %-32s -> %s" % (mark, label[:32], "opt-in" if ok else "no"))
 
+    for case in spec.get("examples", []):
+        want_crate = case["crate"].lower()
+        node = next((n for n in nodes
+                        if (crate_candidate(n)[0] or "").lower() == want_crate),
+                    None)
+        v = (VOCAB.get(node["id"]) if node else None) or {}
+        got = "present" if v.get("example") else "absent"
+        ok = got == case["expect"]
+        if not ok:
+            failures.append("example %s: expected %s, got %s"
+                            % (case["crate"], case["expect"], got))
+        mark = "ok" if ok else "FAIL"
+        print("  %-4s %-32s -> %s" % (mark, "example " + case["crate"], got))
+
     if spec.get("runtime"):
         by_crate = {}
         for n in nodes:
@@ -1374,6 +1390,45 @@ def cmd_features(args):
     return 0
 
 
+def cmd_example(name):
+    """The crate's own starting example, lifted from its README.
+
+    Coverage is 44% and that is stated rather than hidden: an absent example
+    means this README carried none, not that none exists. clap is the notable
+    gap -- its crates.io README defers to docs.rs."""
+    if not name:
+        print("usage: example <crate>")
+        return 1
+    nodes, _cats = load()
+    q = name.strip().lower()
+    target = next((n for n in nodes
+                    if (crate_candidate(n)[0] or "").lower() == q), None)
+    if target is None:
+        print("no indexed project publishes a crate called %r" % name)
+        return 1
+
+    crate, _v = crate_candidate(target)
+    vocab = VOCAB.get(target["id"]) or {}
+    code = vocab.get("example")
+    if not code:
+        print("%s -- no example in its crates.io README" % crate)
+        print("  That means this README carried none, not that none exists.")
+        hint = "  Try docs.rs/%s, and `features %s` for what to enable."
+        print(hint % (crate, crate))
+        return 1
+
+    print("%s -- starting example (from its crates.io README)" % crate)
+    rt = runtime_note(target["id"])
+    if rt:
+        print("RUNTIME: %s" % rt)
+    print("=" * 72)
+    print(code)
+    print("=" * 72)
+    print("Verbatim from the README; it may assume features or a runtime.")
+    print("  python tools/rustgraph.py features %s" % crate)
+    return 0
+
+
 def cmd_stats():
     nodes, cats = load()
     print("nodes          %d" % len(nodes))
@@ -1404,6 +1459,8 @@ def main(argv):
         return cmd_dag("--write" in rest, "--with-dev" in rest)
     if cmd == "recipe":
         return cmd_recipe(" ".join(rest))
+    if cmd == "example":
+        return cmd_example(" ".join(rest))
     if cmd == "features":
         return cmd_features(" ".join(rest))
     if cmd == "stack":

@@ -212,5 +212,20 @@
             "want": "postgres",
             "expect": "postgres"
         }
+    ],
+    "examples": [
+        {
+            "crate": "reqwest",
+            "expect": "present"
+        },
+        {
+            "crate": "ratatui",
+            "expect": "present"
+        },
+        {
+            "crate": "clap",
+            "expect": "absent",
+            "note": "clap's crates.io README defers to docs.rs. Guarded so the absence stays honest rather than becoming a silent regression."
+        }
     ]
 }

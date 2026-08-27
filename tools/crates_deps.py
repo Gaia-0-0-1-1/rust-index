@@ -146,6 +146,33 @@ def default_closure(raw):
     return seen
 
 
+FENCE = re.compile(r"```([^\r\n]*)\r?\n(.*?)```", re.S)
+
+
+def first_example(readme, max_lines=28):
+    """The first runnable-looking Rust block from a README.
+
+    The infostring has to be parsed tolerantly: fences are tagged rust, rs,
+    rust,no_run, rust,ignore or nothing at all, and a pattern that stops at the
+    comma silently loses 205 blocks including reqwest's only one. A block counts
+    as code if it declares or uses something; prose fences do not."""
+    if not readme:
+        return None
+    for lang, body in FENCE.findall(readme):
+        tag = re.split(r"[,\s]+", lang.strip().lower())[0] if lang.strip() else ""
+        if tag not in ("rust", "rs", "ignore", "no_run", "should_panic", ""):
+            continue
+        if not any(k in body for k in ("fn ", "use ", "let ")):
+            continue
+        lines = [l.rstrip() for l in body.strip().splitlines()]
+        if len(lines) < 2:
+            continue
+        if len(lines) > max_lines:
+            lines = lines[:max_lines] + ["// ... truncated"]
+        return chr(10).join(lines)
+    return None
+
+
 def repo_aliases(repo_name):
     """Names a repo might publish under. 'curl-rust' -> {'curl-rust','curl'},
     so the user-facing crate wins over a sys- crate that out-downloads it only
@@ -211,7 +238,14 @@ def main(argv):
                 cid = row["id"]
                 # Current dumps carry no crate-level downloads column; the
                 # total is the sum over versions, accumulated in pass 1b below.
-                crates[cid] = {"name": name, "downloads": 0, "repo": repo}
+                crates[cid] = {
+                    "name": name,
+                    "downloads": 0,
+                    "repo": repo,
+                    # Kept only long enough to lift the first code example out;
+                    # the raw text is never written anywhere.
+                    "readme": (row.get("readme") or "").strip(),
+                }
                 by_name.setdefault(name.lower(), cid)
                 if repo:
                     by_repo.setdefault(repo, []).append(cid)
@@ -346,6 +380,8 @@ def main(argv):
                 "default_features": default_on,
                 "features": declared,
                 "implicit_features": implied,
+                "example": first_example(
+                    (crates.get(v["crate_id"]) or {}).get("readme")),
             }
     KEYWORDS.write_text(
         json.dumps(vocab, indent=1, sort_keys=True) + "\n", encoding="utf-8")
