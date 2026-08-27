@@ -315,7 +315,7 @@ ranking change needs a set written fresh and not run until after it lands.
 
 ## Tried and rejected
 
-Five plausible improvements were measured and not kept. They are recorded
+Six plausible improvements were measured and not kept. They are recorded
 here because every one of them looks obviously correct until you measure it, and
 because a later reader who has the same idea should start from the number rather
 than rebuild it.
@@ -346,6 +346,37 @@ that answers every CLI question. Matching the compound as a joined phrase is
 worse still — `yukikaze` spells its keyword `http-client` where `reqwest` spells
 it `http` and `client`, so a phrase bonus rewards the obscure crate for
 punctuation, and "async http client" started returning yukikaze.
+
+**Expanding retrieval over the dependency graph.** The most promising idea
+here and the most thoroughly wrong. `ask` is purely lexical: a project is found
+by words in its blurb, its keywords and its category. The dependency graph --
+5,807 runtime edges, and `affinity()` already lift-corrected -- feeds `stack`
+and `recipe` and never touches retrieval at all. Nothing in `rayon`'s text says
+"cpu cores", but the manifests know which crates get used for that. So: take
+the top lexical matches as seeds, lift what they are built alongside.
+
+The reachability ceiling is genuinely high. Of 18 held-out misses whose answer
+is in the list, an acceptable crate sits one hop from a lexical seed for 15 of
+them over affinity at support 1, and 14 over raw `kind=0` edges. Only one is
+unreachable. On that basis it was built.
+
+It does not work, and 48 swept configurations say so with one voice: **every
+setting that keeps the tuning set at 26/26 leaves held-out top-1 exactly
+unchanged, and every setting that gains breaks the tuning set.** The two never
+co-occur. That is the signature of noise that sometimes lands right, not of
+information being added.
+
+The reason is precision, not reach. A seed has 100-260 affinity neighbours, so
+the boost touches a median of **182 projects -- 11% of the index -- to find one
+right answer**, and lift does not separate the one from the other 181. High
+recall at 0.5% precision cannot rank. Hub damping does not save it: dividing by
+raw degree deletes the pass entirely (the boost lands three orders of magnitude
+under a lexical score of 72), and damping against the median degree merely
+restores the noise at a usable scale.
+
+Anyone retrying this needs a mechanism that narrows, not one that reaches --
+edge weights that discriminate between a seed's neighbours, rather than a
+uniform hop.
 
 **Preferring Libraries over Applications.** The list separates 772 libraries
 from 631 applications, and several wrong answers are CLI programs where a
