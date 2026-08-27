@@ -27,6 +27,13 @@ stats              index shape
 selftest           check the query surface still behaves
 ```
 
+## Using it as an agent
+
+`PROTOCOL.md` is the sequence: check `coverage`, ask with `context`, read all
+three candidates, recover when none fit, confirm against `--source`, cite
+`file:line`. Every step in it exists because of a measurement, and the
+measurement is quoted, so a reader can tell when a step stops applying.
+
 ## `ask` ranks; `context` hands over the material
 
 `ask` prints a ranking. `context` prints the candidates with their

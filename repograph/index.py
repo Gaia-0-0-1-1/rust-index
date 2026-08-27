@@ -99,7 +99,13 @@ def parse_file(path, rel):
         while j >= 0:
             s = lines[j].strip()
             if s.startswith('///'):
-                doc.append(s[3:].strip())
+                # A line of slashes is a section divider, not documentation.
+                # `//////////` begins with `///`, so it was being captured as
+                # doc text -- harmless at 0.2% of symbols, but it is noise in
+                # the one field retrieval depends on.
+                body = s[3:].strip()
+                if re.search(r'[A-Za-z0-9]', body):
+                    doc.append(body)
             elif s.startswith('#['):
                 if 'test' in s:
                     is_test = True

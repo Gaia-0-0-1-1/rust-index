@@ -412,34 +412,45 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
         'of them before deciding, and cite the file:line you actually used.'
         % len(order))
 
+    # Each candidate gets its own slice of the budget, rather than the whole
+    # output being cut at the end. Truncating the joined text deletes the last
+    # candidate entirely and silently -- and since the third candidate is a
+    # large part of why this command returns three, losing it defeats the
+    # command. Better a shorter view of all three than a full view of two.
+    blocks = []
     for rank, f in enumerate(order, 1):
-        out.append('')
-        out.append('=' * 70)
-        out.append('CANDIDATE %d  %s' % (rank, f))
+        blk = ['', '=' * 70, 'CANDIDATE %d  %s' % (rank, f)]
         md = idx.modules.get(f)
         if md:
-            out.append('  module doc: %s' % md[:400])
+            blk.append('  module doc: %s' % md[:400])
         picks = sorted(per_file.get(f, []), key=lambda x: -x[0])[:6]
         for sc, i in picks:
             sym = idx.symbols[i]
-            out.append('')
-            out.append('  %s  %s  (%s:%d)'
+            blk.append('')
+            blk.append('  %s  %s  (%s:%d)'
                 % (sym['kind'], sym['name'], sym['file'], sym['line']))
-            out.append('      %s' % sym['sig'][:160])
+            blk.append('      %s' % sym['sig'][:160])
             if sym['doc']:
                 for chunk in wrap(sym['doc'], 400):
-                    out.append('      %s' % chunk)
+                    blk.append('      %s' % chunk)
             if source:
                 body = read_span(idx, sym, 40)
                 if body:
-                    out.append('      ---')
+                    blk.append('      ---')
                     for ln in body:
-                        out.append('      %s' % ln[:160])
-    text = '\n'.join(out)
-    if len(text) > budget:
-        text = text[:budget] + ('\n\n[truncated at %d characters; '
-            'raise with --budget]' % budget)
-    print(text)
+                        blk.append('      %s' % ln[:160])
+        blocks.append(blk)
+
+    head = '\n'.join(out)
+    share = max((budget - len(head)) // max(len(blocks), 1), 400)
+    parts = [head]
+    for blk in blocks:
+        body = '\n'.join(blk)
+        if len(body) > share:
+            body = body[:share] + ('\n      [candidate truncated; raise '
+                '--budget to see the rest]')
+        parts.append(body)
+    print('\n'.join(parts))
     return 0
 
 
@@ -666,8 +677,11 @@ def cmd_selftest(idx):
     sys.stdout = buf
     probe = idx.symbols[0]['name']
     for cand in idx.symbols:
-        if cand.get('doc') and cand.get('role', 'lib') == 'lib':
-            probe = cand['doc'][:60]
+        if cand.get('role', 'lib') != 'lib':
+            continue
+        words = [w for w in tokens(cand.get('doc') or '') if len(w) > 3]
+        if len(words) >= 3:
+            probe = ' '.join(words[:6])
             break
     try:
         cmd_context(idx, probe, nfiles=3)
