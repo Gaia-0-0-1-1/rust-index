@@ -31,6 +31,7 @@ ask <query>          rank projects for a need, with alternatives + install line
 cat "<path>"         list a category (its members are mutual alternatives)
 node <name|crate>    everything known about one project
 recipe [name]        archetype stacks (see list below)
+stack <crate>        what a crate is really built alongside (from dep graph)
 dag                  dependency strata and most load-bearing crates
 stats                index shape
 selftest             verify the index still answers correctly

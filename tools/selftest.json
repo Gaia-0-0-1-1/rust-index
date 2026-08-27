@@ -97,5 +97,22 @@
             "resolved": 2,
             "uncovered": []
         }
+    ],
+    "affinity": [
+        {
+            "crate": "tonic",
+            "expect": "prost",
+            "note": "gRPC codegen; the highest-lift pair in the index and a check that lift is not just counting popularity."
+        },
+        {
+            "crate": "quinn",
+            "expect": "rustls",
+            "note": "QUIC needs TLS."
+        },
+        {
+            "crate": "ratatui",
+            "expect": "crossterm",
+            "note": "TUI over terminal backend."
+        }
     ]
 }

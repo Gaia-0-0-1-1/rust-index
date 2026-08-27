@@ -15,6 +15,8 @@ Built on the artifacts `cargo run --bin index` produces. Stdlib only, no network
         Everything known about one project.
     recipe [name]
         Authored stacks per archetype, each crate resolved against the index.
+    stack <name|crate>
+        What a project is demonstrably built alongside, from the dep graph.
     selftest
         Run tools/selftest.json; non-zero exit on any mismatch.
     stats
@@ -56,6 +58,9 @@ SELFTEST = ROOT / "tools" / "selftest.json"
 IDENT = {}
 DL = {}
 VOCAB = {}
+# dep-edges.jsonl is a megabyte; stack and ask both want it more than once.
+_DEPS_CACHE = {}
+_AFFINITY_CACHE = {}
 CONFIDENT = {"readme", "repo-exact", "repo-alias"}
 
 STOP = {
@@ -91,6 +96,8 @@ def load_deps(kinds=("0",)):
     runtime edges and they close cycles -- serde dev-depends on serde_json,
     which depends on serde -- which fuses the graph into one component and
     makes every transitive-dependent count saturate at the same number."""
+    if kinds in _DEPS_CACHE:
+        return _DEPS_CACHE[kinds]
     adj = {}
     if not DEP_EDGES.exists():
         return adj
@@ -101,7 +108,50 @@ def load_deps(kinds=("0",)):
         if kinds and e.get("dep_kind") not in kinds:
             continue
         adj.setdefault(e["from"], set()).add(e["to"])
-    return {k: sorted(v) for k, v in adj.items()}
+    out = {k: sorted(v) for k, v in adj.items()}
+    _DEPS_CACHE[kinds] = out
+    return out
+
+
+def affinity(min_support=4):
+    """Which projects genuinely get used together, from the dependency graph.
+
+    Two crates listed in the same Cargo.toml co-occur. Raw counts are useless --
+    the top pairs are serde_json+tokio, clap+serde_json, everything+everything,
+    because those appear in nearly every manifest. Lift corrects for that:
+
+        lift(a,b) = P(a,b) / (P(a) * P(b))
+
+    A pair scores high only when it co-occurs more than its two members' own
+    ubiquity would predict. That surfaces tonic+prost, quinn+rustls, zstd+bzip2 --
+    real affinities rather than a popularity ranking in disguise. Support >= 4
+    keeps a single shared manifest from inventing a relationship."""
+    if min_support in _AFFINITY_CACHE:
+        return _AFFINITY_CACHE[min_support]
+    deps = {}
+    for src, ds in load_deps().items():
+        deps[src] = set(ds)
+    pair, freq = {}, {}
+    for ds in deps.values():
+        members = sorted(ds)
+        for d in members:
+            freq[d] = freq.get(d, 0) + 1
+        for i, a in enumerate(members):
+            for b in members[i + 1:]:
+                pair[(a, b)] = pair.get((a, b), 0) + 1
+
+    total = len(deps) or 1
+    out = {}
+    for (a, b), count in pair.items():
+        if count < min_support:
+            continue
+        score = (count * total) / (freq[a] * freq[b])
+        out.setdefault(a, []).append((score, count, b))
+        out.setdefault(b, []).append((score, count, a))
+    for k in out:
+        out[k].sort(key=lambda x: (-x[0], x[2]))
+    _AFFINITY_CACHE[min_support] = out
+    return out
 
 
 def popularity(n):
@@ -504,6 +554,24 @@ def cmd_ask(query):
             print("    %-26s %-18s %s" % (o["name"][:26], label[:18],
                                             (o.get("description") or "")[:66]))
 
+    # What the leading answer is actually built with. Picking a crate is only
+    # half the question an agent has; the other half is what comes with it, and
+    # that is the one thing only the dependency graph knows.
+    aff = affinity()
+    lead = hits[0][1]
+    partners = aff.get(lead["id"], [])
+    if partners:
+        lead_crate, _lv = crate_candidate(lead)
+        print("COMMONLY USED WITH %s" % (lead_crate or lead["name"]))
+        for score, count, other in partners[:5]:
+            o = node_by_id.get(other)
+            if not o:
+                continue
+            oc, _ov = crate_candidate(o)
+            blurb = (o.get("description") or "")[:42]
+            print("    %-22s x%-5.1f  %s" % (oc or o["name"], score, blurb))
+        print()
+
     picks, unverified = [], False
     for _, n in hits[:6]:
         crate, verified = crate_candidate(n)
@@ -768,6 +836,29 @@ def cmd_selftest():
                 resolved, uncovered or "none")
             print("  %-4s recipe %-25s -> %s" % (mark, case["name"], summary))
 
+    if spec.get("affinity"):
+        aff = affinity()
+        by_crate = {}
+        for n in nodes:
+            c, _v = crate_candidate(n)
+            if c:
+                by_crate.setdefault(c.lower(), n)
+        for case in spec["affinity"]:
+            node = by_crate.get(case["crate"].lower())
+            partners = aff.get(node["id"], []) if node else []
+            top = None
+            if partners:
+                o = next((x for x in nodes if x["id"] == partners[0][2]), None)
+                if o:
+                    top, _tv = crate_candidate(o)
+            ok = top is not None and top.lower() == case["expect"].lower()
+            if not ok:
+                failures.append("affinity %s: expected %s, got %s"
+                                % (case["crate"], case["expect"], top or "none"))
+            mark = "ok" if ok else "FAIL"
+            label = "affinity " + case["crate"]
+            print("  %-4s %-32s -> %s" % (mark, label, top))
+
     print()
     if failures:
         print("SELFTEST FAILED (%d)" % len(failures))
@@ -777,6 +868,83 @@ def cmd_selftest():
         print("answer, update tools/selftest.json in the same commit.")
         return 1
     print("selftest OK")
+    return 0
+
+
+def cmd_stack(name):
+    """What a project is actually built alongside, from the dependency graph.
+
+    The hand-authored recipes say what a stack *should* be. This says what people
+    demonstrably do, which is the same question answered by evidence instead of
+    by opinion -- and it covers every indexed crate, not the seven archetypes
+    someone got round to writing."""
+    if not name:
+        print("usage: stack <name|crate>")
+        return 1
+    nodes, _cats = load()
+    q = name.strip().lower()
+    node_by_id = {n["id"]: n for n in nodes}
+
+    def crate_of(n):
+        c, _v = crate_candidate(n)
+        return (c or "").lower()
+
+    target = next((n for n in nodes if crate_of(n) == q), None) \
+        or next((n for n in nodes if any(x.lower() == q for x in n.get("names", []))), None)
+    if not target:
+        print("no project matching %r" % name)
+        return 1
+
+    aff = affinity()
+    partners = aff.get(target["id"], [])
+    deps = set(load_deps().get(target["id"], ()))
+
+    crate, _v = crate_candidate(target)
+    print("%s -- what it is built with" % (crate or target["name"]))
+    print("%s" % (target.get("description") or ""))
+    print("=" * 72)
+
+    if not partners and not deps:
+        print("\nNo dependency evidence for this project in the index.")
+        print("Either it is not on crates.io, or nothing else here shares a")
+        print("manifest with it. Try: rustgraph.py recipe")
+        return 0
+
+    if partners:
+        print("\nCOMMONLY USED ALONGSIDE  (lift over chance, support in manifests)")
+        for score, count, other in partners[:10]:
+            o = node_by_id.get(other)
+            if not o:
+                continue
+            oc, _ov = crate_candidate(o)
+            blurb = (o.get("description") or "")[:34]
+            row = "  %-22s x%-5.1f  in %2d manifests   %s"
+            print(row % (oc or o["name"], score, count, blurb))
+
+    if deps:
+        print("\nITS OWN DEPENDENCIES THAT THIS LIST ALSO CARRIES")
+        for d in sorted(deps):
+            o = node_by_id.get(d)
+            if not o:
+                continue
+            oc, _ov = crate_candidate(o)
+            print("  %-22s %s" % (oc or o["name"], (o.get("description") or "")[:44]))
+
+    picks = []
+    for _s, _c, other in partners[:4]:
+        o = node_by_id.get(other)
+        if o:
+            oc, ver = crate_candidate(o)
+            if oc and ver and oc not in picks:
+                picks.append(oc)
+    if crate:
+        picks.insert(0, crate)
+    if picks:
+        print("\nINSTALL")
+        print("  cargo add %s" % " ".join(picks[:5]))
+    manifests = len(load_deps())
+    note = "\nEvidence: co-occurrence across %d dependency manifests here."
+    print(note % manifests)
     return 0
 
 
@@ -808,6 +976,8 @@ def main(argv):
         return cmd_dag("--write" in rest, "--with-dev" in rest)
     if cmd == "recipe":
         return cmd_recipe(" ".join(rest))
+    if cmd == "stack":
+        return cmd_stack(" ".join(rest))
     if cmd == "selftest":
         return cmd_selftest()
     if cmd == "stats":

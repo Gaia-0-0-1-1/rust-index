@@ -17,7 +17,18 @@ python tools/rustgraph.py ask "async http client"
 
 Also: `cat "<category path>"` (a category's members are mutual alternatives),
 `node <name|crate>` (everything known about one project), `dag` (dependency
-strata and which projects are most load-bearing), `recipe [name]`, `stats`.
+strata and which projects are most load-bearing), `recipe [name]`,
+`stack <crate>`, `stats`.
+
+```bash
+python tools/rustgraph.py stack axum
+```
+
+`stack` answers the half of the question a category cannot: not "which crate",
+but "what comes with it". It is derived from the dependency graph rather than
+authored — two crates that share a Cargo.toml co-occur, and **lift** corrects for
+ubiquity, so it reports `tonic`+`prost` and `quinn`+`rustls` rather than
+`everything`+`serde_json`. `ask` shows the same for its leading answer.
 
 ```bash
 python tools/rustgraph.py recipe cli
@@ -111,7 +122,8 @@ any diff, the same shape as the existing `lint-markdown-toc` job.
 
 **Answers — catches the query surface regressing.** `tools/selftest.json` records
 what "the index works" means: twelve queries with their expected top crate, one
-that must find no category at all, and each recipe's resolved/uncovered counts.
+that must find no category at all, each recipe's resolved/uncovered counts, and
+three graph affinities.
 
 ```bash
 python tools/rustgraph.py selftest
