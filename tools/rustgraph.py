@@ -105,7 +105,100 @@ def phrases(qt):
             yield n, " ".join(qt[i:i + n])
 
 
-def score_category(cat, qt):
+def subtree_map(cats):
+    """category id -> every member of it and of its descendants.
+
+    `members` on a Category is direct membership only, which is nearly empty for
+    an interior node like Libraries/Encoding while its children hold everything.
+    Anything reasoning about a category as a group wants the subtree."""
+    out = {}
+    for c in cats:
+        prefix = c["id"] + "/"
+        members = set(c["members"])
+        for other in cats:
+            if other["id"].startswith(prefix):
+                members.update(other["members"])
+        out[c["id"]] = sorted(members)
+    return out
+
+
+def term_match(q, term):
+    """Same morphological root, without pulling in a stemmer.
+
+    Both tests need 8 characters of agreement, which is not fussiness: at 6,
+    "serial" (as in serial port) matches "serialization" and drags Embedded and
+    Filesystem into a query about encoding. Eight still catches
+    serialization/deserialization by containment and serialization/serializer by
+    shared prefix, while keeping the shorter, more ambiguous roots apart."""
+    if q == term:
+        return True
+    if min(len(q), len(term)) < 8:
+        return False
+    if q in term or term in q:
+        return True
+    n = 0
+    for a, b in zip(q, term):
+        if a != b:
+            break
+        n += 1
+    return n >= 8
+
+
+def category_terms(nodes, cats):
+    """Distinctive words from each category's members' descriptions, by TF-IDF.
+
+    The list's category names are a tiny vocabulary; what its members are
+    *described* as is a much larger one. This is what lets "serialization" reach
+    Encoding, whose members talk about serializers and deserialization while the
+    category name never says the word. Derived, so it stays true as the list
+    changes -- unlike a hand-maintained synonym table.
+
+    Two details matter. Terms are gathered over each category's whole subtree,
+    not its direct members: "Encoding" itself lists almost nothing, while
+    Encoding/JSON, /YAML, /CBOR and the rest collectively supply the vocabulary,
+    and the subtree is the real community. And a term counts by how many members
+    mention it, not how often: raw TF-IDF prizes rarity, which let a single
+    passing "serializing" in Geospatial outrank the whole Encoding subtree."""
+    node_by_id = {n["id"]: n for n in nodes}
+    subtree = subtree_map(cats)
+    words_of = {}
+    for n in nodes:
+        words_of[n["id"]] = {
+            w for w in re.split(r"[^a-z0-9]+", (n.get("description") or "").lower())
+            if len(w) >= 4 and w not in STOP
+        }
+
+    docs, df = {}, {}
+    for c in cats:
+        members = [m for m in subtree.get(c["id"], ()) if m in node_by_id]
+        if not members:
+            continue
+        mentions = {}
+        for m in members:
+            for w in words_of.get(m, ()):
+                mentions[w] = mentions.get(w, 0) + 1
+        if mentions:
+            docs[c["id"]] = (mentions, len(members))
+            for w in mentions:
+                df[w] = df.get(w, 0) + 1
+
+    total = len(docs) or 1
+    profiles = {}
+    for cid, (mentions, size) in docs.items():
+        # Consistency (what share of members say it) times evidence (how many).
+        # Share alone lets a one-member leaf outrank the whole Encoding subtree;
+        # count alone lets a big category win on a term few of its members use.
+        scored = {
+            w: (math.sqrt(cnt / size) * math.log(1 + cnt)
+                * math.log(total / (1 + df[w])) * 4)
+            for w, cnt in mentions.items()
+            if cnt >= 2
+        }
+        profiles[cid] = dict(sorted(scored.items(), key=lambda kv: -kv[1])[:30])
+    return profiles
+
+
+def score_category(cat, qt, profile=None):
     """A query naming a category ('http client') should surface that category,
     not every project whose description happens to contain 'http'."""
     path = " / ".join(cat["path"]).lower()
@@ -127,6 +220,21 @@ def score_category(cat, qt):
             s += 5
         elif t in path:
             s += 2
+        # Short tokens are too risky for term_match but are exactly how the
+        # acronym categories get named: "terminal ui" has to reach TUI, and
+        # "ui" only ever appears there as the tail of the acronym itself.
+        if 2 <= len(t) <= 4 and len(leaf) <= 6 and t != leaf:
+            if leaf.startswith(t) or leaf.endswith(t):
+                s += 6
+    # Fall back to how the members are described. Weighted below any name match,
+    # so a category that says the word still beats one that merely implies it.
+    if profile:
+        for t in qt:
+            best = 0.0
+            for term, weight in profile.items():
+                if term_match(t, term):
+                    best = max(best, weight)
+            s += min(best, 8.0) * 0.9
     return s
 
 
@@ -142,7 +250,7 @@ def name_frequency(nodes):
     return df
 
 
-def score_node(n, qt, cat_scores, name_df):
+def score_node(n, qt, cat_scores, name_df, anchored=None):
     name = " ".join(n.get("names", [])).lower()
     name_parts = {p for p in re.split(r"[^a-z0-9]+", name) if p}
     crate = (n.get("crate_name") or "").lower()
@@ -151,11 +259,15 @@ def score_node(n, qt, cat_scores, name_df):
 
     # Inherit the best-matching category's score: membership of a well-matched
     # category is stronger evidence than any wording in the one-line blurb.
+    # Every ancestor counts, not just the exact path: a query that matches
+    # "Encoding" must lift serde_json in Encoding/JSON, or matching the parent
+    # category surfaces the category and none of the projects inside it.
     best_cat, best_path = 0.0, ""
     for p in n.get("category_paths", []):
-        sc = cat_scores.get("cat:" + "/".join(p), 0.0)
-        if sc >= best_cat:
-            best_cat, best_path = sc, " / ".join(p).lower()
+        for depth in range(len(p), 0, -1):
+            sc = cat_scores.get("cat:" + "/".join(p[:depth]), 0.0)
+            if sc >= best_cat:
+                best_cat, best_path = sc, " / ".join(p[:depth]).lower()
 
     # Tokens the matched category already accounts for must not be paid twice.
     # Without this, "graphql-client" wins a query for "http client" on the word
@@ -192,9 +304,18 @@ def score_node(n, qt, cat_scores, name_df):
             s += 1.0                       # installable, all else equal
         pop, kind = popularity(n)
         if pop:
-            # Within one category, adoption is the best quality proxy we have.
-            # Downloads span ~9 decades vs ~5 for stars, so scale them apart.
-            s += (math.log10(pop + 1) ** 2) * (0.9 if kind == "dl" else 2.0)
+            # Adoption decides between siblings, and must not decide between
+            # topics. Inside a category the query actually matched, weight it
+            # hard -- that is what puts reqwest above an obscure HTTP client.
+            # Outside one, damp it to a whisper, or clap's billion downloads
+            # win "terminal ui" purely on fame.
+            scale = 0.9 if kind == "dl" else 2.0
+            if not anchored:
+                s += (math.log10(pop + 1) ** 2) * scale
+            elif best_path in anchored:
+                s += (math.log10(pop + 1) ** 2) * scale
+            else:
+                s += math.log10(pop + 1) * 0.5
     return s
 
 
@@ -253,25 +374,40 @@ def cmd_ask(query):
     if not qt:
         sys.exit("empty query")
 
-    cat_scores = {c["id"]: score_category(c, qt) for c in cats}
+    profiles = category_terms(nodes, cats)
+    cat_scores = {
+        c["id"]: score_category(c, qt, profiles.get(c["id"])) for c in cats}
     name_df = name_frequency(nodes)
-    scored = sorted(((score_node(n, qt, cat_scores, name_df), n) for n in nodes),
-                    key=lambda x: (-x[0], x[1]["name"]))
-    hits = [(s, n) for s, n in scored if s > 0][:8]
+
+    node_by_id = {n["id"]: n for n in nodes}
+    subtree = subtree_map(cats)
+    # A real query anchors on a category at 7 or more; noise scrapes 2 off some
+    # incidental substring ("flux" finding InfluxDB). Below the floor there is
+    # no anchor, so say so rather than dressing a guess up as a ranking.
+    ANCHOR = 4.0
+    top_cats = [c for c in sorted(cats, key=lambda c: -cat_scores[c["id"]])
+                if cat_scores[c["id"]] >= ANCHOR and subtree.get(c["id"])][:3]
+    # Fame counts fully only inside the categories actually shown. Anchoring on
+    # every category above the floor is too generous: "terminal ui" lifts
+    # Command-line enough to clear it, and clap then wins on downloads from a
+    # category the user was never offered.
+    anchored = {" / ".join(c["path"]).lower() for c in top_cats}
+
+    scored = sorted(
+        ((score_node(n, qt, cat_scores, name_df, anchored), n) for n in nodes),
+        key=lambda x: (-x[0], x[1]["name"]))
+    hits = [(sc, n) for sc, n in scored if sc > 0][:8]
     if not hits:
         print("no match for %r" % query)
         return 1
-
-    node_by_id = {n["id"]: n for n in nodes}
-    top_cats = [c for c in sorted(cats, key=lambda c: -cat_scores[c["id"]])
-                if cat_scores[c["id"]] > 0 and c["members"]][:3]
 
     print("QUERY  %s" % query)
     print("=" * 72)
     if top_cats:
         print("\nMATCHED CATEGORIES")
         for c in top_cats:
-            print("  %-54s %d listed" % (" / ".join(c["path"]), len(c["members"])))
+            size = len(subtree.get(c["id"], []))
+            print("  %-54s %d listed" % (" / ".join(c["path"]), size))
     else:
         # No category matched, so nothing anchors the ranking and the results
         # below are lexical guesses. Say so: the list has its own vocabulary
@@ -291,7 +427,7 @@ def cmd_ask(query):
     shown = {n["id"] for _, n in hits[:6]}
     printed_header = False
     for c in top_cats:
-        others = [node_by_id[m] for m in c["members"]
+        others = [node_by_id[m] for m in subtree.get(c["id"], [])
                     if m in node_by_id and m not in shown]
         if not others:
             continue

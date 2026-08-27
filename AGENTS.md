@@ -19,6 +19,15 @@ strata and which projects are most load-bearing), `stats`.
 Every line of output cites `README.md:<line>`, so a claim can always be checked
 against the source.
 
+**How `ask` ranks.** The taxonomy is matched first, because in a hand-curated list
+it carries more signal than the prose — matching names alone lets "async" drag in
+async-std, async-dropper and async-graphql on nothing but string overlap. Beyond
+the category names, each category also carries the vocabulary its members are
+*described* with, aggregated over its whole subtree; that is what lets
+"serialization" reach Encoding, whose name never says the word. Adoption then
+orders the results, but only *within* the categories that matched: counted
+globally, clap's billion downloads win "terminal ui" on fame alone.
+
 ## Regenerate it
 
 ```bash
@@ -142,11 +151,10 @@ that for yourself.
     outside this list are not edges here.
 4. **Multi-concept queries surface the dominant concept only.** "async http client
     with rustls" returns HTTP clients; `rustls` needs its own query.
-5. **Queries must use the list's vocabulary.** The taxonomy anchors the ranking,
-    so a word it does not use finds no category and the results degrade to lexical
-    guesses — the list says "Encoding", never "serialization". `ask` prints
-    `NO CATEGORY MATCHED THIS WORDING` when this happens; browse with `cat` and
-    retry. Compare `ask "serialization"` with `ask "encoding json"`, which returns
-    serde_json at 1.2B downloads.
+5. **A query still has to land on some category.** Category names are matched
+    first, then the vocabulary its members are *described* with, which covers most
+    wording the list itself never uses. When nothing clears the bar `ask` prints
+    `NO CATEGORY MATCHED THIS WORDING` and marks the results as guesses; browse
+    with `cat` and retry in the list's own terms.
 6. **Dump-derived artifacts are a snapshot.** Check `crates-provenance.json` and
     re-run `crates_deps.py` if the download counts look stale.
