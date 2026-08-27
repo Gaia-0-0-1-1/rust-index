@@ -82,3 +82,10 @@ jobs:
       # human to read and never fails the build.
       - name: Report held-out retrieval accuracy (informational)
         run: python tools/rustgraph.py eval
+      # repograph indexes any Rust checkout, so it gates against this one --
+      # no fixture to keep in sync, and it fails if the extractor stops
+      # finding symbols in a real crate rather than only in a contrived one.
+      - name: Check repograph indexes a real repository
+        run: python repograph/index.py . -o "${{ runner.temp }}/rgidx"
+      - name: Check the repograph query surface still behaves
+        run: python repograph/repograph.py "${{ runner.temp }}/rgidx" selftest
