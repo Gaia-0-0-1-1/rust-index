@@ -481,7 +481,7 @@ def name_frequency(nodes):
 
 
 def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None,
-               dominated_ids=None):
+                dominated_ids=None):
     name = " ".join(n.get("names", [])).lower()
     name_parts = {p for p in re.split(r"[^a-z0-9]+", name) if p}
     # The RESOLVED crate, not the README-derived field. crate_name is populated
@@ -706,8 +706,8 @@ def rank(nodes, cats, query):
     named = False
     if hits and len(qt) == 1:
         top_crate = (crate_candidate(hits[0][1])[0] or "").lower()
-        named = (qt[0] == top_crate and cdf.get(qt[0], 0) <= IDENT_DF_MAX
-                 and hits[0][1]["id"] not in dom)
+        exact = qt[0] == top_crate and cdf.get(qt[0], 0) <= IDENT_DF_MAX
+        named = exact and hits[0][1]["id"] not in dom
     # Denominator is what the user typed, not what survived tokenising.
     # Everything non-ASCII is dropped before scoring, so a Japanese query in
     # which only "HTTP" survived was reporting 100% coverage -- the tool
