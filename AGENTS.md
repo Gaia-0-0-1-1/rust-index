@@ -196,6 +196,32 @@ depends on serde — which fuses the graph into one component and makes every
 transitive-dependent count saturate at the same value. Pass `--with-dev` to see
 that for yourself.
 
+## Tried and rejected
+
+Two plausible improvements were built, measured, and removed. Both are recorded
+here because both look obviously correct until you measure them.
+
+**Ecosystem clustering.** The affinity graph does not cluster: one 134-node
+component at lift >= 2, still one 35-node blob at lift >= 8. 135 crates with
+partners is too small and too dense for community detection to mean anything.
+
+**Mining crate READMEs.** The dump carries a crates.io description for every
+resolved crate and README text for 93% of them — 1,218,775 words against the
+17,555 in the curated one-liners, a 69x larger corpus. Extracting it changed
+nothing. On a 16-query evaluation, no-extraction, description-only, and
+description-plus-README-terms all scored **14/16**. README terms trade one answer
+for another rather than adding any: they fix "persistence layer" and break
+"REST API", which starts returning an Elasticsearch client whose README says REST
+a great many times. Frequency alone surfaces "contributing" and "documentation";
+IDF alone surfaces contributor names; whitelisting against curated vocabulary
+fixes both and still does not help.
+
+The lesson generalises. Retrieval here is not short of *words* — crates.io
+keywords already supplied those. What it lacks is category *structure*: `scraper`
+is filed under `Web programming/Miscellaneous`, and no volume of text rescues a
+category named Miscellaneous. That is an authoring problem, not a data-volume
+problem.
+
 ## Known limits — read before trusting output
 
 1. **1,264 of 1,702 projects have crate identity; 438 do not.** Those are
