@@ -63,11 +63,16 @@ categories that matched: counted globally, clap's billion downloads win
 name, keyword and description matching still reorder within a category, which is
 why reqwest sits above hyper despite having fewer downloads.
 
-**Confidence.** Every `ask` prints a `CONFIDENCE high|LOW` line with the share of
-the query the index actually matched. LOW means verify. The tool errs toward it:
-weak-but-correct and weak-and-wrong overlap in both score and coverage, so they
-cannot be cleanly separated, and presenting nonsense confidently is the worse
-failure. Four of the guarded queries return the right crate and are still LOW.
+**Confidence.** Every `ask` prints `CONFIDENCE high|LOW` with the share of the
+query — measured in characters, so a non-ASCII query cannot claim full coverage
+off one surviving word — that the index actually matched.
+
+**It is weakly calibrated, and that is measured, not estimated.** On a 30-query
+external evaluation, **about a quarter of `high` verdicts were wrong** and **about
+half of `LOW` verdicts carried the right answer**. Treat `high` as "the index
+matched most of what you asked", not as "this answer is correct", and treat `LOW`
+as "check this", not as "this is wrong". A guessed (`?` / UNVERIFIED) crate name
+now forces LOW regardless of coverage.
 
 ## Regenerate it
 
@@ -129,7 +134,7 @@ any diff, the same shape as the existing `lint-markdown-toc` job.
 > and commit the resulting `index/` diff.
 
 **Answers — catches the query surface regressing.** `tools/selftest.json` records
-what "the index works" means: 44 checks across eighteen queries with their
+what "the index works" means: 48 checks across nineteen queries with their
 expected top crate, six confidence verdicts, one query that must find no category
 at all, each recipe's resolved/uncovered counts, three graph affinities, two
 runtime constraints, five feature lookups and three example lookups.
@@ -188,7 +193,8 @@ anywhere — it exists only because chrono optionally depends on serde, a crate
 this list does not even carry. Recovering those needs every optional dependency,
 not just the ones indexed here.
 
-Covers **841 of 1,264** resolved crates (67%); Cargo internals (`__tls`, weak-dep
+Covers **841 of 1,264** resolved crates (67%) — 831 with a declared features map,
+the rest reachable only through implicit ones. Cargo internals (`__tls`, weak-dep
 `foo?` syntax) are filtered out as noise.
 
 ```bash
@@ -212,7 +218,8 @@ python tools/crates_deps.py <db-dump.tar.gz>   # then: rustgraph.py dag --write
 and filtered to our nodes — nothing is ever unpacked to disk.
 
 This raised crate identity from 536 to **1,264 of 1,702** projects and produced
-**6,974** `depends_on` edges. `index/crates-provenance.json` records which dump
+**6,974** `depends_on` edges of all kinds — `dag` uses the 5,807 normal ones and
+reaches 6,974 only with `--with-dev`. `index/crates-provenance.json` records which dump
 snapshot the committed artifacts came from.
 
 Identity is resolved by descending confidence, because one repo usually publishes

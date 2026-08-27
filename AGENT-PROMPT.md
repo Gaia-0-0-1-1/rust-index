@@ -47,7 +47,8 @@ Recipes: `cli`, `web-service`, `tui`, `parser`, `data`, `http-client`, `wasm`.
 ## What it knows
 
 1,702 projects, 355 categories, 1,264 resolved to crates.io with download counts,
-and 6,974 dependency edges from the crates.io database dump.
+and 5,807 runtime dependency edges from the crates.io database dump (6,974
+including dev-dependencies, which `dag` excludes by default).
 
 ## Rules
 
@@ -62,8 +63,14 @@ and 6,974 dependency edges from the crates.io database dump.
     crates.io first.** 146 crate names are inferred from a repo name, and they are
     wrong whenever the repo and crate names differ — `curl-rust` ships `curl`.
 - **Query capabilities, not brands**: "http client", "argument parsing",
-    "terminal ui". On `NO CATEGORY MATCHED THIS WORDING` the results are unranked
-    guesses — browse with `cat` and retry in the list's own words.
+    "terminal ui". Naming a crate outright also works, but only when the name is
+    the whole query — `wgpu` finds wgpu, while `websocket server` is read as a
+    capability, which is what you want.
+- **`ask` returns alternatives, not a set.** The results share a category and
+    compete with each other. Install one, not all of them.
+- **`CONFIDENCE high` is weakly calibrated.** Measured externally, roughly a
+    quarter of `high` verdicts were wrong and about half of `LOW` ones were
+    right. Read `high` as "matched most of your query", not "this is correct".
 
 ## Known limits
 

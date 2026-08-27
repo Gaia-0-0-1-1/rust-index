@@ -474,9 +474,17 @@ def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None):
     # "client", which the category HTTP Client had already credited.
     covered = {t for t in qt if t in best_path} if best_cat > 0 else set()
 
+    # The name bonus fires only when the query IS the crate name, not merely
+    # when it contains one. "websocket server" is a capability phrase that
+    # happens to contain the crate `websocket`, and crediting it there put a
+    # 2.5M-download crate above tungstenite at 282M inside the same category --
+    # while the docs tell agents to query capabilities, which is exactly the
+    # phrasing that triggered it.
+    query_is_name = len(qt) == 1 and crate and qt[0] == crate
+
     s = 0.0
     for t in qt:
-        if t and t == crate:
+        if t and t == crate and query_is_name:
             # The query named this crate. Decisive when the name is an
             # identifier, near-worthless when it is a dictionary word: naming
             # "wgpu" can only mean one project, while "time" in "date and time"
@@ -646,20 +654,31 @@ def rank(nodes, cats, query):
     # hedge, while real queries explain nearly every token they are given. An
     # exact crate name is its own answer and needs no category to back it.
     covered = 0
+    matched_tokens = set()
     if top_cats:
         path = " / ".join(top_cats[0]["path"]).lower()
         profile = profiles.get(top_cats[0]["id"]) or {}
         for t in qt:
             if t in path or any(term_match(t, k) for k in profile):
                 covered += 1
+                matched_tokens.add(t)
     # A name match only speaks for the whole query when it IS most of the query.
     # "quantum flux capacitor" hit the obscure crate `quantum` on one token of
     # three and called the whole thing confident.
     named = False
-    if hits and len(qt) <= 2:
+    if hits and len(qt) == 1:
         top_crate = (crate_candidate(hits[0][1])[0] or "").lower()
-        named = any(t == top_crate and cdf.get(t, 0) <= IDENT_DF_MAX for t in qt)
-    coverage = covered / len(qt) if qt else 0.0
+        named = qt[0] == top_crate and cdf.get(qt[0], 0) <= IDENT_DF_MAX
+    # Denominator is what the user typed, not what survived tokenising.
+    # Everything non-ASCII is dropped before scoring, so a Japanese query in
+    # which only "HTTP" survived was reporting 100% coverage -- the tool
+    # understood a tenth of it and said so was all of it.
+    # Measured in characters, not words: a Japanese query is one whitespace-
+    # delimited word, so a word ratio still called it fully understood when only
+    # the substring "HTTP" had survived.
+    typed = len(re.sub(r"\s+", "", query))
+    understood = sum(len(t) for t in qt if t in matched_tokens)
+    coverage = min(understood / typed, 1.0) if typed else 0.0
     # Coverage alone still calls "frobnicate-o-matic" confident at 67%. Real
     # queries anchor at 16-54; incidental collisions land at 4-7. Both tests
     # must pass, unless the query simply named a crate.
@@ -671,6 +690,11 @@ def rank(nodes, cats, query):
     # category name genuinely are weaker evidence, and are marked as such.
     best_cat_score = cat_scores[top_cats[0]["id"]] if top_cats else 0.0
     confident = bool(named or (coverage >= 0.5 and best_cat_score >= 10.0))
+    # A guessed crate name is not something to be confident about. The tool was
+    # recommending "cargo add sha2" for password hashing at high confidence off
+    # an UNVERIFIED guess; the marker existed but never reached the verdict.
+    if hits and not crate_candidate(hits[0][1])[1]:
+        confident = False
     conf = {"confident": confident, "coverage": coverage, "named": named}
     return hits, top_cats, subtree, conf
 
@@ -678,7 +702,16 @@ def rank(nodes, cats, query):
 def cmd_ask(query):
     nodes, cats = load()
     if not tokens(query):
-        sys.exit("empty query")
+        # Not the same as empty. A query can be entirely non-ASCII, or a single
+        # character, or punctuation, and saying "empty" tells an agent its input
+        # was lost when in fact it was unparseable.
+        if query.strip():
+            print("UNPARSEABLE QUERY %r" % query)
+            print("  Nothing in it survived tokenising. This index matches")
+            print("  ASCII words of two or more characters.")
+        else:
+            print("EMPTY QUERY")
+        return 1
     hits, top_cats, subtree, conf = rank(nodes, cats, query)
     node_by_id = {n["id"]: n for n in nodes}
 
@@ -787,18 +820,29 @@ def cmd_ask(query):
     # put the guess into something copy-pasteable -- "cargo add criterion-stats"
     # for a query about benchmarking, where the crate is criterion and
     # criterion-stats is a deprecated internal.
-    picks, guessed = [], []
+    picks, guessed, apps = [], [], []
     for _, n in hits[:6]:
         crate, verified = crate_candidate(n)
         if not crate:
             continue
-        if verified and crate not in picks:
+        # An Applications entry is a program, not a dependency. The line was
+        # offering "cargo add xargo probe-rs-tools" for things you run.
+        if "Applications" in (n.get("sections") or []):
+            if crate not in apps:
+                apps.append(crate)
+        elif verified and crate not in picks:
             picks.append(crate)
         elif not verified and crate not in guessed:
             guessed.append(crate)
     if picks:
-        print("\nINSTALL")
-        print("  cargo add %s" % " ".join(picks[:4]))
+        # One crate, not a concatenation. These results are mutual alternatives
+        # by construction, since they share a category, so joining them gave
+        # "cargo add reqwest hyper wreq async-graphql" -- four competing HTTP
+        # crates in one manifest, one of them a GraphQL server.
+        print("\nINSTALL  (pick one; the rest are alternatives)")
+        print("  cargo add %s" % picks[0])
+        if len(picks) > 1:
+            print("  alternatives: %s" % ", ".join(picks[1:4]))
         # Selecting the crate is half the answer; the other half is which
         # feature to turn on, and getting that wrong fails at compile time
         # rather than here. Point at it, or the command goes undiscovered.
@@ -807,6 +851,9 @@ def cmd_ask(query):
             note = "  %s has optional features -- check before building:"
             print(note % picks[0])
             print("      python tools/rustgraph.py features %s" % picks[0])
+    if apps:
+        print("\nPROGRAMS, NOT LIBRARIES: %s" % ", ".join(apps[:4]))
+        print("  Listed under Applications. Install as tools, not dependencies.")
     if guessed:
         print("\nNOT INSTALLABLE AS-IS: %s" % ", ".join(guessed[:4]))
         print("  These names are guessed from the repository, not read from")
@@ -1432,9 +1479,15 @@ def cmd_example(name):
 def cmd_stats():
     nodes, cats = load()
     print("nodes          %d" % len(nodes))
-    # crate_candidate, not crate_name: the latter is README-only and reported a
-    # third of the real coverage, contradicting the documented 1,264.
-    print("  with crate   %d" % sum(1 for n in nodes if crate_candidate(n)[0]))
+    # Verified only. crate_name is README-only and undercounts at 536;
+    # crate_candidate falls back to the repository name and overcounts at 1633,
+    # since 369 of those are guesses with no resolved identity. The documented
+    # 1,264 is the number of crates actually resolved against crates.io.
+    resolved = sum(1 for n in nodes if IDENT.get(n["id"]))
+    guessed = sum(1 for n in nodes
+                    if not IDENT.get(n["id"]) and crate_candidate(n)[0])
+    print("  with crate   %d resolved" % resolved)
+    print("  guessed name %d (repo-derived, unverified)" % guessed)
     print("  multi-listed %d" % sum(1 for n in nodes if n.get("listings", 1) > 1))
     print("  enriched     %d" % sum(1 for n in nodes if n.get("metrics")))
     print("categories     %d" % len(cats))

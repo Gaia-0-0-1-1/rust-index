@@ -80,6 +80,11 @@
         {
             "q": "regular expressions",
             "top": "regex"
+        },
+        {
+            "q": "websocket server",
+            "top": "hyper",
+            "note": "Capability phrasing containing a crate name. The exact-name bonus used to fire on 'websocket' and put a dead 2.5M crate above tungstenite at 282M."
         }
     ],
     "no_anchor": [
@@ -117,6 +122,16 @@
             "q": "wgpu",
             "expect": "high",
             "note": "Confident via exact crate name rather than category."
+        },
+        {
+            "q": "I want to hash passwords securely",
+            "expect": "low",
+            "note": "Top hit is an UNVERIFIED guess; a guessed crate name must never carry high confidence, least of all for a security question."
+        },
+        {
+            "q": "\u975e\u540c\u671fHTTP\u30af\u30e9\u30a4\u30a2\u30f3\u30c8",
+            "expect": "low",
+            "note": "Only 'HTTP' survives tokenising. Coverage is measured in characters so this cannot claim 100%."
         }
     ],
     "recipes": [
