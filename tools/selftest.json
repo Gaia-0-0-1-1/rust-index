@@ -58,6 +58,28 @@
             "q": "html scraping selectors",
             "top": "scraper",
             "note": "Reached by keyword rarity: 'scraping' belongs to one crate here, while 'web' belongs to forty."
+        },
+        {
+            "q": "wgpu",
+            "top": "wgpu",
+            "note": "Named-crate lookup. Returned Kiss3d while the exact-name bonus was wired to the README-only crate_name field."
+        },
+        {
+            "q": "tokio",
+            "top": "tokio",
+            "note": "Named-crate lookup where the name is moderately common in corpus text."
+        },
+        {
+            "q": "sled",
+            "top": "sled"
+        },
+        {
+            "q": "2d game engine",
+            "top": "bevy"
+        },
+        {
+            "q": "regular expressions",
+            "top": "regex"
         }
     ],
     "no_anchor": [

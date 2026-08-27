@@ -62,6 +62,10 @@ VOCAB = {}
 _DEPS_CACHE = {}
 _AFFINITY_CACHE = {}
 CONFIDENT = {"readme", "repo-exact", "repo-alias"}
+# A crate name used by at most this many projects' text counts as an
+# identifier; above it the name is a dictionary word and matching it is
+# a coincidence. Swept against the evaluation set, not guessed.
+IDENT_DF_MAX = 30
 
 STOP = {
     "a", "an", "and", "for", "the", "with", "to", "in", "of", "on", "is", "it",
@@ -70,8 +74,14 @@ STOP = {
 }
 
 
+MAX_TOKENS = 32
+
+
 def tokens(s):
-    return [t for t in re.split(r"[^a-z0-9+#.]+", s.lower()) if t and t not in STOP]
+    """Query tokens, bounded. Scoring is linear in token count across 2,057
+    scored objects, so an unbounded paste is a denial of service on itself."""
+    out = [t for t in re.split(r"[^a-z0-9+#.]+", s.lower()) if t and t not in STOP]
+    return out[:MAX_TOKENS]
 
 
 def load():
@@ -215,9 +225,17 @@ def popularity(n):
     return (stars, "star") if stars else (None, None)
 
 
+MAX_PHRASE = 4
+
+
 def phrases(qt):
-    """Longest contiguous token runs first: 'http client' before 'http'."""
-    for n in range(len(qt), 0, -1):
+    """Longest contiguous token runs first: 'http client' before 'http'.
+
+    Capped at MAX_PHRASE. Uncapped this is O(n^2) in query length, and every
+    phrase is then scored against 355 categories and 1,702 nodes -- so a pasted
+    paragraph, which is exactly what an agent does, hung the tool: 158 words
+    took 17 seconds and 237 words never returned."""
+    for n in range(min(len(qt), MAX_PHRASE), 0, -1):
         for i in range(len(qt) - n + 1):
             yield n, " ".join(qt[i:i + n])
 
@@ -365,6 +383,28 @@ def score_category(cat, qt, profile=None):
     return s
 
 
+def corpus_frequency(nodes):
+    """How many projects use each word anywhere in their text.
+
+    Used to tell a crate name that is an identifier from one that is a dictionary
+    word. "wgpu" appears in five projects' text and "time" in fifty-three, so a
+    query token equal to a crate's name is near-conclusive in the first case and
+    almost meaningless in the second -- a flat bonus for both makes the crate
+    `time` beat chrono for "date and time"."""
+    if "corpusdf" in _AFFINITY_CACHE:
+        return _AFFINITY_CACHE["corpusdf"]
+    df = {}
+    for n in nodes:
+        words = {w for w in re.split(r"[^a-z0-9]+", (n.get("description") or "").lower()) if w}
+        v = VOCAB.get(n["id"]) or {}
+        words |= set(v.get("keywords") or ())
+        words |= set(v.get("categories") or ())
+        for w in words:
+            df[w] = df.get(w, 0) + 1
+    _AFFINITY_CACHE["corpusdf"] = df
+    return df
+
+
 def keyword_frequency():
     """How many crates hold each crates.io keyword.
 
@@ -396,10 +436,15 @@ def name_frequency(nodes):
     return df
 
 
-def score_node(n, qt, cat_scores, name_df, anchored=None):
+def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None):
     name = " ".join(n.get("names", [])).lower()
     name_parts = {p for p in re.split(r"[^a-z0-9]+", name) if p}
-    crate = (n.get("crate_name") or "").lower()
+    # The RESOLVED crate, not the README-derived field. crate_name is populated
+    # only where the list linked crates.io directly -- 536 of 1,633 -- so wiring
+    # the exact-name bonus to it made the bonus unreachable for two thirds of the
+    # index. Asking for "wgpu" returned Kiss3d, because wgpu could not claim it.
+    crate = (crate_candidate(n)[0] or "").lower()
+    corpus_df = corpus_df or {}
     desc = (n.get("description") or "").lower()
     desc_words = set(re.split(r"[^a-z0-9]+", desc))
 
@@ -423,7 +468,16 @@ def score_node(n, qt, cat_scores, name_df, anchored=None):
     s = 0.0
     for t in qt:
         if t and t == crate:
-            s += 16           # the query named this crate outright
+            # The query named this crate. Decisive when the name is an
+            # identifier, near-worthless when it is a dictionary word: naming
+            # "wgpu" can only mean one project, while "time" in "date and time"
+            # means the concept, not the crate called time. Big enough to
+            # outrank category inheritance, which is what buried wgpu when
+            # Libraries/Graphics scored zero for its own crate's name.
+            # Nothing at all when the name is a common word: "time" in
+            # "date and time" names the concept, and crediting it at all
+            # puts the crate `time` above chrono on a coincidence.
+            s += 80 if corpus_df.get(t, 0) <= IDENT_DF_MAX else 0
         elif t in name_parts:
             if t in covered:
                 s += 1.0
@@ -539,6 +593,7 @@ def rank(nodes, cats, query):
     cat_scores = {
         c["id"]: score_category(c, qt, profiles.get(c["id"])) for c in cats}
     name_df = name_frequency(nodes)
+    cdf = corpus_frequency(nodes)
     subtree = subtree_map(cats)
 
     # A real query anchors on a category at 7 or more; noise scrapes 2 off some
@@ -571,7 +626,8 @@ def rank(nodes, cats, query):
     anchored = {" / ".join(c["path"]).lower() for c in top_cats}
 
     scored = sorted(
-        ((score_node(n, qt, cat_scores, name_df, anchored), n) for n in nodes),
+        ((score_node(n, qt, cat_scores, name_df, anchored, cdf), n)
+            for n in nodes),
         key=lambda x: (-x[0], x[1]["name"]))
     return [(sc, n) for sc, n in scored if sc > 0][:8], top_cats, subtree
 
@@ -648,18 +704,27 @@ def cmd_ask(query):
             print("    %-22s x%-5.1f  %s" % (oc or o["name"], score, blurb))
         print()
 
-    picks, unverified = [], False
+    # Only verified names go in the runnable line. The per-result output marks
+    # guesses with "?" and UNVERIFIED, but this line dropped that marking and
+    # put the guess into something copy-pasteable -- "cargo add criterion-stats"
+    # for a query about benchmarking, where the crate is criterion and
+    # criterion-stats is a deprecated internal.
+    picks, guessed = [], []
     for _, n in hits[:6]:
         crate, verified = crate_candidate(n)
-        if crate and crate not in picks:
+        if not crate:
+            continue
+        if verified and crate not in picks:
             picks.append(crate)
-            unverified = unverified or not verified
+        elif not verified and crate not in guessed:
+            guessed.append(crate)
     if picks:
         print("\nINSTALL")
         print("  cargo add %s" % " ".join(picks[:4]))
-        if unverified:
-            print("  (names marked ? are guessed from the repo name -- verify"
-                    " on crates.io)")
+    if guessed:
+        print("\nNOT INSTALLABLE AS-IS: %s" % ", ".join(guessed[:4]))
+        print("  These names are guessed from the repository, not read from")
+        print("  crates.io. Confirm each on crates.io before adding it.")
     print("\nEVIDENCE  every line cites README.md; regenerate with"
             " `cargo run --bin index`")
     return 0
@@ -673,7 +738,10 @@ def cmd_cat(path):
             if c["depth"] <= 2:
                 print("%-52s %4d" % ("/".join(c["path"]), c["subtree_count"]))
         return 0
-    want = path.strip("/").lower()
+    # Accept the spaced form ask prints ("A / B / C") as well as the compact
+    # one. Copying a category out of ask output is the documented recovery step,
+    # and with only the compact form accepted it failed every time.
+    want = re.sub(r"\s*/\s*", "/", path.strip()).strip("/").lower()
     matches = [c for c in cats if "/".join(c["path"]).lower() == want] or \
                 [c for c in cats if want in "/".join(c["path"]).lower()]
     if not matches:
@@ -693,17 +761,67 @@ def cmd_cat(path):
 
 
 def cmd_node(name):
-    nodes, _ = load()
-    q = name.lower()
-    exact = [n for n in nodes if (n.get("crate_name") or "").lower() == q
-                or any(x.lower() == q for x in n.get("names", []))]
-    hits = exact or [n for n in nodes if q in " ".join(n.get("names", [])).lower()
-                        or q in (n.get("crate_name") or "").lower()]
+    """Everything known about one project, as parseable JSON.
+
+    Three things were wrong here. Exact matching used crate_name, the README-only
+    field, so `node tokio` could not match tokio by its crate at all and returned
+    five unrelated substring hits with tokio itself cut off at position eight.
+    The record was the raw nodes.jsonl line, missing the crate, downloads,
+    dependencies and runtime that `ask` prints for the same project. And printing
+    several objects in a loop emitted concatenated top-level JSON, which does not
+    parse -- in the one command an agent would actually pipe to a parser."""
+    nodes, _cats = load()
+    q = name.strip().lower()
+
+    def crate_of(n):
+        return (crate_candidate(n)[0] or "").lower()
+
+    def named(n):
+        return any(x.lower() == q for x in n.get("names", []))
+
+    exact = [n for n in nodes if crate_of(n) == q or named(n)]
+    hits = exact or [n for n in nodes
+                        if q in " ".join(n.get("names", [])).lower()
+                        or q in crate_of(n)]
     if not hits:
-        print("no project matching %r" % name)
+        print(json.dumps({"query": name, "matches": 0, "results": []}, indent=1))
         return 1
-    for n in hits[:5]:
-        print(json.dumps(n, indent=1))
+
+    req, opt = dep_split()
+    node_by_id = {n["id"]: n for n in nodes}
+
+    def crate_names(ids):
+        out = []
+        for i in sorted(ids):
+            o = node_by_id.get(i)
+            if o:
+                out.append(crate_candidate(o)[0] or o["name"])
+        return out
+
+    results = []
+    for n in hits[:10]:
+        crate, verified = crate_candidate(n)
+        pop, kind = popularity(n)
+        vocab = VOCAB.get(n["id"]) or {}
+        record = dict(n)
+        record["crate"] = crate
+        record["crate_verified"] = verified
+        record["install"] = ("cargo add %s" % crate) if crate and verified else None
+        record["downloads"] = pop if kind == "dl" else None
+        record["runtime"] = runtime_note(n["id"]) or None
+        record["keywords"] = vocab.get("keywords") or []
+        record["requires"] = crate_names(req.get(n["id"], set()))
+        record["optional_deps"] = crate_names(opt.get(n["id"], set()))
+        record["readme_lines"] = n.get("lines")
+        results.append(record)
+
+    print(json.dumps({
+        "query": name,
+        "matches": len(hits),
+        "returned": len(results),
+        "truncated": len(hits) > len(results),
+        "results": results,
+    }, indent=1, sort_keys=True))
     return 0
 
 
@@ -1054,7 +1172,9 @@ def cmd_stack(name):
 def cmd_stats():
     nodes, cats = load()
     print("nodes          %d" % len(nodes))
-    print("  with crate   %d" % sum(1 for n in nodes if n.get("crate_name")))
+    # crate_candidate, not crate_name: the latter is README-only and reported a
+    # third of the real coverage, contradicting the documented 1,264.
+    print("  with crate   %d" % sum(1 for n in nodes if crate_candidate(n)[0]))
     print("  multi-listed %d" % sum(1 for n in nodes if n.get("listings", 1) > 1))
     print("  enriched     %d" % sum(1 for n in nodes if n.get("metrics")))
     print("categories     %d" % len(cats))
