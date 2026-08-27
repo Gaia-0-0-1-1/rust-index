@@ -689,8 +689,9 @@ def cmd_selftest():
         if not ok:
             failures.append("no_anchor %r: anchored on %s"
                             % (case["q"], " / ".join(top_cats[0]["path"])))
-        print("  %-4s %-32s -> %s" % ("ok" if ok else "FAIL", case["q"],
-                                      "no anchor" if ok else "anchored"))
+        verdict = "no anchor" if ok else "anchored"
+        mark = "ok" if ok else "FAIL"
+        print("  %-4s %-32s -> %s" % (mark, case["q"], verdict))
 
     if spec.get("recipes") and RECIPES.exists():
         data = json.loads(RECIPES.read_text(encoding="utf-8"))["recipes"]
@@ -713,13 +714,15 @@ def cmd_selftest():
                     uncovered.append(step["crate"])
             ok = resolved == case["resolved"] and uncovered == case["uncovered"]
             if not ok:
-                failures.append(
-                    "recipe %s: expected %d resolved / %s uncovered, got %d / %s"
-                    % (case["name"], case["resolved"], case["uncovered"],
-                       resolved, uncovered))
-            print("  %-4s recipe %-25s -> %d resolved, uncovered %s"
-                  % ("ok" if ok else "FAIL", case["name"], resolved,
-                     uncovered or "none"))
+                want = "%d resolved / %s uncovered" % (
+                    case["resolved"], case["uncovered"])
+                got = "%d / %s" % (resolved, uncovered)
+                failures.append("recipe %s: expected %s, got %s"
+                                % (case["name"], want, got))
+            mark = "ok" if ok else "FAIL"
+            summary = "%d resolved, uncovered %s" % (
+                resolved, uncovered or "none")
+            print("  %-4s recipe %-25s -> %s" % (mark, case["name"], summary))
 
     print()
     if failures:
