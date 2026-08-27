@@ -1,0 +1,1724 @@
+{"from":"http://aturon.github.io/","to":"cat:Resources","kind":"in_category"}
+{"from":"http://cis198-2016s.github.io/schedule/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://amp.rs","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://app.codecrafters.io/tracks/rust","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://async.rs/","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://cheats.rs/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://chromium.googlesource.com/chromiumos/platform/crosvm/","to":"cat:Libraries/Virtualization","kind":"in_category"}
+{"from":"https://cloudsmith.com/product/formats/cargo-registry","to":"cat:Registries","kind":"in_category"}
+{"from":"https://codeberg.org/fosk/emplace","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://codeberg.org/sugar700/enum-map","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://crates.io","to":"cat:Registries","kind":"in_category"}
+{"from":"https://crates.io/","to":"cat:Development tools/Build system","kind":"in_category"}
+{"from":"https://crates.io/crates/battery","to":"cat:Libraries/Platform specific/Cross-platform","kind":"in_category"}
+{"from":"https://crates.io/crates/bincode","to":"cat:Libraries/Encoding/Binary","kind":"in_category"}
+{"from":"https://crates.io/crates/bincode-next","to":"cat:Libraries/Encoding/Binary","kind":"in_category"}
+{"from":"https://crates.io/crates/branca","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-audit","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-auditable","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-benchcmp","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-bitbake","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-cache","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-check","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-commander","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-count","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-crev","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-deb","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-deny","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-depgraph","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-dinghy/","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-do","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-ebuild","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-edit","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-info","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-license","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-limit","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-make","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-modules","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-multi","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-outdated","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-release","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-script","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-tarpaulin","to":"cat:Development tools/Testing/Code Coverage","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-update","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-watch","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://crates.io/crates/cargo-web","to":"cat:Libraries/Web programming/Client-side / WASM","kind":"in_category"}
+{"from":"https://crates.io/crates/cassandra-protocol","to":"cat:Libraries/Database/NoSQL/Cassandra/krojew/cdrs-tokio","kind":"in_category"}
+{"from":"https://crates.io/crates/cdrs-tokio","to":"cat:Libraries/Database/NoSQL/Cassandra/krojew/cdrs-tokio","kind":"in_category"}
+{"from":"https://crates.io/crates/cliparser","to":"cat:Libraries/Command-line/Argument parsing","kind":"in_category"}
+{"from":"https://crates.io/crates/clippy","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://crates.io/crates/cpp","to":"cat:Development tools/FFI/C++","kind":"in_category"}
+{"from":"https://crates.io/crates/cucumber","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://crates.io/crates/deboa","to":"cat:Libraries/Network programming/HTTP","kind":"in_category"}
+{"from":"https://crates.io/crates/demonstrate","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://crates.io/crates/duckscript","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://crates.io/crates/eureka","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://crates.io/crates/fitsio","to":"cat:Libraries/Astronomy","kind":"in_category"}
+{"from":"https://crates.io/crates/fselect","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://crates.io/crates/gemini-client-api","to":"cat:Libraries/Artificial Intelligence/Google Gemini","kind":"in_category"}
+{"from":"https://crates.io/crates/git-delta","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://crates.io/crates/glutin","to":"cat:Libraries/Graphics/OpenGL","kind":"in_category"}
+{"from":"https://crates.io/crates/googletest","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://crates.io/crates/googletest-json-serde","to":"cat:Development tools/Testing/Assertions and Matchers","kind":"in_category"}
+{"from":"https://crates.io/crates/hickory-dns","to":"cat:Applications","kind":"in_category"}
+{"from":"https://crates.io/crates/hound","to":"cat:Libraries/Audio and Music","kind":"in_category"}
+{"from":"https://crates.io/crates/indradb","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://crates.io/crates/j4rs","to":"cat:Development tools/FFI/Java","kind":"in_category"}
+{"from":"https://crates.io/crates/jni","to":"cat:Development tools/FFI/Java","kind":"in_category"}
+{"from":"https://crates.io/crates/jni-sys","to":"cat:Development tools/FFI/Java","kind":"in_category"}
+{"from":"https://crates.io/crates/mockiato","to":"cat:Development tools/Testing/Mocking and Test Data","kind":"in_category"}
+{"from":"https://crates.io/crates/mockito","to":"cat:Development tools/Testing/Mocking and Test Data","kind":"in_category"}
+{"from":"https://crates.io/crates/nyx-space","to":"cat:Libraries/Simulation","kind":"in_category"}
+{"from":"https://crates.io/crates/opentelemetry","to":"cat:Applications/Observability","kind":"in_category"}
+{"from":"https://crates.io/crates/orx-parallel","to":"cat:Libraries/Concurrency","kind":"in_category"}
+{"from":"https://crates.io/crates/proptest","to":"cat:Development tools/Testing/Property Testing and Fuzzing","kind":"in_category"}
+{"from":"https://crates.io/crates/quickcheck","to":"cat:Development tools/Testing/Property Testing and Fuzzing","kind":"in_category"}
+{"from":"https://crates.io/crates/rebos","to":"cat:Applications/Package Managers","kind":"in_category"}
+{"from":"https://crates.io/crates/ripgrep","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://crates.io/crates/rstest","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://crates.io/crates/rucaja","to":"cat:Development tools/FFI/Java","kind":"in_category"}
+{"from":"https://crates.io/crates/ruterm","to":"cat:Libraries/Command-line/TUI","kind":"in_category"}
+{"from":"https://crates.io/crates/sd","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://crates.io/crates/serde_cbor","to":"cat:Libraries/Encoding/CBOR","kind":"in_category"}
+{"from":"https://crates.io/crates/sevenz-rust","to":"cat:Libraries/Compression/7z","kind":"in_category"}
+{"from":"https://crates.io/crates/sled","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://crates.io/crates/speculate","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://crates.io/crates/static_assertions","to":"cat:Development tools/Static analysis","kind":"in_category"}
+{"from":"https://crates.io/crates/stdweb","to":"cat:Libraries/Web programming/Client-side / WASM","kind":"in_category"}
+{"from":"https://crates.io/crates/stl_io","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://crates.io/crates/strsim","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://crates.io/crates/valora","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://crates.io/crates/vtcode","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://crates.io/crates/xsv","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://crates.io/crates/yew","to":"cat:Libraries/Web programming/Client-side / WASM","kind":"in_category"}
+{"from":"https://crates.io/crates/zerocopy","to":"cat:Libraries/Unsafe","kind":"in_category"}
+{"from":"https://doc.rust-lang.org/rust-by-example/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://docs.rs","to":"cat:Development tools/Services","kind":"in_category"}
+{"from":"https://exercism.org/tracks/rust","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://framagit.org/ppom/reaction","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://fyrox.rs/","to":"cat:Libraries/Game development/Game Engines","kind":"in_category"}
+{"from":"https://git.sr.ht/~lessa/pepper","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://git.sr.ht/~lessa/verco","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://git.sr.ht/~pyrossh/rust-embed","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/06chaynes/http-cache","to":"cat:Libraries/Caching","kind":"in_category"}
+{"from":"https://github.com/0x59616e/SteinsOS","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://github.com/0x676e67/vproxy","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/0x676e67/vproxy","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/0x676e67/wreq","to":"cat:Libraries/Web programming/HTTP Client","kind":"in_category"}
+{"from":"https://github.com/0xMassi/webclaw","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/0xdea/augur","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/0xdea/haruspex","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/0xdea/jiggy","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/0xdea/oneiromancer","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/0xdea/rhabdomancer","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/0xlane/pe-sign","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/0xplaygrounds/rig","to":"cat:Libraries/Artificial Intelligence/OpenAI","kind":"in_category"}
+{"from":"https://github.com/197g/oxide-auth","to":"cat:Libraries/Authentication","kind":"in_category"}
+{"from":"https://github.com/1c3t3a/rust-socketio","to":"cat:Libraries/Network programming/Socket.io","kind":"in_category"}
+{"from":"https://github.com/3Hren/msgpack-rust","to":"cat:Libraries/Encoding/MsgPack","kind":"in_category"}
+{"from":"https://github.com/4worlds4w-svg/inkwell","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/64bit/async-openai","to":"cat:Libraries/Artificial Intelligence/OpenAI","kind":"in_category"}
+{"from":"https://github.com/7df-lab/devo","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/AFLplusplus/LibAFL","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/AbdesamedBendjeddou/Rusty-CS","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/AchetaGames/Epic-Asset-Manager","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/Ackee-Blockchain/trident","to":"cat:Development tools/Testing/Property Testing and Fuzzing","kind":"in_category"}
+{"from":"https://github.com/AgilData/mysql-proxy-rs","to":"cat:Libraries/Database/SQL/MySql","kind":"in_category"}
+{"from":"https://github.com/AlKass/polish","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://github.com/AlexPikalov/cdrs","to":"cat:Libraries/Database/NoSQL/Cassandra","kind":"in_category"}
+{"from":"https://github.com/AlexsJones/llmfit","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/AlexsJones/llmserve","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/AnalyseDeCircuit/oxideterm","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/Andy-Python-Programmer/aero","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://github.com/AreevAI/flowcat","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/ArroyoSystems/arroyo","to":"cat:Libraries/Data streaming","kind":"in_category"}
+{"from":"https://github.com/AscendingCreations/AscendingGraphics","to":"cat:Libraries/Game development/Game Engines","kind":"in_category"}
+{"from":"https://github.com/Ashutosh0x/rust-finance","to":"cat:Applications/Finance","kind":"in_category"}
+{"from":"https://github.com/Ave-Sergeev/Tictonix","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/Axect/Peroxide","to":"cat:Libraries/Computation/Science","kind":"in_category"}
+{"from":"https://github.com/Azure/azure-sdk-for-rust","to":"cat:Libraries/Cloud/Azure","kind":"in_category"}
+{"from":"https://github.com/BayesWitnesses/m2cgen","to":"cat:Development tools/Transpiling","kind":"in_category"}
+{"from":"https://github.com/BinChengZhao/delay-timer","to":"cat:Libraries/Task scheduling","kind":"in_category"}
+{"from":"https://github.com/BoundaryML/baml","to":"cat:Libraries/Artificial Intelligence/Tooling","kind":"in_category"}
+{"from":"https://github.com/BurntSushi/byteorder","to":"cat:Libraries/Encoding/Byte swapping","kind":"in_category"}
+{"from":"https://github.com/BurntSushi/fst","to":"cat:Libraries/Text search","kind":"in_category"}
+{"from":"https://github.com/BurntSushi/jiff","to":"cat:Libraries/Date and time","kind":"in_category"}
+{"from":"https://github.com/BurntSushi/rust-csv","to":"cat:Libraries/Encoding/CSV","kind":"in_category"}
+{"from":"https://github.com/BurntSushi/suffix","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/BurntSushi/tabwriter","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/Canop/bacon","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/Canop/broot","to":"cat:Applications/File manager","kind":"in_category"}
+{"from":"https://github.com/ChainSafe/forest","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/Chleba/netscanner","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/ChurchTao/clipboard-rs","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/ClementTsang/bottom","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/ColinEberhardt/wasm-rust-chip8","to":"cat:Applications/Emulators/CHIP-8","kind":"in_category"}
+{"from":"https://github.com/Covertness/coap-rs","to":"cat:Libraries/Network programming/CoAP","kind":"in_category"}
+{"from":"https://github.com/CurrySoftware/perlin","to":"cat:Libraries/Text search","kind":"in_category"}
+{"from":"https://github.com/CurvineIO/curvine","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/Cysharp/csbindgen","to":"cat:Development tools/FFI/C#","kind":"in_category"}
+{"from":"https://github.com/DaGenix/rust-crypto","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/Daniel-Liu-c0deb0t/triple_accel","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/DasEtwas/enginesound","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/DataBora/elusion","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/DaveKram/coord_transforms","to":"cat:Libraries/Geospatial","kind":"in_category"}
+{"from":"https://github.com/DefGuard/wireguard-rs","to":"cat:Libraries/Network programming/VPN","kind":"in_category"}
+{"from":"https://github.com/Devolutions/CMakeRust","to":"cat:Development tools/Build system/CMake","kind":"in_category"}
+{"from":"https://github.com/Dhghomon/easy_rust","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/DragonOS-Community/DragonOS","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://github.com/EFForg/rayhunter","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/EasyTier/EasyTier","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/Eliah-Lakhin/lady-deirdre","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/Enet4/dicom-rs","to":"cat:Libraries/Image processing","kind":"in_category"}
+{"from":"https://github.com/Eoin-McMahon/Blindfold","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/EricLBuehler/mistral.rs","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/Esubaalew/run","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/FGRibreau/spinners","to":"cat:Libraries/Command-line/Progress","kind":"in_category"}
+{"from":"https://github.com/FedericoBruzzone/tdlib-rs","to":"cat:Libraries/Social networks/Telegram","kind":"in_category"}
+{"from":"https://github.com/FedericoBruzzone/tgt","to":"cat:Applications/Social networks/Telegram","kind":"in_category"}
+{"from":"https://github.com/Feel-ix-343/markdown-oxide","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/FerrisMind/shadcn-rs","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/Florob/RustyXML","to":"cat:Libraries/Encoding/XML","kind":"in_category"}
+{"from":"https://github.com/Folyd/robotstxt","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/FuGangqiang/mdblog.rs","to":"cat:Libraries/Web programming/Static Site Generators","kind":"in_category"}
+{"from":"https://github.com/GCWing/BitFun","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/Geal/rust_on_mobile","to":"cat:Libraries/Mobile/Generic","kind":"in_category"}
+{"from":"https://github.com/Gekkio/mooneye-gb","to":"cat:Applications/Emulators/Gameboy","kind":"in_category"}
+{"from":"https://github.com/GildedHonour/frank_jwt","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/GitoxideLabs/gitoxide","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/GoPlasmatic/datalogic-rs","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/Goldziher/scythe","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/Goldziher/spikard","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/Goldziher/uncomment","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/GraphiteEditor/Graphite","to":"cat:Applications/Image processing","kind":"in_category"}
+{"from":"https://github.com/GuillaumeGomez/rust-GSL","to":"cat:Libraries/Computation/GSL","kind":"in_category"}
+{"from":"https://github.com/GuillaumeGomez/sysinfo","to":"cat:Libraries/System","kind":"in_category"}
+{"from":"https://github.com/GunduLabs/gaze","to":"cat:Libraries/Authentication","kind":"in_category"}
+{"from":"https://github.com/GyulyVGC/sniffnet","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/HactarCE/Hyperspeedcube","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/Harry-kp/vortix","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/HelixDB/helix-db","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/Hmbown/DeepSeek-TUI","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/Hugo-Dz/spritefusion-pixel-snapper","to":"cat:Applications/Image processing","kind":"in_category"}
+{"from":"https://github.com/IBM/mocktail","to":"cat:Development tools/Testing/Mocking and Test Data","kind":"in_category"}
+{"from":"https://github.com/IvanWng97/pixtuoid","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/J-F-Liu/lopdf","to":"cat:Libraries/Graphics/PDF","kind":"in_category"}
+{"from":"https://github.com/J-x-Z/cocoa-way","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/JasonShin/fp-core.rs","to":"cat:Libraries/Functional Programming/Prelude","kind":"in_category"}
+{"from":"https://github.com/JayanAXHF/FileSSH","to":"cat:Applications/File manager","kind":"in_category"}
+{"from":"https://github.com/Joystream/joystream","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/Julien-cpsn/ATAC","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/Juwan-Hwang/Zephyr","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/KISS-UI/kiss-ui","to":"cat:Libraries/GUI/IUP","kind":"in_category"}
+{"from":"https://github.com/KaminariOS/rustracer","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/Keats/jsonwebtoken","to":"cat:Libraries/Authentication","kind":"in_category"}
+{"from":"https://github.com/Keats/tera","to":"cat:Libraries/Template engine/HTML","kind":"in_category"}
+{"from":"https://github.com/KipData/KiteSQL","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/Kixunil/configure_me","to":"cat:Libraries/Configuration","kind":"in_category"}
+{"from":"https://github.com/LargeModGames/spotatui","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/LaurentMazare/tch-rs","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/LeChatP/RootAsRole","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/LemmyNet/lemmy","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/Limeth/ethaddrgen","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/Limeth/euclider","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/Linus-Mussmaecher/rucola","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/Lisprez/so_stupid_search","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/Lissy93/AdGuardian-Term","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/LiveDuo/tinyweb","to":"cat:Libraries/Web programming/Client-side / WASM","kind":"in_category"}
+{"from":"https://github.com/Lucretiel/joinery","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/LukasKalbertodt/bunt","to":"cat:Libraries/Command-line/Style","kind":"in_category"}
+{"from":"https://github.com/LukasKalbertodt/term-painter","to":"cat:Libraries/Command-line/Style","kind":"in_category"}
+{"from":"https://github.com/LukeMathWalker/cargo-chef","to":"cat:Development tools/Deployment/Docker","kind":"in_category"}
+{"from":"https://github.com/Luminarys/synapse","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/MASQ-Project/Node","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/Mapika/portview","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/MariaLetta/free-ferris-pack","to":"cat:Resources/Arts","kind":"in_category"}
+{"from":"https://github.com/Martin1887/oxigen","to":"cat:Libraries/Artificial Intelligence/Genetic algorithms","kind":"in_category"}
+{"from":"https://github.com/Marve10s/Better-Fullstack","to":"cat:Development tools/Build system","kind":"in_category"}
+{"from":"https://github.com/Marwes/combine","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/MaterializeInc/materialize","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/MegaAntiCheat/client-backend","to":"cat:Applications/Observability","kind":"in_category"}
+{"from":"https://github.com/Michael-A-Kuykendall/crabcamera","to":"cat:Libraries/Peripherals","kind":"in_category"}
+{"from":"https://github.com/Michael-A-Kuykendall/muxide","to":"cat:Applications/Video","kind":"in_category"}
+{"from":"https://github.com/Michael-A-Kuykendall/shimmy","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/Michael-A-Kuykendall/shimmytok","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/Michael-F-Bryan/mdbook-linkcheck","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/Mnwa/ms","to":"cat:Libraries/Date and time","kind":"in_category"}
+{"from":"https://github.com/MoonProxyHQ/moonproxy-desktop","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/Mottl/lightgbm3-rs","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/MovingtoMars/liner","to":"cat:Libraries/Command-line/Line editor","kind":"in_category"}
+{"from":"https://github.com/Muvon/octocode","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/MystenLabs/sui","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/NON-OS/nonos-micro-kernel","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://github.com/NikitaSmithTheOne/rate-limiters-rs","to":"cat:Libraries/Concurrency","kind":"in_category"}
+{"from":"https://github.com/NoKV-Lab/NoKV","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/Nonanti/mathcore","to":"cat:Libraries/Computation/Science","kind":"in_category"}
+{"from":"https://github.com/OlaProeis/Ferrite","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/OpenGMK/OpenGMK","to":"cat:Applications/Emulators/GameMaker","kind":"in_category"}
+{"from":"https://github.com/Orange-OpenSource/hurl","to":"cat:Libraries/Network programming/HTTP","kind":"in_category"}
+{"from":"https://github.com/PaddiM8/kalker","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/ParthJadhav/Rust_Search","to":"cat:Libraries/Filesystem/Operations","kind":"in_category"}
+{"from":"https://github.com/Phala-Network/phala-blockchain","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/Phate6660/nixinfo","to":"cat:Libraries/System","kind":"in_category"}
+{"from":"https://github.com/PistonDevelopers/VisualRust","to":"cat:Development tools/IDEs/Visual Studio","kind":"in_category"}
+{"from":"https://github.com/PistonDevelopers/conrod/","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/PistonDevelopers/dyon","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/PistonDevelopers/glfw-rs","to":"cat:Libraries/Graphics/OpenGL","kind":"in_category"}
+{"from":"https://github.com/Plume-org/Plume","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/PoloDB/PoloDB","to":"cat:Libraries/Database/NoSQL/PoloDB","kind":"in_category"}
+{"from":"https://github.com/ProbablyClem/utoipauto","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/PumpkinDB/PumpkinDB","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/PyO3/PyO3","to":"cat:Development tools/FFI/Python","kind":"in_category"}
+{"from":"https://github.com/Qovery/engine","to":"cat:Libraries/Cloud/Multi Cloud","kind":"in_category"}
+{"from":"https://github.com/Qrlew/qrlew","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/Rafaelpta/dupehound","to":"cat:Development tools/Static analysis","kind":"in_category"}
+{"from":"https://github.com/Raspirus/Raspirus","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/RibirX/Ribir","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/RisingWaveLabs/risingwave","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/RoaringBitmap/roaring-rs","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/Ruddle/oxidator","to":"cat:Libraries/Game development/Game Engines","kind":"in_category"}
+{"from":"https://github.com/Rust-SDL2/rust-sdl2","to":"cat:Libraries/Game development/SDL","kind":"in_category"}
+{"from":"https://github.com/RustAudio/cpal","to":"cat:Libraries/Audio and Music/RustAudio","kind":"in_category"}
+{"from":"https://github.com/RustAudio/rodio","to":"cat:Libraries/Audio and Music/RustAudio","kind":"in_category"}
+{"from":"https://github.com/RustAudio/rust-portaudio","to":"cat:Libraries/Audio and Music/RustAudio","kind":"in_category"}
+{"from":"https://github.com/RustCrypto/hashes","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/RustPython/RustPython","to":"cat:Development tools/FFI/Python","kind":"in_category"}
+{"from":"https://github.com/Rustixir/darkbird","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/Ryan-D-Gast/differential-equations","to":"cat:Libraries/Computation/Science","kind":"in_category"}
+{"from":"https://github.com/SSheldon/rust-objc","to":"cat:Development tools/FFI/Objective-C","kind":"in_category"}
+{"from":"https://github.com/Saecki/crates.nvim","to":"cat:Development tools/IDEs/Vim","kind":"in_category"}
+{"from":"https://github.com/Sajjon/klirr","to":"cat:Applications/Finance","kind":"in_category"}
+{"from":"https://github.com/SamTV12345/PodFetch","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/SeaQL/sea-orm","to":"cat:Libraries/Database/ORM","kind":"in_category"}
+{"from":"https://github.com/SeaQL/sea-query","to":"cat:Libraries/Database/SQL/Generic","kind":"in_category"}
+{"from":"https://github.com/SeaQL/sea-schema","to":"cat:Libraries/Database/SQL/Generic","kind":"in_category"}
+{"from":"https://github.com/SeaQL/seaography","to":"cat:Libraries/Database/ORM","kind":"in_category"}
+{"from":"https://github.com/Sean1708/rusty-cheddar","to":"cat:Development tools/FFI/C","kind":"in_category"}
+{"from":"https://github.com/SeekStorm/SeekStorm","to":"cat:Libraries/Text search","kind":"in_category"}
+{"from":"https://github.com/Sensirion/lin-bus-rs","to":"cat:Libraries/Automotive","kind":"in_category"}
+{"from":"https://github.com/SergioBenitez/Figment","to":"cat:Libraries/Configuration","kind":"in_category"}
+{"from":"https://github.com/SergioBenitez/yansi","to":"cat:Libraries/Command-line/Style","kind":"in_category"}
+{"from":"https://github.com/Serial-ATA/lofty-rs","to":"cat:Libraries/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/ShadoySV/work-break","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/SiegeLord/RustAllegro","to":"cat:Libraries/Game development/Allegro","kind":"in_category"}
+{"from":"https://github.com/SiegeLord/RustCMake","to":"cat:Development tools/Build system/CMake","kind":"in_category"}
+{"from":"https://github.com/SinTan1729/chhoto-url","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/Skallwar/suckit","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/SoCkEt7/Livediff","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/SoftbearStudios/mk48","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/SouravRoy-ETL/duckle","to":"cat:Applications/Workflow Automation","kind":"in_category"}
+{"from":"https://github.com/SpikeHD/Dorion","to":"cat:Applications/Social networks/Discord","kind":"in_category"}
+{"from":"https://github.com/Spotifyd/spotifyd","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/StardustDL/Linq-in-Rust","to":"cat:Libraries/Macro","kind":"in_category"}
+{"from":"https://github.com/Stavrospanakakis/is_ready","to":"cat:Development tools/Deployment/Docker","kind":"in_category"}
+{"from":"https://github.com/Stebalien/horrorshow-rs","to":"cat:Libraries/Template engine/HTML","kind":"in_category"}
+{"from":"https://github.com/Stebalien/tempfile","to":"cat:Libraries/Filesystem/Temporary Files","kind":"in_category"}
+{"from":"https://github.com/Stebalien/xattr","to":"cat:Libraries/Filesystem/Temporary Files","kind":"in_category"}
+{"from":"https://github.com/Steel-Foundation/SteelMC","to":"cat:Libraries/Game development/Minecraft","kind":"in_category"}
+{"from":"https://github.com/Strophox/tetro-tui","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/TGotwig/vidmerger","to":"cat:Applications/Video","kind":"in_category"}
+{"from":"https://github.com/TabbyML/tabby","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/TabularisDB/tabularis","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/TeXitoi/benchmarksgame-rs","to":"cat:Resources/Benchmarks","kind":"in_category"}
+{"from":"https://github.com/TeXitoi/structopt","to":"cat:Libraries/Command-line/Argument parsing","kind":"in_category"}
+{"from":"https://github.com/TeaEntityLab/fpRust","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/Tencent/tquic","to":"cat:Libraries/Network programming/QUIC","kind":"in_category"}
+{"from":"https://github.com/TheWaWaR/simple-http-server","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/Thinkofname/rust-quake","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/TimNN/cargo-lipo","to":"cat:Libraries/Mobile/iOS","kind":"in_category"}
+{"from":"https://github.com/TraceMachina/nativelink","to":"cat:Development tools/Build system","kind":"in_category"}
+{"from":"https://github.com/Tuntii/RustAPI","to":"cat:Libraries/Web programming/Backend","kind":"in_category"}
+{"from":"https://github.com/Tura-AI/tura","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/Twinklebear/tray_rust","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/Vaishnav-Sabari-Girish/ComChan","to":"cat:Development tools/Embedded/Development Tools","kind":"in_category"}
+{"from":"https://github.com/Veirt/weathr","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/VictoremWinbringer/Victorem","to":"cat:Libraries/Game development/Victorem","kind":"in_category"}
+{"from":"https://github.com/VisiGrid/VisiGrid","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/Water-Run/treepp","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/Wilfred/difftastic","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/Wulf/create-rust-app","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/WyvernIXTL/license-fetcher","to":"cat:Libraries/Licensing","kind":"in_category"}
+{"from":"https://github.com/XAMPPRocky/tokei","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/Xudong-Huang/may","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/YangYuS8/lwe","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/YueMiyuki/Risuko","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/Zackriya-Solutions/meetily","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/a8m/pb","to":"cat:Libraries/Command-line/Progress","kind":"in_category"}
+{"from":"https://github.com/aaif-goose/goose","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/aannoo/hcom","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/aaronriekenberg/rust-parallel","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/abonander/img_hash","to":"cat:Libraries/Image processing","kind":"in_category"}
+{"from":"https://github.com/achanda/ipnetwork","to":"cat:Libraries/Network programming/IPNetwork","kind":"in_category"}
+{"from":"https://github.com/actix/actix","to":"cat:Libraries/Network programming/Low level","kind":"in_category"}
+{"from":"https://github.com/actix/actix-web","to":"cat:Libraries/Web programming/Backend","kind":"in_category"}
+{"from":"https://github.com/ad-si/Rust-Flashcards","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/ad-si/Woxi","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/adalinesimonian/gdvm","to":"cat:Libraries/Game development/Godot","kind":"in_category"}
+{"from":"https://github.com/aembke/fred.rs","to":"cat:Libraries/Database/NoSQL/Redis","kind":"in_category"}
+{"from":"https://github.com/agavra/tuicr","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/agersant/polaris","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/agrinman/tunnelto","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/aguacero7/rkik","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/aisk/rust-fire","to":"cat:Libraries/Command-line/Argument parsing","kind":"in_category"}
+{"from":"https://github.com/aisk/rust-memcache","to":"cat:Libraries/Caching","kind":"in_category"}
+{"from":"https://github.com/ajeetdsouza/zoxide/","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/al8n/stretto","to":"cat:Libraries/Caching","kind":"in_category"}
+{"from":"https://github.com/alacritty/alacritty","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/aleph-lang/aleph_ollama","to":"cat:Development tools/Transpiling","kind":"in_category"}
+{"from":"https://github.com/alex/rust-asn1","to":"cat:Libraries/Encoding/ASN.1","kind":"in_category"}
+{"from":"https://github.com/alexcrichton/curl-rust","to":"cat:Libraries/Web programming/HTTP Client","kind":"in_category"}
+{"from":"https://github.com/alexcrichton/ssh2-rs","to":"cat:Libraries/Network programming/SSH","kind":"in_category"}
+{"from":"https://github.com/alexcrichton/tar-rs","to":"cat:Libraries/Compression/tar","kind":"in_category"}
+{"from":"https://github.com/alexpasmantier/television","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/alloy-rs/svm-rs","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/alphaville/optimization-engine","to":"cat:Libraries/Computation","kind":"in_category"}
+{"from":"https://github.com/alrevuelta/rs-merkle-tree","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/alvaro17f/wrestic","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/alvaroparker/libfprint-rs","to":"cat:Libraries/Peripherals/Fingerprint reader","kind":"in_category"}
+{"from":"https://github.com/amethyst/bracket-lib","to":"cat:Libraries/Game development/bracket-lib (previously RLTK)","kind":"in_category"}
+{"from":"https://github.com/amethyst/legion","to":"cat:Libraries/Game development/Entity-Component Systems (ECS)","kind":"in_category"}
+{"from":"https://github.com/amethyst/specs","to":"cat:Libraries/Game development/Entity-Component Systems (ECS)","kind":"in_category"}
+{"from":"https://github.com/amrdeveloper/gql","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/amv-dev/yata","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/andoriyu/uclicious","to":"cat:Libraries/Configuration","kind":"in_category"}
+{"from":"https://github.com/andylokandy/simsearch","to":"cat:Libraries/Text search","kind":"in_category"}
+{"from":"https://github.com/anima-engine/mrusty","to":"cat:Development tools/FFI/mruby","kind":"in_category"}
+{"from":"https://github.com/anitnilay20/thoth","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/antimonyproject/antimony","to":"cat:Libraries/Distributed systems/Antimony","kind":"in_category"}
+{"from":"https://github.com/antoyo/relm","to":"cat:Libraries/GUI/GTK+","kind":"in_category"}
+{"from":"https://github.com/aome510/spotify-player","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/apache/datafusion","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/apache/iggy","to":"cat:Libraries/Data streaming","kind":"in_category"}
+{"from":"https://github.com/apache/opendal","to":"cat:Libraries/Filesystem/Operations","kind":"in_category"}
+{"from":"https://github.com/apache/sedona-db","to":"cat:Libraries/Geospatial","kind":"in_category"}
+{"from":"https://github.com/apecloud/ape-dts","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/aravpanwar/decayfmt","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/ardaku/whoami","to":"cat:Libraries/System","kind":"in_category"}
+{"from":"https://github.com/argmin-rs/argmin","to":"cat:Libraries/Computation","kind":"in_category"}
+{"from":"https://github.com/arimxyer/models","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/arkflow-rs/arkflow","to":"cat:Libraries/Data streaming","kind":"in_category"}
+{"from":"https://github.com/arkworks-rs/circom-compat","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/armgabrielyan/deadbranch","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/arrayfire/arrayfire-rust","to":"cat:Libraries/Computation/Parallel","kind":"in_category"}
+{"from":"https://github.com/arthurhenrique/rusti-cal","to":"cat:Libraries/Date and time","kind":"in_category"}
+{"from":"https://github.com/artob/edky","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/artob/readmer","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/aschey/stream-download-rs","to":"cat:Libraries/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/ashvardanian/NumKong","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/ashvardanian/StringZilla","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/askama-rs/askama","to":"cat:Libraries/Template engine/HTML","kind":"in_category"}
+{"from":"https://github.com/asomers/mockall","to":"cat:Development tools/Testing/Mocking and Test Data","kind":"in_category"}
+{"from":"https://github.com/ast-grep/ast-grep","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/asterinas/asterinas","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://github.com/astral-sh/ruff","to":"cat:Development tools/Formatters","kind":"in_category"}
+{"from":"https://github.com/async-graphql/async-graphql","to":"cat:Libraries/Web programming/HTTP Client","kind":"in_category"}
+{"from":"https://github.com/ataraxy-labs/sem","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/ataraxy-labs/weave","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/atomflunder/skillratings","to":"cat:Libraries/Game development/Skillratings","kind":"in_category"}
+{"from":"https://github.com/atuinsh/atuin","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/autonomys/subspace","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/autopilot-rs/autopilot-rs","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/autozimu/LanguageClient-neovim","to":"cat:Development tools/IDEs/Vim","kind":"in_category"}
+{"from":"https://github.com/autumnai/collenchyma","to":"cat:Libraries/Computation/Parallel","kind":"in_category"}
+{"from":"https://github.com/autumnai/leaf","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/avhz/RustQuant","to":"cat:Libraries/Finance","kind":"in_category"}
+{"from":"https://github.com/avifenesh/memra","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/avito-tech/bioyino","to":"cat:Applications/Observability","kind":"in_category"}
+{"from":"https://github.com/avr-rust/ruduino","to":"cat:Development tools/Embedded/Arduino","kind":"in_category"}
+{"from":"https://github.com/awakenworks/awaken","to":"cat:Libraries/Artificial Intelligence/OpenAI","kind":"in_category"}
+{"from":"https://github.com/aws/aws-lambda-rust-runtime","to":"cat:Libraries/Cloud/AWS","kind":"in_category"}
+{"from":"https://github.com/aws/s2n-quic","to":"cat:Libraries/Network programming/QUIC","kind":"in_category"}
+{"from":"https://github.com/awslabs/aws-sdk-rust","to":"cat:Libraries/Cloud/AWS","kind":"in_category"}
+{"from":"https://github.com/awslabs/flowgger","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/aya-rs/aya","to":"cat:Libraries/eBPF","kind":"in_category"}
+{"from":"https://github.com/ayarotsky/diesel-guard","to":"cat:Libraries/Database/ORM","kind":"in_category"}
+{"from":"https://github.com/ayarotsky/redis-shield","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/b23r0/rust-raknet","to":"cat:Libraries/Network programming/Raknet","kind":"in_category"}
+{"from":"https://github.com/bastibense/libharu_ng","to":"cat:Libraries/Graphics/PDF","kind":"in_category"}
+{"from":"https://github.com/bcheidemann/fixtures-rs/tree/main/fixtures","to":"cat:Development tools/Testing/Mocking and Test Data","kind":"in_category"}
+{"from":"https://github.com/beava-dev/beava","to":"cat:Libraries/Data streaming","kind":"in_category"}
+{"from":"https://github.com/becheran/grid","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/becheran/wildmatch","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/bedrock-crustaceans/bedrock-rs","to":"cat:Libraries/Game development/Minecraft","kind":"in_category"}
+{"from":"https://github.com/bee-san/RustScan","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/benanders/rjni","to":"cat:Development tools/FFI/Java","kind":"in_category"}
+{"from":"https://github.com/benashford/rs-es","to":"cat:Libraries/Database/NoSQL/Elasticsearch","kind":"in_category"}
+{"from":"https://github.com/bencherdev/bencher","to":"cat:Development tools/Profiling","kind":"in_category"}
+{"from":"https://github.com/beneills/quantum","to":"cat:Libraries/Virtualization","kind":"in_category"}
+{"from":"https://github.com/bevyengine/bevy","to":"cat:Libraries/Game development/Game Engines","kind":"in_category"}
+{"from":"https://github.com/bheisler/criterion.rs","to":"cat:Development tools/Profiling","kind":"in_category"}
+{"from":"https://github.com/biandratti/huginn-net","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/bigduu/Bamboo-agent","to":"cat:Libraries/Artificial Intelligence/OpenAI","kind":"in_category"}
+{"from":"https://github.com/billyevans/tst","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/biodatageeks/polars-bio","to":"cat:Libraries/Bioinformatics","kind":"in_category"}
+{"from":"https://github.com/biomejs/biome","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/bitfield/cargo-testdox","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://github.com/bitrouter/bitrouter","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/blackbeam/mysql_async","to":"cat:Libraries/Database/SQL/MySql","kind":"in_category"}
+{"from":"https://github.com/blackbeam/rust-mysql-simple","to":"cat:Libraries/Database/SQL/MySql","kind":"in_category"}
+{"from":"https://github.com/blackportal-ai/delta","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/blackportal-ai/nebula","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/blas-lapack-rs/lapack","to":"cat:Libraries/Computation/LAPACK","kind":"in_category"}
+{"from":"https://github.com/blitzarx1/egui_graphs","to":"cat:Libraries/Data visualization","kind":"in_category"}
+{"from":"https://github.com/bloznelis/kbt","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/blst-security/cherrybomb","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/bluealloy/revm","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/bluez/bluer","to":"cat:Libraries/Network programming/Bluetooth","kind":"in_category"}
+{"from":"https://github.com/boa-dev/boa","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/bolivian-peru/os-moda","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/bonifaido/rust-zookeeper","to":"cat:Libraries/Database/NoSQL/ZooKeeper","kind":"in_category"}
+{"from":"https://github.com/bootandy/dust","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/bountyyfi/lonkero","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/bourumir-wyngs/serde-saphyr","to":"cat:Libraries/Encoding/YAML","kind":"in_category"}
+{"from":"https://github.com/bparli/convey","to":"cat:Libraries/Cloud/Load Balancer","kind":"in_category"}
+{"from":"https://github.com/brentongunning/rust-sv","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/brevity1swos/rgx","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/briansmith/ring","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/briansmith/webpki","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/brocode/fblog","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/brocode/fw","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/brson/rust-sdl","to":"cat:Libraries/Game development/SDL","kind":"in_category"}
+{"from":"https://github.com/brson/stdx","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/bruits/satteri","to":"cat:Libraries/Markup language","kind":"in_category"}
+{"from":"https://github.com/brycx/checkpwn","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/build-trust/ockam","to":"cat:Libraries/Distributed systems/Other","kind":"in_category"}
+{"from":"https://github.com/buster/rrun","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/buxx/OpenCombat","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/bytebeamio/rumqtt","to":"cat:Libraries/Network programming/MQTT","kind":"in_category"}
+{"from":"https://github.com/bytecodealliance/rustix","to":"cat:Libraries/Platform specific/Unix-like","kind":"in_category"}
+{"from":"https://github.com/bytecodealliance/wasmtime","to":"cat:Libraries/Virtualization","kind":"in_category"}
+{"from":"https://github.com/bytedance/g3","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/bytedance/g3","to":"cat:Development tools/Profiling","kind":"in_category"}
+{"from":"https://github.com/c3rb3ru5d3d53c/binlex","to":"cat:Libraries/Reverse engineering","kind":"in_category"}
+{"from":"https://github.com/c410-f3r/wtx","to":"cat:Libraries/Database/SQL/PostgreSql","kind":"in_category"}
+{"from":"https://github.com/c410-f3r/wtx","to":"cat:Libraries/Web programming/HTTP Client","kind":"in_category"}
+{"from":"https://github.com/c410-f3r/wtx","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/c410-f3r/wtx","to":"cat:Libraries/Web programming/WebSocket","kind":"in_category"}
+{"from":"https://github.com/c410-f3r/wtx-bench","to":"cat:Resources/Benchmarks","kind":"in_category"}
+{"from":"https://github.com/cachix/devenv","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/calder/rust-goldenfile","to":"cat:Development tools/Testing/Mocking and Test Data","kind":"in_category"}
+{"from":"https://github.com/calebwin/emu","to":"cat:Libraries/Computation","kind":"in_category"}
+{"from":"https://github.com/camino-rs/camino","to":"cat:Libraries/Filesystem/Operations","kind":"in_category"}
+{"from":"https://github.com/canndrew/netsim","to":"cat:Libraries/Network programming/IPNetwork","kind":"in_category"}
+{"from":"https://github.com/cantino/mcfly","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/capnproto/capnproto-rust","to":"cat:Libraries/Encoding/Cap'n Proto","kind":"in_category"}
+{"from":"https://github.com/capsulerun/capsule","to":"cat:Libraries/Virtualization","kind":"in_category"}
+{"from":"https://github.com/cargo-bins/cargo-binstall","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://github.com/cargo-generate/cargo-generate","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://github.com/cargonauts-rs/cargonauts","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/carllerche/tower-web","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/cartesiancs/vessel","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/casey/just","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/cassandra-rs/cassandra-rs","to":"cat:Libraries/Database/NoSQL/Cassandra","kind":"in_category"}
+{"from":"https://github.com/cberner/redb","to":"cat:Libraries/Database/NoSQL/Redb","kind":"in_category"}
+{"from":"https://github.com/ccbrown/iocraft","to":"cat:Libraries/Command-line/TUI","kind":"in_category"}
+{"from":"https://github.com/cch123/asm-cli-rust","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/cchexcode/complate","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/cchexcode/wavefront_rs","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/cds-astro/aladin-lite","to":"cat:Libraries/Astronomy","kind":"in_category"}
+{"from":"https://github.com/cel-rust/cel-rust","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/cenotelie/cratery","to":"cat:Registries","kind":"in_category"}
+{"from":"https://github.com/cfal/shoes","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/cfal/tobaru","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/chainx-org/ChainX","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/chanderlud/giga-grabber","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/changlan/kytan","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/chaosprint/glicol","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/chelsea0x3b/dfdx","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/chelunfu/qiluo_admin","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/chill-rs/chill","to":"cat:Libraries/Database/NoSQL/CouchDB","kind":"in_category"}
+{"from":"https://github.com/chojs23/concord","to":"cat:Applications/Social networks/Discord","kind":"in_category"}
+{"from":"https://github.com/chronotope/chrono","to":"cat:Libraries/Date and time","kind":"in_category"}
+{"from":"https://github.com/chyh1990/yaml-rust","to":"cat:Libraries/Encoding/YAML","kind":"in_category"}
+{"from":"https://github.com/citahub/cita","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/citybound/citybound","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/cksac/fake-rs","to":"cat:Development tools/Testing/Mocking and Test Data","kind":"in_category"}
+{"from":"https://github.com/clap-rs/clap","to":"cat:Libraries/Command-line/Argument parsing","kind":"in_category"}
+{"from":"https://github.com/clash-verge-rev/clash-verge-rev","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/clitic/kdam","to":"cat:Libraries/Command-line/Progress","kind":"in_category"}
+{"from":"https://github.com/clog-tool/clog-cli","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/cloudflare/boringtun","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/cloudflare/foundations","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/cloudflare/pingora","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/cloudflare/quiche","to":"cat:Libraries/Network programming/QUIC","kind":"in_category"}
+{"from":"https://github.com/cloudhead/rx","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/cloudwego/sonic-rs","to":"cat:Libraries/Encoding/JSON","kind":"in_category"}
+{"from":"https://github.com/cobalt-org/cobalt.rs","to":"cat:Libraries/Web programming/Static Site Generators","kind":"in_category"}
+{"from":"https://github.com/cocoindex-io/cocoindex","to":"cat:Applications/MLOps","kind":"in_category"}
+{"from":"https://github.com/codecoradev/uteke","to":"cat:Applications/MLOps","kind":"in_category"}
+{"from":"https://github.com/cognitive-engineering-lab/aquascope","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/colored-rs/colored","to":"cat:Libraries/Command-line/Style","kind":"in_category"}
+{"from":"https://github.com/cometbft/tendermint-rs","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/comex/rust-shlex","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/cong-or/hud","to":"cat:Development tools/Profiling","kind":"in_category"}
+{"from":"https://github.com/conradkleinespel/rooster","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/console-rs/dialoguer","to":"cat:Libraries/Command-line/Style","kind":"in_category"}
+{"from":"https://github.com/console-rs/indicatif","to":"cat:Libraries/Command-line/Progress","kind":"in_category"}
+{"from":"https://github.com/constantoine/totp-rs","to":"cat:Libraries/Authentication","kind":"in_category"}
+{"from":"https://github.com/contain-rs","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/cooklang/CookCLI","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/cool-japan/scirs","to":"cat:Libraries/Computation/Science","kind":"in_category"}
+{"from":"https://github.com/cortex/ripasso/","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/cossacklabs/themis","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/cot-rs/cot","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/cozodb/cozo","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/cpmech/plotpy","to":"cat:Libraries/Data visualization","kind":"in_category"}
+{"from":"https://github.com/cpmech/russell","to":"cat:Libraries/Computation/Science","kind":"in_category"}
+{"from":"https://github.com/crate-ci/typos","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/creusot-rs/creusot","to":"cat:Development tools/Static analysis","kind":"in_category"}
+{"from":"https://github.com/cristianoliveira/funzzy","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/cristicbz/rust-doom","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/crossbeam-rs/crossbeam","to":"cat:Libraries/Concurrency","kind":"in_category"}
+{"from":"https://github.com/crossterm-rs/crossterm","to":"cat:Libraries/Command-line/TUI","kind":"in_category"}
+{"from":"https://github.com/cs01/gdbgui","to":"cat:Development tools/Debugging/GDB","kind":"in_category"}
+{"from":"https://github.com/ctjhoa/rust-learning","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/cunarist/rinf","to":"cat:Libraries/GUI/Flutter","kind":"in_category"}
+{"from":"https://github.com/cuppar/rtd","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/curlpipe/ox","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/cyberlife-coder/VelesDB","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/cyndis/qmlrs","to":"cat:Libraries/GUI/Qt","kind":"in_category"}
+{"from":"https://github.com/d-e-s-o/apca","to":"cat:Libraries/Finance","kind":"in_category"}
+{"from":"https://github.com/d-e-s-o/test-log","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://github.com/d-unsed/ruru","to":"cat:Development tools/FFI/Ruby","kind":"in_category"}
+{"from":"https://github.com/dagrs-dev/dagrs","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/dalance/procs","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/dalance/ptags","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/dalek-cryptography/curve25519-dalek","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/dali-benothmen/woml","to":"cat:Applications/Workflow Automation","kind":"in_category"}
+{"from":"https://github.com/dan-t/rusty-tags","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/dani-garcia/vaultwarden#readme","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/daniel5151/clicky","to":"cat:Applications/Emulators/iPod","kind":"in_category"}
+{"from":"https://github.com/danielpclark/array_tool","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/danielpclark/rutie","to":"cat:Development tools/FFI/Ruby","kind":"in_category"}
+{"from":"https://github.com/darakian/ddh","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/darkly-art/darkly","to":"cat:Applications/Image processing","kind":"in_category"}
+{"from":"https://github.com/databendlabs/databend","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/datahaven-xyz/datahaven","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/datanymizer/datanymizer","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/dathere/qsv","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/davidmoreno/tailtales","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/dbalsom/martypc","to":"cat:Applications/Emulators/IBM PC","kind":"in_category"}
+{"from":"https://github.com/dbpunk-labs/db3","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/dcapal/dcapal","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/debris/tiny-keccak","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/defguard/defguard","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/deltaphc/raylib-rs","to":"cat:Libraries/Game development/Raylib","kind":"in_category"}
+{"from":"https://github.com/denoland/deno","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/deps-rs/deps.rs","to":"cat:Development tools/Services","kind":"in_category"}
+{"from":"https://github.com/dermesser/yup-oauth2","to":"cat:Libraries/Authentication","kind":"in_category"}
+{"from":"https://github.com/dertuxmalwieder/yaydl","to":"cat:Applications/Video","kind":"in_category"}
+{"from":"https://github.com/deshaw/procfd","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/deuxfleurs-org/garage","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/dgrunwald/rust-cpython","to":"cat:Development tools/FFI/Python","kind":"in_category"}
+{"from":"https://github.com/diem/diem","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/diesel-rs/diesel","to":"cat:Libraries/Database/ORM","kind":"in_category"}
+{"from":"https://github.com/dimforge/kiss3d","to":"cat:Libraries/Game development/Game Engines","kind":"in_category"}
+{"from":"https://github.com/dimforge/nalgebra","to":"cat:Libraries/Computation","kind":"in_category"}
+{"from":"https://github.com/dinakars777/git-time-machine","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/dioxuslabs/dioxus","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/djduque/pgfplots","to":"cat:Libraries/Data visualization","kind":"in_category"}
+{"from":"https://github.com/dmtrKovalenko/fff","to":"cat:Libraries/Filesystem/Operations","kind":"in_category"}
+{"from":"https://github.com/dnbln/dir-structure","to":"cat:Libraries/Filesystem/Operations","kind":"in_category"}
+{"from":"https://github.com/docopt/docopt.rs","to":"cat:Libraries/Command-line/Argument parsing","kind":"in_category"}
+{"from":"https://github.com/domcyrus/rustnet","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/dominikwilkowski/cfonts","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/donnie4w/tklog","to":"cat:Libraries/Logging","kind":"in_category"}
+{"from":"https://github.com/doom-fish/screencapturekit-rs","to":"cat:Libraries/Video","kind":"in_category"}
+{"from":"https://github.com/doprz/dipc","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/dora-rs/dora","to":"cat:Applications/Industrial automation","kind":"in_category"}
+{"from":"https://github.com/dotenv-linter/dotenv-linter","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/doukutsu-rs/doukutsu-rs","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/dpc/mioco","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/dpc/rhex","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/dprint/dprint","to":"cat:Development tools/Formatters","kind":"in_category"}
+{"from":"https://github.com/dps/rust-raytracer","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/driftluo/InfluxDBClient-rs","to":"cat:Libraries/Database/NoSQL/InfluxDB","kind":"in_category"}
+{"from":"https://github.com/dropbox/rust-brotli","to":"cat:Libraries/Compression/Brotli","kind":"in_category"}
+{"from":"https://github.com/drrb/java-rust-example","to":"cat:Development tools/FFI/Java","kind":"in_category"}
+{"from":"https://github.com/dsplce-co/supabase-plus","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/dtolnay/cargo-expand","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://github.com/dtolnay/cxx","to":"cat:Development tools/FFI/C++","kind":"in_category"}
+{"from":"https://github.com/ducaale/xh","to":"cat:Libraries/Web programming/HTTP Client","kind":"in_category"}
+{"from":"https://github.com/duesee/imap-codec","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/dusk-network/Poseidon252","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/dusk-network/bls12_381","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/dusk-network/plonk/","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/dusk-network/rusk","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/dvhar/pikeru","to":"cat:Applications/File manager","kind":"in_category"}
+{"from":"https://github.com/dylanmckay/protocol","to":"cat:Libraries/Network programming/Low level","kind":"in_category"}
+{"from":"https://github.com/eclipse-corrosion/corrosion","to":"cat:Development tools/IDEs/Eclipse","kind":"in_category"}
+{"from":"https://github.com/eclipse-zenoh-flow/zenoh-flow","to":"cat:Libraries/Network programming/Zenoh","kind":"in_category"}
+{"from":"https://github.com/eclipse-zenoh/zenoh","to":"cat:Libraries/Network programming/Zenoh","kind":"in_category"}
+{"from":"https://github.com/edezhic/prest","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/ekzhang/bore","to":"cat:Development tools/Tunnel","kind":"in_category"}
+{"from":"https://github.com/elastic-rs/elastic","to":"cat:Libraries/Database/NoSQL/Elasticsearch","kind":"in_category"}
+{"from":"https://github.com/elastio/bon","to":"cat:Libraries/Macro","kind":"in_category"}
+{"from":"https://github.com/elio-fm/elio","to":"cat:Applications/File manager","kind":"in_category"}
+{"from":"https://github.com/ellisonch/rust-stopwatch","to":"cat:Development tools/Profiling","kind":"in_category"}
+{"from":"https://github.com/emacs-rustic/rustic","to":"cat:Development tools/IDEs/Emacs","kind":"in_category"}
+{"from":"https://github.com/emanuele-em/proxelar","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/embassy-rs/embassy","to":"cat:Applications/Embedded","kind":"in_category"}
+{"from":"https://github.com/emilk/egui","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/emk/heroku-buildpack-rust","to":"cat:Development tools/Deployment/Heroku","kind":"in_category"}
+{"from":"https://github.com/emk/rust-musl-builder","to":"cat:Development tools/Deployment/Docker","kind":"in_category"}
+{"from":"https://github.com/emo-crab/observer_ward","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/emoon/rust_minifb","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/encounter/objdiff","to":"cat:Libraries/Reverse engineering","kind":"in_category"}
+{"from":"https://github.com/ende76/brotli-rs","to":"cat:Libraries/Compression/Brotli","kind":"in_category"}
+{"from":"https://github.com/endorlabs/mirai","to":"cat:Development tools/Static analysis","kind":"in_category"}
+{"from":"https://github.com/entropic-security/xgadget","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/epi052/feroxbuster","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/equilibriumco/beerus","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/ergoplatform/sigma-rust","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/erickochen/purple","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/erickt/rust-zmq","to":"cat:Libraries/Network programming/ZeroMQ","kind":"in_category"}
+{"from":"https://github.com/erikgrinaker/toydb","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/esp-rs","to":"cat:Development tools/Embedded/Espressif","kind":"in_category"}
+{"from":"https://github.com/esp-rs/esp-hal","to":"cat:Libraries/Peripherals","kind":"in_category"}
+{"from":"https://github.com/espanso/espanso","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/esrlabs/chipmunk","to":"cat:Applications/Observability","kind":"in_category"}
+{"from":"https://github.com/est31/cargo-udeps","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://github.com/estk/log4rs","to":"cat:Libraries/Logging","kind":"in_category"}
+{"from":"https://github.com/etienne-napoleone/spinach","to":"cat:Libraries/Command-line/Progress","kind":"in_category"}
+{"from":"https://github.com/euv-dev/euv","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/evansmurithi/cloak","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/exonum/exonum","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/eza-community/eza","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/fMeow/arangors","to":"cat:Libraries/Database/NoSQL/ArangoDB","kind":"in_category"}
+{"from":"https://github.com/facebook/buck2","to":"cat:Development tools/Build system","kind":"in_category"}
+{"from":"https://github.com/facebook/opaque-ke","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/facebook/starlark-rust","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/faiscadev/fakecloud","to":"cat:Libraries/Cloud/AWS","kind":"in_category"}
+{"from":"https://github.com/fancy-regex/fancy-regex","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/farion1231/cc-switch","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/fast/logforth","to":"cat:Libraries/Logging","kind":"in_category"}
+{"from":"https://github.com/fcsonline/drill","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/fcsonline/tmux-thumbs","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/fede1024/rust-rdkafka","to":"cat:Libraries/Distributed systems/Apache Kafka","kind":"in_category"}
+{"from":"https://github.com/fenio/anylinuxfs-gui","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/ferrumc-rs/ferrumc","to":"cat:Libraries/Game development/Minecraft","kind":"in_category"}
+{"from":"https://github.com/fiatjaf/module-linker","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/figsoda/mmtc","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/firecracker-microvm/firecracker","to":"cat:Applications/Virtualization","kind":"in_category"}
+{"from":"https://github.com/firecrawl/pdf-inspector","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/fish-shell/fish-shell","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/fizyk20/generic-array","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/fkiene/llmtrim","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/fleabitdev/glsp","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/flosse/rust-sun","to":"cat:Libraries/Astronomy","kind":"in_category"}
+{"from":"https://github.com/flox/flox","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/fltk-rs/fltk-rs","to":"cat:Libraries/GUI/FLTK","kind":"in_category"}
+{"from":"https://github.com/flusterIO/fluster","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/flutter-rs/flutter-rs","to":"cat:Libraries/GUI/Flutter","kind":"in_category"}
+{"from":"https://github.com/fluvio-community/fluvio","to":"cat:Libraries/Data streaming","kind":"in_category"}
+{"from":"https://github.com/flxzt/rnote","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/flycheck/flycheck-rust","to":"cat:Development tools/IDEs/Emacs","kind":"in_category"}
+{"from":"https://github.com/foundry-rs/foundry","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/fractalide/fractalide","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/freestrings/jsonpath","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/frewsxcv/cargo-all-features","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://github.com/frol/flatc-rust","to":"cat:Libraries/Encoding/FlatBuffers","kind":"in_category"}
+{"from":"https://github.com/frolicflow/Frolic","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/fschutt/azul","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/fschutt/printpdf","to":"cat:Libraries/Graphics/PDF","kind":"in_category"}
+{"from":"https://github.com/fubarnetes/libjail-rs/","to":"cat:Libraries/Platform specific/FreeBSD","kind":"in_category"}
+{"from":"https://github.com/fujiapple852/trippy","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/fulsomenko/kanban","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/fussybeaver/bollard","to":"cat:Libraries/Network programming/Docker","kind":"in_category"}
+{"from":"https://github.com/fzyzcjy/flutter_rust_bridge","to":"cat:Libraries/GUI/Flutter","kind":"in_category"}
+{"from":"https://github.com/gakonst/opensea-rs","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/gamedig/rust-gamedig","to":"cat:Libraries/Game development/Game Servers","kind":"in_category"}
+{"from":"https://github.com/garkimasera/gaia-maker","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/garkimasera/rusted-ruins","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/garro95/priority-queue","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/gastongouron/ironpress","to":"cat:Libraries/Graphics/PDF","kind":"in_category"}
+{"from":"https://github.com/gchp/iota","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/gchp/rustbox","to":"cat:Libraries/Command-line/TUI/Termbox","kind":"in_category"}
+{"from":"https://github.com/gdt050579/AppCUI-rs","to":"cat:Libraries/Command-line/TUI","kind":"in_category"}
+{"from":"https://github.com/geiger-rs/cargo-geiger","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/georust","to":"cat:Libraries/Geospatial","kind":"in_category"}
+{"from":"https://github.com/georust/geojson","to":"cat:Libraries/Geospatial","kind":"in_category"}
+{"from":"https://github.com/georust/netcdf","to":"cat:Libraries/Encoding/NetCDF","kind":"in_category"}
+{"from":"https://github.com/getnora-io/nora","to":"cat:Registries","kind":"in_category"}
+{"from":"https://github.com/getprovenant/provenant","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/getsentry/milksnake","to":"cat:Development tools/FFI/Python","kind":"in_category"}
+{"from":"https://github.com/getzola/zola","to":"cat:Libraries/Web programming/Static Site Generators","kind":"in_category"}
+{"from":"https://github.com/gfx-rs/gfx","to":"cat:Libraries/Graphics","kind":"in_category"}
+{"from":"https://github.com/gfx-rs/wgpu","to":"cat:Libraries/Graphics","kind":"in_category"}
+{"from":"https://github.com/ggez/ggez","to":"cat:Libraries/Game development/Game Engines","kind":"in_category"}
+{"from":"https://github.com/giraffekey/tatami","to":"cat:Libraries/Game development/Tatami","kind":"in_category"}
+{"from":"https://github.com/giraffekey/xylo","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/git-ai-project/git-ai","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/gitbutlerapp/gitbutler","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/gitui-org/gitui","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/gklijs/schema_registry_converter","to":"cat:Libraries/Distributed systems/Apache Kafka","kind":"in_category"}
+{"from":"https://github.com/glium/glium","to":"cat:Libraries/Graphics/OpenGL","kind":"in_category"}
+{"from":"https://github.com/gluesql/gluesql","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/gluon-lang/gluon","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/glzr-io/glazewm","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/godot-rust/gdext","to":"cat:Libraries/Game development/Godot","kind":"in_category"}
+{"from":"https://github.com/godot-rust/gdnative","to":"cat:Libraries/Game development/Godot","kind":"in_category"}
+{"from":"https://github.com/godzie44/BugStalker","to":"cat:Development tools/Debugging","kind":"in_category"}
+{"from":"https://github.com/google/argh","to":"cat:Libraries/Command-line/Argument parsing","kind":"in_category"}
+{"from":"https://github.com/google/mdbook-i18n-helpers","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/gopher64/gopher64","to":"cat:Applications/Emulators/Nintendo 64","kind":"in_category"}
+{"from":"https://github.com/gorilla-devs/ferium","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/gotempsh/temps","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/gotham-rs/gotham","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/graphform/ratchet","to":"cat:Libraries/Web programming/WebSocket","kind":"in_category"}
+{"from":"https://github.com/graphql-rust/graphql-client","to":"cat:Libraries/Web programming/HTTP Client","kind":"in_category"}
+{"from":"https://github.com/graphql-rust/juniper","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/graphul-rs/graphul","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/graves/awful_aj","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/graykode/abtop","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/grego/blades","to":"cat:Libraries/Web programming/Static Site Generators","kind":"in_category"}
+{"from":"https://github.com/grepTimeTeam/greptimedb/","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/greyblake/nutype","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/greyblake/whatlang-rs","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/gsquire/sendgrid-rs","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/gtk-rs/gir","to":"cat:Development tools/FFI/C","kind":"in_category"}
+{"from":"https://github.com/gtk-rs/gtk4-rs","to":"cat:Libraries/GUI/GTK+","kind":"in_category"}
+{"from":"https://github.com/guillaume-be/rust-bert","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/guoxbin/dtool","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/gx0r/rrgeo","to":"cat:Libraries/Geospatial","kind":"in_category"}
+{"from":"https://github.com/gyroflow/gyroflow","to":"cat:Applications/Video","kind":"in_category"}
+{"from":"https://github.com/gyscos/Cursive","to":"cat:Libraries/Command-line/TUI","kind":"in_category"}
+{"from":"https://github.com/gyscos/zstd-rs","to":"cat:Libraries/Compression/zstd","kind":"in_category"}
+{"from":"https://github.com/h2337/tsink","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/habitat-sh/habitat","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/hamzaydia/verifyfetch","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/hannobraun/inotify-rs","to":"cat:Libraries/Platform specific/Linux","kind":"in_category"}
+{"from":"https://github.com/haobogu/rmk","to":"cat:Applications/Embedded","kind":"in_category"}
+{"from":"https://github.com/harehare/mq","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/harfbuzz/rustybuzz","to":"cat:Libraries/Graphics/Fonts","kind":"in_category"}
+{"from":"https://github.com/harlanc/xiu","to":"cat:Applications/Video","kind":"in_category"}
+{"from":"https://github.com/hashmismatch/terminal_cli.rs","to":"cat:Libraries/Command-line/Prompt","kind":"in_category"}
+{"from":"https://github.com/hcavarsan/kftray","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/helix-editor/helix","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/helsing-ai/buffrs","to":"cat:Applications/Package Managers","kind":"in_category"}
+{"from":"https://github.com/hexagonal-sun/moss-kernel","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://github.com/hinto-janai/festival","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/hit-box/hitbox","to":"cat:Libraries/Caching","kind":"in_category"}
+{"from":"https://github.com/hniksic/rust-subprocess","to":"cat:Libraries/Command-line/Pipeline","kind":"in_category"}
+{"from":"https://github.com/holo-routing/holo","to":"cat:Applications/Routing protocols","kind":"in_category"}
+{"from":"https://github.com/holochain/holochain","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/hominee/dyer","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/hook0/hook0","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/housleyjk/ws-rs","to":"cat:Libraries/Web programming/WebSocket","kind":"in_category"}
+{"from":"https://github.com/hovinen/test-that","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://github.com/howardwu/wagyu","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/hrkfdn/ncspot","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/hsivonen/encoding_rs","to":"cat:Libraries/Encoding/Character Encoding","kind":"in_category"}
+{"from":"https://github.com/httpmock/httpmock","to":"cat:Development tools/Testing/Mocking and Test Data","kind":"in_category"}
+{"from":"https://github.com/httpsworldview/openmeters","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/hubblo-org/scaphandre","to":"cat:Applications/Observability","kind":"in_category"}
+{"from":"https://github.com/huggingface/candle","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/huggingface/tokenizers","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/huhu/rust-search-extension","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/humblepenguinn/envio","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/hyperb1iss/unifly","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/hyperium/hyper","to":"cat:Libraries/Web programming/HTTP Client","kind":"in_category"}
+{"from":"https://github.com/hyperium/hyper","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/hyperium/tonic","to":"cat:Libraries/Network programming/gRPC","kind":"in_category"}
+{"from":"https://github.com/hyperlane-dev/hyperlane","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/hyperlane-xyz/hyperlane-monorepo","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/hyunsik/hdfs-rs","to":"cat:Libraries/Distributed systems/HDFS","kind":"in_category"}
+{"from":"https://github.com/iBz-04/gloamy","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/iammodev/YAKC","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/iced-rs/iced","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/icepuma/rust-action","to":"cat:Development tools/Build system/GitHub actions","kind":"in_category"}
+{"from":"https://github.com/idalib-rs/idalib","to":"cat:Libraries/Reverse engineering","kind":"in_category"}
+{"from":"https://github.com/iddm/challonge-rs","to":"cat:Libraries/Game development/Challonge","kind":"in_category"}
+{"from":"https://github.com/iddm/randomorg","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/iddm/serde-aux/","to":"cat:Libraries/Encoding/Serde","kind":"in_category"}
+{"from":"https://github.com/iddm/thread-priority/","to":"cat:Libraries/Platform specific/Cross-platform","kind":"in_category"}
+{"from":"https://github.com/iddm/toornament-rs","to":"cat:Libraries/Game development/Toornament-rs","kind":"in_category"}
+{"from":"https://github.com/iddm/urlshortener-rs","to":"cat:Libraries/Web programming/WebSocket","kind":"in_category"}
+{"from":"https://github.com/idletea/tokio-socketcan","to":"cat:Libraries/Automotive","kind":"in_category"}
+{"from":"https://github.com/ignisda/ryot","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/igor-petruk/scriptisto","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/igorlira/dirplayer-rs","to":"cat:Applications/Emulators/Shockwave Player","kind":"in_category"}
+{"from":"https://github.com/igumnoff/gabriel2","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/igumnoff/shiva","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/ihalila/pancurses","to":"cat:Libraries/Command-line/TUI/ncurses","kind":"in_category"}
+{"from":"https://github.com/iii-hq/iii","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/ilai-deutel/kibi","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/illacloud/illa","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/ilya-zlobintsev/LACT","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/image-rs/image","to":"cat:Libraries/Image processing","kind":"in_category"}
+{"from":"https://github.com/image-rs/imageproc","to":"cat:Libraries/Image processing","kind":"in_category"}
+{"from":"https://github.com/imager-io/imager","to":"cat:Applications/Image processing","kind":"in_category"}
+{"from":"https://github.com/imgui-rs/imgui-rs","to":"cat:Libraries/GUI/ImGui","kind":"in_category"}
+{"from":"https://github.com/imjacobclark/Herd","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/immortal/fork","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/immunant/c2rust","to":"cat:Development tools/Transpiling","kind":"in_category"}
+{"from":"https://github.com/importantimport/hatsu","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/importcjj/rust-ajson","to":"cat:Libraries/Encoding/JSON","kind":"in_category"}
+{"from":"https://github.com/imsnif/bandwhich","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/imsnif/diskonaut","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/infincia/bip39-rs","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/infinition/waveshare-watch-rs","to":"cat:Applications/Embedded","kind":"in_category"}
+{"from":"https://github.com/infinyon/node-bindgen","to":"cat:Development tools/FFI/Node.js","kind":"in_category"}
+{"from":"https://github.com/informalsystems/hermes","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/innoave/genevo","to":"cat:Libraries/Artificial Intelligence/Genetic algorithms","kind":"in_category"}
+{"from":"https://github.com/insomnimus/nodi","to":"cat:Libraries/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/insomnimus/tidier","to":"cat:Libraries/Markup language","kind":"in_category"}
+{"from":"https://github.com/inspektor-dev/inspektor","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/intellij-rust/intellij-rust","to":"cat:Development tools/IDEs/IntelliJ","kind":"in_category"}
+{"from":"https://github.com/interlay/interbtc","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/inv2004/coinbase-pro-rs","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/iot-ecology/rust-iot-platform","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/iron/iron","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/ironcalc/IronCalc","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/isdaniel/pg-walstream","to":"cat:Libraries/Database/SQL/PostgreSql","kind":"in_category"}
+{"from":"https://github.com/ivanceras/rustorm","to":"cat:Libraries/Database/ORM","kind":"in_category"}
+{"from":"https://github.com/ivanceras/sauron","to":"cat:Libraries/Web programming/Client-side / WASM","kind":"in_category"}
+{"from":"https://github.com/ivanceras/sauron-native","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/ivanceras/svgbob","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/ivanceras/titik","to":"cat:Libraries/Command-line/TUI","kind":"in_category"}
+{"from":"https://github.com/ivnsch/rust_android_ios","to":"cat:Libraries/Mobile/Android / iOS","kind":"in_category"}
+{"from":"https://github.com/iwe-org/iwe","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/j0ru/kickoff","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/j178/prek","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/jacek-kurlit/pik","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/jacobdeichert/mask","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/jaemk/cached","to":"cat:Libraries/Caching","kind":"in_category"}
+{"from":"https://github.com/jamesmunns/awesome-rust-streaming","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/jamesmunns/postcard","to":"cat:Libraries/Encoding/Binary","kind":"in_category"}
+{"from":"https://github.com/jameysharp/corrode","to":"cat:Development tools/Transpiling","kind":"in_category"}
+{"from":"https://github.com/janreges/siteone-crawler","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/japaric/rust-cross","to":"cat:Development tools/Embedded/Cross compiling","kind":"in_category"}
+{"from":"https://github.com/japaric/trust","to":"cat:Development tools/Testing/Continuous Integration","kind":"in_category"}
+{"from":"https://github.com/japaric/xargo","to":"cat:Development tools/Embedded/Cross compiling","kind":"in_category"}
+{"from":"https://github.com/jcmoyer/rust-lua53","to":"cat:Development tools/FFI/Lua","kind":"in_category"}
+{"from":"https://github.com/jcreekmore/pem-rs","to":"cat:Libraries/Encoding/PEM","kind":"in_category"}
+{"from":"https://github.com/jdrouet/catapulte","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/jdrouet/jolimail","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/jdrouet/mrml","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/jdx/mise","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/jeaye/ncurses-rs","to":"cat:Libraries/Command-line/TUI/ncurses","kind":"in_category"}
+{"from":"https://github.com/jeremyletang/rust-sfml","to":"cat:Libraries/Game development/SFML","kind":"in_category"}
+{"from":"https://github.com/jeromefroe/lru-rs","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/jhasse/ears","to":"cat:Libraries/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/jimmycuadra/rust-etcd","to":"cat:Libraries/Database/NoSQL/etcd","kind":"in_category"}
+{"from":"https://github.com/jinxdash/prettier-plugin-rust","to":"cat:Development tools/Formatters","kind":"in_category"}
+{"from":"https://github.com/jj-vcs/jj","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/jjyr/hdwallet","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/joamag/boytacean","to":"cat:Applications/Emulators/Gameboy","kind":"in_category"}
+{"from":"https://github.com/joaoh82/rustunnel","to":"cat:Development tools/Tunnel","kind":"in_category"}
+{"from":"https://github.com/jolars/basin","to":"cat:Libraries/Computation","kind":"in_category"}
+{"from":"https://github.com/jonaylor89/sherlock-rs","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/jondot/rust-how-do-i-start","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/juhaku/utoipa","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/juspay/hyperswitch","to":"cat:Applications/Payments","kind":"in_category"}
+{"from":"https://github.com/juyterman1000/entroly","to":"cat:Libraries/Artificial Intelligence/Tooling","kind":"in_category"}
+{"from":"https://github.com/k06a/macpow","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/kafka-rust/kafka-rust","to":"cat:Libraries/Distributed systems/Apache Kafka","kind":"in_category"}
+{"from":"https://github.com/kaj/ructe","to":"cat:Libraries/Template engine/HTML","kind":"in_category"}
+{"from":"https://github.com/kaj/rust-pdf","to":"cat:Libraries/Graphics/PDF","kind":"in_category"}
+{"from":"https://github.com/kakoune-lsp/kakoune-lsp/","to":"cat:Development tools/IDEs/Kakoune","kind":"in_category"}
+{"from":"https://github.com/kamiyaa/joshuto","to":"cat:Applications/File manager","kind":"in_category"}
+{"from":"https://github.com/kand-ta/kand","to":"cat:Libraries/Finance","kind":"in_category"}
+{"from":"https://github.com/kaspanet/rusty-kaspa","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/kata-containers/kata-containers","to":"cat:Applications/Virtualization","kind":"in_category"}
+{"from":"https://github.com/katanemo/plano","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/kcl-lang/kcl","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/kelpsyberry/dust","to":"cat:Applications/Emulators/Nintendo DS","kind":"in_category"}
+{"from":"https://github.com/kernelmachine/utah","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/kevinmehall/rust-peg","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/ki-editor/ki-editor","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/killercup/quicli","to":"cat:Libraries/Command-line/Argument parsing","kind":"in_category"}
+{"from":"https://github.com/kimono-koans/dano","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/kimono-koans/httm","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/kkawakam/rustyline","to":"cat:Libraries/Command-line/Line editor","kind":"in_category"}
+{"from":"https://github.com/klutzy/suruga","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/kn0sys/ecc-rs","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/kn0sys/valentinus","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/koibtw/highlightos","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://github.com/kondrak/rust64","to":"cat:Applications/Emulators/Commodore 64","kind":"in_category"}
+{"from":"https://github.com/kongbytes/arp-scan-rs","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/konippi/servo-fetch","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/kornelski/rust-security-framework","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/koute/bytehound","to":"cat:Development tools/Profiling","kind":"in_category"}
+{"from":"https://github.com/koute/pinky","to":"cat:Applications/Emulators/NES","kind":"in_category"}
+{"from":"https://github.com/kpcyrd/authoscope","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/kpcyrd/mini-docker-rust","to":"cat:Development tools/Deployment/Docker","kind":"in_category"}
+{"from":"https://github.com/kpcyrd/rshijack","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/kpcyrd/sn0int","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/kpcyrd/sniffglue","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/krojew/cdrs-tokio","to":"cat:Libraries/Database/NoSQL/Cassandra","kind":"in_category"}
+{"from":"https://github.com/krojew/rust-zookeeper","to":"cat:Libraries/Database/NoSQL/ZooKeeper","kind":"in_category"}
+{"from":"https://github.com/kruseio/hygg","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/ksk001100/seahorse","to":"cat:Libraries/Command-line/Argument parsing","kind":"in_category"}
+{"from":"https://github.com/kstonekuan/tambourine-voice","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/kubo/rust-oracle","to":"cat:Libraries/Database/SQL/Oracle","kind":"in_category"}
+{"from":"https://github.com/kweonminsung/bind9_rndc_rust","to":"cat:Libraries/Network programming/DNS","kind":"in_category"}
+{"from":"https://github.com/kxxt/tracexec","to":"cat:Development tools/Debugging","kind":"in_category"}
+{"from":"https://github.com/kyren/piccolo","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/kyu08/fzf-make","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/lakehq/sail","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/lalrpop/lalrpop","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/lambda-fairy/maud","to":"cat:Libraries/Template engine/HTML","kind":"in_category"}
+{"from":"https://github.com/lancedb/lancedb","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/lapce/lapce","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/lapce/lapce","to":"cat:Development tools/IDEs","kind":"in_category"}
+{"from":"https://github.com/larksuite/perf-monitor-rs","to":"cat:Libraries","kind":"in_category"}
+{"from":"https://github.com/lasantosr/intelli-shell","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/launchbadge/sqlx","to":"cat:Libraries/Database/SQL/Generic","kind":"in_category"}
+{"from":"https://github.com/lemunozm/message-io","to":"cat:Libraries/Network programming/message-io","kind":"in_category"}
+{"from":"https://github.com/lenra-io/dofigen","to":"cat:Development tools/Deployment/Docker","kind":"in_category"}
+{"from":"https://github.com/leptonyu/cfg-rs","to":"cat:Libraries/Configuration","kind":"in_category"}
+{"from":"https://github.com/leptos-rs/leptos","to":"cat:Libraries/Web programming/Client-side / WASM","kind":"in_category"}
+{"from":"https://github.com/lettre/lettre","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/leven-the-blog/leven","to":"cat:Libraries/Web programming/Static Site Generators","kind":"in_category"}
+{"from":"https://github.com/libOctavo/octavo","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/libbpf/libbpf-rs","to":"cat:Libraries/eBPF","kind":"in_category"}
+{"from":"https://github.com/libp2p/rust-libp2p","to":"cat:Libraries/Network programming/P2P","kind":"in_category"}
+{"from":"https://github.com/libpnet/libpnet","to":"cat:Libraries/Network programming/Low level","kind":"in_category"}
+{"from":"https://github.com/lifthrasiir/angolmois-rust","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/lifthrasiir/rust-encoding","to":"cat:Libraries/Encoding/Character Encoding","kind":"in_category"}
+{"from":"https://github.com/lightningdevkit/rust-lightning","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/lilyball/rust-lua","to":"cat:Development tools/FFI/Lua","kind":"in_category"}
+{"from":"https://github.com/linebender/resvg","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/linebender/xilem","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/linera-io/linera-protocol","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/linkerd/linkerd2-proxy","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/liquidos-ai/AutoAgents","to":"cat:Libraries/Artificial Intelligence/OpenAI","kind":"in_category"}
+{"from":"https://github.com/liuchong/docker-rustup","to":"cat:Development tools/Deployment/Docker","kind":"in_category"}
+{"from":"https://github.com/lldap/lldap","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/llogiq/flame","to":"cat:Development tools/Profiling/FlameGraphs","kind":"in_category"}
+{"from":"https://github.com/llogiq/mutagen","to":"cat:Development tools/Testing/Mutation Testing","kind":"in_category"}
+{"from":"https://github.com/localfirstapp/1History","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/locka99/opcua","to":"cat:Applications/Industrial automation","kind":"in_category"}
+{"from":"https://github.com/lockbook/lockbook","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/lodosgroup/lpm","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/logisky/LogiSheets","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/lonewolf-io/narwhal","to":"cat:Applications/Message Queue","kind":"in_category"}
+{"from":"https://github.com/longbridge/gpui-component","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/longbridge/longbridge-terminal","to":"cat:Applications/Finance","kind":"in_category"}
+{"from":"https://github.com/lotabout/rargs","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/louis-e/arnis","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/lsd-rs/lsd","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/lucid-kv/lucid","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/luminal-ai/luminal","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/luminvent/yaserde","to":"cat:Libraries/Encoding/XML","kind":"in_category"}
+{"from":"https://github.com/luqmana/rust-opencl","to":"cat:Libraries/Computation/Parallel","kind":"in_category"}
+{"from":"https://github.com/lzanini/mdbook-katex","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/m-decoster/RsGenetic","to":"cat:Libraries/Artificial Intelligence/Genetic algorithms","kind":"in_category"}
+{"from":"https://github.com/m4b/bingrep","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/m4b/goblin","to":"cat:Libraries/Encoding/Binary","kind":"in_category"}
+{"from":"https://github.com/m4rw3r/chomp","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/maciejkula/rustlearn","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/madeofpendletonwool/PinePods","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/madeso/ride","to":"cat:Development tools/IDEs","kind":"in_category"}
+{"from":"https://github.com/mag123c/toktrack","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/maidsafe","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/mailtutan/mailtutan","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/makepad/makepad","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/mandrean/har-rs","to":"cat:Libraries/Encoding/HAR","kind":"in_category"}
+{"from":"https://github.com/manyougz/velotype","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/maplibre/martin","to":"cat:Libraries/Geospatial","kind":"in_category"}
+{"from":"https://github.com/maras-archive/rsnake","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/marcelbuesing/tokio-socketcan-bcm","to":"cat:Libraries/Automotive","kind":"in_category"}
+{"from":"https://github.com/marcodpt/minirps","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/marekm4/dominant_color","to":"cat:Libraries/Image processing","kind":"in_category"}
+{"from":"https://github.com/mathall/rim","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/matheus-git/systemd-manager-tui","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/matheuswhite/scope-rs","to":"cat:Development tools/Embedded/Development Tools","kind":"in_category"}
+{"from":"https://github.com/mattgathu/cute","to":"cat:Libraries/Macro/cute","kind":"in_category"}
+{"from":"https://github.com/matthart1983/diskwatch","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/matthart1983/netwatch","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/matthart1983/syswatch","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/mattnenterprise/rust-ftp","to":"cat:Libraries/Network programming/FTP","kind":"in_category"}
+{"from":"https://github.com/mattnenterprise/rust-nntp","to":"cat:Libraries/Network programming/NNTP","kind":"in_category"}
+{"from":"https://github.com/mattnenterprise/rust-pop3","to":"cat:Libraries/Network programming/POP3","kind":"in_category"}
+{"from":"https://github.com/max-sixty/worktrunk","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/mayocream/koharu","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/mazznoer/colorgrad-rs","to":"cat:Libraries/Data visualization","kind":"in_category"}
+{"from":"https://github.com/mcthesw/game-save-manager","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/mdgaziur/findex","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/meilisearch/MeiliSearch","to":"cat:Libraries/Text search","kind":"in_category"}
+{"from":"https://github.com/meilisearch/heed","to":"cat:Libraries/Database/NoSQL/LMDB","kind":"in_category"}
+{"from":"https://github.com/meli/meli","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/memvid/memvid","to":"cat:Libraries/Artificial Intelligence/Tooling","kind":"in_category"}
+{"from":"https://github.com/mercurialsolo/claudectl","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/metacall/core","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/metalbear-co/mirrord","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/mgeisler/textwrap","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/mgrachev/update-informer","to":"cat:Libraries/Command-line/Other","kind":"in_category"}
+{"from":"https://github.com/micahkepe/jsongrep","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/michelhe/rustboyadvance-ng","to":"cat:Applications/Emulators/Gameboy Advance","kind":"in_category"}
+{"from":"https://github.com/microsoft/edit","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/microsoft/mxc","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/microsoft/pg_durable","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/microsoft/windows-rs","to":"cat:Libraries/Platform specific/Windows","kind":"in_category"}
+{"from":"https://github.com/mierak/rmpc","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/mikaelmello/inquire","to":"cat:Libraries/Command-line/Prompt","kind":"in_category"}
+{"from":"https://github.com/miketang84/sapper","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/mikkyang/rust-blas","to":"cat:Libraries/Computation/BLAS","kind":"in_category"}
+{"from":"https://github.com/mikwielgus/undoredo","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/milliams/plotlib","to":"cat:Libraries/Data visualization","kind":"in_category"}
+{"from":"https://github.com/mimblewimble/grin/","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/mit-pdos/noria","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/mitnk/cicada","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/mlua-rs/mlua","to":"cat:Development tools/FFI/Lua","kind":"in_category"}
+{"from":"https://github.com/mmalmi/nostr-vpn","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/mmstick/concurr","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/mmstick/fontfinder","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/mmstick/tv-renamer","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/moghtech/komodo","to":"cat:Development tools/Deployment/Docker","kind":"in_category"}
+{"from":"https://github.com/mohanson/gameboy","to":"cat:Applications/Emulators/Gameboy","kind":"in_category"}
+{"from":"https://github.com/mohanson/i8080","to":"cat:Applications/Emulators/Intel 8080 CPU","kind":"in_category"}
+{"from":"https://github.com/moka-rs/moka","to":"cat:Libraries/Caching","kind":"in_category"}
+{"from":"https://github.com/mongodb/bson-rust","to":"cat:Libraries/Encoding/BSON","kind":"in_category"}
+{"from":"https://github.com/mongodb/kingfisher","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/mongodb/mongo-rust-driver","to":"cat:Libraries/Database/NoSQL/MongoDB","kind":"in_category"}
+{"from":"https://github.com/morganlinton/Albatross","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/moyangzhan/mango-finder","to":"cat:Applications/File manager","kind":"in_category"}
+{"from":"https://github.com/mozilla/cbindgen","to":"cat:Development tools/FFI/C","kind":"in_category"}
+{"from":"https://github.com/mozilla/neqo","to":"cat:Libraries/Network programming/QUIC","kind":"in_category"}
+{"from":"https://github.com/mozilla/sccache/","to":"cat:Libraries/Caching","kind":"in_category"}
+{"from":"https://github.com/mre/idiomatic-rust","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/mrhooray/crc-rs","to":"cat:Libraries/Encoding/CRC","kind":"in_category"}
+{"from":"https://github.com/mrhooray/kdtree-rs","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/mrjackwills/oxker","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/mthom/scryer-prolog/","to":"cat:Development tools/FFI/Prolog","kind":"in_category"}
+{"from":"https://github.com/mtkennerly/ludusavi","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/mu-arch/skyfolder","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/mufeedvh/binserve","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/mullvad/mullvadvpn-app","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/mun-lang/mun","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/murarth/ketos","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/murarth/linefeed","to":"cat:Libraries/Command-line/Line editor","kind":"in_category"}
+{"from":"https://github.com/museslabs/phonto","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/musitdev/portmidi-rs","to":"cat:Libraries/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/muvon/octomind","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/mvdnes/rboy","to":"cat:Applications/Emulators/Gameboy","kind":"in_category"}
+{"from":"https://github.com/mxseev/logram","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/mxsm/rocketmq-rust","to":"cat:Applications/Message Queue","kind":"in_category"}
+{"from":"https://github.com/myrrlyn/tap","to":"cat:Libraries/Functional Programming/Prelude","kind":"in_category"}
+{"from":"https://github.com/n0-computer/iroh","to":"cat:Libraries/Network programming/P2P","kind":"in_category"}
+{"from":"https://github.com/nabijaczleweli/BearLibTerminal.rs","to":"cat:Libraries/Command-line/TUI/BearLibTerminal","kind":"in_category"}
+{"from":"https://github.com/naomijub/edn-rs","to":"cat:Libraries/Encoding/EDN","kind":"in_category"}
+{"from":"https://github.com/naomijub/wooridb","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/nathanbabcock/ffmpeg-sidecar","to":"cat:Libraries/Video","kind":"in_category"}
+{"from":"https://github.com/nats-io/nats.rs","to":"cat:Libraries/Network programming/NATS","kind":"in_category"}
+{"from":"https://github.com/nautechsystems/nautilus_trader","to":"cat:Applications/Finance","kind":"in_category"}
+{"from":"https://github.com/navidys/procsys","to":"cat:Libraries/System","kind":"in_category"}
+{"from":"https://github.com/near/nearcore","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/neo4j-labs/graph","to":"cat:Libraries/Graph algorithms","kind":"in_category"}
+{"from":"https://github.com/neogenie/fastnum","to":"cat:Libraries/Computation","kind":"in_category"}
+{"from":"https://github.com/neon-bindings/neon","to":"cat:Development tools/FFI/Node.js","kind":"in_category"}
+{"from":"https://github.com/neondatabase/neon","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/nervosnetwork/ckb","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/netvl/xml-rs","to":"cat:Libraries/Encoding/XML","kind":"in_category"}
+{"from":"https://github.com/nextest-rs/future-queue","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/nextest-rs/nextest","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://github.com/ngrok/ngrok-rust","to":"cat:Development tools/Tunnel","kind":"in_category"}
+{"from":"https://github.com/nickel-org/nickel.rs/","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/nickgerace/gfold","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/nicohman/eidolon","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/nikolassv/bartib","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/nivekuil/rip","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/nix-community/fenix","to":"cat:Development tools/Build system/Nix","kind":"in_category"}
+{"from":"https://github.com/nix-community/nix-init","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/nix-community/nix-melt","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/nix-community/nurl","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/nix-rust/nix","to":"cat:Libraries/Platform specific/Unix-like","kind":"in_category"}
+{"from":"https://github.com/njbrake/agent-of-empires","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/njord-rs/njord","to":"cat:Libraries/Database/ORM","kind":"in_category"}
+{"from":"https://github.com/nohajc/anylinuxfs","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/nrc/zero","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/nrf-rs/nrf-hal","to":"cat:Development tools/Embedded/nRF","kind":"in_category"}
+{"from":"https://github.com/nrxus/faux/","to":"cat:Development tools/Testing/Mocking and Test Data","kind":"in_category"}
+{"from":"https://github.com/nukesor/comfy-table","to":"cat:Libraries/Command-line/Data visualization","kind":"in_category"}
+{"from":"https://github.com/nukesor/pueue","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/null8626/decancer","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/nushell/nushell","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/nushell/reedline","to":"cat:Libraries/Command-line/Line editor","kind":"in_category"}
+{"from":"https://github.com/nvzqz/divan","to":"cat:Development tools/Profiling","kind":"in_category"}
+{"from":"https://github.com/nwiizo/cargo-coupling","to":"cat:Development tools/Static analysis","kind":"in_category"}
+{"from":"https://github.com/nwiizo/cargo.nvim","to":"cat:Development tools/IDEs/Vim","kind":"in_category"}
+{"from":"https://github.com/nwiizo/tfmcp","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/nwiizo/tfocus","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/obhq/obliteration","to":"cat:Applications/Emulators/PlayStation 4","kind":"in_category"}
+{"from":"https://github.com/oconnor663/duct.rs","to":"cat:Libraries/Command-line/Pipeline","kind":"in_category"}
+{"from":"https://github.com/ogham/rust-ansi-term","to":"cat:Libraries/Command-line/Style","kind":"in_category"}
+{"from":"https://github.com/ogham/rust-term-grid","to":"cat:Libraries/Command-line/TUI","kind":"in_category"}
+{"from":"https://github.com/ogulcancelik/herdr","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/ontola/atomic-server/","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/openai/codex","to":"cat:Libraries/Artificial Intelligence/OpenAI","kind":"in_category"}
+{"from":"https://github.com/openai/harmony","to":"cat:Libraries/Artificial Intelligence/OpenAI","kind":"in_category"}
+{"from":"https://github.com/openinfer-project/openinfer","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/openma-ai/Martty","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/openobserve/openobserve","to":"cat:Applications/Observability","kind":"in_category"}
+{"from":"https://github.com/openooxml/betteroffice","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/ophi-dev/antlr-rust-runtime","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/orbitinghail/sqlsync","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/oreboot/oreboot","to":"cat:Development tools/Embedded/Firmware","kind":"in_category"}
+{"from":"https://github.com/orhun/git-cliff","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/orhun/kmon","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/orhun/rustypaste","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/orhun/systeroid","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/orion-rs/orion","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/orium/archery","to":"cat:Libraries/Concurrency","kind":"in_category"}
+{"from":"https://github.com/orium/cargo-rdme","to":"cat:Development tools/Build system/Cargo","kind":"in_category"}
+{"from":"https://github.com/orium/rpds","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/osa1/tiny","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/osohq/oso","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/osrg/rustybgp","to":"cat:Applications/Routing protocols","kind":"in_category"}
+{"from":"https://github.com/ouch-org/ouch","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/oxc-project/oxc","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/oxibus/can-dbc","to":"cat:Libraries/Automotive","kind":"in_category"}
+{"from":"https://github.com/oxidecomputer/propolis","to":"cat:Libraries/Virtualization","kind":"in_category"}
+{"from":"https://github.com/oxigraph/oxigraph","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/oxipng/oxipng","to":"cat:Applications/Image processing","kind":"in_category"}
+{"from":"https://github.com/ozankasikci/rust-music-theory","to":"cat:Libraries/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/ozkriff/awesome-quads","to":"cat:Libraries/Game development","kind":"in_category"}
+{"from":"https://github.com/ozkriff/zemeroth","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/ozkriff/zoc","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/pantsbuild/pants","to":"cat:Development tools/Build system","kind":"in_category"}
+{"from":"https://github.com/paradedb/paradedb/","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/paradedb/paradedb/tree/dev/pg_analytics","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/paradedb/paradedb/tree/dev/pg_lakehouse","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/paradedb/paradedb/tree/dev/pg_search","to":"cat:Libraries/Text search","kind":"in_category"}
+{"from":"https://github.com/paradigmxyz/artemis","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/paradigmxyz/reth","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/paritytech/parity-bitcoin","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/paritytech/parity-db","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/paritytech/polkadot-sdk","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/paritytech/schnorrkel","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/pathwaycom/pathway","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/pawurb/hotpath-rs","to":"cat:Development tools/Profiling","kind":"in_category"}
+{"from":"https://github.com/pcwalton/sprocketnes","to":"cat:Applications/Emulators/NES","kind":"in_category"}
+{"from":"https://github.com/pdeljanov/Symphonia","to":"cat:Libraries/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/pemistahl/grex","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/perpetual-ml/perpetual","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/pest-parser/pest","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/petgraph/petgraph","to":"cat:Libraries/Graph algorithms","kind":"in_category"}
+{"from":"https://github.com/pgdogdev/pgdog","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/phiresky/ripgrep-all","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/phper-framework/phper","to":"cat:Development tools/FFI/PHP","kind":"in_category"}
+{"from":"https://github.com/pier-cli/pier","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/pionxzh/wakaru","to":"cat:Libraries/Reverse engineering","kind":"in_category"}
+{"from":"https://github.com/pkalivas/radiate","to":"cat:Libraries/Artificial Intelligence/Genetic algorithms","kind":"in_category"}
+{"from":"https://github.com/pkgxdev/pkgx","to":"cat:Applications/Package Managers","kind":"in_category"}
+{"from":"https://github.com/pkolaczk/fclones","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/plabayo/rama","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/plabayo/rama","to":"cat:Libraries/Web programming/HTTP Client","kind":"in_category"}
+{"from":"https://github.com/plabayo/rama","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/plotly/plotly.rs","to":"cat:Libraries/Data visualization","kind":"in_category"}
+{"from":"https://github.com/plotters-rs/plotters","to":"cat:Libraries/Data visualization","kind":"in_category"}
+{"from":"https://github.com/poem-web/poem","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/pola-rs/polars","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/pop-os/dbus-udisks2","to":"cat:Libraries/Filesystem/Operations","kind":"in_category"}
+{"from":"https://github.com/pop-os/distinst/","to":"cat:Libraries/Platform specific/Linux","kind":"in_category"}
+{"from":"https://github.com/pop-os/popsicle","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/pop-os/sys-mount","to":"cat:Libraries/Filesystem/Operations","kind":"in_category"}
+{"from":"https://github.com/pop-os/system76-power/","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/pragma-org/amaru","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/printfn/fend","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/prisma/tiberius","to":"cat:Libraries/Database/SQL/Microsoft SQL","kind":"in_category"}
+{"from":"https://github.com/probablykasper/cpc","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/probe-rs/probe-rs","to":"cat:Development tools/Embedded/Development Tools","kind":"in_category"}
+{"from":"https://github.com/project-blinc/Blinc","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/provrb/obdium","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/ps1dr3x/easy_reader","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/ptal/oak","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/pulldown-cmark/pulldown-cmark","to":"cat:Libraries/Markup language/CommonMark","kind":"in_category"}
+{"from":"https://github.com/pumpkin-mc/pumpkin","to":"cat:Libraries/Game development/Minecraft","kind":"in_category"}
+{"from":"https://github.com/pvolok/mprocs","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/pwoolcoc/ngrams","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/pydantic/monty","to":"cat:Libraries/Artificial Intelligence/Tooling","kind":"in_category"}
+{"from":"https://github.com/qarmin/czkawka","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/qdrant/qdrant","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/quickwit-oss/quickwit","to":"cat:Applications/Observability","kind":"in_category"}
+{"from":"https://github.com/quickwit-oss/tantivy","to":"cat:Libraries/Text search","kind":"in_category"}
+{"from":"https://github.com/quilt/etk","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/quinn-rs/quinn","to":"cat:Libraries/Network programming/QUIC","kind":"in_category"}
+{"from":"https://github.com/racer-rust/emacs-racer","to":"cat:Development tools/IDEs/Emacs","kind":"in_category"}
+{"from":"https://github.com/racer-rust/racer","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/racer-rust/vim-racer","to":"cat:Development tools/IDEs/Vim","kind":"in_category"}
+{"from":"https://github.com/racum/rust-djangohashers","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/raftario/licensor","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/ramosbugs/oauth2-rs","to":"cat:Libraries/Authentication","kind":"in_category"}
+{"from":"https://github.com/ramsyana/RustTensor","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/raphaelmansuy/edgequake","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/raphamorim/rio","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/ratatui/ratatui","to":"cat:Libraries/Command-line/TUI","kind":"in_category"}
+{"from":"https://github.com/rathole-org/rathole","to":"cat:Development tools/Tunnel","kind":"in_category"}
+{"from":"https://github.com/rayon-rs/rayon","to":"cat:Libraries/Concurrency","kind":"in_category"}
+{"from":"https://github.com/rbatis/fast_log","to":"cat:Libraries/Logging","kind":"in_category"}
+{"from":"https://github.com/rbatis/rbatis","to":"cat:Libraries/Database/ORM","kind":"in_category"}
+{"from":"https://github.com/reacherhq/check-if-email-exists","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/redbadger/crux","to":"cat:Libraries/Mobile/Generic","kind":"in_category"}
+{"from":"https://github.com/redis-rs/redis-rs","to":"cat:Libraries/Database/NoSQL/Redis","kind":"in_category"}
+{"from":"https://github.com/redlib-org/redlib","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/redox-os/ion","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/redox-os/orbtk","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/redox-os/rusttype","to":"cat:Libraries/Graphics/Fonts","kind":"in_category"}
+{"from":"https://github.com/redox-os/termion","to":"cat:Libraries/Command-line/TUI","kind":"in_category"}
+{"from":"https://github.com/reflex-search/reflex","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/release-plz/release-plz","to":"cat:Development tools/Deployment","kind":"in_category"}
+{"from":"https://github.com/remoc-rs/remoc","to":"cat:Libraries/Network programming/RPC","kind":"in_category"}
+{"from":"https://github.com/replydev/cotp","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/rerun-io/ewebsock","to":"cat:Libraries/Web programming/WebSocket","kind":"in_category"}
+{"from":"https://github.com/rerun-io/rerun","to":"cat:Libraries/Data visualization","kind":"in_category"}
+{"from":"https://github.com/restsend/rsipstack","to":"cat:Libraries/Network programming/SIP","kind":"in_category"}
+{"from":"https://github.com/restsend/rustpbx","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/retep998/winapi-rs","to":"cat:Libraries/Platform specific/Windows","kind":"in_category"}
+{"from":"https://github.com/reubeno/brush","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/rhaiscript/rhai","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/rhysd/wain","to":"cat:Development tools/FFI/Web Assembly","kind":"in_category"}
+{"from":"https://github.com/richerarc/saphir","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/riii111/sabiql","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/rise-ui/rise","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/rksm/hot-lib-reloader-rs","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/rkyv/rkyv","to":"cat:Libraries/Encoding/rkyv","kind":"in_category"}
+{"from":"https://github.com/rmqtt/rmqtt","to":"cat:Applications/Message Queue","kind":"in_category"}
+{"from":"https://github.com/rmqtt/rmqtt","to":"cat:Libraries/Network programming/MQTT","kind":"in_category"}
+{"from":"https://github.com/robustmq/robustmq","to":"cat:Applications/Message Queue","kind":"in_category"}
+{"from":"https://github.com/rochacbruno/marmite/","to":"cat:Libraries/Web programming/Static Site Generators","kind":"in_category"}
+{"from":"https://github.com/rodrigorc/papercraft","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/rofrol/awesome-wgpu","to":"cat:Libraries/Game development","kind":"in_category"}
+{"from":"https://github.com/rolldown/rolldown","to":"cat:Development tools/Build system","kind":"in_category"}
+{"from":"https://github.com/romanz/electrs","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/ron-rs/ron","to":"cat:Libraries/Encoding/RON (Rusty Object Notation)","kind":"in_category"}
+{"from":"https://github.com/ronanyeah/rust-hasura","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/roquess/loki_text","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/roquess/paxit","to":"cat:Libraries/Compression","kind":"in_category"}
+{"from":"https://github.com/rsaarelm/magog","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/rsasaki0109/rust_robotics","to":"cat:Libraries/Simulation","kind":"in_category"}
+{"from":"https://github.com/rtic-rs/rtic","to":"cat:Applications/Embedded","kind":"in_category"}
+{"from":"https://github.com/rtk-ai/rtk","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/ruffle-rs/ruffle","to":"cat:Applications/Emulators/Flash Player","kind":"in_category"}
+{"from":"https://github.com/run-llama/liteparse","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/rune-rs/rune","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/rusoto/rusoto","to":"cat:Libraries/Cloud/AWS","kind":"in_category"}
+{"from":"https://github.com/rusqlite/rusqlite","to":"cat:Libraries/Database/SQL/Sqlite","kind":"in_category"}
+{"from":"https://github.com/rust-bakery/nom","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/rust-bio","to":"cat:Libraries/Bioinformatics","kind":"in_category"}
+{"from":"https://github.com/rust-bitcoin/rust-bitcoin","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/rust-cli/config-rs","to":"cat:Libraries/Configuration","kind":"in_category"}
+{"from":"https://github.com/rust-cli/human-panic","to":"cat:Libraries/Command-line/Human-centered design","kind":"in_category"}
+{"from":"https://github.com/rust-cli/rexpect","to":"cat:Libraries/Command-line/Pipeline","kind":"in_category"}
+{"from":"https://github.com/rust-cross/rust-musl-cross","to":"cat:Development tools/Deployment/Docker","kind":"in_category"}
+{"from":"https://github.com/rust-cv/cv","to":"cat:Libraries/Image processing","kind":"in_category"}
+{"from":"https://github.com/rust-dd/stochastic-rs","to":"cat:Libraries/Finance","kind":"in_category"}
+{"from":"https://github.com/rust-dd/tako","to":"cat:Libraries/Web programming/Backend","kind":"in_category"}
+{"from":"https://github.com/rust-ethereum/ethabi","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/rust-fuzz/afl.rs","to":"cat:Development tools/Testing/Property Testing and Fuzzing","kind":"in_category"}
+{"from":"https://github.com/rust-itertools/itertools","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/rust-lang/docker-rust","to":"cat:Development tools/Deployment/Docker","kind":"in_category"}
+{"from":"https://github.com/rust-lang/flate2-rs","to":"cat:Libraries/Compression/miniz","kind":"in_category"}
+{"from":"https://github.com/rust-lang/futures-rs","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/rust-lang/log","to":"cat:Libraries/Logging","kind":"in_category"}
+{"from":"https://github.com/rust-lang/mdBook","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/rust-lang/regex","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/rust-lang/rust-bindgen","to":"cat:Development tools/FFI/C++","kind":"in_category"}
+{"from":"https://github.com/rust-lang/rust-enhanced","to":"cat:Development tools/IDEs/Sublime Text","kind":"in_category"}
+{"from":"https://github.com/rust-lang/rust-mode","to":"cat:Development tools/IDEs/Emacs","kind":"in_category"}
+{"from":"https://github.com/rust-lang/rust.vim","to":"cat:Development tools/IDEs/Vim","kind":"in_category"}
+{"from":"https://github.com/rust-lang/rustfmt","to":"cat:Development tools/Formatters","kind":"in_category"}
+{"from":"https://github.com/rust-lang/rustlings","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/rust-lang/rustup","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/rust-ml/linfa","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/rust-native-tls/rust-native-tls","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/rust-native-ui/libui-rs","to":"cat:Libraries/GUI/libui","kind":"in_category"}
+{"from":"https://github.com/rust-ndarray/ndarray","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/rust-openssl/rust-openssl","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/rust-osdev/uefi-rs","to":"cat:Applications/Embedded","kind":"in_category"}
+{"from":"https://github.com/rust-postgres/rust-postgres","to":"cat:Libraries/Database/SQL/PostgreSql","kind":"in_category"}
+{"from":"https://github.com/rust-qt","to":"cat:Libraries/GUI/Qt","kind":"in_category"}
+{"from":"https://github.com/rust-random/rand","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/rust-rocksdb/rust-rocksdb","to":"cat:Libraries/Database/NoSQL/RocksDB","kind":"in_category"}
+{"from":"https://github.com/rust-scraper/scraper","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/rust-unofficial/patterns","to":"cat:Resources","kind":"in_category"}
+{"from":"https://github.com/rust-windowing/gl-rs","to":"cat:Libraries/Graphics/OpenGL","kind":"in_category"}
+{"from":"https://github.com/rustache/rustache","to":"cat:Libraries/Template engine/Mustache","kind":"in_category"}
+{"from":"https://github.com/rustadopt/jzon-rs/","to":"cat:Libraries/Encoding/JSON","kind":"in_category"}
+{"from":"https://github.com/rustcc/coroutine-rs","to":"cat:Libraries/Concurrency","kind":"in_category"}
+{"from":"https://github.com/rustdesk/rustdesk","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/rusterlium/rustler","to":"cat:Development tools/FFI/Erlang","kind":"in_category"}
+{"from":"https://github.com/rustfs/rustfs","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/rustic-rs/rustic","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/rustless/rustless","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/rustls/rustls","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/rustmailer/bichon","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/rustmailer/persistent-scheduler","to":"cat:Libraries/Task scheduling","kind":"in_category"}
+{"from":"https://github.com/rustodon/rustodon","to":"cat:Applications/Social networks/Mastodon","kind":"in_category"}
+{"from":"https://github.com/rustq/3body-lang","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/rustq/vue-skia","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/rustrak/rustrak","to":"cat:Applications/Observability","kind":"in_category"}
+{"from":"https://github.com/rustviz/rustviz","to":"cat:Resources","kind":"in_category"}
+{"from":"https://github.com/rustzx/rustzx","to":"cat:Applications/Emulators/ZX Spectrum","kind":"in_category"}
+{"from":"https://github.com/ruvnet/RuView","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/ruvnet/ruvector","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/rwf2/Rocket","to":"cat:Libraries/Web programming/Backend","kind":"in_category"}
+{"from":"https://github.com/s-panferov/queryst","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/s00d/switchshuttle","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/safer-rust/RAPx","to":"cat:Development tools/Static analysis","kind":"in_category"}
+{"from":"https://github.com/salsa-rs/salsa","to":"cat:Libraries/Caching","kind":"in_category"}
+{"from":"https://github.com/salvo-rs/salvo","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/samyama-ai/samyama-graph","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/santhreal/keyhog","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/saphyr-rs/saphyr","to":"cat:Libraries/Encoding/YAML","kind":"in_category"}
+{"from":"https://github.com/sarah-quinones/faer-rs","to":"cat:Libraries/Computation","kind":"in_category"}
+{"from":"https://github.com/saresend/Gust","to":"cat:Libraries/Data visualization","kind":"in_category"}
+{"from":"https://github.com/saru-tora/anansi","to":"cat:Libraries/Web programming/Backend","kind":"in_category"}
+{"from":"https://github.com/saschagrunert/git-journal/","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/saurvs/astro-rust","to":"cat:Libraries/Astronomy","kind":"in_category"}
+{"from":"https://github.com/saurvs/hypervisor-rs","to":"cat:Libraries/Virtualization","kind":"in_category"}
+{"from":"https://github.com/saurvs/nfd-rs","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/sayanarijit/xplr","to":"cat:Applications/File manager","kind":"in_category"}
+{"from":"https://github.com/sciter-sdk/rust-sciter","to":"cat:Libraries/GUI/Sciter","kind":"in_category"}
+{"from":"https://github.com/screenpipe/screenpipe","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/seanmonstar/pretty-env-logger","to":"cat:Libraries/Logging","kind":"in_category"}
+{"from":"https://github.com/seanmonstar/reqwest","to":"cat:Libraries/Web programming/HTTP Client","kind":"in_category"}
+{"from":"https://github.com/seanmonstar/warp","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/sebadob/hiqlite","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/sebadob/rauthy","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/secluso/core","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/seed-rs/seed","to":"cat:Libraries/Web programming/Client-side / WASM","kind":"in_category"}
+{"from":"https://github.com/seladb/pickledb-rs","to":"cat:Libraries/Database/NoSQL/PickleDB","kind":"in_category"}
+{"from":"https://github.com/seppo0010/rsedis","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/serayuzgur/weld","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/serde-rs/json","to":"cat:Libraries/Encoding/JSON","kind":"in_category"}
+{"from":"https://github.com/serenity-rs/serenity","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/sergree/whatbpm","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/serialport/serialport-rs","to":"cat:Libraries/Peripherals/Serial Port","kind":"in_category"}
+{"from":"https://github.com/serverlesstechnology/cqrs","to":"cat:Libraries/Domain driven design","kind":"in_category"}
+{"from":"https://github.com/servo/core-foundation-rs","to":"cat:Libraries/GUI/Cocoa","kind":"in_category"}
+{"from":"https://github.com/servo/html5ever","to":"cat:Libraries/Encoding/HTML","kind":"in_category"}
+{"from":"https://github.com/servo/servo","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/sfackler/r2d2","to":"cat:Libraries/Database","kind":"in_category"}
+{"from":"https://github.com/sger/RustBooks","to":"cat:Resources","kind":"in_category"}
+{"from":"https://github.com/sgrust01/jwtvault","to":"cat:Libraries/Authentication","kind":"in_category"}
+{"from":"https://github.com/sharkdp/bat","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/sharkdp/fd","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/sharkdp/hexyl","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/sharkdp/hyperfine","to":"cat:Development tools/Profiling","kind":"in_category"}
+{"from":"https://github.com/shepmaster/sxd-document","to":"cat:Libraries/Encoding/XML","kind":"in_category"}
+{"from":"https://github.com/shepmaster/sxd-xpath","to":"cat:Libraries/Encoding/XML","kind":"in_category"}
+{"from":"https://github.com/shergin/malevich","to":"cat:Libraries/Data visualization","kind":"in_category"}
+{"from":"https://github.com/shnewto/bnf","to":"cat:Libraries/Language specification","kind":"in_category"}
+{"from":"https://github.com/shouya/rss-funnel","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/shshemi/tabiew","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/shuttle-hq/shuttle","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/shuttle-hq/synth/","to":"cat:Development tools/Testing/Mocking and Test Data","kind":"in_category"}
+{"from":"https://github.com/sigoden/aichat","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/sigp/lighthouse","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/simd-lite/simd-json","to":"cat:Libraries/Encoding/JSON","kind":"in_category"}
+{"from":"https://github.com/sinelaw/fresh","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/sipemu/anofox-regression","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/sitkevij/hex","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/skade/leveldb","to":"cat:Libraries/Database/NoSQL/LevelDB","kind":"in_category"}
+{"from":"https://github.com/skim-rs/skim","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/skytable/skytable","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/slimreaper35/dockerfile-parser-rs","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/slint-ui/slint","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/slog-rs/slog","to":"cat:Libraries/Logging","kind":"in_category"}
+{"from":"https://github.com/slowtec/tokio-modbus","to":"cat:Applications/Industrial automation","kind":"in_category"}
+{"from":"https://github.com/smallnest/rpcx-rs","to":"cat:Libraries/Network programming/RPC","kind":"in_category"}
+{"from":"https://github.com/smartcorelib/smartcore","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/smol-machines/smolvm","to":"cat:Libraries/Virtualization","kind":"in_category"}
+{"from":"https://github.com/smoltcp-rs/smoltcp","to":"cat:Libraries/Network programming/Low level","kind":"in_category"}
+{"from":"https://github.com/snapview/tungstenite-rs","to":"cat:Libraries/Web programming/WebSocket","kind":"in_category"}
+{"from":"https://github.com/snuk182/nuklear-rust","to":"cat:Libraries/GUI/Nuklear","kind":"in_category"}
+{"from":"https://github.com/socketcan-rs/socketcan-rs","to":"cat:Libraries/Automotive","kind":"in_category"}
+{"from":"https://github.com/softdevteam/grmtools/","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/softprops/dynomite","to":"cat:Libraries/Database/NoSQL/DynamoDB","kind":"in_category"}
+{"from":"https://github.com/softprops/envy","to":"cat:Libraries/Configuration","kind":"in_category"}
+{"from":"https://github.com/softprops/openapi","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/solana-foundation/anchor","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/sopaco/cortex-mem","to":"cat:Libraries/Artificial Intelligence/Tooling","kind":"in_category"}
+{"from":"https://github.com/sopaco/cowork-forge","to":"cat:Applications/Workflow Automation","kind":"in_category"}
+{"from":"https://github.com/sopaco/deepwiki-rs","to":"cat:Development tools/Services","kind":"in_category"}
+{"from":"https://github.com/sopaco/saga-reader","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/sorairolake/abcrypt","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/sorairolake/nt-time","to":"cat:Libraries/Date and time","kind":"in_category"}
+{"from":"https://github.com/sorairolake/qrtool","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/sorairolake/scryptenc-rs","to":"cat:Libraries/Cryptography","kind":"in_category"}
+{"from":"https://github.com/sorairolake/sysexits-rs","to":"cat:Libraries/System","kind":"in_category"}
+{"from":"https://github.com/sourcefrog/cargo-mutants","to":"cat:Development tools/Testing/Mutation Testing","kind":"in_category"}
+{"from":"https://github.com/sozu-proxy/sozu","to":"cat:Libraries/Web programming/Reverse Proxy","kind":"in_category"}
+{"from":"https://github.com/spacedriveapp/spacedrive","to":"cat:Applications/File manager","kind":"in_category"}
+{"from":"https://github.com/srijs/rust-copperline","to":"cat:Libraries/Command-line/Line editor","kind":"in_category"}
+{"from":"https://github.com/ssh-vault/ssh-vault","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/sstadick/crabz","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/sstadick/gzp/","to":"cat:Libraries/Compression/gzp","kind":"in_category"}
+{"from":"https://github.com/sstadick/hck","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/sstraus/tuicommander","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/staktrace/mailparse","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/stalwartlabs/mail-auth","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/stalwartlabs/mail-parser","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/stalwartlabs/mail-send","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/starkware-libs/cairo","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/starkware-libs/cairo-vm","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/starrhorne/chip8-rust","to":"cat:Applications/Emulators/CHIP-8","kind":"in_category"}
+{"from":"https://github.com/static-web-server/static-web-server","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/statrs-dev/statrs","to":"cat:Libraries/Computation/Statrs","kind":"in_category"}
+{"from":"https://github.com/stav121/tasklet","to":"cat:Applications/Task scheduling","kind":"in_category"}
+{"from":"https://github.com/stepancheg/rust-protobuf","to":"cat:Libraries/Encoding/ProtocolBuffers","kind":"in_category"}
+{"from":"https://github.com/stoatchat/stoatchat","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/storytold/artcraft","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/str4d/rage","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/subinium/SuperLightTUI","to":"cat:Libraries/Command-line/TUI","kind":"in_category"}
+{"from":"https://github.com/summer-rs/summer-rs","to":"cat:Libraries/Web programming/Backend","kind":"in_category"}
+{"from":"https://github.com/sundegan/JsonStudio","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/sunng87/handlebars-rust","to":"cat:Libraries/Template engine/Handlebars","kind":"in_category"}
+{"from":"https://github.com/sunng87/handlebars-rust","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/supercilex/fuc","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/superradcompany/microsandbox","to":"cat:Applications/Virtualization","kind":"in_category"}
+{"from":"https://github.com/suptejas/fleet","to":"cat:Development tools/Build system","kind":"in_category"}
+{"from":"https://github.com/surrealdb/surrealdb","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/surrealdb/surrealdb","to":"cat:Libraries/Database/NoSQL/SurrealDB","kind":"in_category"}
+{"from":"https://github.com/svenstaro/miniserve","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/svix/svix-webhooks","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/swatteau/sokoban-rs","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/swc-project/swc","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/sxyazi/yazi","to":"cat:Applications/File manager","kind":"in_category"}
+{"from":"https://github.com/synphonyte/leptos-use","to":"cat:Libraries/Web programming/Client-side / WASM","kind":"in_category"}
+{"from":"https://github.com/t3hmrman/async-dropper","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/t8y2/dbx","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/tackler-ng/tackler","to":"cat:Applications/Finance","kind":"in_category"}
+{"from":"https://github.com/tafia/quick-xml","to":"cat:Libraries/Encoding/XML","kind":"in_category"}
+{"from":"https://github.com/tag1consulting/feste","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/tailcallhq/forgecode","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/tailhook/vagga","to":"cat:Applications/Virtualization","kind":"in_category"}
+{"from":"https://github.com/tamasfe/taplo","to":"cat:Libraries/Encoding/TOML","kind":"in_category"}
+{"from":"https://github.com/tareqmy/gitwig","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/tarkah/tickrs","to":"cat:Applications/Finance","kind":"in_category"}
+{"from":"https://github.com/tassiovirginio/try-rs","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/tauri-apps/tauri","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/tauri-apps/wry","to":"cat:Libraries/GUI","kind":"in_category"}
+{"from":"https://github.com/tbillington/kondo","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/teloxide/teloxide/","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/tempoxyz/tempo","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/tensorflow/rust","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/tensorzero/tensorzero","to":"cat:Applications/MLOps","kind":"in_category"}
+{"from":"https://github.com/teovoinea/steganography","to":"cat:Libraries/Image processing","kind":"in_category"}
+{"from":"https://github.com/terminusdb/terminusdb-store","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/thClaws/thClaws","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/thaw-ui/thaw","to":"cat:Libraries/Web programming/Client-side / WASM","kind":"in_category"}
+{"from":"https://github.com/theBGuy/GitDesktop","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/thecoshman/http","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/thegenius/taitan-orm","to":"cat:Libraries/Database/ORM","kind":"in_category"}
+{"from":"https://github.com/thehydroimpulse/nanomsg.rs","to":"cat:Libraries/Network programming/NanoMsg","kind":"in_category"}
+{"from":"https://github.com/thepowersgang/rust_os","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://github.com/theseus-os/Theseus","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://github.com/thetawavegame/thetawave-legacy","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/thewh1teagle/mobslide","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/thewh1teagle/rookie","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/thewh1teagle/vibe","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/thomas-mauran/chess-tui","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/thomasschafer/scooter","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/tickbh/td_rlua","to":"cat:Development tools/FFI/Lua","kind":"in_category"}
+{"from":"https://github.com/tikv/grpc-rs","to":"cat:Libraries/Network programming/gRPC","kind":"in_category"}
+{"from":"https://github.com/tikv/tikv","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/time-rs/time","to":"cat:Libraries/Date and time","kind":"in_category"}
+{"from":"https://github.com/timescale/rsigma","to":"cat:Applications/Security tools","kind":"in_category"}
+{"from":"https://github.com/tiny-http/tiny-http","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/tinyhumansai/openhuman","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/tnballo/scapegoat","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/tock/tock","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://github.com/tokio-rs/axum","to":"cat:Libraries/Web programming/Backend","kind":"in_category"}
+{"from":"https://github.com/tokio-rs/mio","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/tokio-rs/prost","to":"cat:Libraries/Encoding/ProtocolBuffers","kind":"in_category"}
+{"from":"https://github.com/tokio-rs/toasty","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/tokio-rs/tokio","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/tokio-rs/topcoat","to":"cat:Libraries/Web programming/Backend","kind":"in_category"}
+{"from":"https://github.com/tokio-rs/tracing","to":"cat:Libraries/Logging","kind":"in_category"}
+{"from":"https://github.com/tomaka/hlua","to":"cat:Development tools/FFI/Lua","kind":"in_category"}
+{"from":"https://github.com/tomaka/rouille","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/toml-rs/toml","to":"cat:Libraries/Encoding/TOML","kind":"in_category"}
+{"from":"https://github.com/tonarino/innernet","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/tonbo-io/tonbo","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/topheman/snake-pipe-rust","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/topheman/webassembly-component-model-experiments","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/topjohnwu/Magisk","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/touchHLE/touchHLE","to":"cat:Applications/Emulators/iOS","kind":"in_category"}
+{"from":"https://github.com/tover0314-w/opentypeless","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/tqwewe/kameo","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/tracel-ai/burn","to":"cat:Libraries/Artificial Intelligence/Machine learning","kind":"in_category"}
+{"from":"https://github.com/trailbaseio/trailbase","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/tramhao/termusic","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/tree-sitter/tree-sitter","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/trifectatechfoundation/bzip2-rs","to":"cat:Libraries/Compression/bzip2","kind":"in_category"}
+{"from":"https://github.com/tryandromeda/andromeda","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/trynova/nova","to":"cat:Libraries/Scripting","kind":"in_category"}
+{"from":"https://github.com/tsirysndr/tunein-cli","to":"cat:Applications/Audio and Music","kind":"in_category"}
+{"from":"https://github.com/ttytm/wthrr-the-weathercrab","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/tu6ge/valitron","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/tursodatabase/turso","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/tw93/Kaku","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/tw93/Pake","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/tweedegolf/mailcrab","to":"cat:Libraries/Email","kind":"in_category"}
+{"from":"https://github.com/twistedfall/opencv-rust","to":"cat:Libraries/Image processing","kind":"in_category"}
+{"from":"https://github.com/typst/typst","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/unhappychoice/gitlogue","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/unhappychoice/gittype","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/unhappychoice/splashboard","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/unobserved-io/Furtherance","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/unrust/unrust","to":"cat:Libraries/Game development/Game Engines","kind":"in_category"}
+{"from":"https://github.com/unum-cloud/usearch","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/upvpn/upvpn-app","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/utkarshkukreti/select.rs","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/uutils/coreutils","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/vcschapp/bufjson","to":"cat:Libraries/Encoding/JSON","kind":"in_category"}
+{"from":"https://github.com/vectordotdev/vector","to":"cat:Applications/Observability","kind":"in_category"}
+{"from":"https://github.com/vercel/turborepo","to":"cat:Development tools/Build system","kind":"in_category"}
+{"from":"https://github.com/verus-lang/verus","to":"cat:Development tools/Static analysis","kind":"in_category"}
+{"from":"https://github.com/vetis-server/vetis","to":"cat:Applications/Web Servers","kind":"in_category"}
+{"from":"https://github.com/vhbit/lmdb-rs","to":"cat:Libraries/Database/NoSQL/LMDB","kind":"in_category"}
+{"from":"https://github.com/vi/websocat","to":"cat:Libraries/Web programming/WebSocket","kind":"in_category"}
+{"from":"https://github.com/vinc/moros","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://github.com/vincent-herlemont/native_db","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/vishaltelangre/ff","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/visioncortex/vtracer","to":"cat:Applications/Image processing","kind":"in_category"}
+{"from":"https://github.com/visorcraft/MongrelDB","to":"cat:Libraries/Database/NoSQL/MongrelDB","kind":"in_category"}
+{"from":"https://github.com/vitiral/path_abs","to":"cat:Libraries/Filesystem/Operations","kind":"in_category"}
+{"from":"https://github.com/vitiral/stfu8","to":"cat:Libraries/Encoding","kind":"in_category"}
+{"from":"https://github.com/vlopes11/geomorph","to":"cat:Libraries/Geospatial","kind":"in_category"}
+{"from":"https://github.com/voidzero-dev/vite-plus","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/vorot93/libmdbx-rs","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/vrmiguel/bustd","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/vulkano-rs/vulkano","to":"cat:Libraries/Graphics/Vulkan","kind":"in_category"}
+{"from":"https://github.com/vyfor/rattles","to":"cat:Libraries/Command-line/Progress","kind":"in_category"}
+{"from":"https://github.com/w4/chartered","to":"cat:Registries","kind":"in_category"}
+{"from":"https://github.com/wahn/rs_pbrt","to":"cat:Applications/Graphics","kind":"in_category"}
+{"from":"https://github.com/wangjiawen2013/charton","to":"cat:Libraries/Data visualization","kind":"in_category"}
+{"from":"https://github.com/warpdotdev/Warp","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/warycat/rustgym","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://github.com/wasm-bindgen/wasm-bindgen","to":"cat:Development tools/FFI/Web Assembly","kind":"in_category"}
+{"from":"https://github.com/wasm-bindgen/wasm-pack","to":"cat:Development tools/FFI/Web Assembly","kind":"in_category"}
+{"from":"https://github.com/wasmerio/wasmer","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/wasmerio/winterjs","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/wasmi-labs/wasmi","to":"cat:Libraries/Virtualization","kind":"in_category"}
+{"from":"https://github.com/watchexec/watchexec","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/web3infra-foundation/mega","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/webdesus/fs_extra","to":"cat:Libraries/Filesystem/Operations","kind":"in_category"}
+{"from":"https://github.com/websockets-rs/rust-websocket","to":"cat:Libraries/Web programming/WebSocket","kind":"in_category"}
+{"from":"https://github.com/weld-project/weld","to":"cat:Libraries/Data processing","kind":"in_category"}
+{"from":"https://github.com/wezterm/wezterm","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/wfxr/rlt","to":"cat:Development tools/Testing/Frameworks and Runners","kind":"in_category"}
+{"from":"https://github.com/whispem/minikv","to":"cat:Applications/Database","kind":"in_category"}
+{"from":"https://github.com/whitfin/bytelines","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/whitfin/runiq","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/willi-kappler/darwin-rs","to":"cat:Libraries/Artificial Intelligence/Genetic algorithms","kind":"in_category"}
+{"from":"https://github.com/wingfoil-io/wingfoil","to":"cat:Libraries/Data streaming","kind":"in_category"}
+{"from":"https://github.com/woboq/qmetaobject-rs","to":"cat:Libraries/GUI/Qt","kind":"in_category"}
+{"from":"https://github.com/xberg-io/crawlberg","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://github.com/xberg-io/html-to-markdown","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/xberg-io/liter-llm","to":"cat:Libraries/Artificial Intelligence/OpenAI","kind":"in_category"}
+{"from":"https://github.com/xberg-io/tree-sitter-language-pack","to":"cat:Libraries/Parsing","kind":"in_category"}
+{"from":"https://github.com/xberg-io/xberg","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/xingkongliang/skills-manager","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/xiph/rav1e","to":"cat:Applications/Video","kind":"in_category"}
+{"from":"https://github.com/yaa110/nomino","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/yaa110/rake-rs","to":"cat:Libraries/Text processing","kind":"in_category"}
+{"from":"https://github.com/yaa110/rust-iptables","to":"cat:Libraries/Platform specific/Linux","kind":"in_category"}
+{"from":"https://github.com/yamafaktory/hypergraph","to":"cat:Libraries/Data structures","kind":"in_category"}
+{"from":"https://github.com/yashs662/rust_kanban","to":"cat:Applications/Productivity","kind":"in_category"}
+{"from":"https://github.com/yevh/rust-security-handbook","to":"cat:Resources","kind":"in_category"}
+{"from":"https://github.com/yfedoseev/pdf_oxide","to":"cat:Libraries/Graphics/PDF","kind":"in_category"}
+{"from":"https://github.com/ynqa/jnv","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/ynqa/logu","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/ynqa/promkit","to":"cat:Libraries/Command-line/Prompt","kind":"in_category"}
+{"from":"https://github.com/ynqa/sig","to":"cat:Applications/System tools","kind":"in_category"}
+{"from":"https://github.com/yoav-lavi/melody","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/youki-dev/youki","to":"cat:Applications/Virtualization","kind":"in_category"}
+{"from":"https://github.com/your-tools/ruplacer","to":"cat:Applications/Text processing","kind":"in_category"}
+{"from":"https://github.com/yvgude/lean-ctx","to":"cat:Development tools","kind":"in_category"}
+{"from":"https://github.com/zannis/shove","to":"cat:Libraries/Distributed systems/Other","kind":"in_category"}
+{"from":"https://github.com/zargony/fuse-rs","to":"cat:Libraries/Platform specific/Unix-like","kind":"in_category"}
+{"from":"https://github.com/zboxfs/zbox","to":"cat:Libraries/Filesystem/Temporary Files","kind":"in_category"}
+{"from":"https://github.com/zcash/zcash","to":"cat:Applications/Blockchain","kind":"in_category"}
+{"from":"https://github.com/zed-industries/zed","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/zellij-org/zellij","to":"cat:Applications","kind":"in_category"}
+{"from":"https://github.com/zerx-lab/FluxDown","to":"cat:Applications/Utilities","kind":"in_category"}
+{"from":"https://github.com/zhangyuang/node-ffi-rs","to":"cat:Development tools/FFI/Node.js","kind":"in_category"}
+{"from":"https://github.com/zhiburt/expectrl","to":"cat:Libraries/Command-line/Pipeline","kind":"in_category"}
+{"from":"https://github.com/zhiburt/tabled","to":"cat:Libraries/Command-line/Data visualization","kind":"in_category"}
+{"from":"https://github.com/zhitongblog/solomd","to":"cat:Applications/Text editors","kind":"in_category"}
+{"from":"https://github.com/zhom/donutbrowser","to":"cat:Applications/Web","kind":"in_category"}
+{"from":"https://github.com/zino-rs/zino","to":"cat:Libraries/Web programming/HTTP Server","kind":"in_category"}
+{"from":"https://github.com/zip-rs/zip2","to":"cat:Libraries/Compression/zip","kind":"in_category"}
+{"from":"https://github.com/zipxing/rust_pixel","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://github.com/zitsen/unqlite.rs","to":"cat:Libraries/Database/NoSQL/UnQLite","kind":"in_category"}
+{"from":"https://github.com/zizmorcore/zizmor","to":"cat:Development tools/Static analysis","kind":"in_category"}
+{"from":"https://github.com/zkat/cacache-rs","to":"cat:Libraries/Caching","kind":"in_category"}
+{"from":"https://github.com/zonyitoo/coio-rs","to":"cat:Libraries/Asynchronous","kind":"in_category"}
+{"from":"https://github.com/zonyitoo/coio-rs","to":"cat:Libraries/Concurrency","kind":"in_category"}
+{"from":"https://github.com/zopfli-rs/zopfli","to":"cat:Libraries/Compression/gzip","kind":"in_category"}
+{"from":"https://github.com/zslayton/stomp-rs","to":"cat:Libraries/Network programming/Stomp","kind":"in_category"}
+{"from":"https://github.com/zurawiki/tiktoken-rs","to":"cat:Libraries/Artificial Intelligence/OpenAI","kind":"in_category"}
+{"from":"https://github.com/zzau13/yarte","to":"cat:Libraries/Template engine/Handlebars","kind":"in_category"}
+{"from":"https://gitlab.com/Douman/yukikaze","to":"cat:Libraries/Web programming/HTTP Client","kind":"in_category"}
+{"from":"https://gitlab.com/Friz64/erupt","to":"cat:Libraries/Graphics/Vulkan","kind":"in_category"}
+{"from":"https://gitlab.com/SnejUgal/tbot","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://gitlab.com/imp/pager-rs","to":"cat:Libraries/Command-line/Pipeline","kind":"in_category"}
+{"from":"https://gitlab.com/neachdainn/nng-rs","to":"cat:Libraries/Network programming/Nng","kind":"in_category"}
+{"from":"https://gitlab.com/pwoolcoc/soup","to":"cat:Libraries/Web programming/Miscellaneous","kind":"in_category"}
+{"from":"https://gitlab.com/qonfucius/aragog","to":"cat:Libraries/Database/NoSQL/ArangoDB","kind":"in_category"}
+{"from":"https://gitlab.com/qonfucius/aragog","to":"cat:Libraries/Database/OGM","kind":"in_category"}
+{"from":"https://gitlab.com/ttyperacer/terminal-typeracer","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://gitlab.com/veloren/veloren","to":"cat:Applications/Games","kind":"in_category"}
+{"from":"https://gitlab.redox-os.org/redox-os/redox","to":"cat:Applications/Operating systems","kind":"in_category"}
+{"from":"https://gitlab.torproject.org/tpo/core/arti","to":"cat:Applications","kind":"in_category"}
+{"from":"https://gitpod.io","to":"cat:Development tools/IDEs","kind":"in_category"}
+{"from":"https://google.github.io/comprehensive-rust/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://hackr.io/tutorials/learn-rust","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://labex.io/skilltrees/rust","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://lborb.github.io/book/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://marketplace.visualstudio.com/items?itemName=fill-labs.dependi","to":"cat:Development tools/IDEs/Visual Studio Code","kind":"in_category"}
+{"from":"https://marketplace.visualstudio.com/items?itemName=jinxdash.prettier-rust","to":"cat:Development tools/IDEs/Visual Studio Code","kind":"in_category"}
+{"from":"https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer","to":"cat:Development tools/IDEs/Visual Studio Code","kind":"in_category"}
+{"from":"https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml","to":"cat:Development tools/IDEs/Visual Studio Code","kind":"in_category"}
+{"from":"https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb","to":"cat:Development tools/Debugging/LLDB","kind":"in_category"}
+{"from":"https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb","to":"cat:Development tools/IDEs/Visual Studio Code","kind":"in_category"}
+{"from":"https://medium.com/rustaceans/make-it-mandatory-a-brief-history-of-rust-part-1-805459c60c6b","to":"cat:Resources","kind":"in_category"}
+{"from":"https://newrustacean.com","to":"cat:Resources/Podcasts","kind":"in_category"}
+{"from":"https://nnethercote.github.io/perf-book/","to":"cat:Resources/Performance","kind":"in_category"}
+{"from":"https://overexact.com/rust-for-professionals/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://pijul.org","to":"cat:Applications","kind":"in_category"}
+{"from":"https://pijul.org/thrussh","to":"cat:Libraries/Network programming/SSH","kind":"in_category"}
+{"from":"https://pragprog.com/titles/hwrust/hands-on-rust/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://qouteall.fun/qouteall-blog/2025/How%20to%20Avoid%20Fighting%20Rust%20Borrow%20Checker","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://raw.githubusercontent.com/yugr/rust-slides/main/EN.pdf","to":"cat:Resources/Performance","kind":"in_category"}
+{"from":"https://root-11.github.io/intro-book/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://rust-exercises.com","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://rust-lang-nursery.github.io/rust-cookbook/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://rust-lang.guide/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://rust-tieng-viet.github.io/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://rust-unofficial.github.io/too-many-lists/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://rustacean-station.org/","to":"cat:Resources/Podcasts","kind":"in_category"}
+{"from":"https://rustbeginners.github.io/awesome-rust-mentors/","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://shnatsel.medium.com/how-to-avoid-bounds-checks-in-rust-without-unsafe-f65e618b4c1e","to":"cat:Resources/Performance","kind":"in_category"}
+{"from":"https://speakerdeck.com/jvns/learning-systems-programming-with-rust","to":"cat:Resources/Decks & Presentations","kind":"in_category"}
+{"from":"https://starship.rs/","to":"cat:Libraries/Command-line/Prompt","kind":"in_category"}
+{"from":"https://tourofrust.com","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://venndb.plabayo.tech/","to":"cat:Libraries/Database","kind":"in_category"}
+{"from":"https://vim.sourceforge.io/","to":"cat:Development tools/IDEs","kind":"in_category"}
+{"from":"https://wiki.gnome.org/Apps/Builder","to":"cat:Development tools/IDEs","kind":"in_category"}
+{"from":"https://www.jetbrains.com/rust/","to":"cat:Development tools/IDEs","kind":"in_category"}
+{"from":"https://www.manning.com/books/embedded-software-with-rust","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://www.manning.com/books/refactoring-to-rust","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://www.manning.com/books/rust-in-action","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://www.manning.com/books/rust-servers-services-and-apps","to":"cat:Resources","kind":"in_category"}
+{"from":"https://www.manning.com/livevideo/rust-in-motion?a_aid=cnichols&a_bid=6a993c2e","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://www.piston.rs/","to":"cat:Libraries/Game development/Game Engines","kind":"in_category"}
+{"from":"https://www.reddit.com/r/rust/","to":"cat:Resources","kind":"in_category"}
+{"from":"https://www.repoflow.io","to":"cat:Registries","kind":"in_category"}
+{"from":"https://www.rustfinity.com","to":"cat:Resources/Learning","kind":"in_category"}
+{"from":"https://www.youtube.com/playlist?list=PLE7tQUdRKcybdIw61JpCoo89i4pWU5f_t","to":"cat:Resources","kind":"in_category"}
+{"from":"https://www.youtube.com/watch?v=jf_ddGnum_4","to":"cat:Resources","kind":"in_category"}
+{"from":"https://www.youtube.com/watch?v=lO1z-7cuRYI","to":"cat:Resources/Decks & Presentations","kind":"in_category"}
+{"from":"https://www.youtube.com/watch?v=t4CyEKb-ywA","to":"cat:Resources/Decks & Presentations","kind":"in_category"}
+{"from":"https://github.com/cenotelie/cratery","to":"https://docs.rs","kind":"references"}
+{"from":"https://github.com/jdrouet/catapulte","to":"https://github.com/jdrouet/mrml","kind":"references"}
+{"from":"https://github.com/jdrouet/jolimail","to":"https://github.com/jdrouet/mrml","kind":"references"}
+{"from":"https://github.com/lzanini/mdbook-katex","to":"https://github.com/rust-lang/mdBook","kind":"references"}
+{"from":"https://github.com/racer-rust/vim-racer","to":"https://github.com/racer-rust/racer","kind":"references"}
+{"from":"https://github.com/rustless/rustless","to":"https://github.com/hyperium/hyper","kind":"references"}
+{"from":"https://github.com/tauri-apps/tauri","to":"https://github.com/tauri-apps/wry","kind":"references"}

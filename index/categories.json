@@ -1,0 +1,5875 @@
+[
+  {
+    "id": "cat:Applications",
+    "path": [
+      "Applications"
+    ],
+    "depth": 1,
+    "members": [
+      "https://crates.io/crates/hickory-dns",
+      "https://github.com/0x676e67/vproxy",
+      "https://github.com/AnalyseDeCircuit/oxideterm",
+      "https://github.com/EasyTier/EasyTier",
+      "https://github.com/Esubaalew/run",
+      "https://github.com/GCWing/BitFun",
+      "https://github.com/GyulyVGC/sniffnet",
+      "https://github.com/Harry-kp/vortix",
+      "https://github.com/Juwan-Hwang/Zephyr",
+      "https://github.com/Michael-F-Bryan/mdbook-linkcheck",
+      "https://github.com/PaddiM8/kalker",
+      "https://github.com/SoCkEt7/Livediff",
+      "https://github.com/TabbyML/tabby",
+      "https://github.com/Tura-AI/tura",
+      "https://github.com/YangYuS8/lwe",
+      "https://github.com/ad-si/Woxi",
+      "https://github.com/aguacero7/rkik",
+      "https://github.com/alacritty/alacritty",
+      "https://github.com/arimxyer/models",
+      "https://github.com/awslabs/flowgger",
+      "https://github.com/cch123/asm-cli-rust",
+      "https://github.com/cfal/shoes",
+      "https://github.com/chanderlud/giga-grabber",
+      "https://github.com/changlan/kytan",
+      "https://github.com/chelunfu/qiluo_admin",
+      "https://github.com/clash-verge-rev/clash-verge-rev",
+      "https://github.com/cloudflare/boringtun",
+      "https://github.com/cloudhead/rx",
+      "https://github.com/defguard/defguard",
+      "https://github.com/denoland/deno",
+      "https://github.com/doprz/dipc",
+      "https://github.com/fcsonline/drill",
+      "https://github.com/fractalide/fractalide",
+      "https://github.com/glzr-io/glazewm",
+      "https://github.com/google/mdbook-i18n-helpers",
+      "https://github.com/gotempsh/temps",
+      "https://github.com/habitat-sh/habitat",
+      "https://github.com/hcavarsan/kftray",
+      "https://github.com/ignisda/ryot",
+      "https://github.com/imjacobclark/Herd",
+      "https://github.com/iot-ecology/rust-iot-platform",
+      "https://github.com/linkerd/linkerd2-proxy",
+      "https://github.com/lzanini/mdbook-katex",
+      "https://github.com/maidsafe",
+      "https://github.com/mayocream/koharu",
+      "https://github.com/metalbear-co/mirrord",
+      "https://github.com/microsoft/edit",
+      "https://github.com/mmalmi/nostr-vpn",
+      "https://github.com/nicohman/eidolon",
+      "https://github.com/openma-ai/Martty",
+      "https://github.com/osa1/tiny",
+      "https://github.com/printfn/fend",
+      "https://github.com/provrb/obdium",
+      "https://github.com/raphamorim/rio",
+      "https://github.com/rust-lang/mdBook",
+      "https://github.com/s00d/switchshuttle",
+      "https://github.com/sebadob/rauthy",
+      "https://github.com/serayuzgur/weld",
+      "https://github.com/servo/servo",
+      "https://github.com/shuttle-hq/shuttle",
+      "https://github.com/sopaco/saga-reader",
+      "https://github.com/swc-project/swc",
+      "https://github.com/t8y2/dbx",
+      "https://github.com/tonarino/innernet",
+      "https://github.com/topjohnwu/Magisk",
+      "https://github.com/tryandromeda/andromeda",
+      "https://github.com/typst/typst",
+      "https://github.com/upvpn/upvpn-app",
+      "https://github.com/wasmerio/wasmer",
+      "https://github.com/wasmerio/winterjs",
+      "https://github.com/web3infra-foundation/mega",
+      "https://github.com/wezterm/wezterm",
+      "https://github.com/zellij-org/zellij",
+      "https://gitlab.torproject.org/tpo/core/arti",
+      "https://pijul.org"
+    ],
+    "subtree_count": 632
+  },
+  {
+    "id": "cat:Applications/Audio and Music",
+    "path": [
+      "Applications",
+      "Audio and Music"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/AreevAI/flowcat",
+      "https://github.com/DasEtwas/enginesound",
+      "https://github.com/LargeModGames/spotatui",
+      "https://github.com/SamTV12345/PodFetch",
+      "https://github.com/Spotifyd/spotifyd",
+      "https://github.com/agersant/polaris",
+      "https://github.com/aome510/spotify-player",
+      "https://github.com/chaosprint/glicol",
+      "https://github.com/figsoda/mmtc",
+      "https://github.com/hinto-janai/festival",
+      "https://github.com/hrkfdn/ncspot",
+      "https://github.com/httpsworldview/openmeters",
+      "https://github.com/kimono-koans/dano",
+      "https://github.com/madeofpendletonwool/PinePods",
+      "https://github.com/mierak/rmpc",
+      "https://github.com/sergree/whatbpm",
+      "https://github.com/tramhao/termusic",
+      "https://github.com/tsirysndr/tunein-cli"
+    ],
+    "subtree_count": 18
+  },
+  {
+    "id": "cat:Applications/Blockchain",
+    "path": [
+      "Applications",
+      "Blockchain"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/ChainSafe/forest",
+      "https://github.com/Joystream/joystream",
+      "https://github.com/Limeth/ethaddrgen",
+      "https://github.com/MystenLabs/sui",
+      "https://github.com/Phala-Network/phala-blockchain",
+      "https://github.com/alloy-rs/svm-rs",
+      "https://github.com/autonomys/subspace",
+      "https://github.com/bluealloy/revm",
+      "https://github.com/brentongunning/rust-sv",
+      "https://github.com/chainx-org/ChainX",
+      "https://github.com/citahub/cita",
+      "https://github.com/cometbft/tendermint-rs",
+      "https://github.com/datahaven-xyz/datahaven",
+      "https://github.com/diem/diem",
+      "https://github.com/dusk-network/rusk",
+      "https://github.com/equilibriumco/beerus",
+      "https://github.com/ergoplatform/sigma-rust",
+      "https://github.com/foundry-rs/foundry",
+      "https://github.com/gakonst/opensea-rs",
+      "https://github.com/holochain/holochain",
+      "https://github.com/howardwu/wagyu",
+      "https://github.com/hyperlane-xyz/hyperlane-monorepo",
+      "https://github.com/infincia/bip39-rs",
+      "https://github.com/informalsystems/hermes",
+      "https://github.com/interlay/interbtc",
+      "https://github.com/inv2004/coinbase-pro-rs",
+      "https://github.com/jjyr/hdwallet",
+      "https://github.com/kaspanet/rusty-kaspa",
+      "https://github.com/lightningdevkit/rust-lightning",
+      "https://github.com/linera-io/linera-protocol",
+      "https://github.com/mimblewimble/grin/",
+      "https://github.com/near/nearcore",
+      "https://github.com/nervosnetwork/ckb",
+      "https://github.com/paradigmxyz/artemis",
+      "https://github.com/paradigmxyz/reth",
+      "https://github.com/paritytech/parity-bitcoin",
+      "https://github.com/paritytech/polkadot-sdk",
+      "https://github.com/pragma-org/amaru",
+      "https://github.com/quilt/etk",
+      "https://github.com/romanz/electrs",
+      "https://github.com/rust-bitcoin/rust-bitcoin",
+      "https://github.com/rust-ethereum/ethabi",
+      "https://github.com/sigp/lighthouse",
+      "https://github.com/solana-foundation/anchor",
+      "https://github.com/starkware-libs/cairo",
+      "https://github.com/starkware-libs/cairo-vm",
+      "https://github.com/tempoxyz/tempo",
+      "https://github.com/zcash/zcash"
+    ],
+    "subtree_count": 48
+  },
+  {
+    "id": "cat:Applications/Database",
+    "path": [
+      "Applications",
+      "Database"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/indradb",
+      "https://crates.io/crates/sled",
+      "https://github.com/CurvineIO/curvine",
+      "https://github.com/Goldziher/scythe",
+      "https://github.com/HelixDB/helix-db",
+      "https://github.com/KipData/KiteSQL",
+      "https://github.com/MaterializeInc/materialize",
+      "https://github.com/NoKV-Lab/NoKV",
+      "https://github.com/PumpkinDB/PumpkinDB",
+      "https://github.com/Qrlew/qrlew",
+      "https://github.com/RisingWaveLabs/risingwave",
+      "https://github.com/Rustixir/darkbird",
+      "https://github.com/TabularisDB/tabularis",
+      "https://github.com/apecloud/ape-dts",
+      "https://github.com/ayarotsky/redis-shield",
+      "https://github.com/cozodb/cozo",
+      "https://github.com/cyberlife-coder/VelesDB",
+      "https://github.com/databendlabs/databend",
+      "https://github.com/dbpunk-labs/db3",
+      "https://github.com/deuxfleurs-org/garage",
+      "https://github.com/dsplce-co/supabase-plus",
+      "https://github.com/erikgrinaker/toydb",
+      "https://github.com/gluesql/gluesql",
+      "https://github.com/grepTimeTeam/greptimedb/",
+      "https://github.com/h2337/tsink",
+      "https://github.com/kn0sys/valentinus",
+      "https://github.com/lancedb/lancedb",
+      "https://github.com/lucid-kv/lucid",
+      "https://github.com/microsoft/pg_durable",
+      "https://github.com/mit-pdos/noria",
+      "https://github.com/naomijub/wooridb",
+      "https://github.com/neondatabase/neon",
+      "https://github.com/ontola/atomic-server/",
+      "https://github.com/orbitinghail/sqlsync",
+      "https://github.com/oxigraph/oxigraph",
+      "https://github.com/paradedb/paradedb/",
+      "https://github.com/paritytech/parity-db",
+      "https://github.com/pgdogdev/pgdog",
+      "https://github.com/qdrant/qdrant",
+      "https://github.com/riii111/sabiql",
+      "https://github.com/rustfs/rustfs",
+      "https://github.com/ruvnet/ruvector",
+      "https://github.com/samyama-ai/samyama-graph",
+      "https://github.com/sebadob/hiqlite",
+      "https://github.com/seppo0010/rsedis",
+      "https://github.com/skytable/skytable",
+      "https://github.com/surrealdb/surrealdb",
+      "https://github.com/terminusdb/terminusdb-store",
+      "https://github.com/tikv/tikv",
+      "https://github.com/tokio-rs/toasty",
+      "https://github.com/tonbo-io/tonbo",
+      "https://github.com/trailbaseio/trailbase",
+      "https://github.com/tursodatabase/turso",
+      "https://github.com/unum-cloud/usearch",
+      "https://github.com/vincent-herlemont/native_db",
+      "https://github.com/vorot93/libmdbx-rs",
+      "https://github.com/whispem/minikv"
+    ],
+    "subtree_count": 57
+  },
+  {
+    "id": "cat:Applications/Embedded",
+    "path": [
+      "Applications",
+      "Embedded"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/embassy-rs/embassy",
+      "https://github.com/haobogu/rmk",
+      "https://github.com/infinition/waveshare-watch-rs",
+      "https://github.com/rtic-rs/rtic",
+      "https://github.com/rust-osdev/uefi-rs"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Applications/Emulators",
+    "path": [
+      "Applications",
+      "Emulators"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 21
+  },
+  {
+    "id": "cat:Applications/Emulators/CHIP-8",
+    "path": [
+      "Applications",
+      "Emulators",
+      "CHIP-8"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/ColinEberhardt/wasm-rust-chip8",
+      "https://github.com/starrhorne/chip8-rust"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Applications/Emulators/Commodore 64",
+    "path": [
+      "Applications",
+      "Emulators",
+      "Commodore 64"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/kondrak/rust64"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/Flash Player",
+    "path": [
+      "Applications",
+      "Emulators",
+      "Flash Player"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/ruffle-rs/ruffle"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/GameMaker",
+    "path": [
+      "Applications",
+      "Emulators",
+      "GameMaker"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/OpenGMK/OpenGMK"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/Gameboy",
+    "path": [
+      "Applications",
+      "Emulators",
+      "Gameboy"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Gekkio/mooneye-gb",
+      "https://github.com/joamag/boytacean",
+      "https://github.com/mohanson/gameboy",
+      "https://github.com/mvdnes/rboy"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Applications/Emulators/Gameboy Advance",
+    "path": [
+      "Applications",
+      "Emulators",
+      "Gameboy Advance"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/michelhe/rustboyadvance-ng"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/IBM PC",
+    "path": [
+      "Applications",
+      "Emulators",
+      "IBM PC"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/dbalsom/martypc"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/Intel 8080 CPU",
+    "path": [
+      "Applications",
+      "Emulators",
+      "Intel 8080 CPU"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/mohanson/i8080"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/NES",
+    "path": [
+      "Applications",
+      "Emulators",
+      "NES"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/koute/pinky",
+      "https://github.com/pcwalton/sprocketnes"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Applications/Emulators/Nintendo 64",
+    "path": [
+      "Applications",
+      "Emulators",
+      "Nintendo 64"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/gopher64/gopher64"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/Nintendo DS",
+    "path": [
+      "Applications",
+      "Emulators",
+      "Nintendo DS"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/kelpsyberry/dust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/PlayStation 4",
+    "path": [
+      "Applications",
+      "Emulators",
+      "PlayStation 4"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/obhq/obliteration"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/Shockwave Player",
+    "path": [
+      "Applications",
+      "Emulators",
+      "Shockwave Player"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/igorlira/dirplayer-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/ZX Spectrum",
+    "path": [
+      "Applications",
+      "Emulators",
+      "ZX Spectrum"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/rustzx/rustzx"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/iOS",
+    "path": [
+      "Applications",
+      "Emulators",
+      "iOS"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/touchHLE/touchHLE"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Emulators/iPod",
+    "path": [
+      "Applications",
+      "Emulators",
+      "iPod"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/daniel5151/clicky"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/File manager",
+    "path": [
+      "Applications",
+      "File manager"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/Canop/broot",
+      "https://github.com/JayanAXHF/FileSSH",
+      "https://github.com/dvhar/pikeru",
+      "https://github.com/elio-fm/elio",
+      "https://github.com/kamiyaa/joshuto",
+      "https://github.com/moyangzhan/mango-finder",
+      "https://github.com/sayanarijit/xplr",
+      "https://github.com/spacedriveapp/spacedrive",
+      "https://github.com/sxyazi/yazi"
+    ],
+    "subtree_count": 9
+  },
+  {
+    "id": "cat:Applications/Finance",
+    "path": [
+      "Applications",
+      "Finance"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/Ashutosh0x/rust-finance",
+      "https://github.com/Sajjon/klirr",
+      "https://github.com/longbridge/longbridge-terminal",
+      "https://github.com/nautechsystems/nautilus_trader",
+      "https://github.com/tackler-ng/tackler",
+      "https://github.com/tarkah/tickrs"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Applications/Games",
+    "path": [
+      "Applications",
+      "Games"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/HactarCE/Hyperspeedcube",
+      "https://github.com/SoftbearStudios/mk48",
+      "https://github.com/Strophox/tetro-tui",
+      "https://github.com/Thinkofname/rust-quake",
+      "https://github.com/buxx/OpenCombat",
+      "https://github.com/citybound/citybound",
+      "https://github.com/cristicbz/rust-doom",
+      "https://github.com/doukutsu-rs/doukutsu-rs",
+      "https://github.com/dpc/rhex",
+      "https://github.com/garkimasera/gaia-maker",
+      "https://github.com/garkimasera/rusted-ruins",
+      "https://github.com/gorilla-devs/ferium",
+      "https://github.com/lifthrasiir/angolmois-rust",
+      "https://github.com/louis-e/arnis",
+      "https://github.com/maras-archive/rsnake",
+      "https://github.com/mcthesw/game-save-manager",
+      "https://github.com/mtkennerly/ludusavi",
+      "https://github.com/ozkriff/zemeroth",
+      "https://github.com/ozkriff/zoc",
+      "https://github.com/rsaarelm/magog",
+      "https://github.com/swatteau/sokoban-rs",
+      "https://github.com/thetawavegame/thetawave-legacy",
+      "https://github.com/thomas-mauran/chess-tui",
+      "https://github.com/topheman/snake-pipe-rust",
+      "https://github.com/unhappychoice/gittype",
+      "https://github.com/zipxing/rust_pixel",
+      "https://gitlab.com/ttyperacer/terminal-typeracer",
+      "https://gitlab.com/veloren/veloren"
+    ],
+    "subtree_count": 28
+  },
+  {
+    "id": "cat:Applications/Graphics",
+    "path": [
+      "Applications",
+      "Graphics"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/valora",
+      "https://github.com/KaminariOS/rustracer",
+      "https://github.com/Limeth/euclider",
+      "https://github.com/Twinklebear/tray_rust",
+      "https://github.com/dps/rust-raytracer",
+      "https://github.com/flxzt/rnote",
+      "https://github.com/ivanceras/svgbob",
+      "https://github.com/linebender/resvg",
+      "https://github.com/museslabs/phonto",
+      "https://github.com/rodrigorc/papercraft",
+      "https://github.com/rustq/vue-skia",
+      "https://github.com/storytold/artcraft",
+      "https://github.com/wahn/rs_pbrt"
+    ],
+    "subtree_count": 13
+  },
+  {
+    "id": "cat:Applications/Image processing",
+    "path": [
+      "Applications",
+      "Image processing"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/GraphiteEditor/Graphite",
+      "https://github.com/Hugo-Dz/spritefusion-pixel-snapper",
+      "https://github.com/darkly-art/darkly",
+      "https://github.com/imager-io/imager",
+      "https://github.com/oxipng/oxipng",
+      "https://github.com/visioncortex/vtracer"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Applications/Industrial automation",
+    "path": [
+      "Applications",
+      "Industrial automation"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/dora-rs/dora",
+      "https://github.com/locka99/opcua",
+      "https://github.com/slowtec/tokio-modbus"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Applications/MLOps",
+    "path": [
+      "Applications",
+      "MLOps"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/cocoindex-io/cocoindex",
+      "https://github.com/codecoradev/uteke",
+      "https://github.com/tensorzero/tensorzero"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Applications/Message Queue",
+    "path": [
+      "Applications",
+      "Message Queue"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/lonewolf-io/narwhal",
+      "https://github.com/mxsm/rocketmq-rust",
+      "https://github.com/rmqtt/rmqtt",
+      "https://github.com/robustmq/robustmq"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Applications/Observability",
+    "path": [
+      "Applications",
+      "Observability"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/opentelemetry",
+      "https://github.com/MegaAntiCheat/client-backend",
+      "https://github.com/avito-tech/bioyino",
+      "https://github.com/esrlabs/chipmunk",
+      "https://github.com/hubblo-org/scaphandre",
+      "https://github.com/openobserve/openobserve",
+      "https://github.com/quickwit-oss/quickwit",
+      "https://github.com/rustrak/rustrak",
+      "https://github.com/vectordotdev/vector"
+    ],
+    "subtree_count": 9
+  },
+  {
+    "id": "cat:Applications/Operating systems",
+    "path": [
+      "Applications",
+      "Operating systems"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/0x59616e/SteinsOS",
+      "https://github.com/Andy-Python-Programmer/aero",
+      "https://github.com/DragonOS-Community/DragonOS",
+      "https://github.com/NON-OS/nonos-micro-kernel",
+      "https://github.com/asterinas/asterinas",
+      "https://github.com/hexagonal-sun/moss-kernel",
+      "https://github.com/koibtw/highlightos",
+      "https://github.com/thepowersgang/rust_os",
+      "https://github.com/theseus-os/Theseus",
+      "https://github.com/tock/tock",
+      "https://github.com/vinc/moros",
+      "https://gitlab.redox-os.org/redox-os/redox"
+    ],
+    "subtree_count": 12
+  },
+  {
+    "id": "cat:Applications/Package Managers",
+    "path": [
+      "Applications",
+      "Package Managers"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/rebos",
+      "https://github.com/helsing-ai/buffrs",
+      "https://github.com/pkgxdev/pkgx"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Applications/Payments",
+    "path": [
+      "Applications",
+      "Payments"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/juspay/hyperswitch"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Productivity",
+    "path": [
+      "Applications",
+      "Productivity"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/eureka",
+      "https://github.com/0xdea/jiggy",
+      "https://github.com/AlexsJones/llmfit",
+      "https://github.com/AlexsJones/llmserve",
+      "https://github.com/Hmbown/DeepSeek-TUI",
+      "https://github.com/ShadoySV/work-break",
+      "https://github.com/VisiGrid/VisiGrid",
+      "https://github.com/Zackriya-Solutions/meetily",
+      "https://github.com/aannoo/hcom",
+      "https://github.com/ast-grep/ast-grep",
+      "https://github.com/bitrouter/bitrouter",
+      "https://github.com/cooklang/CookCLI",
+      "https://github.com/espanso/espanso",
+      "https://github.com/farion1231/cc-switch",
+      "https://github.com/fkiene/llmtrim",
+      "https://github.com/flusterIO/fluster",
+      "https://github.com/fulsomenko/kanban",
+      "https://github.com/graves/awful_aj",
+      "https://github.com/graykode/abtop",
+      "https://github.com/iBz-04/gloamy",
+      "https://github.com/illacloud/illa",
+      "https://github.com/iwe-org/iwe",
+      "https://github.com/kruseio/hygg",
+      "https://github.com/kstonekuan/tambourine-voice",
+      "https://github.com/lldap/lldap",
+      "https://github.com/lockbook/lockbook",
+      "https://github.com/mag123c/toktrack",
+      "https://github.com/max-sixty/worktrunk",
+      "https://github.com/morganlinton/Albatross",
+      "https://github.com/muvon/octomind",
+      "https://github.com/nikolassv/bartib",
+      "https://github.com/njbrake/agent-of-empires",
+      "https://github.com/ogulcancelik/herdr",
+      "https://github.com/pier-cli/pier",
+      "https://github.com/rtk-ai/rtk",
+      "https://github.com/screenpipe/screenpipe",
+      "https://github.com/sigoden/aichat",
+      "https://github.com/tassiovirginio/try-rs",
+      "https://github.com/thClaws/thClaws",
+      "https://github.com/tinyhumansai/openhuman",
+      "https://github.com/tover0314-w/opentypeless",
+      "https://github.com/tw93/Pake",
+      "https://github.com/unobserved-io/Furtherance",
+      "https://github.com/xingkongliang/skills-manager",
+      "https://github.com/yashs662/rust_kanban"
+    ],
+    "subtree_count": 45
+  },
+  {
+    "id": "cat:Applications/Routing protocols",
+    "path": [
+      "Applications",
+      "Routing protocols"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/holo-routing/holo",
+      "https://github.com/osrg/rustybgp"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Applications/Security tools",
+    "path": [
+      "Applications",
+      "Security tools"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/cargo-audit",
+      "https://crates.io/crates/cargo-auditable",
+      "https://crates.io/crates/cargo-crev",
+      "https://crates.io/crates/cargo-deny",
+      "https://framagit.org/ppom/reaction",
+      "https://github.com/0xdea/augur",
+      "https://github.com/0xdea/haruspex",
+      "https://github.com/0xdea/oneiromancer",
+      "https://github.com/0xdea/rhabdomancer",
+      "https://github.com/AFLplusplus/LibAFL",
+      "https://github.com/EFForg/rayhunter",
+      "https://github.com/LeChatP/RootAsRole",
+      "https://github.com/Lissy93/AdGuardian-Term",
+      "https://github.com/Raspirus/Raspirus",
+      "https://github.com/bee-san/RustScan",
+      "https://github.com/biandratti/huginn-net",
+      "https://github.com/blst-security/cherrybomb",
+      "https://github.com/bountyyfi/lonkero",
+      "https://github.com/cortex/ripasso/",
+      "https://github.com/domcyrus/rustnet",
+      "https://github.com/emo-crab/observer_ward",
+      "https://github.com/entropic-security/xgadget",
+      "https://github.com/epi052/feroxbuster",
+      "https://github.com/getprovenant/provenant",
+      "https://github.com/inspektor-dev/inspektor",
+      "https://github.com/jonaylor89/sherlock-rs",
+      "https://github.com/kongbytes/arp-scan-rs",
+      "https://github.com/kpcyrd/authoscope",
+      "https://github.com/kpcyrd/rshijack",
+      "https://github.com/kpcyrd/sn0int",
+      "https://github.com/kpcyrd/sniffglue",
+      "https://github.com/microsoft/mxc",
+      "https://github.com/mongodb/kingfisher",
+      "https://github.com/mullvad/mullvadvpn-app",
+      "https://github.com/replydev/cotp",
+      "https://github.com/santhreal/keyhog",
+      "https://github.com/secluso/core",
+      "https://github.com/ssh-vault/ssh-vault",
+      "https://github.com/timescale/rsigma"
+    ],
+    "subtree_count": 39
+  },
+  {
+    "id": "cat:Applications/Social networks",
+    "path": [
+      "Applications",
+      "Social networks"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Applications/Social networks/Discord",
+    "path": [
+      "Applications",
+      "Social networks",
+      "Discord"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/SpikeHD/Dorion",
+      "https://github.com/chojs23/concord"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Applications/Social networks/Mastodon",
+    "path": [
+      "Applications",
+      "Social networks",
+      "Mastodon"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/rustodon/rustodon"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Social networks/Telegram",
+    "path": [
+      "Applications",
+      "Social networks",
+      "Telegram"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/FedericoBruzzone/tgt"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/System tools",
+    "path": [
+      "Applications",
+      "System tools"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/fselect",
+      "https://github.com/Chleba/netscanner",
+      "https://github.com/ChurchTao/clipboard-rs",
+      "https://github.com/ClementTsang/bottom",
+      "https://github.com/J-x-Z/cocoa-way",
+      "https://github.com/Luminarys/synapse",
+      "https://github.com/Mapika/portview",
+      "https://github.com/XAMPPRocky/tokei",
+      "https://github.com/ajeetdsouza/zoxide/",
+      "https://github.com/amrdeveloper/gql",
+      "https://github.com/ataraxy-labs/sem",
+      "https://github.com/ataraxy-labs/weave",
+      "https://github.com/atuinsh/atuin",
+      "https://github.com/bolivian-peru/os-moda",
+      "https://github.com/bootandy/dust",
+      "https://github.com/brocode/fblog",
+      "https://github.com/buster/rrun",
+      "https://github.com/cantino/mcfly",
+      "https://github.com/cristianoliveira/funzzy",
+      "https://github.com/dalance/procs",
+      "https://github.com/darakian/ddh",
+      "https://github.com/deshaw/procfd",
+      "https://github.com/erickochen/purple",
+      "https://github.com/eza-community/eza",
+      "https://github.com/fenio/anylinuxfs-gui",
+      "https://github.com/fish-shell/fish-shell",
+      "https://github.com/fujiapple852/trippy",
+      "https://github.com/git-ai-project/git-ai",
+      "https://github.com/gitbutlerapp/gitbutler",
+      "https://github.com/gitui-org/gitui",
+      "https://github.com/hyperb1iss/unifly",
+      "https://github.com/ilya-zlobintsev/LACT",
+      "https://github.com/immortal/fork",
+      "https://github.com/imsnif/bandwhich",
+      "https://github.com/imsnif/diskonaut",
+      "https://github.com/j0ru/kickoff",
+      "https://github.com/jacek-kurlit/pik",
+      "https://github.com/k06a/macpow",
+      "https://github.com/kimono-koans/httm",
+      "https://github.com/lodosgroup/lpm",
+      "https://github.com/lotabout/rargs",
+      "https://github.com/lsd-rs/lsd",
+      "https://github.com/m4b/bingrep",
+      "https://github.com/matheus-git/systemd-manager-tui",
+      "https://github.com/matthart1983/diskwatch",
+      "https://github.com/matthart1983/netwatch",
+      "https://github.com/matthart1983/syswatch",
+      "https://github.com/mdgaziur/findex",
+      "https://github.com/mitnk/cicada",
+      "https://github.com/mmstick/concurr",
+      "https://github.com/mmstick/fontfinder",
+      "https://github.com/mmstick/tv-renamer",
+      "https://github.com/mxseev/logram",
+      "https://github.com/nickgerace/gfold",
+      "https://github.com/nivekuil/rip",
+      "https://github.com/nohajc/anylinuxfs",
+      "https://github.com/nukesor/pueue",
+      "https://github.com/nushell/nushell",
+      "https://github.com/nwiizo/tfmcp",
+      "https://github.com/nwiizo/tfocus",
+      "https://github.com/orhun/kmon",
+      "https://github.com/orhun/systeroid",
+      "https://github.com/ouch-org/ouch",
+      "https://github.com/pkolaczk/fclones",
+      "https://github.com/pop-os/popsicle",
+      "https://github.com/pop-os/system76-power/",
+      "https://github.com/qarmin/czkawka",
+      "https://github.com/redox-os/ion",
+      "https://github.com/reubeno/brush",
+      "https://github.com/sharkdp/bat",
+      "https://github.com/sharkdp/fd",
+      "https://github.com/sharkdp/hexyl",
+      "https://github.com/sitkevij/hex",
+      "https://github.com/skim-rs/skim",
+      "https://github.com/sstadick/crabz",
+      "https://github.com/supercilex/fuc",
+      "https://github.com/tbillington/kondo",
+      "https://github.com/theBGuy/GitDesktop",
+      "https://github.com/topheman/webassembly-component-model-experiments",
+      "https://github.com/tw93/Kaku",
+      "https://github.com/uutils/coreutils",
+      "https://github.com/vrmiguel/bustd",
+      "https://github.com/watchexec/watchexec",
+      "https://github.com/ynqa/jnv",
+      "https://github.com/ynqa/logu",
+      "https://github.com/ynqa/sig"
+    ],
+    "subtree_count": 86
+  },
+  {
+    "id": "cat:Applications/Task scheduling",
+    "path": [
+      "Applications",
+      "Task scheduling"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/stav121/tasklet"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Applications/Text editors",
+    "path": [
+      "Applications",
+      "Text editors"
+    ],
+    "depth": 2,
+    "members": [
+      "https://amp.rs",
+      "https://git.sr.ht/~lessa/pepper",
+      "https://github.com/4worlds4w-svg/inkwell",
+      "https://github.com/OlaProeis/Ferrite",
+      "https://github.com/curlpipe/ox",
+      "https://github.com/gchp/iota",
+      "https://github.com/helix-editor/helix",
+      "https://github.com/ilai-deutel/kibi",
+      "https://github.com/ki-editor/ki-editor",
+      "https://github.com/lapce/lapce",
+      "https://github.com/manyougz/velotype",
+      "https://github.com/mathall/rim",
+      "https://github.com/sinelaw/fresh",
+      "https://github.com/zed-industries/zed",
+      "https://github.com/zhitongblog/solomd"
+    ],
+    "subtree_count": 15
+  },
+  {
+    "id": "cat:Applications/Text processing",
+    "path": [
+      "Applications",
+      "Text processing"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/ripgrep",
+      "https://crates.io/crates/sd",
+      "https://crates.io/crates/xsv",
+      "https://github.com/Goldziher/uncomment",
+      "https://github.com/Lisprez/so_stupid_search",
+      "https://github.com/artob/readmer",
+      "https://github.com/ashvardanian/StringZilla",
+      "https://github.com/brevity1swos/rgx",
+      "https://github.com/cchexcode/complate",
+      "https://github.com/dathere/qsv",
+      "https://github.com/dominikwilkowski/cfonts",
+      "https://github.com/harehare/mq",
+      "https://github.com/micahkepe/jsongrep",
+      "https://github.com/pemistahl/grex",
+      "https://github.com/phiresky/ripgrep-all",
+      "https://github.com/roquess/loki_text",
+      "https://github.com/sstadick/hck",
+      "https://github.com/thomasschafer/scooter",
+      "https://github.com/vishaltelangre/ff",
+      "https://github.com/whitfin/bytelines",
+      "https://github.com/whitfin/runiq",
+      "https://github.com/yoav-lavi/melody",
+      "https://github.com/your-tools/ruplacer"
+    ],
+    "subtree_count": 23
+  },
+  {
+    "id": "cat:Applications/Utilities",
+    "path": [
+      "Applications",
+      "Utilities"
+    ],
+    "depth": 2,
+    "members": [
+      "https://codeberg.org/fosk/emplace",
+      "https://git.sr.ht/~lessa/verco",
+      "https://github.com/AchetaGames/Epic-Asset-Manager",
+      "https://github.com/Eoin-McMahon/Blindfold",
+      "https://github.com/IvanWng97/pixtuoid",
+      "https://github.com/Linus-Mussmaecher/rucola",
+      "https://github.com/MoonProxyHQ/moonproxy-desktop",
+      "https://github.com/Skallwar/suckit",
+      "https://github.com/Veirt/weathr",
+      "https://github.com/Water-Run/treepp",
+      "https://github.com/YueMiyuki/Risuko",
+      "https://github.com/aaronriekenberg/rust-parallel",
+      "https://github.com/alexpasmantier/television",
+      "https://github.com/alvaro17f/wrestic",
+      "https://github.com/anitnilay20/thoth",
+      "https://github.com/aravpanwar/decayfmt",
+      "https://github.com/artob/edky",
+      "https://github.com/bloznelis/kbt",
+      "https://github.com/brycx/checkpwn",
+      "https://github.com/cartesiancs/vessel",
+      "https://github.com/dani-garcia/vaultwarden#readme",
+      "https://github.com/davidmoreno/tailtales",
+      "https://github.com/dcapal/dcapal",
+      "https://github.com/evansmurithi/cloak",
+      "https://github.com/fcsonline/tmux-thumbs",
+      "https://github.com/guoxbin/dtool",
+      "https://github.com/iammodev/YAKC",
+      "https://github.com/localfirstapp/1History",
+      "https://github.com/mrjackwills/oxker",
+      "https://github.com/nix-community/nix-init",
+      "https://github.com/nix-community/nix-melt",
+      "https://github.com/nix-community/nurl",
+      "https://github.com/pvolok/mprocs",
+      "https://github.com/raftario/licensor",
+      "https://github.com/restsend/rustpbx",
+      "https://github.com/rustdesk/rustdesk",
+      "https://github.com/rustic-rs/rustic",
+      "https://github.com/ruvnet/RuView",
+      "https://github.com/shshemi/tabiew",
+      "https://github.com/sorairolake/qrtool",
+      "https://github.com/str4d/rage",
+      "https://github.com/sundegan/JsonStudio",
+      "https://github.com/tareqmy/gitwig",
+      "https://github.com/thewh1teagle/mobslide",
+      "https://github.com/thewh1teagle/vibe",
+      "https://github.com/ttytm/wthrr-the-weathercrab",
+      "https://github.com/unhappychoice/gitlogue",
+      "https://github.com/unhappychoice/splashboard",
+      "https://github.com/warpdotdev/Warp",
+      "https://github.com/yaa110/nomino",
+      "https://github.com/zerx-lab/FluxDown"
+    ],
+    "subtree_count": 51
+  },
+  {
+    "id": "cat:Applications/Video",
+    "path": [
+      "Applications",
+      "Video"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/Michael-A-Kuykendall/muxide",
+      "https://github.com/TGotwig/vidmerger",
+      "https://github.com/dertuxmalwieder/yaydl",
+      "https://github.com/gyroflow/gyroflow",
+      "https://github.com/harlanc/xiu",
+      "https://github.com/xiph/rav1e"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Applications/Virtualization",
+    "path": [
+      "Applications",
+      "Virtualization"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/firecracker-microvm/firecracker",
+      "https://github.com/kata-containers/kata-containers",
+      "https://github.com/superradcompany/microsandbox",
+      "https://github.com/tailhook/vagga",
+      "https://github.com/youki-dev/youki"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Applications/Web",
+    "path": [
+      "Applications",
+      "Web"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/0xMassi/webclaw",
+      "https://github.com/LemmyNet/lemmy",
+      "https://github.com/MASQ-Project/Node",
+      "https://github.com/Plume-org/Plume",
+      "https://github.com/SinTan1729/chhoto-url",
+      "https://github.com/agrinman/tunnelto",
+      "https://github.com/cfal/tobaru",
+      "https://github.com/hook0/hook0",
+      "https://github.com/importantimport/hatsu",
+      "https://github.com/janreges/siteone-crawler",
+      "https://github.com/konippi/servo-fetch",
+      "https://github.com/redlib-org/redlib",
+      "https://github.com/shouya/rss-funnel",
+      "https://github.com/stoatchat/stoatchat",
+      "https://github.com/zhom/donutbrowser"
+    ],
+    "subtree_count": 15
+  },
+  {
+    "id": "cat:Applications/Web Servers",
+    "path": [
+      "Applications",
+      "Web Servers"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/0x676e67/vproxy",
+      "https://github.com/TheWaWaR/simple-http-server",
+      "https://github.com/bytedance/g3",
+      "https://github.com/cloudflare/pingora",
+      "https://github.com/emanuele-em/proxelar",
+      "https://github.com/hyperlane-dev/hyperlane",
+      "https://github.com/marcodpt/minirps",
+      "https://github.com/mu-arch/skyfolder",
+      "https://github.com/mufeedvh/binserve",
+      "https://github.com/orhun/rustypaste",
+      "https://github.com/plabayo/rama",
+      "https://github.com/ronanyeah/rust-hasura",
+      "https://github.com/static-web-server/static-web-server",
+      "https://github.com/svenstaro/miniserve",
+      "https://github.com/thecoshman/http",
+      "https://github.com/vetis-server/vetis"
+    ],
+    "subtree_count": 16
+  },
+  {
+    "id": "cat:Applications/Workflow Automation",
+    "path": [
+      "Applications",
+      "Workflow Automation"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/SouravRoy-ETL/duckle",
+      "https://github.com/dali-benothmen/woml",
+      "https://github.com/sopaco/cowork-forge"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Development tools",
+    "path": [
+      "Development tools"
+    ],
+    "depth": 1,
+    "members": [
+      "https://crates.io/crates/clippy",
+      "https://crates.io/crates/git-delta",
+      "https://crates.io/crates/vtcode",
+      "https://github.com/7df-lab/devo",
+      "https://github.com/Canop/bacon",
+      "https://github.com/Feel-ix-343/markdown-oxide",
+      "https://github.com/GitoxideLabs/gitoxide",
+      "https://github.com/Julien-cpsn/ATAC",
+      "https://github.com/Muvon/octocode",
+      "https://github.com/Wilfred/difftastic",
+      "https://github.com/Wulf/create-rust-app",
+      "https://github.com/aaif-goose/goose",
+      "https://github.com/agavra/tuicr",
+      "https://github.com/armgabrielyan/deadbranch",
+      "https://github.com/biomejs/biome",
+      "https://github.com/brocode/fw",
+      "https://github.com/cachix/devenv",
+      "https://github.com/casey/just",
+      "https://github.com/clog-tool/clog-cli",
+      "https://github.com/cloudflare/foundations",
+      "https://github.com/crate-ci/typos",
+      "https://github.com/dalance/ptags",
+      "https://github.com/dan-t/rusty-tags",
+      "https://github.com/datanymizer/datanymizer",
+      "https://github.com/dinakars777/git-time-machine",
+      "https://github.com/dotenv-linter/dotenv-linter",
+      "https://github.com/fiatjaf/module-linker",
+      "https://github.com/flox/flox",
+      "https://github.com/frolicflow/Frolic",
+      "https://github.com/geiger-rs/cargo-geiger",
+      "https://github.com/huhu/rust-search-extension",
+      "https://github.com/humblepenguinn/envio",
+      "https://github.com/igor-petruk/scriptisto",
+      "https://github.com/j178/prek",
+      "https://github.com/jacobdeichert/mask",
+      "https://github.com/jdx/mise",
+      "https://github.com/jj-vcs/jj",
+      "https://github.com/kyu08/fzf-make",
+      "https://github.com/lasantosr/intelli-shell",
+      "https://github.com/mercurialsolo/claudectl",
+      "https://github.com/orhun/git-cliff",
+      "https://github.com/racer-rust/racer",
+      "https://github.com/reflex-search/reflex",
+      "https://github.com/rksm/hot-lib-reloader-rs",
+      "https://github.com/rust-lang/rustup",
+      "https://github.com/saschagrunert/git-journal/",
+      "https://github.com/sstraus/tuicommander",
+      "https://github.com/tailcallhq/forgecode",
+      "https://github.com/voidzero-dev/vite-plus",
+      "https://github.com/yvgude/lean-ctx"
+    ],
+    "subtree_count": 238
+  },
+  {
+    "id": "cat:Development tools/Build system",
+    "path": [
+      "Development tools",
+      "Build system"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/",
+      "https://github.com/Marve10s/Better-Fullstack",
+      "https://github.com/TraceMachina/nativelink",
+      "https://github.com/facebook/buck2",
+      "https://github.com/pantsbuild/pants",
+      "https://github.com/rolldown/rolldown",
+      "https://github.com/suptejas/fleet",
+      "https://github.com/vercel/turborepo"
+    ],
+    "subtree_count": 40
+  },
+  {
+    "id": "cat:Development tools/Build system/CMake",
+    "path": [
+      "Development tools",
+      "Build system",
+      "CMake"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Devolutions/CMakeRust",
+      "https://github.com/SiegeLord/RustCMake"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Development tools/Build system/Cargo",
+    "path": [
+      "Development tools",
+      "Build system",
+      "Cargo"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/cargo-benchcmp",
+      "https://crates.io/crates/cargo-bitbake",
+      "https://crates.io/crates/cargo-cache",
+      "https://crates.io/crates/cargo-check",
+      "https://crates.io/crates/cargo-commander",
+      "https://crates.io/crates/cargo-count",
+      "https://crates.io/crates/cargo-deb",
+      "https://crates.io/crates/cargo-depgraph",
+      "https://crates.io/crates/cargo-do",
+      "https://crates.io/crates/cargo-ebuild",
+      "https://crates.io/crates/cargo-edit",
+      "https://crates.io/crates/cargo-info",
+      "https://crates.io/crates/cargo-license",
+      "https://crates.io/crates/cargo-limit",
+      "https://crates.io/crates/cargo-make",
+      "https://crates.io/crates/cargo-modules",
+      "https://crates.io/crates/cargo-multi",
+      "https://crates.io/crates/cargo-outdated",
+      "https://crates.io/crates/cargo-release",
+      "https://crates.io/crates/cargo-script",
+      "https://crates.io/crates/cargo-update",
+      "https://crates.io/crates/cargo-watch",
+      "https://github.com/cargo-bins/cargo-binstall",
+      "https://github.com/cargo-generate/cargo-generate",
+      "https://github.com/dtolnay/cargo-expand",
+      "https://github.com/est31/cargo-udeps",
+      "https://github.com/frewsxcv/cargo-all-features",
+      "https://github.com/orium/cargo-rdme"
+    ],
+    "subtree_count": 28
+  },
+  {
+    "id": "cat:Development tools/Build system/GitHub actions",
+    "path": [
+      "Development tools",
+      "Build system",
+      "GitHub actions"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/icepuma/rust-action"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Build system/Nix",
+    "path": [
+      "Development tools",
+      "Build system",
+      "Nix"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/nix-community/fenix"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Debugging",
+    "path": [
+      "Development tools",
+      "Debugging"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/godzie44/BugStalker",
+      "https://github.com/kxxt/tracexec"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Development tools/Debugging/GDB",
+    "path": [
+      "Development tools",
+      "Debugging",
+      "GDB"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/cs01/gdbgui"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Debugging/LLDB",
+    "path": [
+      "Development tools",
+      "Debugging",
+      "LLDB"
+    ],
+    "depth": 3,
+    "members": [
+      "https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Deployment",
+    "path": [
+      "Development tools",
+      "Deployment"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/release-plz/release-plz"
+    ],
+    "subtree_count": 11
+  },
+  {
+    "id": "cat:Development tools/Deployment/Docker",
+    "path": [
+      "Development tools",
+      "Deployment",
+      "Docker"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/LukeMathWalker/cargo-chef",
+      "https://github.com/Stavrospanakakis/is_ready",
+      "https://github.com/emk/rust-musl-builder",
+      "https://github.com/kpcyrd/mini-docker-rust",
+      "https://github.com/lenra-io/dofigen",
+      "https://github.com/liuchong/docker-rustup",
+      "https://github.com/moghtech/komodo",
+      "https://github.com/rust-cross/rust-musl-cross",
+      "https://github.com/rust-lang/docker-rust"
+    ],
+    "subtree_count": 9
+  },
+  {
+    "id": "cat:Development tools/Deployment/Heroku",
+    "path": [
+      "Development tools",
+      "Deployment",
+      "Heroku"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/emk/heroku-buildpack-rust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Embedded",
+    "path": [
+      "Development tools",
+      "Embedded"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 9
+  },
+  {
+    "id": "cat:Development tools/Embedded/Arduino",
+    "path": [
+      "Development tools",
+      "Embedded",
+      "Arduino"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/avr-rust/ruduino"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Embedded/Cross compiling",
+    "path": [
+      "Development tools",
+      "Embedded",
+      "Cross compiling"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/japaric/rust-cross",
+      "https://github.com/japaric/xargo"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Development tools/Embedded/Development Tools",
+    "path": [
+      "Development tools",
+      "Embedded",
+      "Development Tools"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Vaishnav-Sabari-Girish/ComChan",
+      "https://github.com/matheuswhite/scope-rs",
+      "https://github.com/probe-rs/probe-rs"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Development tools/Embedded/Espressif",
+    "path": [
+      "Development tools",
+      "Embedded",
+      "Espressif"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/esp-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Embedded/Firmware",
+    "path": [
+      "Development tools",
+      "Embedded",
+      "Firmware"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/oreboot/oreboot"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Embedded/nRF",
+    "path": [
+      "Development tools",
+      "Embedded",
+      "nRF"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/nrf-rs/nrf-hal"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/FFI",
+    "path": [
+      "Development tools",
+      "FFI"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 35
+  },
+  {
+    "id": "cat:Development tools/FFI/C",
+    "path": [
+      "Development tools",
+      "FFI",
+      "C"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Sean1708/rusty-cheddar",
+      "https://github.com/gtk-rs/gir",
+      "https://github.com/mozilla/cbindgen"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Development tools/FFI/C#",
+    "path": [
+      "Development tools",
+      "FFI",
+      "C#"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Cysharp/csbindgen"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/FFI/C++",
+    "path": [
+      "Development tools",
+      "FFI",
+      "C++"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/cpp",
+      "https://github.com/dtolnay/cxx",
+      "https://github.com/rust-lang/rust-bindgen"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Development tools/FFI/Erlang",
+    "path": [
+      "Development tools",
+      "FFI",
+      "Erlang"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/rusterlium/rustler"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/FFI/Java",
+    "path": [
+      "Development tools",
+      "FFI",
+      "Java"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/j4rs",
+      "https://crates.io/crates/jni",
+      "https://crates.io/crates/jni-sys",
+      "https://crates.io/crates/rucaja",
+      "https://github.com/benanders/rjni",
+      "https://github.com/drrb/java-rust-example"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Development tools/FFI/Lua",
+    "path": [
+      "Development tools",
+      "FFI",
+      "Lua"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/jcmoyer/rust-lua53",
+      "https://github.com/lilyball/rust-lua",
+      "https://github.com/mlua-rs/mlua",
+      "https://github.com/tickbh/td_rlua",
+      "https://github.com/tomaka/hlua"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Development tools/FFI/Node.js",
+    "path": [
+      "Development tools",
+      "FFI",
+      "Node.js"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/infinyon/node-bindgen",
+      "https://github.com/neon-bindings/neon",
+      "https://github.com/zhangyuang/node-ffi-rs"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Development tools/FFI/Objective-C",
+    "path": [
+      "Development tools",
+      "FFI",
+      "Objective-C"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/SSheldon/rust-objc"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/FFI/PHP",
+    "path": [
+      "Development tools",
+      "FFI",
+      "PHP"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/phper-framework/phper"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/FFI/Prolog",
+    "path": [
+      "Development tools",
+      "FFI",
+      "Prolog"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/mthom/scryer-prolog/"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/FFI/Python",
+    "path": [
+      "Development tools",
+      "FFI",
+      "Python"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/PyO3/PyO3",
+      "https://github.com/RustPython/RustPython",
+      "https://github.com/dgrunwald/rust-cpython",
+      "https://github.com/getsentry/milksnake"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Development tools/FFI/Ruby",
+    "path": [
+      "Development tools",
+      "FFI",
+      "Ruby"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/d-unsed/ruru",
+      "https://github.com/danielpclark/rutie"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Development tools/FFI/Web Assembly",
+    "path": [
+      "Development tools",
+      "FFI",
+      "Web Assembly"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/rhysd/wain",
+      "https://github.com/wasm-bindgen/wasm-bindgen",
+      "https://github.com/wasm-bindgen/wasm-pack"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Development tools/FFI/mruby",
+    "path": [
+      "Development tools",
+      "FFI",
+      "mruby"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/anima-engine/mrusty"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Formatters",
+    "path": [
+      "Development tools",
+      "Formatters"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/astral-sh/ruff",
+      "https://github.com/dprint/dprint",
+      "https://github.com/jinxdash/prettier-plugin-rust",
+      "https://github.com/rust-lang/rustfmt"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Development tools/IDEs",
+    "path": [
+      "Development tools",
+      "IDEs"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/lapce/lapce",
+      "https://github.com/madeso/ride",
+      "https://gitpod.io",
+      "https://vim.sourceforge.io/",
+      "https://wiki.gnome.org/Apps/Builder",
+      "https://www.jetbrains.com/rust/"
+    ],
+    "subtree_count": 25
+  },
+  {
+    "id": "cat:Development tools/IDEs/Eclipse",
+    "path": [
+      "Development tools",
+      "IDEs",
+      "Eclipse"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/eclipse-corrosion/corrosion"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/IDEs/Emacs",
+    "path": [
+      "Development tools",
+      "IDEs",
+      "Emacs"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/emacs-rustic/rustic",
+      "https://github.com/flycheck/flycheck-rust",
+      "https://github.com/racer-rust/emacs-racer",
+      "https://github.com/rust-lang/rust-mode"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Development tools/IDEs/IntelliJ",
+    "path": [
+      "Development tools",
+      "IDEs",
+      "IntelliJ"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/intellij-rust/intellij-rust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/IDEs/Kakoune",
+    "path": [
+      "Development tools",
+      "IDEs",
+      "Kakoune"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/kakoune-lsp/kakoune-lsp/"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/IDEs/Sublime Text",
+    "path": [
+      "Development tools",
+      "IDEs",
+      "Sublime Text"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/rust-lang/rust-enhanced"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/IDEs/Vim",
+    "path": [
+      "Development tools",
+      "IDEs",
+      "Vim"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Saecki/crates.nvim",
+      "https://github.com/autozimu/LanguageClient-neovim",
+      "https://github.com/nwiizo/cargo.nvim",
+      "https://github.com/racer-rust/vim-racer",
+      "https://github.com/rust-lang/rust.vim"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Development tools/IDEs/Visual Studio",
+    "path": [
+      "Development tools",
+      "IDEs",
+      "Visual Studio"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/PistonDevelopers/VisualRust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/IDEs/Visual Studio Code",
+    "path": [
+      "Development tools",
+      "IDEs",
+      "Visual Studio Code"
+    ],
+    "depth": 3,
+    "members": [
+      "https://marketplace.visualstudio.com/items?itemName=fill-labs.dependi",
+      "https://marketplace.visualstudio.com/items?itemName=jinxdash.prettier-rust",
+      "https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer",
+      "https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml",
+      "https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Development tools/Profiling",
+    "path": [
+      "Development tools",
+      "Profiling"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/bencherdev/bencher",
+      "https://github.com/bheisler/criterion.rs",
+      "https://github.com/bytedance/g3",
+      "https://github.com/cong-or/hud",
+      "https://github.com/ellisonch/rust-stopwatch",
+      "https://github.com/koute/bytehound",
+      "https://github.com/nvzqz/divan",
+      "https://github.com/pawurb/hotpath-rs",
+      "https://github.com/sharkdp/hyperfine"
+    ],
+    "subtree_count": 10
+  },
+  {
+    "id": "cat:Development tools/Profiling/FlameGraphs",
+    "path": [
+      "Development tools",
+      "Profiling",
+      "FlameGraphs"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/llogiq/flame"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Services",
+    "path": [
+      "Development tools",
+      "Services"
+    ],
+    "depth": 2,
+    "members": [
+      "https://docs.rs",
+      "https://github.com/deps-rs/deps.rs",
+      "https://github.com/sopaco/deepwiki-rs"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Development tools/Static analysis",
+    "path": [
+      "Development tools",
+      "Static analysis"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/static_assertions",
+      "https://github.com/Rafaelpta/dupehound",
+      "https://github.com/creusot-rs/creusot",
+      "https://github.com/endorlabs/mirai",
+      "https://github.com/nwiizo/cargo-coupling",
+      "https://github.com/safer-rust/RAPx",
+      "https://github.com/verus-lang/verus",
+      "https://github.com/zizmorcore/zizmor"
+    ],
+    "subtree_count": 8
+  },
+  {
+    "id": "cat:Development tools/Testing",
+    "path": [
+      "Development tools",
+      "Testing"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 31
+  },
+  {
+    "id": "cat:Development tools/Testing/Assertions and Matchers",
+    "path": [
+      "Development tools",
+      "Testing",
+      "Assertions and Matchers"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/googletest-json-serde"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Testing/Code Coverage",
+    "path": [
+      "Development tools",
+      "Testing",
+      "Code Coverage"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/cargo-tarpaulin"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Testing/Continuous Integration",
+    "path": [
+      "Development tools",
+      "Testing",
+      "Continuous Integration"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/japaric/trust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Development tools/Testing/Frameworks and Runners",
+    "path": [
+      "Development tools",
+      "Testing",
+      "Frameworks and Runners"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/cargo-dinghy/",
+      "https://crates.io/crates/cucumber",
+      "https://crates.io/crates/demonstrate",
+      "https://crates.io/crates/googletest",
+      "https://crates.io/crates/rstest",
+      "https://crates.io/crates/speculate",
+      "https://github.com/AlKass/polish",
+      "https://github.com/bitfield/cargo-testdox",
+      "https://github.com/d-e-s-o/test-log",
+      "https://github.com/hovinen/test-that",
+      "https://github.com/nextest-rs/nextest",
+      "https://github.com/wfxr/rlt"
+    ],
+    "subtree_count": 12
+  },
+  {
+    "id": "cat:Development tools/Testing/Mocking and Test Data",
+    "path": [
+      "Development tools",
+      "Testing",
+      "Mocking and Test Data"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/mockiato",
+      "https://crates.io/crates/mockito",
+      "https://github.com/IBM/mocktail",
+      "https://github.com/asomers/mockall",
+      "https://github.com/bcheidemann/fixtures-rs/tree/main/fixtures",
+      "https://github.com/calder/rust-goldenfile",
+      "https://github.com/cksac/fake-rs",
+      "https://github.com/httpmock/httpmock",
+      "https://github.com/nrxus/faux/",
+      "https://github.com/shuttle-hq/synth/"
+    ],
+    "subtree_count": 10
+  },
+  {
+    "id": "cat:Development tools/Testing/Mutation Testing",
+    "path": [
+      "Development tools",
+      "Testing",
+      "Mutation Testing"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/llogiq/mutagen",
+      "https://github.com/sourcefrog/cargo-mutants"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Development tools/Testing/Property Testing and Fuzzing",
+    "path": [
+      "Development tools",
+      "Testing",
+      "Property Testing and Fuzzing"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/proptest",
+      "https://crates.io/crates/quickcheck",
+      "https://github.com/Ackee-Blockchain/trident",
+      "https://github.com/rust-fuzz/afl.rs"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Development tools/Transpiling",
+    "path": [
+      "Development tools",
+      "Transpiling"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/BayesWitnesses/m2cgen",
+      "https://github.com/aleph-lang/aleph_ollama",
+      "https://github.com/immunant/c2rust",
+      "https://github.com/jameysharp/corrode"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Development tools/Tunnel",
+    "path": [
+      "Development tools",
+      "Tunnel"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/ekzhang/bore",
+      "https://github.com/joaoh82/rustunnel",
+      "https://github.com/ngrok/ngrok-rust",
+      "https://github.com/rathole-org/rathole"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries",
+    "path": [
+      "Libraries"
+    ],
+    "depth": 1,
+    "members": [
+      "https://github.com/larksuite/perf-monitor-rs"
+    ],
+    "subtree_count": 783
+  },
+  {
+    "id": "cat:Libraries/Artificial Intelligence",
+    "path": [
+      "Libraries",
+      "Artificial Intelligence"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 47
+  },
+  {
+    "id": "cat:Libraries/Artificial Intelligence/Genetic algorithms",
+    "path": [
+      "Libraries",
+      "Artificial Intelligence",
+      "Genetic algorithms"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Martin1887/oxigen",
+      "https://github.com/innoave/genevo",
+      "https://github.com/m-decoster/RsGenetic",
+      "https://github.com/pkalivas/radiate",
+      "https://github.com/willi-kappler/darwin-rs"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Libraries/Artificial Intelligence/Google Gemini",
+    "path": [
+      "Libraries",
+      "Artificial Intelligence",
+      "Google Gemini"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/gemini-client-api"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Artificial Intelligence/Machine learning",
+    "path": [
+      "Libraries",
+      "Artificial Intelligence",
+      "Machine learning"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Ave-Sergeev/Tictonix",
+      "https://github.com/EricLBuehler/mistral.rs",
+      "https://github.com/LaurentMazare/tch-rs",
+      "https://github.com/Michael-A-Kuykendall/shimmy",
+      "https://github.com/Michael-A-Kuykendall/shimmytok",
+      "https://github.com/Mottl/lightgbm3-rs",
+      "https://github.com/autumnai/leaf",
+      "https://github.com/avifenesh/memra",
+      "https://github.com/blackportal-ai/delta",
+      "https://github.com/blackportal-ai/nebula",
+      "https://github.com/chelsea0x3b/dfdx",
+      "https://github.com/guillaume-be/rust-bert",
+      "https://github.com/huggingface/candle",
+      "https://github.com/huggingface/tokenizers",
+      "https://github.com/katanemo/plano",
+      "https://github.com/luminal-ai/luminal",
+      "https://github.com/maciejkula/rustlearn",
+      "https://github.com/openinfer-project/openinfer",
+      "https://github.com/perpetual-ml/perpetual",
+      "https://github.com/ramsyana/RustTensor",
+      "https://github.com/raphaelmansuy/edgequake",
+      "https://github.com/rust-ml/linfa",
+      "https://github.com/sipemu/anofox-regression",
+      "https://github.com/smartcorelib/smartcore",
+      "https://github.com/tag1consulting/feste",
+      "https://github.com/tensorflow/rust",
+      "https://github.com/tracel-ai/burn"
+    ],
+    "subtree_count": 27
+  },
+  {
+    "id": "cat:Libraries/Artificial Intelligence/OpenAI",
+    "path": [
+      "Libraries",
+      "Artificial Intelligence",
+      "OpenAI"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/0xplaygrounds/rig",
+      "https://github.com/64bit/async-openai",
+      "https://github.com/awakenworks/awaken",
+      "https://github.com/bigduu/Bamboo-agent",
+      "https://github.com/liquidos-ai/AutoAgents",
+      "https://github.com/openai/codex",
+      "https://github.com/openai/harmony",
+      "https://github.com/xberg-io/liter-llm",
+      "https://github.com/zurawiki/tiktoken-rs"
+    ],
+    "subtree_count": 9
+  },
+  {
+    "id": "cat:Libraries/Artificial Intelligence/Tooling",
+    "path": [
+      "Libraries",
+      "Artificial Intelligence",
+      "Tooling"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/BoundaryML/baml",
+      "https://github.com/juyterman1000/entroly",
+      "https://github.com/memvid/memvid",
+      "https://github.com/pydantic/monty",
+      "https://github.com/sopaco/cortex-mem"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Libraries/Astronomy",
+    "path": [
+      "Libraries",
+      "Astronomy"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/fitsio",
+      "https://github.com/cds-astro/aladin-lite",
+      "https://github.com/flosse/rust-sun",
+      "https://github.com/saurvs/astro-rust"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries/Asynchronous",
+    "path": [
+      "Libraries",
+      "Asynchronous"
+    ],
+    "depth": 2,
+    "members": [
+      "https://async.rs/",
+      "https://github.com/TeaEntityLab/fpRust",
+      "https://github.com/Xudong-Huang/may",
+      "https://github.com/dagrs-dev/dagrs",
+      "https://github.com/dpc/mioco",
+      "https://github.com/igumnoff/gabriel2",
+      "https://github.com/iii-hq/iii",
+      "https://github.com/nextest-rs/future-queue",
+      "https://github.com/rust-lang/futures-rs",
+      "https://github.com/t3hmrman/async-dropper",
+      "https://github.com/tokio-rs/mio",
+      "https://github.com/tokio-rs/tokio",
+      "https://github.com/tqwewe/kameo",
+      "https://github.com/zonyitoo/coio-rs"
+    ],
+    "subtree_count": 14
+  },
+  {
+    "id": "cat:Libraries/Audio and Music",
+    "path": [
+      "Libraries",
+      "Audio and Music"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/hound",
+      "https://github.com/Serial-ATA/lofty-rs",
+      "https://github.com/aschey/stream-download-rs",
+      "https://github.com/insomnimus/nodi",
+      "https://github.com/jhasse/ears",
+      "https://github.com/musitdev/portmidi-rs",
+      "https://github.com/ozankasikci/rust-music-theory",
+      "https://github.com/pdeljanov/Symphonia"
+    ],
+    "subtree_count": 11
+  },
+  {
+    "id": "cat:Libraries/Audio and Music/RustAudio",
+    "path": [
+      "Libraries",
+      "Audio and Music",
+      "RustAudio"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/RustAudio/cpal",
+      "https://github.com/RustAudio/rodio",
+      "https://github.com/RustAudio/rust-portaudio"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Authentication",
+    "path": [
+      "Libraries",
+      "Authentication"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/197g/oxide-auth",
+      "https://github.com/GunduLabs/gaze",
+      "https://github.com/Keats/jsonwebtoken",
+      "https://github.com/constantoine/totp-rs",
+      "https://github.com/dermesser/yup-oauth2",
+      "https://github.com/ramosbugs/oauth2-rs",
+      "https://github.com/sgrust01/jwtvault"
+    ],
+    "subtree_count": 7
+  },
+  {
+    "id": "cat:Libraries/Automotive",
+    "path": [
+      "Libraries",
+      "Automotive"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/Sensirion/lin-bus-rs",
+      "https://github.com/idletea/tokio-socketcan",
+      "https://github.com/marcelbuesing/tokio-socketcan-bcm",
+      "https://github.com/oxibus/can-dbc",
+      "https://github.com/socketcan-rs/socketcan-rs"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Libraries/Bioinformatics",
+    "path": [
+      "Libraries",
+      "Bioinformatics"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/biodatageeks/polars-bio",
+      "https://github.com/rust-bio"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Caching",
+    "path": [
+      "Libraries",
+      "Caching"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/06chaynes/http-cache",
+      "https://github.com/aisk/rust-memcache",
+      "https://github.com/al8n/stretto",
+      "https://github.com/hit-box/hitbox",
+      "https://github.com/jaemk/cached",
+      "https://github.com/moka-rs/moka",
+      "https://github.com/mozilla/sccache/",
+      "https://github.com/salsa-rs/salsa",
+      "https://github.com/zkat/cacache-rs"
+    ],
+    "subtree_count": 9
+  },
+  {
+    "id": "cat:Libraries/Cloud",
+    "path": [
+      "Libraries",
+      "Cloud"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 7
+  },
+  {
+    "id": "cat:Libraries/Cloud/AWS",
+    "path": [
+      "Libraries",
+      "Cloud",
+      "AWS"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/aws/aws-lambda-rust-runtime",
+      "https://github.com/awslabs/aws-sdk-rust",
+      "https://github.com/faiscadev/fakecloud",
+      "https://github.com/rusoto/rusoto"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries/Cloud/Azure",
+    "path": [
+      "Libraries",
+      "Cloud",
+      "Azure"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Azure/azure-sdk-for-rust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Cloud/Load Balancer",
+    "path": [
+      "Libraries",
+      "Cloud",
+      "Load Balancer"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/bparli/convey"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Cloud/Multi Cloud",
+    "path": [
+      "Libraries",
+      "Cloud",
+      "Multi Cloud"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Qovery/engine"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Command-line",
+    "path": [
+      "Libraries",
+      "Command-line"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 52
+  },
+  {
+    "id": "cat:Libraries/Command-line/Argument parsing",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "Argument parsing"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/cliparser",
+      "https://github.com/TeXitoi/structopt",
+      "https://github.com/aisk/rust-fire",
+      "https://github.com/clap-rs/clap",
+      "https://github.com/docopt/docopt.rs",
+      "https://github.com/google/argh",
+      "https://github.com/killercup/quicli",
+      "https://github.com/ksk001100/seahorse"
+    ],
+    "subtree_count": 8
+  },
+  {
+    "id": "cat:Libraries/Command-line/Data visualization",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "Data visualization"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/nukesor/comfy-table",
+      "https://github.com/zhiburt/tabled"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Command-line/Human-centered design",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "Human-centered design"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/rust-cli/human-panic"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Command-line/Line editor",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "Line editor"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/MovingtoMars/liner",
+      "https://github.com/kkawakam/rustyline",
+      "https://github.com/murarth/linefeed",
+      "https://github.com/nushell/reedline",
+      "https://github.com/srijs/rust-copperline"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Libraries/Command-line/Other",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "Other"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/mgrachev/update-informer"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Command-line/Pipeline",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "Pipeline"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/hniksic/rust-subprocess",
+      "https://github.com/oconnor663/duct.rs",
+      "https://github.com/rust-cli/rexpect",
+      "https://github.com/zhiburt/expectrl",
+      "https://gitlab.com/imp/pager-rs"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Libraries/Command-line/Progress",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "Progress"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/FGRibreau/spinners",
+      "https://github.com/a8m/pb",
+      "https://github.com/clitic/kdam",
+      "https://github.com/console-rs/indicatif",
+      "https://github.com/etienne-napoleone/spinach",
+      "https://github.com/vyfor/rattles"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Libraries/Command-line/Prompt",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "Prompt"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/hashmismatch/terminal_cli.rs",
+      "https://github.com/mikaelmello/inquire",
+      "https://github.com/ynqa/promkit",
+      "https://starship.rs/"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries/Command-line/Style",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "Style"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/LukasKalbertodt/bunt",
+      "https://github.com/LukasKalbertodt/term-painter",
+      "https://github.com/SergioBenitez/yansi",
+      "https://github.com/colored-rs/colored",
+      "https://github.com/console-rs/dialoguer",
+      "https://github.com/ogham/rust-ansi-term"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Libraries/Command-line/TUI",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "TUI"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/ruterm",
+      "https://github.com/ccbrown/iocraft",
+      "https://github.com/crossterm-rs/crossterm",
+      "https://github.com/gdt050579/AppCUI-rs",
+      "https://github.com/gyscos/Cursive",
+      "https://github.com/ivanceras/titik",
+      "https://github.com/ogham/rust-term-grid",
+      "https://github.com/ratatui/ratatui",
+      "https://github.com/redox-os/termion",
+      "https://github.com/subinium/SuperLightTUI"
+    ],
+    "subtree_count": 14
+  },
+  {
+    "id": "cat:Libraries/Command-line/TUI/BearLibTerminal",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "TUI",
+      "BearLibTerminal"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/nabijaczleweli/BearLibTerminal.rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Command-line/TUI/Termbox",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "TUI",
+      "Termbox"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/gchp/rustbox"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Command-line/TUI/ncurses",
+    "path": [
+      "Libraries",
+      "Command-line",
+      "TUI",
+      "ncurses"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/ihalila/pancurses",
+      "https://github.com/jeaye/ncurses-rs"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Compression",
+    "path": [
+      "Libraries",
+      "Compression"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/roquess/paxit"
+    ],
+    "subtree_count": 11
+  },
+  {
+    "id": "cat:Libraries/Compression/7z",
+    "path": [
+      "Libraries",
+      "Compression",
+      "7z"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/sevenz-rust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Compression/Brotli",
+    "path": [
+      "Libraries",
+      "Compression",
+      "Brotli"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/dropbox/rust-brotli",
+      "https://github.com/ende76/brotli-rs"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Compression/bzip2",
+    "path": [
+      "Libraries",
+      "Compression",
+      "bzip2"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/trifectatechfoundation/bzip2-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Compression/gzip",
+    "path": [
+      "Libraries",
+      "Compression",
+      "gzip"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/zopfli-rs/zopfli"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Compression/gzp",
+    "path": [
+      "Libraries",
+      "Compression",
+      "gzp"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/sstadick/gzp/"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Compression/miniz",
+    "path": [
+      "Libraries",
+      "Compression",
+      "miniz"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/rust-lang/flate2-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Compression/tar",
+    "path": [
+      "Libraries",
+      "Compression",
+      "tar"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/alexcrichton/tar-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Compression/zip",
+    "path": [
+      "Libraries",
+      "Compression",
+      "zip"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/zip-rs/zip2"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Compression/zstd",
+    "path": [
+      "Libraries",
+      "Compression",
+      "zstd"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/gyscos/zstd-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Computation",
+    "path": [
+      "Libraries",
+      "Computation"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/alphaville/optimization-engine",
+      "https://github.com/argmin-rs/argmin",
+      "https://github.com/calebwin/emu",
+      "https://github.com/dimforge/nalgebra",
+      "https://github.com/jolars/basin",
+      "https://github.com/neogenie/fastnum",
+      "https://github.com/sarah-quinones/faer-rs"
+    ],
+    "subtree_count": 19
+  },
+  {
+    "id": "cat:Libraries/Computation/BLAS",
+    "path": [
+      "Libraries",
+      "Computation",
+      "BLAS"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/mikkyang/rust-blas"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Computation/GSL",
+    "path": [
+      "Libraries",
+      "Computation",
+      "GSL"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/GuillaumeGomez/rust-GSL"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Computation/LAPACK",
+    "path": [
+      "Libraries",
+      "Computation",
+      "LAPACK"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/blas-lapack-rs/lapack"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Computation/Parallel",
+    "path": [
+      "Libraries",
+      "Computation",
+      "Parallel"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/arrayfire/arrayfire-rust",
+      "https://github.com/autumnai/collenchyma",
+      "https://github.com/luqmana/rust-opencl"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Computation/Science",
+    "path": [
+      "Libraries",
+      "Computation",
+      "Science"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Axect/Peroxide",
+      "https://github.com/Nonanti/mathcore",
+      "https://github.com/Ryan-D-Gast/differential-equations",
+      "https://github.com/cool-japan/scirs",
+      "https://github.com/cpmech/russell"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Libraries/Computation/Statrs",
+    "path": [
+      "Libraries",
+      "Computation",
+      "Statrs"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/statrs-dev/statrs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Concurrency",
+    "path": [
+      "Libraries",
+      "Concurrency"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/orx-parallel",
+      "https://github.com/NikitaSmithTheOne/rate-limiters-rs",
+      "https://github.com/crossbeam-rs/crossbeam",
+      "https://github.com/orium/archery",
+      "https://github.com/rayon-rs/rayon",
+      "https://github.com/rustcc/coroutine-rs",
+      "https://github.com/zonyitoo/coio-rs"
+    ],
+    "subtree_count": 7
+  },
+  {
+    "id": "cat:Libraries/Configuration",
+    "path": [
+      "Libraries",
+      "Configuration"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/Kixunil/configure_me",
+      "https://github.com/SergioBenitez/Figment",
+      "https://github.com/andoriyu/uclicious",
+      "https://github.com/leptonyu/cfg-rs",
+      "https://github.com/rust-cli/config-rs",
+      "https://github.com/softprops/envy"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Libraries/Cryptography",
+    "path": [
+      "Libraries",
+      "Cryptography"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/DaGenix/rust-crypto",
+      "https://github.com/RustCrypto/hashes",
+      "https://github.com/arkworks-rs/circom-compat",
+      "https://github.com/briansmith/ring",
+      "https://github.com/briansmith/webpki",
+      "https://github.com/conradkleinespel/rooster",
+      "https://github.com/cossacklabs/themis",
+      "https://github.com/dalek-cryptography/curve25519-dalek",
+      "https://github.com/debris/tiny-keccak",
+      "https://github.com/dusk-network/Poseidon252",
+      "https://github.com/dusk-network/bls12_381",
+      "https://github.com/dusk-network/plonk/",
+      "https://github.com/exonum/exonum",
+      "https://github.com/facebook/opaque-ke",
+      "https://github.com/hamzaydia/verifyfetch",
+      "https://github.com/iddm/randomorg",
+      "https://github.com/klutzy/suruga",
+      "https://github.com/kn0sys/ecc-rs",
+      "https://github.com/kornelski/rust-security-framework",
+      "https://github.com/libOctavo/octavo",
+      "https://github.com/orion-rs/orion",
+      "https://github.com/paritytech/schnorrkel",
+      "https://github.com/racum/rust-djangohashers",
+      "https://github.com/rust-native-tls/rust-native-tls",
+      "https://github.com/rust-openssl/rust-openssl",
+      "https://github.com/rust-random/rand",
+      "https://github.com/rustls/rustls",
+      "https://github.com/sorairolake/abcrypt",
+      "https://github.com/sorairolake/scryptenc-rs"
+    ],
+    "subtree_count": 29
+  },
+  {
+    "id": "cat:Libraries/Data processing",
+    "path": [
+      "Libraries",
+      "Data processing"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/DataBora/elusion",
+      "https://github.com/GoPlasmatic/datalogic-rs",
+      "https://github.com/amv-dev/yata",
+      "https://github.com/apache/datafusion",
+      "https://github.com/ironcalc/IronCalc",
+      "https://github.com/kernelmachine/utah",
+      "https://github.com/lakehq/sail",
+      "https://github.com/logisky/LogiSheets",
+      "https://github.com/openooxml/betteroffice",
+      "https://github.com/paradedb/paradedb/tree/dev/pg_analytics",
+      "https://github.com/paradedb/paradedb/tree/dev/pg_lakehouse",
+      "https://github.com/pathwaycom/pathway",
+      "https://github.com/pola-rs/polars",
+      "https://github.com/rust-ndarray/ndarray",
+      "https://github.com/weld-project/weld"
+    ],
+    "subtree_count": 15
+  },
+  {
+    "id": "cat:Libraries/Data streaming",
+    "path": [
+      "Libraries",
+      "Data streaming"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/ArroyoSystems/arroyo",
+      "https://github.com/apache/iggy",
+      "https://github.com/arkflow-rs/arkflow",
+      "https://github.com/beava-dev/beava",
+      "https://github.com/fluvio-community/fluvio",
+      "https://github.com/wingfoil-io/wingfoil"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Libraries/Data structures",
+    "path": [
+      "Libraries",
+      "Data structures"
+    ],
+    "depth": 2,
+    "members": [
+      "https://codeberg.org/sugar700/enum-map",
+      "https://github.com/RoaringBitmap/roaring-rs",
+      "https://github.com/alrevuelta/rs-merkle-tree",
+      "https://github.com/ashvardanian/NumKong",
+      "https://github.com/becheran/grid",
+      "https://github.com/billyevans/tst",
+      "https://github.com/contain-rs",
+      "https://github.com/danielpclark/array_tool",
+      "https://github.com/fizyk20/generic-array",
+      "https://github.com/garro95/priority-queue",
+      "https://github.com/greyblake/nutype",
+      "https://github.com/jeromefroe/lru-rs",
+      "https://github.com/mikwielgus/undoredo",
+      "https://github.com/mrhooray/kdtree-rs",
+      "https://github.com/orium/rpds",
+      "https://github.com/rust-itertools/itertools",
+      "https://github.com/tnballo/scapegoat",
+      "https://github.com/yamafaktory/hypergraph"
+    ],
+    "subtree_count": 18
+  },
+  {
+    "id": "cat:Libraries/Data visualization",
+    "path": [
+      "Libraries",
+      "Data visualization"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/blitzarx1/egui_graphs",
+      "https://github.com/cpmech/plotpy",
+      "https://github.com/djduque/pgfplots",
+      "https://github.com/mazznoer/colorgrad-rs",
+      "https://github.com/milliams/plotlib",
+      "https://github.com/plotly/plotly.rs",
+      "https://github.com/plotters-rs/plotters",
+      "https://github.com/rerun-io/rerun",
+      "https://github.com/saresend/Gust",
+      "https://github.com/shergin/malevich",
+      "https://github.com/wangjiawen2013/charton"
+    ],
+    "subtree_count": 11
+  },
+  {
+    "id": "cat:Libraries/Database",
+    "path": [
+      "Libraries",
+      "Database"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/sfackler/r2d2",
+      "https://venndb.plabayo.tech/"
+    ],
+    "subtree_count": 51
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL"
+    ],
+    "depth": 3,
+    "members": [],
+    "subtree_count": 28
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/ArangoDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "ArangoDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/fMeow/arangors",
+      "https://gitlab.com/qonfucius/aragog"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/Cassandra",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "Cassandra"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/AlexPikalov/cdrs",
+      "https://github.com/cassandra-rs/cassandra-rs",
+      "https://github.com/krojew/cdrs-tokio"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/Cassandra/krojew/cdrs-tokio",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "Cassandra",
+      "krojew",
+      "cdrs-tokio"
+    ],
+    "depth": 6,
+    "members": [
+      "https://crates.io/crates/cassandra-protocol",
+      "https://crates.io/crates/cdrs-tokio"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/CouchDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "CouchDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/chill-rs/chill"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/DynamoDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "DynamoDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/softprops/dynomite"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/Elasticsearch",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "Elasticsearch"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/benashford/rs-es",
+      "https://github.com/elastic-rs/elastic"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/InfluxDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "InfluxDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/driftluo/InfluxDBClient-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/LMDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "LMDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/meilisearch/heed",
+      "https://github.com/vhbit/lmdb-rs"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/LevelDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "LevelDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/skade/leveldb"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/MongoDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "MongoDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/mongodb/mongo-rust-driver"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/MongrelDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "MongrelDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/visorcraft/MongrelDB"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/PickleDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "PickleDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/seladb/pickledb-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/PoloDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "PoloDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/PoloDB/PoloDB"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/Redb",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "Redb"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/cberner/redb"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/Redis",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "Redis"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/aembke/fred.rs",
+      "https://github.com/redis-rs/redis-rs"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/RocksDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "RocksDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/rust-rocksdb/rust-rocksdb"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/SurrealDB",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "SurrealDB"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/surrealdb/surrealdb"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/UnQLite",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "UnQLite"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/zitsen/unqlite.rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/ZooKeeper",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "ZooKeeper"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/bonifaido/rust-zookeeper",
+      "https://github.com/krojew/rust-zookeeper"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Database/NoSQL/etcd",
+    "path": [
+      "Libraries",
+      "Database",
+      "NoSQL",
+      "etcd"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/jimmycuadra/rust-etcd"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/OGM",
+    "path": [
+      "Libraries",
+      "Database",
+      "OGM"
+    ],
+    "depth": 3,
+    "members": [
+      "https://gitlab.com/qonfucius/aragog"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/ORM",
+    "path": [
+      "Libraries",
+      "Database",
+      "ORM"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/SeaQL/sea-orm",
+      "https://github.com/SeaQL/seaography",
+      "https://github.com/ayarotsky/diesel-guard",
+      "https://github.com/diesel-rs/diesel",
+      "https://github.com/ivanceras/rustorm",
+      "https://github.com/njord-rs/njord",
+      "https://github.com/rbatis/rbatis",
+      "https://github.com/thegenius/taitan-orm"
+    ],
+    "subtree_count": 8
+  },
+  {
+    "id": "cat:Libraries/Database/SQL",
+    "path": [
+      "Libraries",
+      "Database",
+      "SQL"
+    ],
+    "depth": 3,
+    "members": [],
+    "subtree_count": 12
+  },
+  {
+    "id": "cat:Libraries/Database/SQL/Generic",
+    "path": [
+      "Libraries",
+      "Database",
+      "SQL",
+      "Generic"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/SeaQL/sea-query",
+      "https://github.com/SeaQL/sea-schema",
+      "https://github.com/launchbadge/sqlx"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Database/SQL/Microsoft SQL",
+    "path": [
+      "Libraries",
+      "Database",
+      "SQL",
+      "Microsoft SQL"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/prisma/tiberius"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/SQL/MySql",
+    "path": [
+      "Libraries",
+      "Database",
+      "SQL",
+      "MySql"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/AgilData/mysql-proxy-rs",
+      "https://github.com/blackbeam/mysql_async",
+      "https://github.com/blackbeam/rust-mysql-simple"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Database/SQL/Oracle",
+    "path": [
+      "Libraries",
+      "Database",
+      "SQL",
+      "Oracle"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/kubo/rust-oracle"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Database/SQL/PostgreSql",
+    "path": [
+      "Libraries",
+      "Database",
+      "SQL",
+      "PostgreSql"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/c410-f3r/wtx",
+      "https://github.com/isdaniel/pg-walstream",
+      "https://github.com/rust-postgres/rust-postgres"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Database/SQL/Sqlite",
+    "path": [
+      "Libraries",
+      "Database",
+      "SQL",
+      "Sqlite"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/rusqlite/rusqlite"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Date and time",
+    "path": [
+      "Libraries",
+      "Date and time"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/BurntSushi/jiff",
+      "https://github.com/Mnwa/ms",
+      "https://github.com/arthurhenrique/rusti-cal",
+      "https://github.com/chronotope/chrono",
+      "https://github.com/sorairolake/nt-time",
+      "https://github.com/time-rs/time"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Libraries/Distributed systems",
+    "path": [
+      "Libraries",
+      "Distributed systems"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 7
+  },
+  {
+    "id": "cat:Libraries/Distributed systems/Antimony",
+    "path": [
+      "Libraries",
+      "Distributed systems",
+      "Antimony"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/antimonyproject/antimony"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Distributed systems/Apache Kafka",
+    "path": [
+      "Libraries",
+      "Distributed systems",
+      "Apache Kafka"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/fede1024/rust-rdkafka",
+      "https://github.com/gklijs/schema_registry_converter",
+      "https://github.com/kafka-rust/kafka-rust"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Distributed systems/HDFS",
+    "path": [
+      "Libraries",
+      "Distributed systems",
+      "HDFS"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/hyunsik/hdfs-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Distributed systems/Other",
+    "path": [
+      "Libraries",
+      "Distributed systems",
+      "Other"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/build-trust/ockam",
+      "https://github.com/zannis/shove"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Domain driven design",
+    "path": [
+      "Libraries",
+      "Domain driven design"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/serverlesstechnology/cqrs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Email",
+    "path": [
+      "Libraries",
+      "Email"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/duesee/imap-codec",
+      "https://github.com/gsquire/sendgrid-rs",
+      "https://github.com/jdrouet/catapulte",
+      "https://github.com/jdrouet/jolimail",
+      "https://github.com/jdrouet/mrml",
+      "https://github.com/lettre/lettre",
+      "https://github.com/mailtutan/mailtutan",
+      "https://github.com/meli/meli",
+      "https://github.com/reacherhq/check-if-email-exists",
+      "https://github.com/rustmailer/bichon",
+      "https://github.com/staktrace/mailparse",
+      "https://github.com/stalwartlabs/mail-auth",
+      "https://github.com/stalwartlabs/mail-parser",
+      "https://github.com/stalwartlabs/mail-send",
+      "https://github.com/tweedegolf/mailcrab"
+    ],
+    "subtree_count": 15
+  },
+  {
+    "id": "cat:Libraries/Encoding",
+    "path": [
+      "Libraries",
+      "Encoding"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/vitiral/stfu8"
+    ],
+    "subtree_count": 43
+  },
+  {
+    "id": "cat:Libraries/Encoding/ASN.1",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "ASN.1"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/alex/rust-asn1"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/BSON",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "BSON"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/mongodb/bson-rust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/Binary",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "Binary"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/bincode",
+      "https://crates.io/crates/bincode-next",
+      "https://github.com/jamesmunns/postcard",
+      "https://github.com/m4b/goblin"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries/Encoding/Byte swapping",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "Byte swapping"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/BurntSushi/byteorder"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/CBOR",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "CBOR"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/serde_cbor"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/CRC",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "CRC"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/mrhooray/crc-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/CSV",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "CSV"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/BurntSushi/rust-csv"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/Cap'n Proto",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "Cap'n Proto"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/capnproto/capnproto-rust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/Character Encoding",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "Character Encoding"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/hsivonen/encoding_rs",
+      "https://github.com/lifthrasiir/rust-encoding"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Encoding/EDN",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "EDN"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/naomijub/edn-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/FlatBuffers",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "FlatBuffers"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/frol/flatc-rust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/HAR",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "HAR"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/mandrean/har-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/HTML",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "HTML"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/servo/html5ever"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/JSON",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "JSON"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/cloudwego/sonic-rs",
+      "https://github.com/importcjj/rust-ajson",
+      "https://github.com/rustadopt/jzon-rs/",
+      "https://github.com/serde-rs/json",
+      "https://github.com/simd-lite/simd-json",
+      "https://github.com/vcschapp/bufjson"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Libraries/Encoding/MsgPack",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "MsgPack"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/3Hren/msgpack-rust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/NetCDF",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "NetCDF"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/georust/netcdf"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/PEM",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "PEM"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/jcreekmore/pem-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/ProtocolBuffers",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "ProtocolBuffers"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/stepancheg/rust-protobuf",
+      "https://github.com/tokio-rs/prost"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Encoding/RON (Rusty Object Notation)",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "RON (Rusty Object Notation)"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/ron-rs/ron"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/Serde",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "Serde"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/iddm/serde-aux/"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Encoding/TOML",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "TOML"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/tamasfe/taplo",
+      "https://github.com/toml-rs/toml"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Encoding/XML",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "XML"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Florob/RustyXML",
+      "https://github.com/luminvent/yaserde",
+      "https://github.com/netvl/xml-rs",
+      "https://github.com/shepmaster/sxd-document",
+      "https://github.com/shepmaster/sxd-xpath",
+      "https://github.com/tafia/quick-xml"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Libraries/Encoding/YAML",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "YAML"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/bourumir-wyngs/serde-saphyr",
+      "https://github.com/chyh1990/yaml-rust",
+      "https://github.com/saphyr-rs/saphyr"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Encoding/rkyv",
+    "path": [
+      "Libraries",
+      "Encoding",
+      "rkyv"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/rkyv/rkyv"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Filesystem",
+    "path": [
+      "Libraries",
+      "Filesystem"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 12
+  },
+  {
+    "id": "cat:Libraries/Filesystem/Operations",
+    "path": [
+      "Libraries",
+      "Filesystem",
+      "Operations"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/ParthJadhav/Rust_Search",
+      "https://github.com/apache/opendal",
+      "https://github.com/camino-rs/camino",
+      "https://github.com/dmtrKovalenko/fff",
+      "https://github.com/dnbln/dir-structure",
+      "https://github.com/pop-os/dbus-udisks2",
+      "https://github.com/pop-os/sys-mount",
+      "https://github.com/vitiral/path_abs",
+      "https://github.com/webdesus/fs_extra"
+    ],
+    "subtree_count": 9
+  },
+  {
+    "id": "cat:Libraries/Filesystem/Temporary Files",
+    "path": [
+      "Libraries",
+      "Filesystem",
+      "Temporary Files"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Stebalien/tempfile",
+      "https://github.com/Stebalien/xattr",
+      "https://github.com/zboxfs/zbox"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Finance",
+    "path": [
+      "Libraries",
+      "Finance"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/avhz/RustQuant",
+      "https://github.com/d-e-s-o/apca",
+      "https://github.com/kand-ta/kand",
+      "https://github.com/rust-dd/stochastic-rs"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries/Functional Programming",
+    "path": [
+      "Libraries",
+      "Functional Programming"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Functional Programming/Prelude",
+    "path": [
+      "Libraries",
+      "Functional Programming",
+      "Prelude"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/JasonShin/fp-core.rs",
+      "https://github.com/myrrlyn/tap"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/GUI",
+    "path": [
+      "Libraries",
+      "GUI"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/FerrisMind/shadcn-rs",
+      "https://github.com/PistonDevelopers/conrod/",
+      "https://github.com/RibirX/Ribir",
+      "https://github.com/autopilot-rs/autopilot-rs",
+      "https://github.com/dioxuslabs/dioxus",
+      "https://github.com/emilk/egui",
+      "https://github.com/emoon/rust_minifb",
+      "https://github.com/euv-dev/euv",
+      "https://github.com/fschutt/azul",
+      "https://github.com/iced-rs/iced",
+      "https://github.com/ivanceras/sauron-native",
+      "https://github.com/linebender/xilem",
+      "https://github.com/longbridge/gpui-component",
+      "https://github.com/makepad/makepad",
+      "https://github.com/project-blinc/Blinc",
+      "https://github.com/redox-os/orbtk",
+      "https://github.com/rise-ui/rise",
+      "https://github.com/saurvs/nfd-rs",
+      "https://github.com/slint-ui/slint",
+      "https://github.com/tauri-apps/tauri",
+      "https://github.com/tauri-apps/wry"
+    ],
+    "subtree_count": 36
+  },
+  {
+    "id": "cat:Libraries/GUI/Cocoa",
+    "path": [
+      "Libraries",
+      "GUI",
+      "Cocoa"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/servo/core-foundation-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/GUI/FLTK",
+    "path": [
+      "Libraries",
+      "GUI",
+      "FLTK"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/fltk-rs/fltk-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/GUI/Flutter",
+    "path": [
+      "Libraries",
+      "GUI",
+      "Flutter"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/cunarist/rinf",
+      "https://github.com/flutter-rs/flutter-rs",
+      "https://github.com/fzyzcjy/flutter_rust_bridge"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/GUI/GTK+",
+    "path": [
+      "Libraries",
+      "GUI",
+      "GTK+"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/antoyo/relm",
+      "https://github.com/gtk-rs/gtk4-rs"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/GUI/IUP",
+    "path": [
+      "Libraries",
+      "GUI",
+      "IUP"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/KISS-UI/kiss-ui"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/GUI/ImGui",
+    "path": [
+      "Libraries",
+      "GUI",
+      "ImGui"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/imgui-rs/imgui-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/GUI/Nuklear",
+    "path": [
+      "Libraries",
+      "GUI",
+      "Nuklear"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/snuk182/nuklear-rust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/GUI/Qt",
+    "path": [
+      "Libraries",
+      "GUI",
+      "Qt"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/cyndis/qmlrs",
+      "https://github.com/rust-qt",
+      "https://github.com/woboq/qmetaobject-rs"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/GUI/Sciter",
+    "path": [
+      "Libraries",
+      "GUI",
+      "Sciter"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/sciter-sdk/rust-sciter"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/GUI/libui",
+    "path": [
+      "Libraries",
+      "GUI",
+      "libui"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/rust-native-ui/libui-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Game development",
+    "path": [
+      "Libraries",
+      "Game development"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/ozkriff/awesome-quads",
+      "https://github.com/rofrol/awesome-wgpu"
+    ],
+    "subtree_count": 31
+  },
+  {
+    "id": "cat:Libraries/Game development/Allegro",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Allegro"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/SiegeLord/RustAllegro"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Game development/Challonge",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Challonge"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/iddm/challonge-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Game development/Entity-Component Systems (ECS)",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Entity-Component Systems (ECS)"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/amethyst/legion",
+      "https://github.com/amethyst/specs"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Game development/Game Engines",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Game Engines"
+    ],
+    "depth": 3,
+    "members": [
+      "https://fyrox.rs/",
+      "https://github.com/AscendingCreations/AscendingGraphics",
+      "https://github.com/Ruddle/oxidator",
+      "https://github.com/bevyengine/bevy",
+      "https://github.com/dimforge/kiss3d",
+      "https://github.com/ggez/ggez",
+      "https://github.com/unrust/unrust",
+      "https://www.piston.rs/"
+    ],
+    "subtree_count": 8
+  },
+  {
+    "id": "cat:Libraries/Game development/Game Servers",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Game Servers"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/gamedig/rust-gamedig"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Game development/Godot",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Godot"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/adalinesimonian/gdvm",
+      "https://github.com/godot-rust/gdext",
+      "https://github.com/godot-rust/gdnative"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Game development/Minecraft",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Minecraft"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Steel-Foundation/SteelMC",
+      "https://github.com/bedrock-crustaceans/bedrock-rs",
+      "https://github.com/ferrumc-rs/ferrumc",
+      "https://github.com/pumpkin-mc/pumpkin"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries/Game development/Raylib",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Raylib"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/deltaphc/raylib-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Game development/SDL",
+    "path": [
+      "Libraries",
+      "Game development",
+      "SDL"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Rust-SDL2/rust-sdl2",
+      "https://github.com/brson/rust-sdl"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Game development/SFML",
+    "path": [
+      "Libraries",
+      "Game development",
+      "SFML"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/jeremyletang/rust-sfml"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Game development/Skillratings",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Skillratings"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/atomflunder/skillratings"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Game development/Tatami",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Tatami"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/giraffekey/tatami"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Game development/Toornament-rs",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Toornament-rs"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/iddm/toornament-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Game development/Victorem",
+    "path": [
+      "Libraries",
+      "Game development",
+      "Victorem"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/VictoremWinbringer/Victorem"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Game development/bracket-lib (previously RLTK)",
+    "path": [
+      "Libraries",
+      "Game development",
+      "bracket-lib (previously RLTK)"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/amethyst/bracket-lib"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Geospatial",
+    "path": [
+      "Libraries",
+      "Geospatial"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/DaveKram/coord_transforms",
+      "https://github.com/apache/sedona-db",
+      "https://github.com/georust",
+      "https://github.com/georust/geojson",
+      "https://github.com/gx0r/rrgeo",
+      "https://github.com/maplibre/martin",
+      "https://github.com/vlopes11/geomorph"
+    ],
+    "subtree_count": 7
+  },
+  {
+    "id": "cat:Libraries/Graph algorithms",
+    "path": [
+      "Libraries",
+      "Graph algorithms"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/neo4j-labs/graph",
+      "https://github.com/petgraph/petgraph"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Graphics",
+    "path": [
+      "Libraries",
+      "Graphics"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/gfx-rs/gfx",
+      "https://github.com/gfx-rs/wgpu"
+    ],
+    "subtree_count": 16
+  },
+  {
+    "id": "cat:Libraries/Graphics/Fonts",
+    "path": [
+      "Libraries",
+      "Graphics",
+      "Fonts"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/harfbuzz/rustybuzz",
+      "https://github.com/redox-os/rusttype"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Graphics/OpenGL",
+    "path": [
+      "Libraries",
+      "Graphics",
+      "OpenGL"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/glutin",
+      "https://github.com/PistonDevelopers/glfw-rs",
+      "https://github.com/glium/glium",
+      "https://github.com/rust-windowing/gl-rs"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries/Graphics/PDF",
+    "path": [
+      "Libraries",
+      "Graphics",
+      "PDF"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/J-F-Liu/lopdf",
+      "https://github.com/bastibense/libharu_ng",
+      "https://github.com/fschutt/printpdf",
+      "https://github.com/gastongouron/ironpress",
+      "https://github.com/kaj/rust-pdf",
+      "https://github.com/yfedoseev/pdf_oxide"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Libraries/Graphics/Vulkan",
+    "path": [
+      "Libraries",
+      "Graphics",
+      "Vulkan"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/vulkano-rs/vulkano",
+      "https://gitlab.com/Friz64/erupt"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Image processing",
+    "path": [
+      "Libraries",
+      "Image processing"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/Enet4/dicom-rs",
+      "https://github.com/abonander/img_hash",
+      "https://github.com/image-rs/image",
+      "https://github.com/image-rs/imageproc",
+      "https://github.com/marekm4/dominant_color",
+      "https://github.com/rust-cv/cv",
+      "https://github.com/teovoinea/steganography",
+      "https://github.com/twistedfall/opencv-rust"
+    ],
+    "subtree_count": 8
+  },
+  {
+    "id": "cat:Libraries/Language specification",
+    "path": [
+      "Libraries",
+      "Language specification"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/shnewto/bnf"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Licensing",
+    "path": [
+      "Libraries",
+      "Licensing"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/WyvernIXTL/license-fetcher"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Logging",
+    "path": [
+      "Libraries",
+      "Logging"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/donnie4w/tklog",
+      "https://github.com/estk/log4rs",
+      "https://github.com/fast/logforth",
+      "https://github.com/rbatis/fast_log",
+      "https://github.com/rust-lang/log",
+      "https://github.com/seanmonstar/pretty-env-logger",
+      "https://github.com/slog-rs/slog",
+      "https://github.com/tokio-rs/tracing"
+    ],
+    "subtree_count": 8
+  },
+  {
+    "id": "cat:Libraries/Macro",
+    "path": [
+      "Libraries",
+      "Macro"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/StardustDL/Linq-in-Rust",
+      "https://github.com/elastio/bon"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Macro/cute",
+    "path": [
+      "Libraries",
+      "Macro",
+      "cute"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/mattgathu/cute"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Markup language",
+    "path": [
+      "Libraries",
+      "Markup language"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/bruits/satteri",
+      "https://github.com/insomnimus/tidier"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Markup language/CommonMark",
+    "path": [
+      "Libraries",
+      "Markup language",
+      "CommonMark"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/pulldown-cmark/pulldown-cmark"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Mobile",
+    "path": [
+      "Libraries",
+      "Mobile"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries/Mobile/Android / iOS",
+    "path": [
+      "Libraries",
+      "Mobile",
+      "Android ",
+      " iOS"
+    ],
+    "depth": 4,
+    "members": [
+      "https://github.com/ivnsch/rust_android_ios"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Mobile/Generic",
+    "path": [
+      "Libraries",
+      "Mobile",
+      "Generic"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Geal/rust_on_mobile",
+      "https://github.com/redbadger/crux"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Mobile/iOS",
+    "path": [
+      "Libraries",
+      "Mobile",
+      "iOS"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/TimNN/cargo-lipo"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming",
+    "path": [
+      "Libraries",
+      "Network programming"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 42
+  },
+  {
+    "id": "cat:Libraries/Network programming/Bluetooth",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "Bluetooth"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/bluez/bluer"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/CoAP",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "CoAP"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Covertness/coap-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/DNS",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "DNS"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/kweonminsung/bind9_rndc_rust"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/Docker",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "Docker"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/fussybeaver/bollard"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/FTP",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "FTP"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/mattnenterprise/rust-ftp"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/HTTP",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "HTTP"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/deboa",
+      "https://github.com/Orange-OpenSource/hurl"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Network programming/IPNetwork",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "IPNetwork"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/achanda/ipnetwork",
+      "https://github.com/canndrew/netsim"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Network programming/Low level",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "Low level"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/actix/actix",
+      "https://github.com/dylanmckay/protocol",
+      "https://github.com/libpnet/libpnet",
+      "https://github.com/smoltcp-rs/smoltcp"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries/Network programming/MQTT",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "MQTT"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/bytebeamio/rumqtt",
+      "https://github.com/rmqtt/rmqtt"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Network programming/NATS",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "NATS"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/nats-io/nats.rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/NNTP",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "NNTP"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/mattnenterprise/rust-nntp"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/NanoMsg",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "NanoMsg"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/thehydroimpulse/nanomsg.rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/Nng",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "Nng"
+    ],
+    "depth": 3,
+    "members": [
+      "https://gitlab.com/neachdainn/nng-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/P2P",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "P2P"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/libp2p/rust-libp2p",
+      "https://github.com/n0-computer/iroh"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Network programming/POP3",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "POP3"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/mattnenterprise/rust-pop3"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/QUIC",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "QUIC"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Tencent/tquic",
+      "https://github.com/aws/s2n-quic",
+      "https://github.com/cloudflare/quiche",
+      "https://github.com/mozilla/neqo",
+      "https://github.com/quinn-rs/quinn"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Libraries/Network programming/RPC",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "RPC"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/remoc-rs/remoc",
+      "https://github.com/smallnest/rpcx-rs"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Network programming/Raknet",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "Raknet"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/b23r0/rust-raknet"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/SIP",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "SIP"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/restsend/rsipstack"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/SSH",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "SSH"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/alexcrichton/ssh2-rs",
+      "https://pijul.org/thrussh"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Network programming/Socket.io",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "Socket.io"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/1c3t3a/rust-socketio"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/Stomp",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "Stomp"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/zslayton/stomp-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/VPN",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "VPN"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/DefGuard/wireguard-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/Zenoh",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "Zenoh"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/eclipse-zenoh-flow/zenoh-flow",
+      "https://github.com/eclipse-zenoh/zenoh"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Network programming/ZeroMQ",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "ZeroMQ"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/erickt/rust-zmq"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Network programming/gRPC",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "gRPC"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/hyperium/tonic",
+      "https://github.com/tikv/grpc-rs"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Network programming/message-io",
+    "path": [
+      "Libraries",
+      "Network programming",
+      "message-io"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/lemunozm/message-io"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Parsing",
+    "path": [
+      "Libraries",
+      "Parsing"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/stl_io",
+      "https://github.com/0xlane/pe-sign",
+      "https://github.com/Eliah-Lakhin/lady-deirdre",
+      "https://github.com/Folyd/robotstxt",
+      "https://github.com/Marwes/combine",
+      "https://github.com/cchexcode/wavefront_rs",
+      "https://github.com/comex/rust-shlex",
+      "https://github.com/firecrawl/pdf-inspector",
+      "https://github.com/freestrings/jsonpath",
+      "https://github.com/igumnoff/shiva",
+      "https://github.com/kevinmehall/rust-peg",
+      "https://github.com/lalrpop/lalrpop",
+      "https://github.com/m4rw3r/chomp",
+      "https://github.com/nrc/zero",
+      "https://github.com/ophi-dev/antlr-rust-runtime",
+      "https://github.com/oxc-project/oxc",
+      "https://github.com/pest-parser/pest",
+      "https://github.com/ptal/oak",
+      "https://github.com/run-llama/liteparse",
+      "https://github.com/rust-bakery/nom",
+      "https://github.com/s-panferov/queryst",
+      "https://github.com/slimreaper35/dockerfile-parser-rs",
+      "https://github.com/softdevteam/grmtools/",
+      "https://github.com/tree-sitter/tree-sitter",
+      "https://github.com/xberg-io/tree-sitter-language-pack"
+    ],
+    "subtree_count": 25
+  },
+  {
+    "id": "cat:Libraries/Peripherals",
+    "path": [
+      "Libraries",
+      "Peripherals"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/Michael-A-Kuykendall/crabcamera",
+      "https://github.com/esp-rs/esp-hal"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries/Peripherals/Fingerprint reader",
+    "path": [
+      "Libraries",
+      "Peripherals",
+      "Fingerprint reader"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/alvaroparker/libfprint-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Peripherals/Serial Port",
+    "path": [
+      "Libraries",
+      "Peripherals",
+      "Serial Port"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/serialport/serialport-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Platform specific",
+    "path": [
+      "Libraries",
+      "Platform specific"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 11
+  },
+  {
+    "id": "cat:Libraries/Platform specific/Cross-platform",
+    "path": [
+      "Libraries",
+      "Platform specific",
+      "Cross-platform"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/battery",
+      "https://github.com/iddm/thread-priority/"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Platform specific/FreeBSD",
+    "path": [
+      "Libraries",
+      "Platform specific",
+      "FreeBSD"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/fubarnetes/libjail-rs/"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Platform specific/Linux",
+    "path": [
+      "Libraries",
+      "Platform specific",
+      "Linux"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/hannobraun/inotify-rs",
+      "https://github.com/pop-os/distinst/",
+      "https://github.com/yaa110/rust-iptables"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Platform specific/Unix-like",
+    "path": [
+      "Libraries",
+      "Platform specific",
+      "Unix-like"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/bytecodealliance/rustix",
+      "https://github.com/nix-rust/nix",
+      "https://github.com/zargony/fuse-rs"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Libraries/Platform specific/Windows",
+    "path": [
+      "Libraries",
+      "Platform specific",
+      "Windows"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/microsoft/windows-rs",
+      "https://github.com/retep998/winapi-rs"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Reverse engineering",
+    "path": [
+      "Libraries",
+      "Reverse engineering"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/c3rb3ru5d3d53c/binlex",
+      "https://github.com/encounter/objdiff",
+      "https://github.com/idalib-rs/idalib",
+      "https://github.com/pionxzh/wakaru"
+    ],
+    "subtree_count": 4
+  },
+  {
+    "id": "cat:Libraries/Scripting",
+    "path": [
+      "Libraries",
+      "Scripting"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/duckscript",
+      "https://github.com/PistonDevelopers/dyon",
+      "https://github.com/boa-dev/boa",
+      "https://github.com/cel-rust/cel-rust",
+      "https://github.com/facebook/starlark-rust",
+      "https://github.com/fleabitdev/glsp",
+      "https://github.com/giraffekey/xylo",
+      "https://github.com/gluon-lang/gluon",
+      "https://github.com/kcl-lang/kcl",
+      "https://github.com/kyren/piccolo",
+      "https://github.com/metacall/core",
+      "https://github.com/mun-lang/mun",
+      "https://github.com/murarth/ketos",
+      "https://github.com/rhaiscript/rhai",
+      "https://github.com/rune-rs/rune",
+      "https://github.com/rustq/3body-lang",
+      "https://github.com/trynova/nova"
+    ],
+    "subtree_count": 17
+  },
+  {
+    "id": "cat:Libraries/Simulation",
+    "path": [
+      "Libraries",
+      "Simulation"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/nyx-space",
+      "https://github.com/rsasaki0109/rust_robotics"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Social networks",
+    "path": [
+      "Libraries",
+      "Social networks"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Social networks/Telegram",
+    "path": [
+      "Libraries",
+      "Social networks",
+      "Telegram"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/FedericoBruzzone/tdlib-rs"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/System",
+    "path": [
+      "Libraries",
+      "System"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/GuillaumeGomez/sysinfo",
+      "https://github.com/Phate6660/nixinfo",
+      "https://github.com/ardaku/whoami",
+      "https://github.com/navidys/procsys",
+      "https://github.com/sorairolake/sysexits-rs"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Libraries/Task scheduling",
+    "path": [
+      "Libraries",
+      "Task scheduling"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/BinChengZhao/delay-timer",
+      "https://github.com/rustmailer/persistent-scheduler"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Template engine",
+    "path": [
+      "Libraries",
+      "Template engine"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 8
+  },
+  {
+    "id": "cat:Libraries/Template engine/HTML",
+    "path": [
+      "Libraries",
+      "Template engine",
+      "HTML"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Keats/tera",
+      "https://github.com/Stebalien/horrorshow-rs",
+      "https://github.com/askama-rs/askama",
+      "https://github.com/kaj/ructe",
+      "https://github.com/lambda-fairy/maud"
+    ],
+    "subtree_count": 5
+  },
+  {
+    "id": "cat:Libraries/Template engine/Handlebars",
+    "path": [
+      "Libraries",
+      "Template engine",
+      "Handlebars"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/sunng87/handlebars-rust",
+      "https://github.com/zzau13/yarte"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Template engine/Mustache",
+    "path": [
+      "Libraries",
+      "Template engine",
+      "Mustache"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/rustache/rustache"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Text processing",
+    "path": [
+      "Libraries",
+      "Text processing"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/strsim",
+      "https://github.com/BurntSushi/suffix",
+      "https://github.com/BurntSushi/tabwriter",
+      "https://github.com/Daniel-Liu-c0deb0t/triple_accel",
+      "https://github.com/Lucretiel/joinery",
+      "https://github.com/becheran/wildmatch",
+      "https://github.com/fancy-regex/fancy-regex",
+      "https://github.com/greyblake/whatlang-rs",
+      "https://github.com/mgeisler/textwrap",
+      "https://github.com/null8626/decancer",
+      "https://github.com/probablykasper/cpc",
+      "https://github.com/ps1dr3x/easy_reader",
+      "https://github.com/pwoolcoc/ngrams",
+      "https://github.com/rust-lang/regex",
+      "https://github.com/xberg-io/html-to-markdown",
+      "https://github.com/xberg-io/xberg",
+      "https://github.com/yaa110/rake-rs"
+    ],
+    "subtree_count": 17
+  },
+  {
+    "id": "cat:Libraries/Text search",
+    "path": [
+      "Libraries",
+      "Text search"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/BurntSushi/fst",
+      "https://github.com/CurrySoftware/perlin",
+      "https://github.com/SeekStorm/SeekStorm",
+      "https://github.com/andylokandy/simsearch",
+      "https://github.com/meilisearch/MeiliSearch",
+      "https://github.com/paradedb/paradedb/tree/dev/pg_search",
+      "https://github.com/quickwit-oss/tantivy"
+    ],
+    "subtree_count": 7
+  },
+  {
+    "id": "cat:Libraries/Unsafe",
+    "path": [
+      "Libraries",
+      "Unsafe"
+    ],
+    "depth": 2,
+    "members": [
+      "https://crates.io/crates/zerocopy"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Video",
+    "path": [
+      "Libraries",
+      "Video"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/doom-fish/screencapturekit-rs",
+      "https://github.com/nathanbabcock/ffmpeg-sidecar"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Libraries/Virtualization",
+    "path": [
+      "Libraries",
+      "Virtualization"
+    ],
+    "depth": 2,
+    "members": [
+      "https://chromium.googlesource.com/chromiumos/platform/crosvm/",
+      "https://github.com/beneills/quantum",
+      "https://github.com/bytecodealliance/wasmtime",
+      "https://github.com/capsulerun/capsule",
+      "https://github.com/oxidecomputer/propolis",
+      "https://github.com/saurvs/hypervisor-rs",
+      "https://github.com/smol-machines/smolvm",
+      "https://github.com/wasmi-labs/wasmi"
+    ],
+    "subtree_count": 8
+  },
+  {
+    "id": "cat:Libraries/Web programming",
+    "path": [
+      "Libraries",
+      "Web programming"
+    ],
+    "depth": 2,
+    "members": [],
+    "subtree_count": 83
+  },
+  {
+    "id": "cat:Libraries/Web programming/Backend",
+    "path": [
+      "Libraries",
+      "Web programming",
+      "Backend"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/Tuntii/RustAPI",
+      "https://github.com/actix/actix-web",
+      "https://github.com/rust-dd/tako",
+      "https://github.com/rwf2/Rocket",
+      "https://github.com/saru-tora/anansi",
+      "https://github.com/summer-rs/summer-rs",
+      "https://github.com/tokio-rs/axum",
+      "https://github.com/tokio-rs/topcoat"
+    ],
+    "subtree_count": 8
+  },
+  {
+    "id": "cat:Libraries/Web programming/Client-side / WASM",
+    "path": [
+      "Libraries",
+      "Web programming",
+      "Client-side ",
+      " WASM"
+    ],
+    "depth": 4,
+    "members": [
+      "https://crates.io/crates/cargo-web",
+      "https://crates.io/crates/stdweb",
+      "https://crates.io/crates/yew",
+      "https://github.com/LiveDuo/tinyweb",
+      "https://github.com/ivanceras/sauron",
+      "https://github.com/leptos-rs/leptos",
+      "https://github.com/seed-rs/seed",
+      "https://github.com/synphonyte/leptos-use",
+      "https://github.com/thaw-ui/thaw"
+    ],
+    "subtree_count": 9
+  },
+  {
+    "id": "cat:Libraries/Web programming/HTTP Client",
+    "path": [
+      "Libraries",
+      "Web programming",
+      "HTTP Client"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/0x676e67/wreq",
+      "https://github.com/alexcrichton/curl-rust",
+      "https://github.com/async-graphql/async-graphql",
+      "https://github.com/c410-f3r/wtx",
+      "https://github.com/ducaale/xh",
+      "https://github.com/graphql-rust/graphql-client",
+      "https://github.com/hyperium/hyper",
+      "https://github.com/plabayo/rama",
+      "https://github.com/seanmonstar/reqwest",
+      "https://gitlab.com/Douman/yukikaze"
+    ],
+    "subtree_count": 10
+  },
+  {
+    "id": "cat:Libraries/Web programming/HTTP Server",
+    "path": [
+      "Libraries",
+      "Web programming",
+      "HTTP Server"
+    ],
+    "depth": 3,
+    "members": [
+      "https://crates.io/crates/branca",
+      "https://github.com/GildedHonour/frank_jwt",
+      "https://github.com/c410-f3r/wtx",
+      "https://github.com/carllerche/tower-web",
+      "https://github.com/cot-rs/cot",
+      "https://github.com/gotham-rs/gotham",
+      "https://github.com/graphql-rust/juniper",
+      "https://github.com/graphul-rs/graphul",
+      "https://github.com/hyperium/hyper",
+      "https://github.com/iron/iron",
+      "https://github.com/miketang84/sapper",
+      "https://github.com/nickel-org/nickel.rs/",
+      "https://github.com/plabayo/rama",
+      "https://github.com/poem-web/poem",
+      "https://github.com/richerarc/saphir",
+      "https://github.com/rustless/rustless",
+      "https://github.com/salvo-rs/salvo",
+      "https://github.com/seanmonstar/warp",
+      "https://github.com/sunng87/handlebars-rust",
+      "https://github.com/tiny-http/tiny-http",
+      "https://github.com/tomaka/rouille",
+      "https://github.com/zino-rs/zino"
+    ],
+    "subtree_count": 22
+  },
+  {
+    "id": "cat:Libraries/Web programming/Miscellaneous",
+    "path": [
+      "Libraries",
+      "Web programming",
+      "Miscellaneous"
+    ],
+    "depth": 3,
+    "members": [
+      "https://git.sr.ht/~pyrossh/rust-embed",
+      "https://github.com/Goldziher/spikard",
+      "https://github.com/ProbablyClem/utoipauto",
+      "https://github.com/cargonauts-rs/cargonauts",
+      "https://github.com/edezhic/prest",
+      "https://github.com/hominee/dyer",
+      "https://github.com/juhaku/utoipa",
+      "https://github.com/osohq/oso",
+      "https://github.com/rust-scraper/scraper",
+      "https://github.com/serenity-rs/serenity",
+      "https://github.com/softprops/openapi",
+      "https://github.com/svix/svix-webhooks",
+      "https://github.com/teloxide/teloxide/",
+      "https://github.com/thewh1teagle/rookie",
+      "https://github.com/tu6ge/valitron",
+      "https://github.com/utkarshkukreti/select.rs",
+      "https://github.com/xberg-io/crawlberg",
+      "https://gitlab.com/SnejUgal/tbot",
+      "https://gitlab.com/pwoolcoc/soup"
+    ],
+    "subtree_count": 19
+  },
+  {
+    "id": "cat:Libraries/Web programming/Reverse Proxy",
+    "path": [
+      "Libraries",
+      "Web programming",
+      "Reverse Proxy"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/sozu-proxy/sozu"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Libraries/Web programming/Static Site Generators",
+    "path": [
+      "Libraries",
+      "Web programming",
+      "Static Site Generators"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/FuGangqiang/mdblog.rs",
+      "https://github.com/cobalt-org/cobalt.rs",
+      "https://github.com/getzola/zola",
+      "https://github.com/grego/blades",
+      "https://github.com/leven-the-blog/leven",
+      "https://github.com/rochacbruno/marmite/"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Libraries/Web programming/WebSocket",
+    "path": [
+      "Libraries",
+      "Web programming",
+      "WebSocket"
+    ],
+    "depth": 3,
+    "members": [
+      "https://github.com/c410-f3r/wtx",
+      "https://github.com/graphform/ratchet",
+      "https://github.com/housleyjk/ws-rs",
+      "https://github.com/iddm/urlshortener-rs",
+      "https://github.com/rerun-io/ewebsock",
+      "https://github.com/snapview/tungstenite-rs",
+      "https://github.com/vi/websocat",
+      "https://github.com/websockets-rs/rust-websocket"
+    ],
+    "subtree_count": 8
+  },
+  {
+    "id": "cat:Libraries/eBPF",
+    "path": [
+      "Libraries",
+      "eBPF"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/aya-rs/aya",
+      "https://github.com/libbpf/libbpf-rs"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Registries",
+    "path": [
+      "Registries"
+    ],
+    "depth": 1,
+    "members": [
+      "https://cloudsmith.com/product/formats/cargo-registry",
+      "https://crates.io",
+      "https://github.com/cenotelie/cratery",
+      "https://github.com/getnora-io/nora",
+      "https://github.com/w4/chartered",
+      "https://www.repoflow.io"
+    ],
+    "subtree_count": 6
+  },
+  {
+    "id": "cat:Resources",
+    "path": [
+      "Resources"
+    ],
+    "depth": 1,
+    "members": [
+      "http://aturon.github.io/",
+      "https://github.com/rust-unofficial/patterns",
+      "https://github.com/rustviz/rustviz",
+      "https://github.com/sger/RustBooks",
+      "https://github.com/yevh/rust-security-handbook",
+      "https://medium.com/rustaceans/make-it-mandatory-a-brief-history-of-rust-part-1-805459c60c6b",
+      "https://www.manning.com/books/rust-servers-services-and-apps",
+      "https://www.reddit.com/r/rust/",
+      "https://www.youtube.com/playlist?list=PLE7tQUdRKcybdIw61JpCoo89i4pWU5f_t",
+      "https://www.youtube.com/watch?v=jf_ddGnum_4"
+    ],
+    "subtree_count": 58
+  },
+  {
+    "id": "cat:Resources/Arts",
+    "path": [
+      "Resources",
+      "Arts"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/MariaLetta/free-ferris-pack"
+    ],
+    "subtree_count": 1
+  },
+  {
+    "id": "cat:Resources/Benchmarks",
+    "path": [
+      "Resources",
+      "Benchmarks"
+    ],
+    "depth": 2,
+    "members": [
+      "https://github.com/TeXitoi/benchmarksgame-rs",
+      "https://github.com/c410-f3r/wtx-bench"
+    ],
+    "subtree_count": 2
+  },
+  {
+    "id": "cat:Resources/Decks & Presentations",
+    "path": [
+      "Resources",
+      "Decks & Presentations"
+    ],
+    "depth": 2,
+    "members": [
+      "https://speakerdeck.com/jvns/learning-systems-programming-with-rust",
+      "https://www.youtube.com/watch?v=lO1z-7cuRYI",
+      "https://www.youtube.com/watch?v=t4CyEKb-ywA"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Resources/Learning",
+    "path": [
+      "Resources",
+      "Learning"
+    ],
+    "depth": 2,
+    "members": [
+      "http://cis198-2016s.github.io/schedule/",
+      "https://app.codecrafters.io/tracks/rust",
+      "https://cheats.rs/",
+      "https://doc.rust-lang.org/rust-by-example/",
+      "https://exercism.org/tracks/rust",
+      "https://github.com/AbdesamedBendjeddou/Rusty-CS",
+      "https://github.com/Dhghomon/easy_rust",
+      "https://github.com/ad-si/Rust-Flashcards",
+      "https://github.com/brson/stdx",
+      "https://github.com/cognitive-engineering-lab/aquascope",
+      "https://github.com/ctjhoa/rust-learning",
+      "https://github.com/cuppar/rtd",
+      "https://github.com/jamesmunns/awesome-rust-streaming",
+      "https://github.com/jondot/rust-how-do-i-start",
+      "https://github.com/mre/idiomatic-rust",
+      "https://github.com/rust-lang/rustlings",
+      "https://github.com/warycat/rustgym",
+      "https://google.github.io/comprehensive-rust/",
+      "https://hackr.io/tutorials/learn-rust",
+      "https://labex.io/skilltrees/rust",
+      "https://lborb.github.io/book/",
+      "https://overexact.com/rust-for-professionals/",
+      "https://pragprog.com/titles/hwrust/hands-on-rust/",
+      "https://qouteall.fun/qouteall-blog/2025/How%20to%20Avoid%20Fighting%20Rust%20Borrow%20Checker",
+      "https://root-11.github.io/intro-book/",
+      "https://rust-exercises.com",
+      "https://rust-lang-nursery.github.io/rust-cookbook/",
+      "https://rust-lang.guide/",
+      "https://rust-tieng-viet.github.io/",
+      "https://rust-unofficial.github.io/too-many-lists/",
+      "https://rustbeginners.github.io/awesome-rust-mentors/",
+      "https://tourofrust.com",
+      "https://www.manning.com/books/embedded-software-with-rust",
+      "https://www.manning.com/books/refactoring-to-rust",
+      "https://www.manning.com/books/rust-in-action",
+      "https://www.manning.com/livevideo/rust-in-motion?a_aid=cnichols&a_bid=6a993c2e",
+      "https://www.rustfinity.com"
+    ],
+    "subtree_count": 37
+  },
+  {
+    "id": "cat:Resources/Performance",
+    "path": [
+      "Resources",
+      "Performance"
+    ],
+    "depth": 2,
+    "members": [
+      "https://nnethercote.github.io/perf-book/",
+      "https://raw.githubusercontent.com/yugr/rust-slides/main/EN.pdf",
+      "https://shnatsel.medium.com/how-to-avoid-bounds-checks-in-rust-without-unsafe-f65e618b4c1e"
+    ],
+    "subtree_count": 3
+  },
+  {
+    "id": "cat:Resources/Podcasts",
+    "path": [
+      "Resources",
+      "Podcasts"
+    ],
+    "depth": 2,
+    "members": [
+      "https://newrustacean.com",
+      "https://rustacean-station.org/"
+    ],
+    "subtree_count": 2
+  }
+]

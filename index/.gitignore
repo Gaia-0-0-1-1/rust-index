@@ -1,0 +1,7 @@
+# Committed: artifacts derived from README.md alone, so anyone can reproduce
+# them byte-for-byte with `cargo run --bin index` and no network access.
+#   entries.jsonl  nodes.jsonl  edges.jsonl  categories.json
+#
+# Ignored: artifacts that reflect network/cache state and so differ per run.
+entries.enriched.jsonl
+coverage.json

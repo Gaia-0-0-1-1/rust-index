@@ -3,3 +3,8 @@
 /CONTRIBUTING.md export-ignore
 /.markdownlint.json export-ignore
 /.editorconfig export-ignore
+
+# Generated index artifacts are written with LF and compared byte-for-byte;
+# never let them be converted on checkout.
+/index/*.json text eol=lf
+/index/*.jsonl text eol=lf
