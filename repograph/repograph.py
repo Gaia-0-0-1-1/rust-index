@@ -16,9 +16,10 @@ Commands
     stats              index shape
     selftest           check the query surface still behaves
 
-Read the top three, not the first. Measured on 68 hand-written questions across
-three crates: the first answer is right 31% of the time and the answer is in the
-top three 65% of the time. That gap is the most useful fact about this tool.
+Read the top three, not the first. Measured on 100 questions written blind by
+agents that had never seen this tool, across five crates: the first answer is
+right 28% of the time and the answer is in the top three 54% of the time. That
+gap is the most useful fact about this tool.
 """
 import json
 import math
@@ -343,8 +344,8 @@ def cmd_ask(idx, question, prior=None):
         if sym['doc']:
             print('      %s' % sym['doc'][:96])
     print()
-    print('Read all three files, not just the first: measured 31% top-1 '
-            'against 65% top-3.')
+    print('Read all three files, not just the first: measured 28% top-1 '
+            'against 54% top-3 on blind questions.')
     return 0
 
 
@@ -371,11 +372,12 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
     """Everything needed to answer the question, in one call.
 
     `ask` ranks; this hands over the material. The split matters because of a
-    number: the first answer is right 43% of the time and the right answer is
-    in the top three 68% of the time. A person reading a ranked list feels that
-    25-point gap as a wrong answer. A reader who gets all three candidates with
-    their documentation attached just picks the right one, which turns the
-    top-three figure into the accuracy that actually applies.
+    number: on questions written blind, the first answer is right 28% of the
+    time and the right answer is in the top three 54% of the time. A person
+    reading a ranked list feels that 26-point gap as a wrong answer. A reader
+    who gets all three candidates with their documentation attached just picks
+    the right one, which turns the top-three figure into the accuracy that
+    actually applies.
 
     So this prints candidates, plural, and never pretends to have decided.
     """
@@ -406,7 +408,7 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
             % (100 * ratio, cov.get('basis', 'public symbols')))
     out.append('')
     out.append('%d candidates, most likely first. The right answer is in the '
-        'top three about 68%% of the time and is first about 43%%, so read all '
+        'top three about 54%% of the time and is first about 28%%, so read all '
         'of them before deciding, and cite the file:line you actually used.'
         % len(order))
 

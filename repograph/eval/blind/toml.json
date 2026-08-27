@@ -1,0 +1,105 @@
+{
+    "crate": "toml-0.9.12+spec-1.1.0",
+    "questions": [
+        {
+            "q": "we're feeding user-supplied config in — is there anything stopping a deeply nested array from blowing the stack?",
+            "ok": ["src/de/parser/mod.rs", "src/de/parser/key.rs"],
+            "why": "parser/mod.rs defines `const LIMIT: u32 = 80` and wraps the event receiver in `RecursionGuard::new(&mut receiver, LIMIT)` unless the `unbounded` feature is on; key.rs re-checks the same LIMIT against dotted-key path length and reports 'recursion limit'."
+        },
+        {
+            "q": "when I serialize a Vec of structs, what decides whether I get [[items]] sections or one long inline array?",
+            "ok": ["src/ser/document/strategy.rs"],
+            "why": "`SerializationStrategy` + the `WalkValue` probe serializer; `ArrayWalkValue::end` returns `ArrayOfTables` when the seq is non-empty and every element walked as a Table, otherwise `Value`."
+        },
+        {
+            "q": "writing an inline table, why doesn't a None field abort the whole thing with 'unsupported None value'?",
+            "ok": ["src/ser/value/map.rs"],
+            "why": "`MapValueSerializer::serialize_none` sets the `is_none` flag before erroring, and `SerializeTable::serialize_value`/`serialize_field` swallow the error only when `e == Error::unsupported_none() && is_none`."
+        },
+        {
+            "q": "the parse errors print a little caret diagram — where's the code that turns a byte offset into that?",
+            "ok": ["src/de/error.rs"],
+            "why": "`translate_position` maps a byte index to (line, column) and the `Display for Error` impl writes the 'TOML parse error at line N, column M' block with the gutter and `^` underline."
+        },
+        {
+            "q": "are table keys stored sorted or in the order they appeared, and can I switch that?",
+            "ok": ["src/map.rs"],
+            "why": "`type MapImpl<K, V>` is a `BTreeMap` by default and an `IndexMap` under `preserve_order`; `fast_hash` swaps the hasher to foldhash. `remove`/`remove_entry` also switch to `shift_remove` in that mode."
+        },
+        {
+            "q": "I want to report every syntax problem in a file, not just bail on the first one — is that possible?",
+            "ok": ["src/de/parser/detable.rs", "src/de/error.rs"],
+            "why": "`DeTable::parse_recoverable` returns `(Spanned<Self>, Vec<Error>)` using `TomlSink::<Vec<_>>`; error.rs has the two `ErrorSink` impls, one that keeps only the first error and one that pushes all of them."
+        },
+        {
+            "q": "which code rejects `a.b.c = 1` when `[a.b]` was already written earlier in the file?",
+            "ok": ["src/de/parser/document.rs"],
+            "why": "`descend_path` reports 'duplicate key' when `dotted && !sweet_child_of_mine.is_implicit()`, and `capture_key_value` / `start_table` do the matching implicit-vs-explicit table checks."
+        },
+        {
+            "q": "what happens if a TOML integer doesn't fit in i64 — hard error or does it try wider types?",
+            "ok": ["src/de/deserializer/value.rs", "src/de/parser/devalue.rs"],
+            "why": "`ValueDeserializer::deserialize_any` tries to_i64, then to_u64, then to_i128, then to_u128 before 'integer number overflowed'; devalue.rs holds those `from_str_radix` helpers on `DeInteger`."
+        },
+        {
+            "q": "if the source said 0xdeadbeef, can I still tell it was hex after parsing?",
+            "ok": ["src/de/parser/devalue.rs"],
+            "why": "`DeInteger` keeps `inner: Cow<str>` plus a `radix: u32`, exposed via `as_str()`/`radix()`, and its Display re-prefixes 0b/0o/0x based on the radix."
+        },
+        {
+            "q": "my config type is a HashMap<u32, T> — how does the string key become a number?",
+            "ok": ["src/de/deserializer/key.rs"],
+            "why": "`KeyDeserializer` implements deserialize_u8..u128/i8..i128/bool/char by `self.key.parse()` and forwarding to the parsed value's own deserializer."
+        },
+        {
+            "q": "we get `nan` and never `-nan` in output — is that deliberate?",
+            "ok": ["src/ser/value/mod.rs", "src/value.rs"],
+            "why": "both `ValueSerializer::serialize_f32`/`serialize_f64` in ser/value/mod.rs and `value::ValueSerializer::serialize_f64` call `value.copysign(1.0)` when `is_nan()`, with a comment explaining the sign is discarded."
+        },
+        {
+            "q": "where does the one-element-per-line array formatting actually get switched on and applied?",
+            "ok": ["src/ser/document/mod.rs", "src/ser/value/array.rs"],
+            "why": "`Serializer::pretty` sets `style.multiline_array = true`; `SerializeValueArray::multiline_array()` gates on that plus `2 <= len`, and emits newline + 4 spaces per element with a trailing comma."
+        },
+        {
+            "q": "why does a struct whose fields are all sub-structs not get its own [header] line in the output?",
+            "ok": ["src/ser/document/buffer.rs"],
+            "why": "`required_table()` keeps a keyed table only if `table.array || !table.body.is_empty() || !table.has_children`; `child_table` sets `has_children` on the parent."
+        },
+        {
+            "q": "what does a Vec<u8> turn into — a string, or something else?",
+            "ok": ["src/value.rs", "src/ser/value/mod.rs"],
+            "why": "`value::ValueSerializer::serialize_bytes` maps each byte to `Value::Integer` producing an array; ser/value/mod.rs's `serialize_bytes` just re-serializes the slice, which lands in the array writer."
+        },
+        {
+            "q": "internally, how does a parsed array remember it came from [[headers]] rather than being a literal `[...]`?",
+            "ok": ["src/de/parser/dearray.rs", "src/de/parser/document.rs"],
+            "why": "`DeArray` carries a private `array_of_tables: bool` with `is_array_of_tables()`/`set_array_of_tables()`; document.rs's `finish_table` sets it when creating the entry and refuses to push into an array where it is false."
+        },
+        {
+            "q": "I'm getting 'map key was not a string' on serialize — where is that raised?",
+            "ok": ["src/table.rs", "src/ser/value/key.rs"],
+            "why": "table.rs's `SerializeMap::serialize_key` returns `Error::key_not_string()` for any non-`Value::String` key; ser/value/key.rs's `KeySerializer` returns the same for floats, bytes, seqs, maps, None, units etc."
+        },
+        {
+            "q": "is there a way to write a literal TOML table in Rust source without parsing a string at runtime?",
+            "ok": ["src/macros.rs"],
+            "why": "the exported `toml!` macro plus the `toml_internal!` tt-muncher, backed by `insert_toml`, `push_toml` and `traverse` helpers at the bottom of the file."
+        },
+        {
+            "q": "for a tuple enum variant, can the data come from a table instead of an array, and what are the key rules?",
+            "ok": ["src/de/deserializer/table_enum.rs"],
+            "why": "`TableEnumDeserializer::tuple_variant` accepts a table only if key N parses as usize and equals its positional index, erroring with 'expected table key `{index}`, but was `{key}`'."
+        },
+        {
+            "q": "does `{a = 1, a = 2}` get caught, and where?",
+            "ok": ["src/de/parser/inline_table.rs"],
+            "why": "`State::finish_value` matches on `table.entry(key)` and reports 'duplicate key' with both spans on `Entry::Occupied`; its `descend_path` handles the dotted-key-inside-inline-table cases."
+        },
+        {
+            "q": "where in the parse path does a datetime-looking scalar get turned into a Datetime value?",
+            "ok": ["src/de/parser/value.rs"],
+            "why": "`on_scalar` matches `ScalarKind::DateTime` and does `decoded.parse::<toml_datetime::Datetime>()`, reporting a ParseError and substituting an all-None Datetime on failure."
+        }
+    ]
+}

@@ -1,0 +1,105 @@
+{
+    "crate": "tracing-subscriber-0.3.23",
+    "questions": [
+        {
+            "q": "if I just call the crate's one-line setup helper and never set RUST_LOG, what level do I end up logging at?",
+            "ok": ["src/fmt/mod.rs"],
+            "why": "DEFAULT_MAX_LEVEL is LevelFilter::INFO and try_init() falls back to a Targets filter with that default when RUST_LOG is absent"
+        },
+        {
+            "q": "my colored log output goes away when I pipe it into a file on CI - what is deciding to drop the color codes?",
+            "ok": ["src/fmt/fmt_layer.rs"],
+            "why": "the Default impl for the fmt Layer sets is_ansi from cfg!(feature = \"ansi\") && the NO_COLOR env var being unset/empty"
+        },
+        {
+            "q": "nothing shows up when I run my tests - how do I make the writer cooperate with the test harness capturing output?",
+            "ok": ["src/fmt/writer.rs"],
+            "why": "TestWriter's io::Write impl goes through print!/eprint! rather than a raw stdout handle so libtest can capture it"
+        },
+        {
+            "q": "does installing the global subscriber also pick up messages from dependencies that still use the old log crate?",
+            "ok": ["src/util.rs"],
+            "why": "SubscriberInitExt::try_init/set_default install LogTracer and set log's max level from the current LevelFilter"
+        },
+        {
+            "q": "where is the default ISO-8601 wall-clock stamp on each line actually built, given the crate doesn't depend on chrono by default?",
+            "ok": ["src/fmt/time/datetime.rs", "src/fmt/time/mod.rs"],
+            "why": "time/mod.rs's FormatTime for SystemTime writes a DateTime, and datetime.rs holds the musl-derived epoch-to-civil-date math plus the Display impl"
+        },
+        {
+            "q": "can I ask a filter whether some module path and level would pass, without building a subscriber first?",
+            "ok": ["src/filter/targets.rs"],
+            "why": "Targets::would_enable(target, level) delegates to target_enabled for exactly this"
+        },
+        {
+            "q": "if my directive names the crate root, does it also cover submodules underneath it, or only that exact target?",
+            "ok": ["src/filter/env/directive.rs"],
+            "why": "Directive's Match::cares_about compares with meta.target().starts_with(target), i.e. prefix matching"
+        },
+        {
+            "q": "I have two overlapping directives that both match one event - what decides which level actually applies?",
+            "ok": ["src/filter/directive.rs"],
+            "why": "StaticDirective's Ord sorts by target length then field count (reversed), DirectiveSet::add keeps the vec sorted, and enabled() takes the first match"
+        },
+        {
+            "q": "if one entry in my RUST_LOG string is garbage, does the whole filter blow up or just that entry?",
+            "ok": ["src/filter/env/builder.rs"],
+            "why": "Builder::parse_lossy filter_maps failed Directive::parse calls and eprintlns 'ignoring ...', while Builder::parse returns the ParseError"
+        },
+        {
+            "q": "how do I only enable spans whose field has a particular value, and when is that value treated as a regex versus a literal?",
+            "ok": ["src/filter/env/field.rs"],
+            "why": "Match::parse splits name=value and picks ValueMatch::parse_regex vs parse_non_regex; MatchVisitor's record_* methods flip the matched flag"
+        },
+        {
+            "q": "adding a field-value condition to my filter seems to make every span get evaluated - why does that happen?",
+            "ok": ["src/filter/env/mod.rs"],
+            "why": "EnvFilter::max_level_hint short-circuits to Some(LevelFilter::TRACE) when dynamics.has_value_filters()"
+        },
+        {
+            "q": "I want to change the filter while the process is running - what makes already-cached callsites notice the new setting?",
+            "ok": ["src/reload.rs"],
+            "why": "Handle::modify writes through the Arc<RwLock<L>>, drops the guard, then calls callsite::rebuild_interest_cache and resets log's max level"
+        },
+        {
+            "q": "my layer reads span data inside its close callback - what stops that storage slot being recycled before every layer has run?",
+            "ok": ["src/registry/sharded.rs"],
+            "why": "start_close bumps a thread-local CLOSE_COUNT and returns a guard whose Drop only clears the slab entry when the count hits the last frame"
+        },
+        {
+            "q": "if the same span gets entered twice on one thread, does exiting it once knock it off the current-span stack?",
+            "ok": ["src/registry/stack.rs"],
+            "why": "SpanStack pushes a ContextId with a duplicate flag; pop returns !duplicate and iter() filters duplicates out"
+        },
+        {
+            "q": "two of my layers stash their own per-span state and now one of them panics on startup - what's the rule there?",
+            "ok": ["src/registry/extensions.rs"],
+            "why": "ExtensionsMut::insert asserts self.replace(val).is_none(), so a second insert of the same type panics"
+        },
+        {
+            "q": "is there an upper bound on how many independently filtered layers I can stack up?",
+            "ok": ["src/filter/layer_filters/mod.rs"],
+            "why": "FilterId::new asserts id < 64 because FilterMap is a single u64 bitmap of per-layer decisions"
+        },
+        {
+            "q": "how do I walk a span's ancestors starting from the outermost one instead of the innermost?",
+            "ok": ["src/registry/mod.rs"],
+            "why": "Scope's Iterator yields leaf-to-root; Scope::from_root collects into a (small)vec and reverses it"
+        },
+        {
+            "q": "with the JSON output, what happens to already-serialized fields when a span records an extra field after it was created?",
+            "ok": ["src/fmt/format/json.rs"],
+            "why": "JsonFields::add_fields deserializes the stored string back into a BTreeMap, adds the new fields and re-serializes to avoid malformed JSON"
+        },
+        {
+            "q": "if an attacker gets terminal escape sequences into a logged string, can they mess with my console?",
+            "ok": ["src/fmt/format/escape.rs", "src/fmt/format/mod.rs"],
+            "why": "escape.rs's EscapeGuard/EscapingWriter rewrite ESC, BEL, BS, FF, DEL and C1 chars; DefaultVisitor in format/mod.rs wraps message and error values in it"
+        },
+        {
+            "q": "when a span closes I get time.busy and time.idle on the line - where are those two numbers accumulated?",
+            "ok": ["src/fmt/fmt_layer.rs"],
+            "why": "a Timings extension inserted in on_new_span is updated by on_enter (idle) and on_exit (busy) using Instant, then emitted in on_close"
+        }
+    ]
+}

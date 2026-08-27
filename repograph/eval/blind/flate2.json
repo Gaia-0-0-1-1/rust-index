@@ -1,0 +1,105 @@
+{
+    "crate": "flate2-1.1.9",
+    "questions": [
+        {
+            "q": "is 9 actually the ceiling for the level number, and what do I get if I don't pick one at all?",
+            "ok": ["src/lib.rs", "src/ffi/miniz_oxide.rs"],
+            "why": "Compression is a newtype over u32 with const new/none/fast/best and an impl Default returning Compression(6); the miniz_oxide backend's make() asserts level <= 10 and notes that backend uniquely has a level 10."
+        },
+        {
+            "q": "which byte offsets does the encoder fill in for the 10-byte preamble, and where do the OS byte and that speed/size hint byte come from?",
+            "ok": ["src/gz/mod.rs"],
+            "why": "GzBuilder::into_header builds vec![0u8; 10], sets 0x1f/0x8b/8/flg/mtime, header[8] = 2/4/0 by level, header[9] = os or 255."
+        },
+        {
+            "q": "I want to stamp the original file name onto the output - is there anything that will blow up if the name has an embedded zero?",
+            "ok": ["src/gz/mod.rs"],
+            "why": "GzBuilder::filename and comment wrap the bytes in CString::new(...).unwrap(), documented as panicking on a zero byte."
+        },
+        {
+            "q": "my input arrives in tiny chunks and the metadata block spans several of them - how does it pick up where it left off?",
+            "ok": ["src/gz/mod.rs"],
+            "why": "GzHeaderParser holds a GzHeaderState enum (Start/Xlen/Extra/Filename/Comment/Crc/Complete) whose parse() loop resumes from the stored state and byte counts."
+        },
+        {
+            "q": "a hostile file could claim a gigantic name string - is there a bound on how much gets buffered before erroring?",
+            "ok": ["src/gz/mod.rs"],
+            "why": "MAX_HEADER_BUF = 65535 and read_to_nul returns InvalidInput \"gzip header field too long\" once the buffer hits it."
+        },
+        {
+            "q": "if some flag bits nobody uses are turned on in the metadata, does it warn or refuse?",
+            "ok": ["src/gz/mod.rs"],
+            "why": "FRESERVED masks bits 5-7 and GzHeaderState::Start returns bad_header() when flags & FRESERVED != 0."
+        },
+        {
+            "q": "where does it compare the trailing checksum and byte count against what it actually produced, when I'm pushing compressed bytes into a writer?",
+            "ok": ["src/gz/write.rs"],
+            "why": "GzDecoder::finish_and_check_crc reassembles the 8 trailer bytes and returns corrupt() if either the sum or the amount mismatches."
+        },
+        {
+            "q": "the last 8 bytes of the stream turn up in the same write call as the tail of the compressed data - how are they peeled off?",
+            "ok": ["src/gz/write.rs"],
+            "why": "GzDecoder::write checks status == Status::StreamEnd && n < buf.len() and extends self.crc_bytes up to CRC_BYTES_LEN from the leftover slice."
+        },
+        {
+            "q": "when concatenated members are being decoded, how does it work out that another one follows instead of stopping?",
+            "ok": ["src/gz/bufread.rs", "src/gz/write.rs"],
+            "why": "bufread GzDecoder's Finished arm peeks with fill_buf().is_empty(), resets the crc and inflate state and goes back to Header; the write-side MultiGzDecoder sees Ok(0) and rebuilds a fresh GzDecoder over the taken writer."
+        },
+        {
+            "q": "after pulling out everything, can I still get at whatever bytes followed the compressed blob?",
+            "ok": ["src/gz/bufread.rs", "src/deflate/bufread.rs"],
+            "why": "Both decoders park in an End state returning Ok(0) and expose into_inner()/get_mut() to hand back the untouched BufRead; the module tests assert the trailing byte is still readable."
+        },
+        {
+            "q": "I want to hand back the writer with everything pushed out but the compressed stream left open so another one can be appended - is that possible?",
+            "ok": ["src/deflate/write.rs", "src/zlib/write.rs"],
+            "why": "both encoders have flush_finish(), which calls inner.flush() then take_inner() instead of finish(), and the doc notes you must append 0x3 0x0 yourself to close it."
+        },
+        {
+            "q": "why does the writer adaptor spin in a loop instead of just handing back a zero-length write?",
+            "ok": ["src/zio.rs"],
+            "why": "write_with_status loops with a comment that the codec may consume nothing and a spurious Ok(0) would break write_all."
+        },
+        {
+            "q": "if I forget to call finish and just let the value go out of scope, is the output still valid?",
+            "ok": ["src/zio.rs", "src/gz/write.rs"],
+            "why": "zio::Writer's Drop calls self.finish() when the object is still present, and gz write::GzEncoder's Drop calls try_finish so the trailer is emitted."
+        },
+        {
+            "q": "I hashed two halves of a file separately - can I merge the running sums, and what happens to the byte tally past 4GB?",
+            "ok": ["src/crc.rs"],
+            "why": "both Crc impls (crc32fast and zlib-rs) expose combine() plus wrapping_add on the amount counter, with the doc noting amount() is only accurate below 2^32."
+        },
+        {
+            "q": "what message do I get back when the bytes turn out not to be a valid stream, and is the backend's own text preserved?",
+            "ok": ["src/zio.rs", "src/mem.rs"],
+            "why": "zio's read and write_with_status collapse any Err into io::ErrorKind::InvalidInput \"corrupt deflate stream\"; mem.rs holds the richer CompressError/DecompressError with message()."
+        },
+        {
+            "q": "how do I fill a buffer's unused capacity directly and skip zeroing it first?",
+            "ok": ["src/mem.rs", "src/ffi/mod.rs"],
+            "why": "compress_vec/decompress_vec go through the unsafe write_to_spare_capacity_of_vec helper over spare_capacity_mut with MaybeUninit; ffi/mod.rs has the initialize_buffer default used by backends without a native uninit path."
+        },
+        {
+            "q": "I have a shared vocabulary of common strings I want primed before compressing - how do I feed that in, and how do I detect that the other side needs it?",
+            "ok": ["src/mem.rs"],
+            "why": "Compress/Decompress::set_dictionary (cfg-gated per backend) return the Adler-32, and DecompressError::needs_dictionary reports the NeedsDictionary variant's checksum."
+        },
+        {
+            "q": "can I switch to a cheaper setting partway through without throwing away the object?",
+            "ok": ["src/mem.rs", "src/ffi/zlib_rs.rs"],
+            "why": "Compress::set_level (feature any_zlib) either calls deflateParams on the C stream or delegates to the zlib-rs Deflate::set_level, which maps BufError to a failure."
+        },
+        {
+            "q": "with several backend features switched on at once, which one actually gets compiled in, and how does raw vs wrapped output reach the C library?",
+            "ok": ["src/ffi/mod.rs", "src/ffi/c.rs"],
+            "why": "ffi/mod.rs cfg-cascades c -> zlib_rs -> miniz_oxide behind any_c_zlib/any_zlib; ffi/c.rs passes window_bits negated when zlib_header is false to mz_inflateInit2/mz_deflateInit2."
+        },
+        {
+            "q": "how big is the scratch buffer the Read-based wrappers keep, and does a huge read still go through it?",
+            "ok": ["src/bufreader.rs", "src/zlib/read.rs"],
+            "why": "the internal BufReader allocates vec![0; 32 * 1024] and its read() bypasses the buffer entirely when pos == cap and the target slice is at least as large; zlib::read::ZlibDecoder::new_with_buf lets you supply that Vec yourself."
+        }
+    ]
+}

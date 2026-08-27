@@ -37,8 +37,9 @@ needed to answer without opening files:
 python repograph/repograph.py /tmp/idx context "how is a png decoded" --source
 ```
 
-That split exists because of one number. The first answer is right 43% of the
-time and the right answer is in the top three 68% of the time. A person reading
+That split exists because of one number. On questions written blind, the first
+answer is right 28% of the time and the right answer is in the top three 54% of
+the time. A person reading
 a ranked list experiences that 25-point gap as a wrong answer. A reader handed
 all three candidates with their docs attached just picks the right one, which
 turns the top-three figure into the accuracy that actually applies. `--source`
@@ -46,9 +47,10 @@ adds the code itself, `--budget` caps the output.
 
 ## Two things to know before trusting it
 
-**Read the top three, not the first.** Measured on 68 hand-written questions
-across `syn`, `chrono` and `image`: the first answer is right **31%** of the
-time, and the answer is in the top three **65%** of the time. That gap is the
+**Read the top three, not the first.** Measured on 100 questions written blind
+by agents that had never seen this tool, across `toml`, `url`, `serde_json`,
+`tracing-subscriber` and `flate2`: the first answer is right **28%** of the
+time, and the answer is in the top three **54%** of the time. That gap is the
 single most useful fact about this tool, so `ask` prints three files and says so.
 
 **Coverage counts library code, and only what is really public.** Three things
@@ -115,6 +117,61 @@ all along: the limit is how much prose a repository contains, not how it is
 weighed. Five further crates -- `clap_builder`, `rand`, `rayon`, `regex`,
 `indexmap`, 1,536 questions -- were indexed as a held-out set and remain unspent,
 because nothing was found that needed judging.
+
+## Getting a judgment set you can trust
+
+The hard part of measuring retrieval is not running the numbers, it is having
+questions nobody tuned against. Hand-writing them does not scale -- thirty
+questions cannot resolve a two-point difference -- and writing them yourself
+after watching the tool fail is not measurement at all.
+
+What works: **give a subagent one crate and forbid it from seeing this tool.**
+It explores the source, writes questions in its own words, and verifies each
+answer by opening the file. It cannot bias toward what the tool can find,
+because it has never seen the tool. `repograph/eval/blind/` holds five such
+sets, 100 questions, produced that way.
+
+The instructions that mattered:
+
+- Read only the crate. Do not read `repograph`, or any eval file.
+- Phrase questions the way a developer talks, **not** the way the crate's own
+  documentation is worded -- otherwise the question is answerable by text
+  matching and measures nothing.
+- Verify every answer by opening the file. Discard anything unverifiable.
+- Spread across difficulty and across modules.
+
+The agents took that further than asked. One reworded a question because it had
+quoted a string appearing verbatim in a source comment; another avoided whole
+topics in `lib.rs` because the answers lived in prose and would be "answerable
+by text matching alone". The resulting questions are markedly harder than the
+ones written by hand:
+
+> *if the authority contains more than one @ sign, which one splits the
+> credentials from the host*
+>
+> *my colored log output goes away when I pipe it into a file on CI - what is
+> deciding to drop the color codes?*
+
+Per-crate results vary far more than any average suggests, which is why the
+harness reports them separately:
+
+| crate | top-1 | top-3 |
+|---|---|---|
+| url | 50% | 70% |
+| flate2 | 35% | 75% |
+| tracing-subscriber | 30% | 50% |
+| serde_json | 15% | 50% |
+| toml | 10% | 25% |
+| **pooled** | **28%** | **54%** |
+
+`toml` scores worst for a reason the tool cannot fix: it delegates string
+escaping, datetimes and output to *other crates*, so several natural questions
+have no answer inside the repository being indexed.
+
+These five sets are now **spent as judgment** -- their failures have been read,
+so anything tuned afterwards is shaped by them. They stay in the repository as
+a fixed regression benchmark. A new judgment needs new sets, and now that is an
+afternoon of subagent time rather than an afternoon of yours.
 
 ## Measuring
 
