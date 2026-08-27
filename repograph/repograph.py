@@ -33,6 +33,37 @@ CAMEL = re.compile(r'(?<=[a-z0-9])(?=[A-Z])')
 # rather than refuted, and `evalgen.py` exists to resolve it. Flip via --prior.
 PRIOR_WEIGHT = 0.0
 
+# How words are matched. Every one of these was swept against 1,455 generated
+# questions over three crates, and every one is already sitting at its optimum:
+# the values below are what the tool shipped with, and nothing beat them.
+#
+# Swept and rejected, for anyone tempted to retry: stemming (flat at best,
+# -1 at level 2), path/signature weighting (no effect at any value), module-doc
+# weighting above 0.5 (-11 points at 6.0), averaging more than one symbol per
+# file (-7 at top-10), raw term frequency instead of saturated (-10), and
+# rustdoc boilerplate as stop words (no effect).
+#
+# The one real effect found was W_NAME = 8, which gained 18 questions and lost
+# none, z = 4.24. It does not ship because all 18 gains are `doc-split`, the
+# generator whose queries are drawn from doc text that usually restates the
+# item's name -- so it buys back the identity lookup rather than retrieval.
+# `test-name` and `module-doc` gained nothing. That stratification rule was
+# written down before the sweep, in code-probe/PREDECLARED-tuning.md.
+#
+# The honest conclusion is that this ranker has no tuning headroom, which is
+# what `coverage` has been saying all along: the limit is how much prose the
+# repository contains, not how it is weighed.
+STEM_LEVEL = 0        # 0 off, 1 plurals, 2 also -ing/-ed
+W_NAME = 1.0          # a word in the item's own name
+W_PATH = 1.0          # ...in its file path
+W_SIG = 1.0           # ...in its signature
+W_DOC = 1.0           # ...in its doc comment
+W_MODDOC = 0.5        # ...in the file's module header, inherited
+IDF_POW = 2.0
+TF_SAT = True         # 1 + log(tf) rather than raw tf
+AGG_TOPK = 1          # symbols averaged when rolling a score up to a file
+AGG_NORM = 1.0        # 1.0 mean, 0.5 favours files that match repeatedly
+
 # Below this share of public items documented, say so before answering. With an
 # item's doc removed from the index, the chance of finding it from a
 # description drops to 1% -- names and signatures carry almost none of the
@@ -48,6 +79,25 @@ STOP = {
 }
 
 
+def stem(word):
+    """Fold the endings that separate how code is written from how it is asked
+    about. A doc header says "Decoding and Encoding of PNG Images" and the
+    question says "how is a png decoded" -- without this those share only the
+    word png. Conservative on purpose: `decoder` keeps its `er`, because a
+    decoder is a thing and decoding is an act, and collapsing them costs more
+    than it pays."""
+    if STEM_LEVEL <= 0 or len(word) < 5:
+        return word
+    for suf, rep in (('ies', 'y'), ('sses', 'ss'), ('es', ''), ('s', '')):
+        if word.endswith(suf) and len(word) - len(suf) >= 3:
+            return word[:len(word) - len(suf)] + rep
+    if STEM_LEVEL >= 2:
+        for suf in ('ing', 'ed'):
+            if word.endswith(suf) and len(word) - len(suf) >= 4:
+                return word[:len(word) - len(suf)]
+    return word
+
+
 def tokens(text):
     """Split on punctuation and camelCase both, so `parse_rfc3339` and
     `ParseError` and "parse an rfc 3339 timestamp" meet in the middle."""
@@ -58,8 +108,31 @@ def tokens(text):
         for piece in CAMEL.split(part):
             p = piece.lower()
             if len(p) > 2 and p not in STOP:
-                out.append(p)
+                out.append(stem(p))
     return out
+
+
+def sym_fields(s, doc=None):
+    """Each field weighted separately. A word in the item's own name is much
+    stronger evidence than the same word buried in a paragraph of prose about
+    it, and treating them alike is the default this started with."""
+    doc = s['doc'] if doc is None else doc
+    return (
+        (tokens(s['name']), W_NAME),
+        (tokens(s['file']), W_PATH),
+        (tokens(s['sig']) + [s['kind']], W_SIG),
+        (tokens(doc), W_DOC),
+    )
+
+
+def build_bag(s, doc=None):
+    bag = {}
+    for toks, weight in sym_fields(s, doc):
+        if weight <= 0:
+            continue          # a zeroed field contributes nothing, not a zero
+        for w in toks:
+            bag[w] = bag.get(w, 0) + weight
+    return bag
 
 
 def sym_text(s, with_doc=True):
@@ -110,9 +183,11 @@ class Index(object):
         # images" at the top of png.rs helps nothing inside it.
         self.moddoc = {}
         for f, md in self.modules.items():
+            if W_MODDOC <= 0:
+                continue
             b = {}
             for w in tokens(md):
-                b[w] = b.get(w, 0) + 0.5
+                b[w] = b.get(w, 0) + W_MODDOC
             self.moddoc[f] = b
         for i, s in enumerate(self.symbols):
             for w, v in (self.moddoc.get(s['file']) or {}).items():
@@ -146,7 +221,7 @@ class Index(object):
             held = self.moddoc.get(hold_file) or {}
             if hold_rest:
                 for word in tokens(hold_rest):
-                    keep[word] = keep.get(word, 0) + 0.5
+                    keep[word] = keep.get(word, 0) + W_MODDOC
         out = []
         for i, bag in enumerate(self.bags):
             sym = self.symbols[i]
@@ -164,15 +239,15 @@ class Index(object):
                 for k, v in keep.items():
                     bag[k] = bag.get(k, 0) + v
             if hold_doc is not None and i == hold_doc[0]:
-                bag = {}
-                for word in sym_text(sym, with_doc=False) + tokens(hold_doc[1]):
-                    bag[word] = bag.get(word, 0) + 1
+                bag = build_bag(sym, doc=hold_doc[1])
                 for k, v in (self.moddoc.get(sym['file']) or {}).items():
                     bag[k] = bag.get(k, 0) + v
             s = 0.0
             for t in qt:
-                if t in bag:
-                    s += (1.0 + math.log(bag[t])) * (self.idf.get(t, 1.0) ** 2)
+                v = bag.get(t, 0)
+                if v > 0:
+                    tf = (1.0 + math.log(v)) if TF_SAT else v
+                    s += tf * (self.idf.get(t, 1.0) ** IDF_POW)
             if s <= 0:
                 continue
             if w > 0:
@@ -182,13 +257,29 @@ class Index(object):
         return out
 
     def by_file(self, scored):
-        best = {}
+        """Roll symbol scores up to files.
+
+        `max` alone rewards size: a 3,000-line module gets far more chances to
+        contain one strongly-matching symbol than a focused 80-line one, and
+        the question was about the topic, not the volume. AGG_TOPK averages the
+        best few instead, so a file has to be about the subject in several
+        places rather than once.
+        """
+        groups = {}
         for s, i in scored:
-            f = self.symbols[i]['file']
-            if s > best.get(f, (0, None))[0]:
-                best[f] = (s, i)
-        rows = sorted(best.items(), key=lambda x: -x[1][0])
-        return [(f, s, i) for f, (s, i) in rows]
+            groups.setdefault(self.symbols[i]['file'], []).append((s, i))
+        rows = []
+        for f, items in groups.items():
+            items.sort(key=lambda x: -x[0])
+            top = items[0]
+            if AGG_TOPK <= 1:
+                score = top[0]
+            else:
+                take = items[:AGG_TOPK]
+                score = sum(x[0] for x in take) / (len(take) ** AGG_NORM)
+            rows.append((f, score, top[1]))
+        rows.sort(key=lambda x: -x[1])
+        return rows
 
     def coverage_note(self):
         cov = self.meta.get('coverage') or {}

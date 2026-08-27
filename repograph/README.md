@@ -62,6 +62,27 @@ monotonically harmful across all three generators: top-1 falls 40% → 39% → 3
 → 25% → 13% as the weight rises. The 6 points were noise. `PRIOR_WEIGHT` stays
 0 and the code stays, since flipping it is how the next person re-tests it.
 
+**Tuning the ranker.** Every knob in `repograph.py` -- stemming, per-field
+weighting for name/path/signature/doc/module-header, IDF exponent, term
+frequency saturation, file aggregation, stop words -- was swept against 1,455
+generated questions. **All of them were already at their optimum.** Stemming is
+flat at best. Path and signature weighting do nothing at any value. Weighting
+the module header above 0.5 costs 11 points, averaging ten symbols per file
+costs 7, and unsaturated term frequency costs 10.
+
+One real effect turned up: weighting an item's own name 8x gained 18 questions
+and lost none, z = 4.24. It does not ship, because all 18 gains come from the
+`doc-split` generator -- whose queries are drawn from doc text that usually
+restates the item's name, so the gain buys back the identity lookup rather than
+retrieval. `test-name` and `module-doc` gained nothing. The rule that a gain
+confined to one generator does not count was written down before the sweep.
+
+So the ranker has no tuning headroom, which is what `coverage` has been saying
+all along: the limit is how much prose a repository contains, not how it is
+weighed. Five further crates -- `clap_builder`, `rand`, `rayon`, `regex`,
+`indexmap`, 1,536 questions -- were indexed as a held-out set and remain unspent,
+because nothing was found that needed judging.
+
 ## Measuring
 
 `evalgen.py` generates questions with ground truth from the repository itself,
