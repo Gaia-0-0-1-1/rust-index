@@ -216,11 +216,21 @@ a great many times. Frequency alone surfaces "contributing" and "documentation";
 IDF alone surfaces contributor names; whitelisting against curated vocabulary
 fixes both and still does not help.
 
-The lesson generalises. Retrieval here is not short of *words* — crates.io
-keywords already supplied those. What it lacks is category *structure*: `scraper`
-is filed under `Web programming/Miscellaneous`, and no volume of text rescues a
-category named Miscellaneous. That is an authoring problem, not a data-volume
-problem.
+**Re-filing the signal-free categories.** The obvious next inference from the
+above — `scraper` sits in `Web programming/Miscellaneous`, so fix the category —
+does not survive measurement either. Only 73 projects (4.3%) sit in such
+categories, and the diagnosis was wrong: `scraper` failed a query for web
+scraping because the *broad parent* `Web programming` anchored it and popular
+siblings inherited the score, not because its own leaf was named Miscellaneous.
+
+What fixed it was keyword rarity, and no authoring at all. `scraping` is held by
+one crate in this index; `web` is held by forty. Weighting a keyword match by how
+many crates share it moved `scraper` from outside the top eight to fourth, and
+made `ask "html scraping selectors"` return it first.
+
+The generalisation across all three: reach for the derived signal before the
+authored one, and measure the diagnosis before acting on it. Twice here the
+obvious cause was not the real one.
 
 ## Known limits — read before trusting output
 

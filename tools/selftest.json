@@ -53,6 +53,11 @@
             "q": "parallelism",
             "top": "rayon",
             "note": "Was right by accident via AI/Genetic algorithms; keywords make it right via Concurrency."
+        },
+        {
+            "q": "html scraping selectors",
+            "top": "scraper",
+            "note": "Reached by keyword rarity: 'scraping' belongs to one crate here, while 'web' belongs to forty."
         }
     ],
     "no_anchor": [

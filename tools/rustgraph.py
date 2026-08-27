@@ -365,6 +365,25 @@ def score_category(cat, qt, profile=None):
     return s
 
 
+def keyword_frequency():
+    """How many crates hold each crates.io keyword.
+
+    The same insight the name matching uses, applied to curated vocabulary. A
+    keyword held by one crate is nearly an identifier -- "scraping" belongs to
+    exactly one project here -- while "web" is held by forty and says little.
+    A flat bonus treats those as equal, which is why a query for web scraping
+    returned axum: "web" matched a broad category, and the one crate that
+    actually says "scraping" could not outweigh axum's downloads."""
+    if "kwdf" in _AFFINITY_CACHE:
+        return _AFFINITY_CACHE["kwdf"]
+    df = {}
+    for v in VOCAB.values():
+        for k in set(v.get("keywords") or ()) | set(v.get("categories") or ()):
+            df[k] = df.get(k, 0) + 1
+    _AFFINITY_CACHE["kwdf"] = df
+    return df
+
+
 def name_frequency(nodes):
     """How many projects use each name token. A token almost nobody uses is an
     entity name the query meant literally ('rustls'); a token hundreds share is
@@ -423,9 +442,11 @@ def score_node(n, qt, cat_scores, name_df, anchored=None):
     vocab = VOCAB.get(n["id"])
     if vocab:
         own = set(vocab.get("keywords", ())) | set(vocab.get("categories", ()))
+        kwdf = keyword_frequency()
         for t in qt:
             if t in own:
-                s += 5
+                held = kwdf.get(t, 0)
+                s += 20 if held <= 3 else (9 if held <= 12 else 3)
             elif any(term_match(t, k) for k in own):
                 s += 2
 
