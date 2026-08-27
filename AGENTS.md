@@ -271,6 +271,18 @@ a great many times. Frequency alone surfaces "contributing" and "documentation";
 IDF alone surfaces contributor names; whitelisting against curated vocabulary
 fixes both and still does not help.
 
+**Matching the parts of compound keywords.** A quarter of crates.io keyword
+entries are compound — `lock-free`, `no-std`, `data-structures` — and a compound
+never equals a single query token, so they are invisible to matching. `crossbeam`
+carries the keyword `lock-free` and still loses "lock free data structures".
+Splitting compounds into their parts scored **22/27 against 25/27 for leaving
+them alone**, at every weight tried. Compounds are compound because the whole is
+more specific than the parts: split `command-line-utilities` and you get a crate
+that answers every CLI question. Matching the compound as a joined phrase is
+worse still — `yukikaze` spells its keyword `http-client` where `reqwest` spells
+it `http` and `client`, so a phrase bonus rewards the obscure crate for
+punctuation, and "async http client" started returning yukikaze.
+
 **Re-filing the signal-free categories.** The obvious next inference from the
 above — `scraper` sits in `Web programming/Miscellaneous`, so fix the category —
 does not survive measurement either. Only 73 projects (4.3%) sit in such
@@ -294,15 +306,23 @@ obvious cause was not the real one.
     They still rank and cite correctly, they just have no deps or downloads.
 2. **146 crate names are low-confidence guesses**, marked `?` / `UNVERIFIED`.
     Confirm on crates.io before running `cargo add` on one.
-3. **The DAG covers 1,086 projects**, being those with both crate identity and at
+3. **A crate whose category does not match the query cannot be surfaced.**
+    This is the architecture's ceiling, not a tuning gap. `crossbeam` provides
+    lock-free structures but lives in `Libraries/Concurrency`, which scores 0.0
+    for "lock free data structures", while `Libraries/Data structures` scores
+    51.2 — so `rpds` wins. Every attempt to let node-level evidence overcome a
+    legitimate category match scored worse overall. Fixing it properly means
+    retrieving over nodes first and using categories to re-rank, or embeddings —
+    a different design, not a bigger constant.
+4. **The DAG covers 1,086 projects**, being those with both crate identity and at
     least one dependency edge to another indexed project. Dependencies on crates
     outside this list are not edges here.
-4. **Multi-concept queries surface the dominant concept only.** "async http client
+5. **Multi-concept queries surface the dominant concept only.** "async http client
     with rustls" returns HTTP clients; `rustls` needs its own query.
-5. **A query still has to land on some category.** Category names are matched
+6. **A query still has to land on some category.** Category names are matched
     first, then the vocabulary its members are *described* with, which covers most
     wording the list itself never uses. When nothing clears the bar `ask` prints
     `NO CATEGORY MATCHED THIS WORDING` and marks the results as guesses; browse
     with `cat` and retry in the list's own terms.
-6. **Dump-derived artifacts are a snapshot.** Check `crates-provenance.json` and
+7. **Dump-derived artifacts are a snapshot.** Check `crates-provenance.json` and
     re-run `crates_deps.py` if the download counts look stale.
