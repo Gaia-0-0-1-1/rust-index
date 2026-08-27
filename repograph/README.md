@@ -16,6 +16,8 @@ that is worth doing.
 
 ```
 ask <question>     rank files and symbols, with file:line citations
+context <question> the same candidates with their docs attached, in one call
+                   [--files N] [--source] [--budget CHARS]
 sym <name>         everything known about one symbol
 file <path>        what a file contains
 callers <name>     which symbols reference it
@@ -24,6 +26,23 @@ eval <file>        measure retrieval against a question set
 stats              index shape
 selftest           check the query surface still behaves
 ```
+
+## `ask` ranks; `context` hands over the material
+
+`ask` prints a ranking. `context` prints the candidates with their
+documentation, signatures and locations attached, so a reader gets everything
+needed to answer without opening files:
+
+```bash
+python repograph/repograph.py /tmp/idx context "how is a png decoded" --source
+```
+
+That split exists because of one number. The first answer is right 43% of the
+time and the right answer is in the top three 68% of the time. A person reading
+a ranked list experiences that 25-point gap as a wrong answer. A reader handed
+all three candidates with their docs attached just picks the right one, which
+turns the top-three figure into the accuracy that actually applies. `--source`
+adds the code itself, `--budget` caps the output.
 
 ## Two things to know before trusting it
 
@@ -73,20 +92,23 @@ monotonically harmful across all three generators: top-1 falls 40% → 39% → 3
 → 25% → 13% as the weight rises. The 6 points were noise. `PRIOR_WEIGHT` stays
 0 and the code stays, since flipping it is how the next person re-tests it.
 
-**Tuning the ranker.** Every knob in `repograph.py` -- stemming, per-field
-weighting for name/path/signature/doc/module-header, IDF exponent, term
-frequency saturation, file aggregation, stop words -- was swept against 1,455
-generated questions. **All of them were already at their optimum.** Stemming is
-flat at best. Path and signature weighting do nothing at any value. Weighting
-the module header above 0.5 costs 11 points, averaging ten symbols per file
-costs 7, and unsaturated term frequency costs 10.
+**Tuning the ranker.** Every knob -- stemming, per-field weighting, IDF
+exponent, term frequency saturation, file aggregation, stop words -- was swept
+against 1,455 generated questions and then judged on five crates the tuning
+never saw. **All of them were already at their optimum.** Stemming is flat at
+best, module-header weight above 0.5 costs 11 points, averaging ten symbols per
+file costs 7, unsaturated term frequency costs 10.
 
-One real effect turned up: weighting an item's own name 8x gained 18 questions
-and lost none, z = 4.24. It does not ship, because all 18 gains come from the
-`doc-split` generator -- whose queries are drawn from doc text that usually
-restates the item's name, so the gain buys back the identity lookup rather than
-retrieval. `test-name` and `module-doc` gained nothing. The rule that a gain
-confined to one generator does not count was written down before the sweep.
+Field weighting is worth recording carefully, because the first measurement of
+it was invalid. A failed edit left the weighted bag builder wired only into the
+eval holdout path, so the weights changed nothing except `doc-split` questions,
+and that artefact was initially written up as a finding about identity lookups.
+With the bug fixed, weighting an item's name 12x and its path 4x is a real
+effect on the tuning crates: +2 points, net +23 questions, McNemar z = 2.66.
+
+It still does not ship, because on the five held-out crates the same setting
+scores **-0.4 points, net -3, z = 0.36**. The gain was overfitting to three
+repositories, which is the one thing a held-out set exists to catch.
 
 So the ranker has no tuning headroom, which is what `coverage` has been saying
 all along: the limit is how much prose a repository contains, not how it is

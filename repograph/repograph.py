@@ -5,6 +5,9 @@
 
 Commands
     ask <question>     rank files and symbols for a question, with citations
+    context <question> the same candidates with their documentation attached,
+                        in one call, for an agent to read and decide
+                        [--files N] [--source] [--budget CHARS]
     sym <name>         everything known about one symbol
     file <path>        what a file contains
     callers <name>     which symbols reference it
@@ -33,26 +36,31 @@ CAMEL = re.compile(r'(?<=[a-z0-9])(?=[A-Z])')
 # rather than refuted, and `evalgen.py` exists to resolve it. Flip via --prior.
 PRIOR_WEIGHT = 0.0
 
-# How words are matched. Every one of these was swept against 1,455 generated
-# questions over three crates, and every one is already sitting at its optimum:
-# the values below are what the tool shipped with, and nothing beat them.
+# How words are matched. Swept against 1,455 generated questions over three
+# crates, then judged on five crates the tuning never saw. Everything below is
+# at its measured optimum; the values are what the tool shipped with and
+# nothing beat them on held-out data.
 #
-# Swept and rejected, for anyone tempted to retry: stemming (flat at best,
-# -1 at level 2), path/signature weighting (no effect at any value), module-doc
-# weighting above 0.5 (-11 points at 6.0), averaging more than one symbol per
-# file (-7 at top-10), raw term frequency instead of saturated (-10), and
-# rustdoc boilerplate as stop words (no effect).
+# Swept and rejected: stemming (flat at best), module-header weight above 0.5
+# (-11 points at 6.0), averaging more than one symbol per file (-7 at top-10),
+# raw term frequency instead of saturated (-10), rustdoc boilerplate as stop
+# words (no effect).
 #
-# The one real effect found was W_NAME = 8, which gained 18 questions and lost
-# none, z = 4.24. It does not ship because all 18 gains are `doc-split`, the
-# generator whose queries are drawn from doc text that usually restates the
-# item's name -- so it buys back the identity lookup rather than retrieval.
-# `test-name` and `module-doc` gained nothing. That stratification rule was
-# written down before the sweep, in code-probe/PREDECLARED-tuning.md.
+# Field weighting deserves its own note, because the first attempt at measuring
+# it was wrong. A failed string replacement left `build_bag` wired only into the
+# eval holdout path, so W_NAME and friends affected nothing but `doc-split`
+# questions -- and the resulting "gain appears only on doc-split" was read as
+# evidence about identity lookups when it was evidence about a bug. With the
+# weights actually applied, W_NAME=12 with W_PATH=4 gains +2 points on the
+# tuning crates, net +23 questions at McNemar z = 2.66, which is a real effect
+# and not noise.
 #
-# The honest conclusion is that this ranker has no tuning headroom, which is
-# what `coverage` has been saying all along: the limit is how much prose the
-# repository contains, not how it is weighed.
+# It still does not ship, because it does not generalise: on the five held-out
+# crates the same setting scores -0.4 points, net -3 questions, z = 0.36. The
+# tuning gain was three crates' worth of overfitting, which is exactly what a
+# held-out set is for. Curiously the `test-name` generator gains in both
+# (+15 and +13) while `doc-split` swings from +4 to -18 -- so there may be
+# something real here for a future attempt with a sharper instrument.
 STEM_LEVEL = 0        # 0 off, 1 plurals, 2 also -ing/-ed
 W_NAME = 1.0          # a word in the item's own name
 W_PATH = 1.0          # ...in its file path
@@ -164,20 +172,14 @@ class Index(object):
         self._build()
 
     def _build(self):
-        docs = [sym_text(s) for s in self.symbols]
+        self.bags = [build_bag(s) for s in self.symbols]
         df = {}
-        for d in docs:
-            for w in set(d):
+        for bag in self.bags:
+            for w in bag:
                 df[w] = df.get(w, 0) + 1
-        n = max(len(docs), 2)
+        n = max(len(self.bags), 2)
         self.idf = {w: math.log(n / (1 + c)) / math.log(n)
                     for w, c in df.items()}
-        self.bags = []
-        for d in docs:
-            bag = {}
-            for w in d:
-                bag[w] = bag.get(w, 0) + 1
-            self.bags.append(bag)
         # A module doc describes the whole file, so let every symbol in that
         # file inherit its words. Without this, "decoding and encoding of png
         # images" at the top of png.rs helps nothing inside it.
@@ -344,6 +346,112 @@ def cmd_ask(idx, question, prior=None):
     print('Read all three files, not just the first: measured 31% top-1 '
             'against 65% top-3.')
     return 0
+
+
+def read_span(idx, sym, max_lines):
+    """Pull a symbol's actual source. The index deliberately does not store
+    bodies -- they are large and only ever needed here -- so this reads the
+    file, and shrugs if the checkout has moved since indexing."""
+    root = idx.meta.get('root')
+    if not root:
+        return None
+    path = os.path.join(root, sym['file'])
+    try:
+        lines = open(path, encoding='utf-8', errors='replace').read().split('\n')
+    except OSError:
+        return None
+    body = lines[sym['line'] - 1:sym['end']]
+    if len(body) > max_lines:
+        body = body[:max_lines] + ['    // ... %d more lines'
+            % (sym['end'] - sym['line'] + 1 - max_lines)]
+    return body
+
+
+def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
+    """Everything needed to answer the question, in one call.
+
+    `ask` ranks; this hands over the material. The split matters because of a
+    number: the first answer is right 43% of the time and the right answer is
+    in the top three 68% of the time. A person reading a ranked list feels that
+    25-point gap as a wrong answer. A reader who gets all three candidates with
+    their documentation attached just picks the right one, which turns the
+    top-three figure into the accuracy that actually applies.
+
+    So this prints candidates, plural, and never pretends to have decided.
+    """
+    qt = tokens(question)
+    if not qt:
+        print('nothing to search for in %r' % question)
+        return 1
+    scored = idx.score(qt)
+    if not scored:
+        print('NO MATCH for %r' % question)
+        return 1
+
+    share, conf = confidence(idx, qt, scored)
+    ratio, cov = idx.coverage_note()
+    per_file = {}
+    for sc, i in scored:
+        per_file.setdefault(idx.symbols[i]['file'], []).append((sc, i))
+    order = [f for f, _s, _i in idx.by_file(scored)][:nfiles]
+
+    out = []
+    out.append('QUESTION  %s' % question)
+    out.append('REPO      %s' % (idx.meta.get('name') or '?'))
+    out.append('CONFIDENCE %s (matched %.0f%% of the question)'
+        % ('high' if conf else 'LOW', 100 * share))
+    if ratio < THIN_DOCS:
+        out.append('WARNING   only %.0f%% of %s here are documented; retrieval '
+            'runs on documentation, so these candidates are weak.'
+            % (100 * ratio, cov.get('basis', 'public symbols')))
+    out.append('')
+    out.append('%d candidates, most likely first. The right answer is in the '
+        'top three about 68%% of the time and is first about 43%%, so read all '
+        'of them before deciding, and cite the file:line you actually used.'
+        % len(order))
+
+    for rank, f in enumerate(order, 1):
+        out.append('')
+        out.append('=' * 70)
+        out.append('CANDIDATE %d  %s' % (rank, f))
+        md = idx.modules.get(f)
+        if md:
+            out.append('  module doc: %s' % md[:400])
+        picks = sorted(per_file.get(f, []), key=lambda x: -x[0])[:6]
+        for sc, i in picks:
+            sym = idx.symbols[i]
+            out.append('')
+            out.append('  %s  %s  (%s:%d)'
+                % (sym['kind'], sym['name'], sym['file'], sym['line']))
+            out.append('      %s' % sym['sig'][:160])
+            if sym['doc']:
+                for chunk in wrap(sym['doc'], 400):
+                    out.append('      %s' % chunk)
+            if source:
+                body = read_span(idx, sym, 40)
+                if body:
+                    out.append('      ---')
+                    for ln in body:
+                        out.append('      %s' % ln[:160])
+    text = '\n'.join(out)
+    if len(text) > budget:
+        text = text[:budget] + ('\n\n[truncated at %d characters; '
+            'raise with --budget]' % budget)
+    print(text)
+    return 0
+
+
+def wrap(text, width):
+    words, line, out = text.split(), '', []
+    for w in words:
+        if len(line) + len(w) + 1 > width:
+            out.append(line)
+            line = w
+        else:
+            line = (line + ' ' + w).strip()
+    if line:
+        out.append(line)
+    return out[:6]
 
 
 def cmd_sym(idx, name):
@@ -549,6 +657,28 @@ def cmd_selftest(idx):
     if not 0.0 <= ratio <= 1.0:
         fails.append('coverage: doc_ratio outside 0..1')
 
+    # context is what an agent reads, so its shape is load-bearing: three
+    # candidates, each citable, and no stray %% from a format string.
+    import io
+    buf, real = io.StringIO(), sys.stdout
+    sys.stdout = buf
+    probe = idx.symbols[0]['name']
+    for cand in idx.symbols:
+        if cand.get('doc') and cand.get('role', 'lib') == 'lib':
+            probe = cand['doc'][:60]
+            break
+    try:
+        cmd_context(idx, probe, nfiles=3)
+    finally:
+        sys.stdout = real
+    got = buf.getvalue()
+    if '%%' in got:
+        fails.append('context: unformatted %% reached the output')
+    if got.count('CANDIDATE ') < 1:
+        fails.append('context: printed no candidates')
+    if 'QUESTION' not in got or 'CONFIDENCE' not in got:
+        fails.append('context: dropped its header')
+
     saved = globals()['PRIOR_WEIGHT']
     a = [i for _s, i in idx.score(tokens('decode an image'), 0.0)]
     b = [i for _s, i in idx.score(tokens('decode an image'), 2.0)]
@@ -558,7 +688,7 @@ def cmd_selftest(idx):
 
     for f in fails:
         print('  FAIL %s' % f)
-    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 7))
+    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 10))
     return 1 if fails else 0
 
 
@@ -582,6 +712,24 @@ def main(argv):
     joined = ' '.join(rest)
     if cmd == 'ask':
         return cmd_ask(idx, joined, prior)
+    if cmd == 'context':
+        nfiles, source, budget = 3, False, 12000
+        rest2 = []
+        k = 0
+        while k < len(rest):
+            a = rest[k]
+            if a == '--source':
+                source = True
+            elif a == '--files' and k + 1 < len(rest):
+                k += 1
+                nfiles = max(1, int(rest[k]))
+            elif a == '--budget' and k + 1 < len(rest):
+                k += 1
+                budget = max(500, int(rest[k]))
+            else:
+                rest2.append(a)
+            k += 1
+        return cmd_context(idx, ' '.join(rest2), nfiles, source, budget)
     if cmd == 'sym':
         return cmd_sym(idx, joined)
     if cmd == 'file':
