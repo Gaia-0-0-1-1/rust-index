@@ -59,9 +59,20 @@ taxonomy — which is what lets "REST API" reach HTTP Server, "orm" reach
 Database / ORM, and "parallelism" reach Concurrency. None of those words appear
 in `README.md`. Adoption then orders the results, but only *within* the
 categories that matched: counted globally, clap's billion downloads win
-"terminal ui" on fame alone. Adoption *orders* results without deciding them:
-name, keyword and description matching still reorder within a category, which is
-why reqwest sits above hyper despite having fewer downloads.
+"terminal ui" on fame alone.
+
+**How hard adoption pushes is a swept constant, not a guess.** Set too high, fame
+beats intent — `core-foundation`, a macOS-only binding with 411M downloads, won
+"cross platform gui" over `iced`, which is described verbatim as one, and
+"random number generator" returned shlex with `rand` sixth. Set too low, obscure
+crates win on wording alone. `POP_WEIGHT` sits on a plateau measured over a
+34-query set.
+
+A crate's *name* counts toward a query only when it is not an also-ran in its own
+category. That is what separates "read a config file" — where `config` leads
+Libraries/Configuration and naming it means it — from "websocket server", where
+the `websocket` crate is outdownloaded 110x by tungstenite and the words are
+plainly a capability, not a brand.
 
 **Confidence.** Every `ask` prints `CONFIDENCE high|LOW` with the share of the
 query — measured in characters, so a non-ASCII query cannot claim full coverage
@@ -134,7 +145,7 @@ any diff, the same shape as the existing `lint-markdown-toc` job.
 > and commit the resulting `index/` diff.
 
 **Answers — catches the query surface regressing.** `tools/selftest.json` records
-what "the index works" means: 48 checks across nineteen queries with their
+what "the index works" means: 52 checks across twenty-three queries with their
 expected top crate, six confidence verdicts, one query that must find no category
 at all, each recipe's resolved/uncovered counts, three graph affinities, two
 runtime constraints, five feature lookups and three example lookups.

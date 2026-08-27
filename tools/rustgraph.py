@@ -74,6 +74,11 @@ CONFIDENT = {"readme", "repo-exact", "repo-alias"}
 # identifier; above it the name is a dictionary word and matching it is
 # a coincidence. Swept against the evaluation set, not guessed.
 IDENT_DF_MAX = 30
+# How hard adoption pushes inside a matched category. Swept against the
+# evaluation set: too high and fame beats intent (core-foundation, a
+# macOS-only binding, won "cross platform gui" over iced, which is
+# literally described as one); too low and obscure crates win on wording.
+POP_WEIGHT = 0.55
 
 STOP = {
     "a", "an", "and", "for", "the", "with", "to", "in", "of", "on", "is", "it",
@@ -414,6 +419,36 @@ def corpus_frequency(nodes):
     return df
 
 
+def dominated(nodes, cats):
+    """Node ids whose own category holds a far more adopted sibling.
+
+    This is what separates a query naming a crate from a query that merely uses
+    a capability word which happens to be one. "config" leads Libraries/
+    Configuration, so "read a config file" naming it means it; "websocket" is
+    outdownloaded 110x by tungstenite in its own category, so "websocket server"
+    is a capability phrase and crediting the name put a dead crate on top."""
+    if "dominated" in _AFFINITY_CACHE:
+        return _AFFINITY_CACHE["dominated"]
+    by_id = {n["id"]: n for n in nodes}
+    subtree = subtree_map(cats)
+    out = set()
+    for n in nodes:
+        mine = popularity(n)[0] or 0
+        for path in n.get("category_paths", []):
+            members = subtree.get("cat:" + "/".join(path), ())
+            for m in members:
+                other = by_id.get(m)
+                if other is None or m == n["id"]:
+                    continue
+                if (popularity(other)[0] or 0) >= mine * 10 and mine > 0:
+                    out.add(n["id"])
+                    break
+            if n["id"] in out:
+                break
+    _AFFINITY_CACHE["dominated"] = out
+    return out
+
+
 def keyword_frequency():
     """How many crates hold each crates.io keyword.
 
@@ -445,7 +480,8 @@ def name_frequency(nodes):
     return df
 
 
-def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None):
+def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None,
+               dominated_ids=None):
     name = " ".join(n.get("names", [])).lower()
     name_parts = {p for p in re.split(r"[^a-z0-9]+", name) if p}
     # The RESOLVED crate, not the README-derived field. crate_name is populated
@@ -480,11 +516,13 @@ def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None):
     # 2.5M-download crate above tungstenite at 282M inside the same category --
     # while the docs tell agents to query capabilities, which is exactly the
     # phrasing that triggered it.
-    query_is_name = len(qt) == 1 and crate and qt[0] == crate
+    # The name counts unless this crate is an also-ran in its own category, in
+    # which case the query is using a capability word that happens to be a name.
+    name_counts = crate and n["id"] not in (dominated_ids or set())
 
     s = 0.0
     for t in qt:
-        if t and t == crate and query_is_name:
+        if t and t == crate and name_counts:
             # The query named this crate. Decisive when the name is an
             # identifier, near-worthless when it is a dictionary word: naming
             # "wgpu" can only mean one project, while "time" in "date and time"
@@ -540,10 +578,9 @@ def score_node(n, qt, cat_scores, name_df, anchored=None, corpus_df=None):
             # hard -- that is what puts reqwest above an obscure HTTP client.
             # Outside one, damp it to a whisper, or clap's billion downloads
             # win "terminal ui" purely on fame.
-            scale = 0.9 if kind == "dl" else 2.0
-            if not anchored:
-                s += (math.log10(pop + 1) ** 2) * scale
-            elif best_path in anchored:
+            scale = POP_WEIGHT if kind == "dl" else POP_WEIGHT * 2.2
+            inside = (not anchored) or (best_path in anchored)
+            if inside:
                 s += (math.log10(pop + 1) ** 2) * scale
             else:
                 s += math.log10(pop + 1) * 0.5
@@ -611,6 +648,7 @@ def rank(nodes, cats, query):
         c["id"]: score_category(c, qt, profiles.get(c["id"])) for c in cats}
     name_df = name_frequency(nodes)
     cdf = corpus_frequency(nodes)
+    dom = dominated(nodes, cats)
     subtree = subtree_map(cats)
 
     # A real query anchors on a category at 7 or more; noise scrapes 2 off some
@@ -643,7 +681,7 @@ def rank(nodes, cats, query):
     anchored = {" / ".join(c["path"]).lower() for c in top_cats}
 
     scored = sorted(
-        ((score_node(n, qt, cat_scores, name_df, anchored, cdf), n)
+        ((score_node(n, qt, cat_scores, name_df, anchored, cdf, dom), n)
             for n in nodes),
         key=lambda x: (-x[0], x[1]["name"]))
     hits = [(sc, n) for sc, n in scored if sc > 0][:8]
@@ -668,7 +706,8 @@ def rank(nodes, cats, query):
     named = False
     if hits and len(qt) == 1:
         top_crate = (crate_candidate(hits[0][1])[0] or "").lower()
-        named = qt[0] == top_crate and cdf.get(qt[0], 0) <= IDENT_DF_MAX
+        named = (qt[0] == top_crate and cdf.get(qt[0], 0) <= IDENT_DF_MAX
+                 and hits[0][1]["id"] not in dom)
     # Denominator is what the user typed, not what survived tokenising.
     # Everything non-ASCII is dropped before scoring, so a Japanese query in
     # which only "HTTP" survived was reporting 100% coverage -- the tool

@@ -75,7 +75,8 @@
         },
         {
             "q": "2d game engine",
-            "top": "bevy"
+            "top": "ggez",
+            "note": "Changed from bevy deliberately when POP_WEIGHT dropped: ggez is a dedicated 2D framework and bevy, a general engine, is now second. A ranking trade, not a data change."
         },
         {
             "q": "regular expressions",
@@ -83,8 +84,26 @@
         },
         {
             "q": "websocket server",
-            "top": "hyper",
-            "note": "Capability phrasing containing a crate name. The exact-name bonus used to fire on 'websocket' and put a dead 2.5M crate above tungstenite at 282M."
+            "top": "tungstenite",
+            "note": "Capability phrasing containing a crate name. The dead `websocket` crate is outdownloaded 110x by tungstenite in its own category, which is what disqualifies its name match."
+        },
+        {
+            "q": "cross platform gui",
+            "top": "iced",
+            "note": "Adoption used to beat intent here: core-foundation, a macOS-only binding with 411M downloads, outranked the crate described as a cross-platform GUI library."
+        },
+        {
+            "q": "random number generator",
+            "top": "rand",
+            "note": "Was returning shlex with rand at sixth."
+        },
+        {
+            "q": "read a config file and validate it",
+            "top": "config"
+        },
+        {
+            "q": "talk to Postgres from Rust",
+            "top": "postgres"
         }
     ],
     "no_anchor": [
