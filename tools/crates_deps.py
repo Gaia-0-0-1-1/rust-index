@@ -1,0 +1,269 @@
+#!/usr/bin/env python3
+"""crates_deps.py -- resolve crate identity and dependency edges from the
+crates.io database dump.
+
+Fixes the two things README.md alone cannot supply:
+  * crate identity for entries with no crates.io link (via the dump's
+    `repository` column, reverse-mapped from the GitHub URL)
+  * download counts, so ranking is no longer popularity-blind
+  * depends_on edges between indexed projects -- the actual DAG
+
+The dump is ~1.8GB compressed and ~20GB unpacked, so it is streamed twice
+straight out of the tarball and filtered to our nodes; nothing is unpacked.
+
+  python tools/crates_deps.py <path/to/db-dump.tar.gz>
+
+Writes index/crate-identity.json, index/downloads.json, index/dep-edges.jsonl.
+"""
+
+import csv
+import io
+import json
+import re
+import sys
+import tarfile
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+NODES = ROOT / "index" / "nodes.jsonl"
+IDENTITY = ROOT / "index" / "crate-identity.json"
+DOWNLOADS = ROOT / "index" / "downloads.json"
+DEP_EDGES = ROOT / "index" / "dep-edges.jsonl"
+
+csv.field_size_limit(1 << 30)
+
+GH = re.compile(r"github\.com[/:]+([^/]+)/([^/#?]+)", re.I)
+
+
+def norm_repo(url):
+    """https://github.com/Owner/Repo.git -> https://github.com/owner/repo"""
+    if not url:
+        return None
+    m = GH.search(url)
+    if not m:
+        return None
+    owner, repo = m.group(1), m.group(2)
+    repo = repo[:-4] if repo.lower().endswith(".git") else repo
+    return "https://github.com/%s/%s" % (owner.lower(), repo.lower())
+
+
+def text_lines(fileobj):
+    """Decode a stream-mode tar member into lines without TextIOWrapper, which
+    needs a seekable file the "r|gz" reader does not provide. csv.reader takes
+    any line iterator and still handles newlines inside quoted fields."""
+    dec = io.IncrementalNewlineDecoder(None, translate=True)
+    utf8 = __import__("codecs").getincrementaldecoder("utf-8")()
+    buf = ""
+    while True:
+        chunk = fileobj.read(1 << 20)
+        if not chunk:
+            buf += dec.decode(utf8.decode(b"", True), True)
+            if buf:
+                yield buf
+            return
+        buf += dec.decode(utf8.decode(chunk))
+        parts = buf.split("\n")
+        buf = parts.pop()
+        for line in parts:
+            yield line + "\n"
+
+
+SNAPSHOT = {"id": None}
+
+
+def members(tf_path, wanted):
+    """Stream the tarball, yielding (basename, line iterator) for wanted files."""
+    with tarfile.open(tf_path, "r|gz") as tf:
+        for m in tf:
+            if SNAPSHOT["id"] is None and "/" in m.name:
+                # Dumps unpack into a dated directory; keep it so a consumer can
+                # see how stale these artifacts are.
+                SNAPSHOT["id"] = m.name.split("/")[0]
+            base = m.name.rsplit("/", 1)[-1]
+            if base in wanted and "/data/" in m.name:
+                f = tf.extractfile(m)
+                if f is not None:
+                    yield base, text_lines(f)
+
+
+def repo_aliases(repo_name):
+    """Names a repo might publish under. 'curl-rust' -> {'curl-rust','curl'},
+    so the user-facing crate wins over a sys- crate that out-downloads it only
+    because the user-facing one depends on it."""
+    n = (repo_name or "").lower()
+    out = {n}
+    for suf in ("-rs", "-rust", ".rs", "_rs", "_rust"):
+        if n.endswith(suf) and len(n) > len(suf):
+            out.add(n[: -len(suf)])
+    for pre in ("rust-", "rust_"):
+        if n.startswith(pre) and len(n) > len(pre):
+            out.add(n[len(pre):])
+    for x in list(out):
+        out.add(x.replace("-", "_"))
+        out.add(x.replace("_", "-"))
+    return {x for x in out if x}
+
+
+def load_nodes():
+    if not NODES.exists():
+        sys.exit("index/nodes.jsonl missing -- run: cargo run --bin index")
+    return [json.loads(l) for l in NODES.read_text(encoding="utf-8").splitlines() if l.strip()]
+
+
+def main(argv):
+    if len(argv) < 2:
+        sys.exit(__doc__)
+    dump = argv[1]
+    nodes = load_nodes()
+
+    target_names = {n["crate_name"].lower() for n in nodes if n.get("crate_name")}
+    repo_to_nodes = {}
+    for n in nodes:
+        r = norm_repo(n.get("github_url") or n.get("primary_url") or "")
+        if r:
+            repo_to_nodes.setdefault(r, []).append(n)
+    print("nodes %d | readme crate names %d | github repos %d"
+          % (len(nodes), len(target_names), len(repo_to_nodes)))
+
+    # ---- pass 1: crates.csv (identity + downloads) then versions.csv (latest)
+    crates = {}          # crate_id -> {name, downloads, repo}
+    by_name = {}         # name -> crate_id
+    by_repo = {}         # normalised repo -> [crate_id]
+    latest = {}          # crate_id -> (created_at, version_id)
+
+    print("pass 1: crates.csv + versions.csv ...")
+    for base, stream in members(dump, {"crates.csv", "versions.csv"}):
+        r = csv.DictReader(stream)
+        if base == "crates.csv":
+            for row in r:
+                name = (row.get("name") or "").strip()
+                repo = norm_repo(row.get("repository") or "")
+                keep = name.lower() in target_names or (repo and repo in repo_to_nodes)
+                if not keep:
+                    continue
+                cid = row["id"]
+                # Current dumps carry no crate-level downloads column; the
+                # total is the sum over versions, accumulated in pass 1b below.
+                crates[cid] = {"name": name, "downloads": 0, "repo": repo}
+                by_name.setdefault(name.lower(), cid)
+                if repo:
+                    by_repo.setdefault(repo, []).append(cid)
+            print("  kept %d crates" % len(crates))
+        else:
+            for row in r:
+                cid = row.get("crate_id")
+                if cid not in crates:
+                    continue
+                # Yanked versions still count toward adoption, but must never
+                # be chosen as the version whose dependencies we read.
+                try:
+                    crates[cid]["downloads"] += int(row.get("downloads") or 0)
+                except ValueError:
+                    pass
+                if (row.get("yanked") or "").lower() in ("t", "true"):
+                    continue
+                created = row.get("created_at") or ""
+                cur = latest.get(cid)
+                if cur is None or created > cur[0]:
+                    latest[cid] = (created, row["id"])
+            print("  latest versions for %d crates" % len(latest))
+
+    # ---- resolve each node to a crate
+    ver_to_crate = {v[1]: cid for cid, v in latest.items()}
+    identity = {}
+    for n in nodes:
+        cid, source = None, None
+        cn = (n.get("crate_name") or "").lower()
+        if cn and cn in by_name:
+            cid, source = by_name[cn], "readme"
+        else:
+            r = norm_repo(n.get("github_url") or n.get("primary_url") or "")
+            cands = by_repo.get(r, []) if r else []
+            if cands:
+                repo_name = (n.get("repo") or {}).get("name", "").lower()
+                # One repo usually ships many crates (tokio-rs/tokio publishes
+                # tokio, tokio-util, tokio-stream, ...), so resolve by
+                # confidence: exact repo name, then a conventional alias of it,
+                # and only then the most downloaded crate in the repo.
+                exact = [c for c in cands if crates[c]["name"].lower() == repo_name]
+                aliases = repo_aliases(repo_name)
+                alias = [c for c in cands if crates[c]["name"].lower() in aliases]
+                if exact:
+                    cid, source = exact[0], "repo-exact"
+                elif alias:
+                    cid = max(alias, key=lambda c: crates[c]["downloads"])
+                    source = "repo-alias"
+                else:
+                    cid = max(cands, key=lambda c: crates[c]["downloads"])
+                    source = "repo-downloads"
+        if cid:
+            identity[n["id"]] = {
+                "crate": crates[cid]["name"],
+                "crate_id": cid,
+                "source": source,
+                "downloads": crates[cid]["downloads"],
+                "candidates": sorted({crates[c]["name"] for c in by_repo.get(
+                    crates[cid]["repo"], [])}) if crates[cid]["repo"] else [],
+            }
+
+    node_of_crate = {v["crate_id"]: k for k, v in identity.items()}
+    want_versions = {v[1] for cid, v in latest.items() if cid in node_of_crate}
+
+    # ---- pass 2: dependencies.csv, filtered to edges between indexed projects
+    print("pass 2: dependencies.csv ...")
+    edges, seen = [], set()
+    for base, stream in members(dump, {"dependencies.csv"}):
+        r = csv.DictReader(stream)
+        for row in r:
+            vid = row.get("version_id")
+            if vid not in want_versions:
+                continue
+            dep_cid = row.get("crate_id")
+            if dep_cid not in node_of_crate:
+                continue
+            src_cid = ver_to_crate.get(vid)
+            if not src_cid or src_cid == dep_cid:
+                continue
+            a, b = node_of_crate.get(src_cid), node_of_crate[dep_cid]
+            if not a or (a, b) in seen:
+                continue
+            seen.add((a, b))
+            edges.append({
+                "from": a, "to": b, "kind": "depends_on",
+                "dep_kind": row.get("kind") or "0",
+                "optional": (row.get("optional") or "").lower() in ("t", "true"),
+            })
+
+    by_source = {}
+    for v in identity.values():
+        by_source[v["source"]] = by_source.get(v["source"], 0) + 1
+
+    IDENTITY.write_text(json.dumps(identity, indent=1, sort_keys=True), encoding="utf-8")
+    DOWNLOADS.write_text(json.dumps(
+        {k: v["downloads"] for k, v in identity.items()}, indent=1, sort_keys=True),
+        encoding="utf-8")
+    DEP_EDGES.write_text(
+        "".join(json.dumps(e, sort_keys=True) + "\n"
+                for e in sorted(edges, key=lambda e: (e["from"], e["to"]))),
+        encoding="utf-8")
+
+    (ROOT / "index" / "crates-provenance.json").write_text(json.dumps({
+        "dump_snapshot": SNAPSHOT["id"],
+        "source": "https://static.crates.io/db-dump.tar.gz",
+        "nodes": len(nodes),
+        "identity_resolved": len(identity),
+        "identity_by_source": by_source,
+        "dep_edges": len(edges),
+    }, indent=1, sort_keys=True), encoding="utf-8")
+
+    print("\ndump snapshot %s" % SNAPSHOT["id"])
+    print("identity resolved for %d/%d nodes" % (len(identity), len(nodes)))
+    for k in sorted(by_source):
+        print("  %-16s %d" % (k, by_source[k]))
+    print("depends_on edges between indexed projects: %d" % len(edges))
+    print("wrote %s, %s, %s" % (IDENTITY.name, DOWNLOADS.name, DEP_EDGES.name))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

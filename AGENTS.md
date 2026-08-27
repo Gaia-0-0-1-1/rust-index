@@ -71,20 +71,50 @@ A bullet is a **category label**, not a project, when it has no ` - ` descriptio
 technologies to group under. A bullet with a description is a project even when it
 also has children (`* [Cargo](https://crates.io/) - the Rust package manager`).
 
+## Dependency data
+
+```bash
+python tools/crates_deps.py <db-dump.tar.gz>   # then: rustgraph.py dag --write
+```
+
+`README.md` cannot supply crate identity, adoption, or dependencies. The
+[crates.io database dump](https://static.crates.io/db-dump.tar.gz) can. It is
+~1.8GB compressed and ~20GB unpacked, so it is streamed twice out of the tarball
+and filtered to our nodes — nothing is ever unpacked to disk.
+
+This raised crate identity from 536 to **1,264 of 1,702** projects and produced
+**6,974** `depends_on` edges. `index/crates-provenance.json` records which dump
+snapshot the committed artifacts came from.
+
+Identity is resolved by descending confidence, because one repo usually publishes
+many crates (`tokio-rs/tokio` also ships tokio-util, tokio-stream, …):
+
+| Source | Count | Confidence |
+|---|---:|---|
+| `readme` — crates.io link in the list | 534 | high |
+| `repo-exact` — crate named after the repo | 492 | high |
+| `repo-alias` — conventional alias (`curl-rust` → `curl`) | 92 | high |
+| `repo-downloads` — no name match, took the most downloaded | 146 | **low** |
+
+`ask` marks the low-confidence 146 with `?` and `UNVERIFIED`.
+
+`rustgraph.py dag` uses **normal dependencies only**. Dev-dependencies are not
+runtime edges and they close cycles — serde dev-depends on serde_json, which
+depends on serde — which fuses the graph into one component and makes every
+transitive-dependent count saturate at the same value. Pass `--with-dev` to see
+that for yourself.
+
 ## Known limits — read before trusting output
 
-1. **Ranking is popularity-blind unless `results/popularity.yaml` exists.** That
-   file is gitignored and filled by the link checker. Without it, `ask` picks the
-   right *category* but the order within it is unreliable — an obscure project can
-   outrank the ecosystem standard. Treat the returned set as candidates, not a
-   ranking.
-2. **Only 536 of 1,702 projects have a crates.io link in the README.** For the
-   rest `ask` guesses the crate name from the repo and marks it `?` /
-   `UNVERIFIED`. Never run an unverified `cargo add` without checking crates.io —
-   the guess is wrong whenever repo and crate names differ (`curl-rust` → `curl`).
-   Notably `tokio` has no crates.io link here.
-3. **There are no dependency edges yet.** `edges.jsonl` holds category membership
-   plus 7 cross-references. The real dependency DAG needs crates.io data that is
-   not in this repo.
+1. **1,264 of 1,702 projects have crate identity; 438 do not.** Those are
+   applications, non-Rust resources, and projects not published to crates.io.
+   They still rank and cite correctly, they just have no deps or downloads.
+2. **146 crate names are low-confidence guesses**, marked `?` / `UNVERIFIED`.
+   Confirm on crates.io before running `cargo add` on one.
+3. **The DAG covers 1,086 projects**, being those with both crate identity and at
+   least one dependency edge to another indexed project. Dependencies on crates
+   outside this list are not edges here.
 4. **Multi-concept queries surface the dominant concept only.** "async http client
    with rustls" returns HTTP clients; `rustls` needs its own query.
+5. **Dump-derived artifacts are a snapshot.** Check `crates-provenance.json` and
+   re-run `crates_deps.py` if the download counts look stale.

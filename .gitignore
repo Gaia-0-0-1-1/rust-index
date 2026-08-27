@@ -5,3 +5,5 @@ node_modules/
 .env
 ec-linux*
 mktoc*
+__pycache__/
+*.pyc

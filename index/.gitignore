@@ -1,7 +1,8 @@
-# Committed: artifacts derived from README.md alone, so anyone can reproduce
-# them byte-for-byte with `cargo run --bin index` and no network access.
-#   entries.jsonl  nodes.jsonl  edges.jsonl  categories.json
+# Committed: reproducible from README.md alone, plus the crates.io-derived
+# artifacts. The latter are small (~2MB) and cost a 1.8GB download to rebuild,
+# so a clone is useful immediately; crates-provenance.json records which dump
+# snapshot they came from, which is how you tell whether they are stale.
 #
-# Ignored: artifacts that reflect network/cache state and so differ per run.
+# Ignored: artifacts that reflect local cache state and differ per run.
 entries.enriched.jsonl
 coverage.json

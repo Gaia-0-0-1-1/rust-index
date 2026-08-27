@@ -1,0 +1,13 @@
+{
+ "dep_edges": 6974,
+ "dump_snapshot": "2026-08-26-020014",
+ "identity_by_source": {
+  "readme": 534,
+  "repo-alias": 92,
+  "repo-downloads": 146,
+  "repo-exact": 492
+ },
+ "identity_resolved": 1264,
+ "nodes": 1702,
+ "source": "https://static.crates.io/db-dump.tar.gz"
+}
