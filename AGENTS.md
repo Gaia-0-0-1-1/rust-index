@@ -304,7 +304,7 @@ anything and you are back to reporting the tuning set.
 
 ## Tried and rejected
 
-Four plausible improvements were built, measured, and removed. They are recorded
+Five plausible improvements were measured and not kept. They are recorded
 here because every one of them looks obviously correct until you measure it, and
 because a later reader who has the same idea should start from the number rather
 than rebuild it.
@@ -335,6 +335,14 @@ that answers every CLI question. Matching the compound as a joined phrase is
 worse still — `yukikaze` spells its keyword `http-client` where `reqwest` spells
 it `http` and `client`, so a phrase bonus rewards the obscure crate for
 punctuation, and "async http client" started returning yukikaze.
+
+**Preferring Libraries over Applications.** The list separates 772 libraries
+from 631 applications, and several wrong answers are CLI programs where a
+library was wanted -- "match text with a pattern" returns `ripgrep`, "watch a
+directory for changes" returns `cargo-watch`. Damping applications looks like
+free accuracy and is not: only 2 of 24 held-out misses are applications, and
+neither has the right library anywhere below it in the same results. It would
+fix nothing and would bury the cases where an application IS the answer.
 
 **Re-filing the signal-free categories.** The obvious next inference from the
 above — `scraper` sits in `Web programming/Miscellaneous`, so fix the category —
