@@ -65,3 +65,7 @@ jobs:
       # The fix is: run `cargo run --bin index` and commit the index/ diff.
       - name: Fail if the committed index is stale
         run: git diff --exit-code -- index/
+      # No pipe here on purpose: piping would report the pipe's exit code and
+      # turn a failing gate green. This is also the only Python CI executes.
+      - name: Check the query surface still answers correctly
+        run: python tools/rustgraph.py selftest

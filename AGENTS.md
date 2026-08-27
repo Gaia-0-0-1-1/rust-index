@@ -81,7 +81,7 @@ legitimately dirty it — that is what `crates-provenance.json` is for. They are
 pinned to LF in `.gitattributes`; without that, autocrlf rewrites them on
 checkout and every regeneration shows a whole-file diff.
 
-## The two gates
+## The three gates
 
 **Accounting — catches parsing drift.** `extract` enforces, and exits non-zero on:
 
@@ -101,6 +101,21 @@ any diff, the same shape as the existing `lint-markdown-toc` job.
 > **If `lint-index` fails after a README change** — which is expected after
 > merging upstream — the index is simply out of date. Run `cargo run --bin index`
 > and commit the resulting `index/` diff.
+
+**Answers — catches the query surface regressing.** `tools/selftest.json` records
+what "the index works" means: nine queries with their expected top crate, one that
+must find no category at all, and each recipe's resolved/uncovered counts.
+
+```bash
+python tools/rustgraph.py selftest
+```
+
+It is also the only Python CI runs, so without it a syntax error in
+`rustgraph.py` or a rotted recipe would sail through green.
+
+> **If `selftest` fails**, decide which happened. A ranking change you did not
+> intend is a bug. A README edit or a fresher crates.io dump legitimately moving
+> an answer is not — update `tools/selftest.json` in the same commit and say why.
 
 CI rebuilds only the README-derived artifacts. The crates.io ones need a 1.8GB
 dump, so they are refreshed deliberately by running `tools/crates_deps.py`, not on

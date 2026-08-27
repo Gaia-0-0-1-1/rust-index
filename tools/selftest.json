@@ -1,0 +1,29 @@
+{
+    "$comment": "The gauntlet: what 'the index works' actually means, in a file rather than in someone's memory. `rustgraph.py selftest` runs it and exits non-zero on any mismatch, and lint-index runs that -- which is also the only thing in CI that executes any Python at all. Expectations are deliberately about the TOP result, since that is what an agent acts on. When the README or the crates.io dump legitimately changes an answer, update the expectation in the same commit and say why.",
+    "queries": [
+        {"q": "async http client with rustls", "top": "reqwest"},
+        {"q": "cli argument parsing", "top": "clap"},
+        {"q": "web framework", "top": "axum"},
+        {"q": "serialization", "top": "serde_json",
+         "note": "The list says Encoding and never serialization; this passes only via category term profiles."},
+        {"q": "encoding json", "top": "serde_json"},
+        {"q": "logging", "top": "log"},
+        {"q": "date and time", "top": "chrono"},
+        {"q": "compression", "top": "flate2"},
+        {"q": "terminal ui", "top": "crossterm",
+         "note": "Regression guard: clap's 1.1B downloads used to win this on fame alone."}
+    ],
+    "no_anchor": [
+        {"q": "quantum flux capacitor",
+         "note": "Must report no category match rather than dressing a guess as a ranking."}
+    ],
+    "recipes": [
+        {"name": "cli", "resolved": 5, "uncovered": ["anyhow"]},
+        {"name": "web-service", "resolved": 6, "uncovered": []},
+        {"name": "tui", "resolved": 2, "uncovered": ["anyhow"]},
+        {"name": "parser", "resolved": 2, "uncovered": ["serde"]},
+        {"name": "data", "resolved": 4, "uncovered": []},
+        {"name": "http-client", "resolved": 4, "uncovered": []},
+        {"name": "wasm", "resolved": 2, "uncovered": []}
+    ]
+}

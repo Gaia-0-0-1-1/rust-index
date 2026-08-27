@@ -15,6 +15,8 @@ Built on the artifacts `cargo run --bin index` produces. Stdlib only, no network
         Everything known about one project.
     recipe [name]
         Authored stacks per archetype, each crate resolved against the index.
+    selftest
+        Run tools/selftest.json; non-zero exit on any mismatch.
     stats
         Index shape.
 
@@ -22,10 +24,14 @@ Built on the artifacts `cargo run --bin index` produces. Stdlib only, no network
     python tools/rustgraph.py cat "Libraries/Command-line/Argument parsing"
     python tools/rustgraph.py node reqwest
 
-Ranking note: in a hand-curated list the taxonomy carries more signal than the
-prose, so categories are scored first and nodes inherit their category's score.
-Matching on names alone makes "async" pull in async-std/async-dropper/
-async-graphql by pure string overlap, which is noise.
+Ranking, in three rules. The taxonomy is matched first, because in a curated
+list it carries more signal than the prose -- on names alone "async" pulls in
+async-std, async-dropper and async-graphql by pure string overlap. A category is
+reachable through the vocabulary its members are *described* with, aggregated
+over its subtree, so "serialization" finds Encoding although that name never says
+the word. Adoption then orders results within the categories that matched, and is
+damped outside them: counted globally, clap's billion downloads win "terminal ui"
+on fame alone.
 """
 
 import json
@@ -42,6 +48,7 @@ DOWNLOADS = ROOT / "index" / "downloads.json"
 DEP_EDGES = ROOT / "index" / "dep-edges.jsonl"
 DAG = ROOT / "index" / "dag.json"
 RECIPES = ROOT / "tools" / "recipes.json"
+SELFTEST = ROOT / "tools" / "selftest.json"
 
 # Filled by load(). Absent until tools/crates_deps.py has run.
 IDENT = {}
@@ -371,19 +378,19 @@ def fmt_node(n, indent="  "):
     return "\n".join(out)
 
 
-def cmd_ask(query):
-    nodes, cats = load()
+def rank(nodes, cats, query):
+    """The whole ranking, with nothing printed, so selftest exercises exactly
+    what ask does. Returns (hits, top_cats, subtree)."""
     qt = tokens(query)
     if not qt:
-        sys.exit("empty query")
+        return [], [], {}
 
     profiles = category_terms(nodes, cats)
     cat_scores = {
         c["id"]: score_category(c, qt, profiles.get(c["id"])) for c in cats}
     name_df = name_frequency(nodes)
-
-    node_by_id = {n["id"]: n for n in nodes}
     subtree = subtree_map(cats)
+
     # A real query anchors on a category at 7 or more; noise scrapes 2 off some
     # incidental substring ("flux" finding InfluxDB). Below the floor there is
     # no anchor, so say so rather than dressing a guess up as a ranking.
@@ -399,7 +406,15 @@ def cmd_ask(query):
     scored = sorted(
         ((score_node(n, qt, cat_scores, name_df, anchored), n) for n in nodes),
         key=lambda x: (-x[0], x[1]["name"]))
-    hits = [(sc, n) for sc, n in scored if sc > 0][:8]
+    return [(sc, n) for sc, n in scored if sc > 0][:8], top_cats, subtree
+
+
+def cmd_ask(query):
+    nodes, cats = load()
+    if not tokens(query):
+        sys.exit("empty query")
+    hits, top_cats, subtree = rank(nodes, cats, query)
+    node_by_id = {n["id"]: n for n in nodes}
     if not hits:
         print("no match for %r" % query)
         return 1
@@ -644,6 +659,80 @@ def cmd_recipe(name):
     return 0
 
 
+def cmd_selftest():
+    """Run tools/selftest.json. Non-zero exit on any mismatch.
+
+    Two things go unchecked without this. The ranking's behaviour lived only in
+    whatever queries someone last happened to type, and CI ran no Python at all,
+    so a broken tool or a rotted recipe stayed green."""
+    if not SELFTEST.exists():
+        print("tools/selftest.json missing")
+        return 1
+    spec = json.loads(SELFTEST.read_text(encoding="utf-8"))
+    nodes, cats = load()
+    failures = []
+
+    for case in spec.get("queries", []):
+        hits, top_cats, _ = rank(nodes, cats, case["q"])
+        got = None
+        if hits:
+            got, _v = crate_candidate(hits[0][1])
+        ok = got is not None and got.lower() == case["top"].lower()
+        if not ok:
+            failures.append("query %r: expected %s, got %s"
+                            % (case["q"], case["top"], got or "no hit"))
+        print("  %-4s %-32s -> %s" % ("ok" if ok else "FAIL", case["q"], got))
+
+    for case in spec.get("no_anchor", []):
+        _hits, top_cats, _ = rank(nodes, cats, case["q"])
+        ok = not top_cats
+        if not ok:
+            failures.append("no_anchor %r: anchored on %s"
+                            % (case["q"], " / ".join(top_cats[0]["path"])))
+        print("  %-4s %-32s -> %s" % ("ok" if ok else "FAIL", case["q"],
+                                      "no anchor" if ok else "anchored"))
+
+    if spec.get("recipes") and RECIPES.exists():
+        data = json.loads(RECIPES.read_text(encoding="utf-8"))["recipes"]
+        by_crate = {}
+        for n in nodes:
+            crate, _v = crate_candidate(n)
+            if crate:
+                by_crate.setdefault(crate.lower(), n)
+        for case in spec["recipes"]:
+            r = next((x for x in data if x["name"] == case["name"]), None)
+            if not r:
+                failures.append("recipe %s: missing from recipes.json" % case["name"])
+                print("  FAIL %-32s -> missing" % case["name"])
+                continue
+            resolved, uncovered = 0, []
+            for step in r["steps"]:
+                if step["crate"].lower() in by_crate:
+                    resolved += 1
+                elif step["crate"] not in uncovered:
+                    uncovered.append(step["crate"])
+            ok = resolved == case["resolved"] and uncovered == case["uncovered"]
+            if not ok:
+                failures.append(
+                    "recipe %s: expected %d resolved / %s uncovered, got %d / %s"
+                    % (case["name"], case["resolved"], case["uncovered"],
+                       resolved, uncovered))
+            print("  %-4s recipe %-25s -> %d resolved, uncovered %s"
+                  % ("ok" if ok else "FAIL", case["name"], resolved,
+                     uncovered or "none"))
+
+    print()
+    if failures:
+        print("SELFTEST FAILED (%d)" % len(failures))
+        for f in failures:
+            print("  %s" % f)
+        print("\nIf the README or the crates.io dump legitimately changed an")
+        print("answer, update tools/selftest.json in the same commit.")
+        return 1
+    print("selftest OK")
+    return 0
+
+
 def cmd_stats():
     nodes, cats = load()
     print("nodes          %d" % len(nodes))
@@ -672,6 +761,8 @@ def main(argv):
         return cmd_dag("--write" in rest, "--with-dev" in rest)
     if cmd == "recipe":
         return cmd_recipe(" ".join(rest))
+    if cmd == "selftest":
+        return cmd_selftest()
     if cmd == "stats":
         return cmd_stats()
     print(__doc__)
