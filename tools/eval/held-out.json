@@ -1,5 +1,5 @@
 {
-    "note": "Held-out queries, kept apart from tools/selftest.json. selftest is a regression gate and its wording is what the ranking was tuned on; these are for measuring, and tuning on them destroys their value. 'reworded' restates the selftest queries as sentences, so it measures wording robustness on familiar topics. 'sealed' was written before the last change and never run until after, so it measures unfamiliar topics too -- it is the honest number.",
+    "note": "Held-out queries, kept apart from tools/selftest.json. selftest is a regression gate and its wording is what the ranking was tuned on; these are for measuring, and tuning on them destroys their value. 'reworded' restates the selftest queries as sentences, so it measures wording robustness on familiar topics. 'sealed' was written before the last change and never run until after, so it measures unfamiliar topics too -- it is the honest number. IDF_ALPHA and ANCHOR_GAMMA were chosen by maximising recall on 'reworded', so that set is in-sample for those two constants; 'sealed' was not run until after they were fixed and measured the change at zero. Both sets are now spent for judging a new change -- their failures have been read. Write a fresh set.",
     "reworded": [
         {
             "q": "make https requests asynchronously",

@@ -270,8 +270,8 @@ that for yourself.
 `selftest` is a gate, not a score. It asserts the exact answers the ranking was
 tuned to give, so it can only ever report the tuning set -- it says the tool has
 not regressed, never that it is good. `python tools/rustgraph.py eval` reports
-the other thing, against 50 held-out queries in `tools/eval/held-out.json` that
-were never tuned against:
+the other thing, against 50 queries in `tools/eval/held-out.json` held out from
+the tuning set:
 
 | | reachable | first | top three | returned |
 |---|---|---|---|---|
@@ -294,13 +294,24 @@ reaches those, and 30% is the rate at which ordinary questions hit one. Of what
 is actually present, the tool returns it 86% of the time. Retrieval headroom is
 the 14 points; corpus headroom is much larger and is upstream's to fix.
 
+**`reworded` is in-sample for two constants.** `IDF_ALPHA` and `ANCHOR_GAMMA`
+were chosen by maximising reworded recall, so its 60/83/90 are fitted numbers
+for those two knobs and the +1 top-three, +2 returned they bought is an
+in-sample gain, not a held-out one. `sealed` was not looked at until after those
+constants were fixed, and it measured the same change at **exactly zero**. When
+one number has to be quoted, quote sealed.
+
 The two sets differ on purpose. `reworded` restates the selftest queries as
 sentences, so it isolates wording robustness on topics the index handles.
 `sealed` was written before the last ranking change and not run until after, so
 it carries unfamiliar topics too. It scores lower, and it is the honest number.
 
 Do not tune against either file. The moment you do, they stop measuring
-anything and you are back to reporting the tuning set.
+anything and you are back to reporting the tuning set -- which is exactly what
+happened to `reworded`, and why the disclosure above exists rather than a
+better number. Both sets are now spent for judging a *new* change: their
+failures have been read and reasoned about. Honest measurement of the next
+ranking change needs a set written fresh and not run until after it lands.
 
 ## Tried and rejected
 

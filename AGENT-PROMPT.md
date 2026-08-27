@@ -76,9 +76,11 @@ including dev-dependencies, which `dag` excludes by default).
 - **Heed `DORMANT`.** A result marked so has not published in three years or
     more; downloads are cumulative, so a dead crate keeps its popularity. Check
     it is still maintained before depending on it.
-- **Read the top three, not just the first.** Measured on 50 held-out queries:
-    the first result is right **59%** of the time, and the right answer is in the
-    top three **80%** of the time and returned at all **86%** of the time. The
+- **Read the top three, not just the first.** Measured on 50 held-out queries,
+    counting only the 44 the list can actually answer: the first result is right
+    **59%** of the time, the right answer is in the top three **80%** of the
+    time, and it is returned somewhere **86%** of the time. Against all 50 asked,
+    including the ones no ranking can answer, first place is right 52%. The
     results are mutual alternatives from one category, so scanning three costs
     nothing. Run `python tools/rustgraph.py eval` to reproduce this.
 - **`CONFIDENCE high` is weakly calibrated.** Roughly a quarter of `high`
