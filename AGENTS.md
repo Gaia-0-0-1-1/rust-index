@@ -267,8 +267,10 @@ that for yourself.
 
 ## Tried and rejected
 
-Two plausible improvements were built, measured, and removed. Both are recorded
-here because both look obviously correct until you measure them.
+Four plausible improvements were built, measured, and removed. They are recorded
+here because every one of them looks obviously correct until you measure it, and
+because a later reader who has the same idea should start from the number rather
+than rebuild it.
 
 **Ecosystem clustering.** The affinity graph does not cluster: one 134-node
 component at lift >= 2, still one 35-node blob at lift >= 8. 135 crates with
