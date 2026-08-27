@@ -35,6 +35,7 @@ cat "<path>"         list a category (its members are mutual alternatives)
 node <name|crate>    everything known about one project (JSON)
 recipe [name]        archetype stacks (see list below)
 stack <crate>        what a crate is really built alongside (from dep graph)
+features <crate> [x] which Cargo feature to turn on, and the Cargo.toml line
 dag                  dependency strata and most load-bearing crates
 stats                index shape
 selftest             verify the index still answers correctly

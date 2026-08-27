@@ -17,6 +17,9 @@ Built on the artifacts `cargo run --bin index` produces. Stdlib only, no network
         Authored stacks per archetype, each crate resolved against the index.
     stack <name|crate>
         What a project is demonstrably built alongside, from the dep graph.
+    features <crate> [what]
+        Cargo features: what is on by default, what to opt into, and the
+        Cargo.toml line for it.
     selftest
         Run tools/selftest.json; non-zero exit on any mismatch.
     stats
@@ -794,6 +797,14 @@ def cmd_ask(query):
     if picks:
         print("\nINSTALL")
         print("  cargo add %s" % " ".join(picks[:4]))
+        # Selecting the crate is half the answer; the other half is which
+        # feature to turn on, and getting that wrong fails at compile time
+        # rather than here. Point at it, or the command goes undiscovered.
+        lead_vocab = VOCAB.get(lead["id"]) or {}
+        if lead_vocab.get("features") or lead_vocab.get("implicit_features"):
+            note = "  %s has optional features -- check before building:"
+            print(note % picks[0])
+            print("      python tools/rustgraph.py features %s" % picks[0])
     if guessed:
         print("\nNOT INSTALLABLE AS-IS: %s" % ", ".join(guessed[:4]))
         print("  These names are guessed from the repository, not read from")
@@ -1137,6 +1148,22 @@ def cmd_selftest():
         label = "confidence " + case["q"][:20]
         print("  %-4s %-32s -> %s" % (mark, label, got))
 
+    for case in spec.get("features", []):
+        want_crate = case["crate"].lower()
+        node = next((n for n in nodes
+                        if (crate_candidate(n)[0] or "").lower() == want_crate),
+                    None)
+        v = (VOCAB.get(node["id"]) if node else None) or {}
+        pool = set(v.get("features") or {}) | set(v.get("implicit_features") or [])
+        dflt = set(v.get("default_features") or [])
+        ok = case["expect"] in pool and case["expect"] not in dflt
+        if not ok:
+            failures.append("features %s: %r not an opt-in feature"
+                            % (case["crate"], case["expect"]))
+        mark = "ok" if ok else "FAIL"
+        label = "features %s/%s" % (case["crate"], case["expect"])
+        print("  %-4s %-32s -> %s" % (mark, label[:32], "opt-in" if ok else "no"))
+
     if spec.get("runtime"):
         by_crate = {}
         for n in nodes:
@@ -1253,6 +1280,100 @@ def cmd_stack(name):
     return 0
 
 
+def cmd_features(args):
+    """Which Cargo features a crate has, and which one you probably need.
+
+    `ask` gets the crate right and then leaves the agent to fail at compile
+    time: cargo add reqwest, call .json(), and it does not build, because that
+    lives behind a feature. Both halves of the answer are in the dump.
+
+    Optional dependencies matter as much as declared features. Cargo creates an
+    implicit feature per optional dep, so chrono's `serde` feature appears in no
+    features map anywhere -- it exists only because chrono optionally depends on
+    serde, which this list does not even carry."""
+    parts = (args or "").split()
+    if not parts:
+        print("usage: features <crate> [what you want]")
+        return 1
+    name, want = parts[0].lower(), " ".join(parts[1:]).lower()
+
+    nodes, _cats = load()
+    target = None
+    for n in nodes:
+        if (crate_candidate(n)[0] or "").lower() == name:
+            target = n
+            break
+    if target is None:
+        print("no indexed project publishes a crate called %r" % name)
+        print("  Try: python tools/rustgraph.py node %s" % name)
+        return 1
+
+    crate, _v = crate_candidate(target)
+    vocab = VOCAB.get(target["id"]) or {}
+    declared = vocab.get("features") or {}
+    implicit = vocab.get("implicit_features") or []
+    default_on = set(vocab.get("default_features") or ())
+
+    if not declared and not implicit:
+        print("%s -- no feature data" % crate)
+        print("  The crates.io dump carries no features map for this crate.")
+        print("  Check docs.rs/%s for its feature list." % crate)
+        return 1
+
+    print("%s -- cargo features" % crate)
+    print("=" * 72)
+
+    def public(f):
+        # Cargo internals, not knobs anyone should turn: "__tls" is private by
+        # the leading-underscore convention, and a trailing "?" is weak-dep
+        # syntax leaking out of the features map rather than a feature name.
+        return f and not f.startswith("__") and not f.endswith("?")
+
+    default_on = {f for f in default_on if public(f)}
+    opt_in = sorted(f for f in declared
+                    if public(f) and f != "default" and f not in default_on)
+    implied = sorted(f for f in implicit
+                        if public(f) and f not in declared
+                        and f not in default_on)
+
+    if want:
+        matches = [f for f in opt_in + implied if want in f.lower()]
+        for f in opt_in:
+            if any(want in str(x).lower() for x in declared.get(f, ())):
+                if f not in matches:
+                    matches.append(f)
+        print("\nFEATURES MATCHING %r" % want)
+        if matches:
+            for f in matches[:10]:
+                enables = ", ".join(declared.get(f, ()))[:44]
+                print("  %-22s %s" % (f, enables or "(optional dependency)"))
+            print("\nCARGO.TOML")
+            line = '  %s = { version = "*", features = ["%s"] }'
+            print(line % (crate, matches[0]))
+        else:
+            print("  none. Listed below in full.")
+        print()
+
+    if default_on:
+        print("ON BY DEFAULT  (set default-features = false to drop these)")
+        print("  %s" % ", ".join(sorted(default_on)[:18]))
+        print()
+    if opt_in:
+        print("OPT-IN  (add to features = [...])")
+        for f in opt_in[:16]:
+            enables = ", ".join(declared.get(f, ()))[:42]
+            print("  %-22s %s" % (f, enables))
+        if len(opt_in) > 16:
+            print("  ... and %d more" % (len(opt_in) - 16))
+        print()
+    if implied:
+        print("FROM OPTIONAL DEPENDENCIES  (implicit features)")
+        print("  %s" % ", ".join(implied[:16]))
+        if len(implied) > 16:
+            print("  ... and %d more" % (len(implied) - 16))
+    return 0
+
+
 def cmd_stats():
     nodes, cats = load()
     print("nodes          %d" % len(nodes))
@@ -1283,6 +1404,8 @@ def main(argv):
         return cmd_dag("--write" in rest, "--with-dev" in rest)
     if cmd == "recipe":
         return cmd_recipe(" ".join(rest))
+    if cmd == "features":
+        return cmd_features(" ".join(rest))
     if cmd == "stack":
         return cmd_stack(" ".join(rest))
     if cmd == "selftest":

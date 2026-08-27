@@ -102,6 +102,24 @@ def pg_array(raw):
     return out
 
 
+def feature_map(raw):
+    """The crate's declared features and what each one turns on.
+
+    Bounded: a handful of crates declare thousands of features and nothing is
+    served by carrying them all. Median is four."""
+    try:
+        m = json.loads(raw) if raw else {}
+    except (ValueError, TypeError):
+        return {}
+    if not isinstance(m, dict):
+        return {}
+    out = {}
+    for name in sorted(m)[:80]:
+        vals = m.get(name)
+        out[name] = [str(v) for v in vals][:12] if isinstance(vals, list) else []
+    return out
+
+
 def default_closure(raw):
     """Feature names reachable from `default`.
 
@@ -169,6 +187,7 @@ def main(argv):
 
     # ---- pass 1: crates.csv (identity + downloads) then versions.csv (latest)
     crates = {}          # crate_id -> {name, downloads, repo}
+    all_names = {}       # crate_id -> name, for every crate in the dump
     by_name = {}         # name -> crate_id
     by_repo = {}         # normalised repo -> [crate_id]
     latest = {}          # crate_id -> (created_at, version_id)
@@ -179,6 +198,12 @@ def main(argv):
         if base == "crates.csv":
             for row in r:
                 name = (row.get("name") or "").strip()
+                # Every crate's name, not just the kept ones. Cargo creates an
+                # implicit feature per optional dependency, and those deps are
+                # mostly outside this list -- chrono's `serde` feature exists
+                # only because it optionally depends on serde, which the list
+                # does not carry.
+                all_names[row["id"]] = name
                 repo = norm_repo(row.get("repository") or "")
                 keep = name.lower() in target_names or (repo and repo in repo_to_nodes)
                 if not keep:
@@ -214,7 +239,8 @@ def main(argv):
                         created, row["id"],
                         pg_array(row.get("keywords")),
                         pg_array(row.get("categories")),
-                        sorted(default_closure(row.get("features"))))
+                        sorted(default_closure(row.get("features"))),
+                        feature_map(row.get("features")))
             print("  latest versions for %d crates" % len(latest))
 
     # ---- resolve each node to a crate
@@ -261,6 +287,7 @@ def main(argv):
     # ---- pass 2: dependencies.csv, filtered to edges between indexed projects
     print("pass 2: dependencies.csv ...")
     edges, seen = [], set()
+    implicit = {}        # crate_id -> optional dep names (implicit features)
     for base, stream in members(dump, {"dependencies.csv"}):
         r = csv.DictReader(stream)
         for row in r:
@@ -268,6 +295,12 @@ def main(argv):
             if vid not in want_versions:
                 continue
             dep_cid = row.get("crate_id")
+            if ((row.get("optional") or "").lower() in ("t", "true")
+                    and row.get("kind") == "0"):
+                owner = ver_to_crate.get(vid)
+                if owner:
+                    implicit.setdefault(owner, set()).add(
+                        all_names.get(dep_cid, ""))
             if dep_cid not in node_of_crate:
                 continue
             src_cid = ver_to_crate.get(vid)
@@ -304,11 +337,15 @@ def main(argv):
         if not entry:
             continue
         keywords, categories, default_on = entry[2], entry[3], entry[4]
-        if keywords or categories or default_on:
+        declared = entry[5] if len(entry) > 5 else {}
+        implied = sorted(x for x in implicit.get(v["crate_id"], set()) if x)
+        if keywords or categories or default_on or declared or implied:
             vocab[node_id] = {
                 "keywords": keywords,
                 "categories": categories,
                 "default_features": default_on,
+                "features": declared,
+                "implicit_features": implied,
             }
     KEYWORDS.write_text(
         json.dumps(vocab, indent=1, sort_keys=True) + "\n", encoding="utf-8")

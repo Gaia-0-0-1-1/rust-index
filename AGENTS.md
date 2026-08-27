@@ -18,7 +18,7 @@ python tools/rustgraph.py ask "async http client"
 Also: `cat "<category path>"` (a category's members are mutual alternatives),
 `node <name|crate>` (everything known about one project), `dag` (dependency
 strata and which projects are most load-bearing), `recipe [name]`,
-`stack <crate>`, `stats`.
+`stack <crate>`, `features <crate> [what]`, `stats`.
 
 ```bash
 python tools/rustgraph.py stack axum
@@ -170,6 +170,25 @@ A bullet is a **category label**, not a project, when it has no ` - ` descriptio
 `* [Vulkan](https://www.vulkan.org/)` and `* AWS [[aws](.../keywords/aws)]` name
 technologies to group under. A bullet with a description is a project even when it
 also has children (`* [Cargo](https://crates.io/) - the Rust package manager`).
+
+## Cargo features
+
+```bash
+python tools/rustgraph.py features reqwest json
+```
+
+Choosing the crate is half the answer. `cargo add reqwest`, call `.json()`, and
+it does not compile — that lives behind a feature. `features` reports what is on
+by default, what to opt into, and the exact Cargo.toml line.
+
+**Implicit features matter as much as declared ones.** Cargo creates a feature
+per optional dependency, so `chrono`'s `serde` feature appears in no features map
+anywhere — it exists only because chrono optionally depends on serde, a crate
+this list does not even carry. Recovering those needs every optional dependency,
+not just the ones indexed here.
+
+Covers **841 of 1,264** resolved crates (67%); Cargo internals (`__tls`, weak-dep
+`foo?` syntax) are filtered out as noise.
 
 ## Dependency data
 

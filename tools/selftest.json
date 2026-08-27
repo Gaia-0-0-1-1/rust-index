@@ -184,5 +184,33 @@
             "expect": "behind a feature",
             "note": "Genuinely runtime-agnostic: neither runtime is in its default closure."
         }
+    ],
+    "features": [
+        {
+            "crate": "reqwest",
+            "want": "json",
+            "expect": "json"
+        },
+        {
+            "crate": "tokio",
+            "want": "full",
+            "expect": "full"
+        },
+        {
+            "crate": "clap",
+            "want": "derive",
+            "expect": "derive"
+        },
+        {
+            "crate": "chrono",
+            "want": "serde",
+            "expect": "serde",
+            "note": "Implicit only: chrono's serde feature exists because it optionally depends on serde, which this list does not carry."
+        },
+        {
+            "crate": "sqlx",
+            "want": "postgres",
+            "expect": "postgres"
+        }
     ]
 }
