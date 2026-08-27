@@ -30,12 +30,13 @@ Read `AGENTS.md` in the repo root for the full reference.
 ask <query>          rank projects for a need, with alternatives + install line
 cat "<path>"         list a category (its members are mutual alternatives)
 node <name|crate>    everything known about one project
-recipe [name]        stacks per archetype: cli, web-service, tui, parser,
-                     data, http-client, wasm
+recipe [name]        archetype stacks (see list below)
 dag                  dependency strata and most load-bearing crates
 stats                index shape
 selftest             verify the index still answers correctly
 ```
+
+Recipes: `cli`, `web-service`, `tui`, `parser`, `data`, `http-client`, `wasm`.
 
 ## What it knows
 

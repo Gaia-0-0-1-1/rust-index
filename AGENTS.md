@@ -6,10 +6,10 @@ into something an agent can query instead of scan.
 **`README.md` is the only source of truth. Everything in `index/` is generated —
 regenerate it, never hand-edit it.**
 
-## Query it
-`AGENT-PROMPT.md` is a self-contained version of this page, meant to be pasted
-to an agent that does not have the repo yet.
+`AGENT-PROMPT.md` says all of this in one self-contained page, for pasting to
+an agent that does not have the repo yet.
 
+## Query it
 
 ```bash
 python tools/rustgraph.py ask "async http client"
