@@ -23,6 +23,50 @@ variant of it, and ExampleType_Method documents that method.
 import os
 import re
 
+NAME = 'go'
+SUFFIX = '.go'
+
+VOCAB = {
+    'unit': 'package',
+    'units': 'packages',
+    'verifier': 'go test',
+    'manifest': 'go.mod',
+}
+
+# Go's guarantee is the strongest available and it is not Rust's, so it gets
+# its own words. An `// Output:` comment is compared against what the code
+# really prints, which verifies the example does what it claims rather than
+# merely that it compiles. An Example without one still runs, and saying so
+# separately is the difference between honest and flattering.
+VERIFICATION = {
+    'runs': ('VERIFIED -- `go test` runs this and checks its `// Output:`'
+        ' against what it really prints', True),
+    'compiles': ('RUNS, UNCHECKED -- `go test` builds and runs this, but it'
+        ' declares no expected output', False),
+    'unverified': ('NOT VERIFIED -- nothing checks this', False),
+    'failure': ('DEMONSTRATES FAILURE -- this code is meant to break', False),
+}
+
+# Go has no feature flags, so Rust's caveat about them does not apply.
+COPY_CAVEAT = None
+
+EVAL = {'module_doc': True, 'doc_split': True, 'test_name': True}
+
+# Deliberately identical to Rust's for now. Go text is thick with err, ctx,
+# nil and func, and dropping them would very likely help -- but it would move
+# Go's retrieval numbers, so it ships as a measured change rather than inside
+# a refactor.
+STOP_EXTRA = set()
+
+
+def gate_of(sym):
+    """Go constrains a file with a build tag rather than a cargo feature. The
+    kind travels with the value because the advice differs: `linux` is a
+    platform you are or are not on, not something to switch on in a manifest."""
+    t = sym.get('build_tag')
+    return ('build-tag', t) if t else None
+
+
 DECL_FUNC = re.compile(
     r'^func\s+(?:\((?P<recv>[^)]*)\)\s*)?(?P<name>[A-Za-z_][A-Za-z0-9_]*)')
 DECL_TYPE = re.compile(
@@ -195,7 +239,7 @@ def walk(root):
     return symbols, uses, mods, tests, mod_ex
 
 
-def role_for(rel):
+def role_of(rel):
     """`_test.go` is where Go keeps its examples, so it cannot simply be
     excluded the way Rust's tests/ directory is. Test *functions* are filtered
     from ranking by their `test` flag instead."""
