@@ -321,3 +321,55 @@ def role_of(rel):
     if head in ('examples', 'example', '_examples'):
         return 'example'
     return 'lib'
+
+
+TYPE_NAME = re.compile(r"\b((?:[a-z][A-Za-z0-9_]*\.)?[A-Z][A-Za-z0-9_]*)\b")
+
+
+def groups(sig):
+    """Every top-level parenthesised group, in order."""
+    out, depth, start = [], 0, None
+    for i, c in enumerate(sig):
+        if c == '(':
+            depth += 1
+            if depth == 1:
+                start = i + 1
+        elif c == ')':
+            depth -= 1
+            if depth == 0 and start is not None:
+                out.append((start, i))
+                start = None
+    return out
+
+
+def signature_types(sig):
+    """(parameter types, return types) from a Go signature.
+
+    Go puts the result after the parameter list, bare or parenthesised, so the
+    split is positional rather than on a token like Rust's `->`. A method
+    writes its receiver first -- `func (r *Router) Handle(p string) error` --
+    and reading that group as the parameters puts the real ones in the return
+    slot along with the method's own name, which is what a first attempt did.
+
+    Qualified names are kept whole: `http.Handler` is more useful than
+    `Handler`, and it is what makes the reference resolvable against an index
+    of the standard library.
+    """
+    sig = (sig or '').split('{')[0]
+    gs = groups(sig)
+    if not gs:
+        return [], []
+    head = sig[:gs[0][0] - 1].strip()
+    # `func (` means the first group is a receiver, so parameters are the next.
+    is_method = head.endswith('func') or head == 'func'
+    if is_method and len(gs) >= 2:
+        pstart, pend = gs[1]
+    else:
+        pstart, pend = gs[0]
+    params = sig[pstart:pend]
+    rest = sig[pend + 1:]
+    # A multi-value result is parenthesised; a single one is bare.
+    tail = groups(rest)
+    if tail and rest[:tail[0][0] - 1].strip() == '':
+        rest = rest[tail[0][0]:tail[0][1]]
+    return TYPE_NAME.findall(params), TYPE_NAME.findall(rest)

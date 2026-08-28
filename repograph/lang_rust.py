@@ -411,3 +411,45 @@ def gate_of(sym):
     """Rust gates a module behind a cargo feature."""
     f = sym.get('requires_feature')
     return ('feature', f) if f else None
+
+
+# Type names inside a fragment of a signature. `Result<Decoder, Error>` yields
+# Result, Decoder and Error -- all three, because a question about Decoder
+# should find a function returning `Result<Decoder>`, which is exactly what
+# grepping for `-> Decoder` misses.
+TYPE_NAME = re.compile(r"\b([A-Z][A-Za-z0-9_]*)\b")
+LIFETIME = re.compile(r"'[a-z_][A-Za-z0-9_]*")
+
+
+def signature_types(sig):
+    """(parameter types, return types) from a Rust signature.
+
+    Deliberately shallow. `Result<Decoder>` gives both names rather than a
+    parsed tree, because the question being answered is "what mentions Decoder
+    in a return position", and a tree would buy nothing for it.
+    """
+    sig = LIFETIME.sub('', sig or '')
+    if '(' not in sig:
+        return [], []
+    ret = []
+    body = sig
+    if '->' in sig:
+        body, tail = sig.split('->', 1)
+        ret = TYPE_NAME.findall(tail.split('{')[0].split('where')[0])
+    depth, start, params = 0, None, ''
+    for i, c in enumerate(body):
+        if c == '(':
+            if depth == 0:
+                start = i + 1
+            depth += 1
+        elif c == ')':
+            depth -= 1
+            if depth == 0 and start is not None:
+                params = body[start:i]
+                break
+    # Generic parameters declared by the function are not types it consumes.
+    declared = set()
+    if '<' in body.split('(')[0]:
+        declared = set(TYPE_NAME.findall(body.split('(')[0].split('<', 1)[1]))
+    par = [t for t in TYPE_NAME.findall(params) if t not in declared]
+    return par, [t for t in ret if t not in declared]

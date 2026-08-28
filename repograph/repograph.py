@@ -17,6 +17,8 @@ Commands
                         actually verifies it in this language
     file <path>        what a file contains, or what a directory holds [--all]
     callers <name>     which symbols reference it
+    returns <Type>     which symbols return that type
+    takes <Type>       which symbols take it as a parameter
     coverage           documentation coverage, and whether to trust answers
     eval <file>        measure retrieval against a question set
     stats              index shape
@@ -575,6 +577,57 @@ def show_example(e, indent='    ', lang='rust'):
         print('%s%s' % (indent, ln))
 
 
+def type_matches(want, found):
+    """`Handler` should find `http.Handler`, and `http.Handler` should find
+    itself. A qualified name is matched whole or by its final segment, never by
+    substring -- `Route` must not match `Router`."""
+    w = want.lower()
+    f = found.lower()
+    return f == w or f.rsplit('.', 1)[-1] == w.rsplit('.', 1)[-1]
+
+
+def cmd_signature(idx, name, field):
+    """Which symbols return, or take, a given type.
+
+    This is the one question class a bag of words cannot express. `Decoder` in
+    a signature scores identically whether it is a return type, a parameter or
+    a word in the prose, so `ask` cannot separate them. grep separates them
+    badly: `-> Decoder` misses `Result<Decoder>`, `Option<Decoder>` and
+    `(Decoder, usize)`, all of which do return one.
+    """
+    if not name:
+        print('usage: %s <Type>' % ('returns' if field == 'returns' else 'takes'))
+        return 1
+    hits = [s for s in idx.symbols
+        if not s.get('test') and s.get('role', 'lib') == 'lib'
+        and any(type_matches(name, t) for t in (s.get(field) or []))]
+    verb = 'return' if field == 'returns' else 'take'
+    if not hits:
+        known = sorted({t for s in idx.symbols for t in (s.get(field) or [])})
+        print('nothing in this %s is recorded as %sing %s.'
+            % (idx.vocab('unit'), verb[:-1] if verb.endswith('e') else verb,
+                name))
+        near = [t for t in known if name.lower() in t.lower()]
+        if near:
+            print('  did you mean: %s' % ', '.join(near[:8]))
+        elif known:
+            print('  %d distinct types appear in %s position here; `stats`'
+                ' lists the index shape.' % (len(known), field))
+        return 1
+    hits.sort(key=lambda s: (s['file'], s['line']))
+    print('%d symbols %s %s' % (len(hits), verb, name))
+    for s in hits[:40]:
+        other = 'params' if field == 'returns' else 'returns'
+        extra = ' '.join(s.get(other) or [])
+        print('  %-30s %s:%d' % (s['name'][:30], s['file'], s['line']))
+        print('      %s' % s['sig'][:150])
+        if extra:
+            print('      %s: %s' % (other, extra[:100]))
+    if len(hits) > 40:
+        print('  ... %d more' % (len(hits) - 40))
+    return 0
+
+
 def cmd_start(idx):
     """How do I use this crate, answered with the author's own verified code.
 
@@ -985,6 +1038,25 @@ def cmd_selftest(idx):
     if examples and 'Nothing to show' in started:
         fails.append('start: gave up although examples exist')
 
+    # The type index is the one capability that beats grep, so its precision
+    # is what has to hold: a claim that a symbol returns T must be visible in
+    # that symbol's own signature.
+    typed = [s for s in idx.symbols if s.get('returns') or s.get('params')]
+    for sym in typed[:200]:
+        for t in (sym.get('returns') or []) + (sym.get('params') or []):
+            bare = t.rsplit('.', 1)[-1]
+            if bare not in sym['sig']:
+                fails.append('types: %s claims %s, not in its signature'
+                    % (sym['name'], t))
+                break
+        else:
+            continue
+        break
+    if typed and not type_matches('Handler', 'http.Handler'):
+        fails.append('types: a bare name must match a qualified one')
+    if type_matches('Route', 'Router'):
+        fails.append('types: matching must not be by substring')
+
     for sym, e in examples:
         if e.get('kind') == 'failure':
             buf3, real3 = io.StringIO(), sys.stdout
@@ -1052,7 +1124,7 @@ def cmd_selftest(idx):
 
     for f in fails:
         print('  FAIL %s' % f)
-    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 16))
+    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 19))
     return 1 if fails else 0
 
 
@@ -1096,6 +1168,10 @@ def main(argv):
         return cmd_context(idx, ' '.join(rest2), nfiles, source, budget)
     if cmd == 'sym':
         return cmd_sym(idx, joined)
+    if cmd == 'returns':
+        return cmd_signature(idx, joined, 'returns')
+    if cmd == 'takes':
+        return cmd_signature(idx, joined, 'params')
     if cmd == 'start':
         return cmd_start(idx)
     if cmd == 'example':

@@ -162,6 +162,43 @@ flat package of 36 files, which makes a file-level answer much easier to hit
 than a deeply nested crate does. The honest reading is that Go lands in the
 same band, measured on fewer repositories.
 
+## The type index: the one thing that beats grep
+
+```bash
+python repograph/repograph.py /tmp/idx returns http.Handler
+python repograph/repograph.py /tmp/idx takes io.Writer
+```
+
+Every mechanism tried in this project reshuffled the ranking of one kind of
+question, and every one failed. This adds a **question class** instead, and it
+is the only capability here with a measured edge over ripgrep.
+
+A bag of words cannot express it: `Decoder` in a signature scores identically
+whether it is a return type, a parameter, or a word in the prose. grep expresses
+it badly: `-> Decoder` misses `Result<Decoder>`, `Option<Decoder>` and
+`(Decoder, usize)`, all of which return one.
+
+Asked which symbols in `gorilla/mux` return an `http.Handler`, the index finds
+**7, all of them correct on inspection**. A careful grep finds **6** -- it
+misses `type MiddlewareFunc func(http.Handler) http.Handler`, which is a type
+declaration rather than a `func ... ) http.Handler {` line.
+
+Parsing is deliberately shallow. `Result<Decoder>` yields both names rather
+than a tree, because the question is "what mentions Decoder in a return
+position" and a tree buys nothing for it. Qualified names are kept whole, so
+`http.Handler` stays resolvable against an index of the standard library, and
+matching is by whole name or final segment -- never substring, so `Route` does
+not match `Router`.
+
+`signature_types` is a contract slot. Rust splits on `->`; Go puts the result
+after the parameter list, and a method's receiver comes first, which a first
+attempt read as the parameters and so filed the real ones under returns. A
+language that cannot parse its signatures returns nothing and the commands
+find nothing there, the same shape as declaring that nothing is verified.
+
+Retrieval does not move: type data lives in its own fields and never enters the
+retrieval bags, exactly as examples do. Rust blind stays 28/53 and Go 48/75.
+
 ## Verified examples: the one thing here that is not probabilistic
 
 ```bash

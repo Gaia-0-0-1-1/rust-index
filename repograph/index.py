@@ -199,6 +199,17 @@ def main(argv):
             if feat:
                 sym['requires_feature'] = feat
 
+    # Signature types, kept in their own fields and never in the retrieval
+    # bags -- exactly as examples are. This adds a question class, it does not
+    # reweigh the existing one, and the blind numbers must not move.
+    if hasattr(L, 'signature_types'):
+        for sym in symbols:
+            par, ret = L.signature_types(sym.get('sig', ''))
+            if par:
+                sym['params'] = sorted(set(par))
+            if ret:
+                sym['returns'] = sorted(set(ret))
+
     edges = build_edges(root, symbols)
     cov = coverage(symbols, mods, len(uses))
     return write_index(root, out, symbols, edges, uses, mods, tests, mod_ex,
