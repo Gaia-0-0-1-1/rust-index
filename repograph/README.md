@@ -205,8 +205,16 @@ changed files as the answer:
 | | questions | top-1 | top-3 |
 |---|---|---|---|
 | subject names a symbol in the crate | 182 | 43% | 63% |
-| subject is plain prose | 28 | **18%** | **21%** |
+| subject is plain prose | 17 | **24%** | **29%** |
+| housekeeping (upgrades, typos, renames) | 40 | 21% | 39% |
 | all | 210 | 40% | 58% |
+
+An earlier version of this table gave prose as 18%/21% over 28 questions. That
+pooled in housekeeping commits -- "Upgrade to windows-bindgen 0.61", "docs: fix
+minor typo" -- which no search can answer, and it made the prose case look
+worse than it is. Separated out, prose on real changes is 24%/29%. The
+conclusion does not move; the number is more honest. 17 questions is a small
+sample and the interval is wide.
 
 The headline 40/58 is higher than the blind sets' 28/54, and the split says why:
 **it is entirely identifier-driven.** When a question names something the crate
@@ -262,10 +270,36 @@ first for the shape, `sym` when they had a name, ranked search afterwards. The
 protocol now says that, and opens by admitting the tool has no measured
 advantage over grep so a reader can choose on cost rather than obligation.
 
-## What was tried and does not work## What was tried and does not work
+## What was tried and does not work
 
 Both were built, measured, and removed. They are recorded because both look
 obviously correct until measured.
+
+**Semantic query expansion.** The last untried lever, and the only mechanism
+that attacks the prose case directly: a developer writes "colored output" where
+the code writes "ansi", and stemming cannot bridge that because it folds
+morphology rather than lexemes. Term associations were learned by PMI from the
+doc comments of 192 registry crates, with every evaluation crate held out of
+training so the table could not memorise their vocabulary.
+
+It was designed against the failure that killed graph expansion twice: only
+query terms matching *nothing* are expanded, at most three associates each,
+each of which must already exist in the target index. **That part worked** --
+median fan-out was one index term, 0.1% of the vocabulary, against the 11% that
+doomed graph expansion.
+
+It dies on the other side. Of 13 chrono prose failures, 2 had a query term
+whose associate appears in the answer file and is rare enough there to have
+picked it out -- and both are coincidences: `expression -> regular` is the
+bigram "regular expression", `faster -> much` is noise. **The genuine ceiling
+is zero.** The table learns real associations -- `terminal -> tty, console`,
+`pipe -> stderr, stdout` -- but not the ones these questions need, and it
+learns `color -> badge, logo, shields` from README boilerplate rather than
+`ansi`.
+
+Nothing was built past the probe, which is the point of running one.
+`eval/semantic/` ships the trainer and the probe so the ceiling can be
+re-measured against a better table.
 
 **Graph expansion.** Seed from the top lexical matches, then lift whatever the
 reference graph says they are built alongside. Reachability is genuinely high —
