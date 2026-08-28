@@ -7,3 +7,7 @@ ec-linux*
 mktoc*
 __pycache__/
 *.pyc
+
+# graph.py caches crate indexes here; registry checkouts are immutable per
+# version, so this is pure derived data.
+.cache/

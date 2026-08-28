@@ -82,6 +82,11 @@ jobs:
       # human to read and never fails the build.
       - name: Report held-out retrieval accuracy (informational)
         run: python tools/rustgraph.py eval
+      # The front door chains both engines, so it can break in ways neither
+      # engine's own selftest can see: version resolution, registry misses,
+      # and whether an example is labelled verified.
+      - name: Check the joined front door
+        run: python graph.py selftest
       # repograph indexes any Rust checkout, so it gates against this one --
       # no fixture to keep in sync, and it fails if the extractor stops
       # finding symbols in a real crate rather than only in a contrived one.

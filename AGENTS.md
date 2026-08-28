@@ -20,6 +20,16 @@ indexes *any* Rust checkout: symbols, docs, references, and the verified
 examples from doc comments. It shares no code with `tools/` and can be split
 into its own repository whenever that is worth doing.
 
+**`graph.py` at the root is the front door over both.** `use "<need>"` chains
+them: the list picks candidate crates, the indexer opens each one from the
+local cargo registry, and out comes verified working code. Neither engine can
+do that alone, and neither was changed to allow it -- both keep their own entry
+points and their own gates.
+
+```bash
+python graph.py use "parse a toml file"
+```
+
 They answer different questions and are honest about different things.
 `rustgraph` picks a crate; `repograph` explains one. Neither pretends to
 certainty it has not measured: `rustgraph` reports 59% top-1 against 80%

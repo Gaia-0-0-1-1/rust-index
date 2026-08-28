@@ -33,7 +33,17 @@ CFG_MOD = re.compile(
     r'#\[cfg\(feature\s*=\s*"([^"]+)"\)\]\s*'
     r'(?:pub\s+)?mod\s+([A-Za-z_][A-Za-z0-9_]*)\s*;')
 IDENT = re.compile(r'[A-Za-z_][A-Za-z0-9_]{2,}')
+# Documentation can also arrive as an attribute, and `toml` opens a fence that
+# way: `#![cfg_attr(feature = "default", doc = " ```")]`. A scanner that reads
+# only `//!` never sees that fence, desynchronises, and swallows the prose
+# after it into the next example -- which is how markdown headings ended up
+# being presented as verified code.
+DOC_ATTR = re.compile(
+    r'#!?\[(?:cfg_attr\([^,]*,\s*)?doc\s*=\s*"((?:[^"\\]|\\.)*)"')
 SKIP_DIRS = {'target', '.git', 'node_modules', '.github'}
+# Artifact shape version. graph.py caches indexes and reindexes on
+# a mismatch rather than reading a layout it no longer understands.
+SCHEMA = 3
 # Directories that are part of the repository but not part of the library.
 # Indexed and kept, because "where is the benchmark for X" is a fair question,
 # but excluded from coverage and from ranking -- somebody asking how PNG is
@@ -120,6 +130,9 @@ def doc_examples(raw_lines):
             kept = unhide(ln)
             if kept is not None:
                 code.append(kept)
+    # An unterminated block means the fences did not balance and the scanner
+    # lost its place. Emitting what it collected would hand over prose labelled
+    # as verified code, so throw it away.
     return [e for e in out if e['code']]
 
 
@@ -161,13 +174,45 @@ def module_doc(lines):
     a presentation feature is not allowed to cost retrieval accuracy.
     """
     out, raw = [], []
+    attr_fence = False
     for ln in lines[:200]:
         s = ln.strip()
         if s.startswith('//!'):
+            attr_fence = False
             out.append(s[3:].strip())
             body = ln.strip()[3:]
             raw.append(body[1:] if body.startswith(' ') else body)
+        elif s.startswith('#!['):
+            # Only the raw stream gets these. The prose half feeds retrieval
+            # and is deliberately unchanged; this is purely so the fence
+            # counting stays in step.
+            m = DOC_ATTR.search(s)
+            if m:
+                body = m.group(1).replace('\\"', '"')
+                body = body[1:] if body.startswith(' ') else body
+                # Feature-gated fences come in mutually exclusive pairs:
+                #     #![cfg_attr(not(feature = "x"), doc = " ```ignore")]
+                #     #![cfg_attr(feature = "x",      doc = " ```")]
+                # Exactly one is live in any build, but a reader that takes
+                # both sees a phantom open-and-close and every later fence
+                # lands on the wrong side. Collapse a consecutive pair to one.
+                if body.strip().startswith('```') and attr_fence:
+                    # Keep whichever half describes a default build. `toml`
+                    # writes the not(feature) branch first, so taking the
+                    # earlier one labels genuinely runnable code `ignore` --
+                    # understating it, which is the opposite error and equally
+                    # wrong.
+                    if 'ignore' in raw[-1] and 'ignore' not in body:
+                        raw[-1] = body
+                    continue
+                attr_fence = body.strip().startswith('```')
+                raw.append(body)
+                continue
+            attr_fence = False
         elif s and not s.startswith('//') and not s.startswith('#!'):
+            # A non-doc inner attribute is skipped, not treated as the end of
+            # the header. That is the behaviour this had before doc attributes
+            # were parsed, and nothing measured justifies changing it.
             break
     return ' '.join(out).strip(), doc_examples(raw)
 
@@ -438,6 +483,11 @@ def main(argv):
 
     os.makedirs(out, exist_ok=True)
     meta = {
+        # Bumped whenever the artifact shape changes. Anything caching an index
+        # -- graph.py does -- compares this and reindexes on a mismatch, because
+        # symbols.json changed shape three times in a single day of work and a
+        # reader of last week's index would simply crash.
+        'schema': SCHEMA,
         'root': root.replace('\\', '/'),
         'name': os.path.basename(root),
         'coverage': cov,
