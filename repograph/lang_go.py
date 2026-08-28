@@ -78,6 +78,18 @@ PKG = re.compile(r'^package\s+([A-Za-z_][A-Za-z0-9_]*)')
 IMPORT = re.compile(r'^\s*(?:[A-Za-z_.][A-Za-z0-9_]*\s+)?"([^"]+)"')
 IDENT = re.compile(r'[A-Za-z_][A-Za-z0-9_]{2,}')
 EXAMPLE = re.compile(r'^Example(?P<subject>[A-Za-z0-9_]*)$')
+# `const (` / `var (` / `type (` open a block declaring several names at once,
+# and Go leans on them for enums and error codes. Reading only the opening line
+# loses every name inside: ~107 across cobra, mux and logrus, about 7% of their
+# symbols, invisible to search.
+GROUP_OPEN = re.compile(r'^(?P<kind>const|var|type)\s*\($')
+GROUP_NAME = re.compile(
+    r'^\s+(?P<name>[A-Za-z_][A-Za-z0-9_]*)(?:\s*,\s*[A-Za-z_][A-Za-z0-9_]*)*'
+    r'(?:\s|=|$)')
+# A build constraint gates a whole file. It is Go's analogue of a cargo
+# feature, but not the same advice: `linux` is a platform you are or are not
+# on, not a switch in a manifest, which is why gate_of carries the kind.
+BUILD_TAG = re.compile(r'^//(?:go:build|\s*\+build)\s+(.+)$')
 OUTPUT = re.compile(r'^\s*//\s*(Unordered )?[Oo]utput:', re.M)
 SKIP_DIRS = {'.git', 'vendor', 'testdata', 'node_modules', '.github'}
 
@@ -97,6 +109,18 @@ def doc_above(lines, i):
         break
     out.reverse()
     return ' '.join(out).strip()
+
+
+def build_tag(lines):
+    """The build constraint above `package`, if any."""
+    for ln in lines[:60]:
+        s = ln.strip()
+        if s.startswith('package '):
+            return None
+        m = BUILD_TAG.match(s)
+        if m:
+            return m.group(1).strip()
+    return None
 
 
 def package_doc(lines):
@@ -130,8 +154,36 @@ def parse_file(path, rel):
     lines = text.split('\n')
     symbols, imports, examples = [], [], []
     is_test = rel.endswith('_test.go')
+    tag = build_tag(lines)
+    in_group = None
 
     for i, line in enumerate(lines):
+        # Inside `const (` ... `)` every indented line declares a name, and Go
+        # leans on that for enums and error codes. Reading only the opening
+        # line lost ~107 names across three repositories, about 7% of their
+        # symbols, invisible to search.
+        if in_group is not None:
+            if line.strip() == ')':
+                in_group = None
+                continue
+            gm = GROUP_NAME.match(line)
+            if gm and not line.strip().startswith('//'):
+                nm = gm.group('name')
+                if nm != '_':
+                    symbols.append({
+                        'name': nm, 'kind': in_group, 'file': rel,
+                        'line': i + 1, 'end': i + 1,
+                        'doc': doc_above(lines, i),
+                        'sig': line.strip()[:200], 'test': False,
+                        'public': nm[:1].isupper(), 'examples': [],
+                        'build_tag': tag,
+                    })
+            continue
+        gopen = GROUP_OPEN.match(line.strip())
+        if gopen:
+            in_group = gopen.group('kind')
+            continue
+
         m = IMPORT.match(line) if line.startswith('\t') or line.startswith(' ') \
             else None
         if m and '"' in line and not line.strip().startswith('//'):
@@ -188,6 +240,7 @@ def parse_file(path, rel):
             # none of the pub(crate)-versus-pub confusion the Rust side had.
             'public': name[:1].isupper(),
             'examples': [],
+            'build_tag': tag,
         })
     return symbols, imports, package_doc(lines), examples
 

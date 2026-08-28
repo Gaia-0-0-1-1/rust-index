@@ -1,7 +1,10 @@
-"""Ask a Rust codebase where things are.
+"""Ask a codebase where things are.
 
-    python repograph/index.py /path/to/crate -o IDX
+    python repograph/index.py /path/to/repo -o IDX [--lang go]
     python repograph/repograph.py IDX ask "how is a png decoded"
+
+Rust and Go. Nothing here knows which: the language plugin supplies the words
+it uses, what its examples are verified by, and what gates a symbol.
 
 Commands
     ask <question>     rank files and symbols for a question, with citations
@@ -9,9 +12,9 @@ Commands
                         in one call, for an agent to read and decide
                         [--files N] [--source] [--budget CHARS]
     sym <name>         everything known about one symbol
-    start              how to use this crate, from its own documentation
-    example <name>     working code from its doc comment, labelled by
-                        whether cargo actually verifies it
+    start              how to use this crate or package, from its own docs
+    example <name>     working code from its documentation, labelled by what
+                        actually verifies it in this language
     file <path>        what a file contains, or what a directory holds [--all]
     callers <name>     which symbols reference it
     coverage           documentation coverage, and whether to trust answers
@@ -538,6 +541,18 @@ def show_example(e, indent='    ', lang='rust'):
     label, _copyable = spec.VERIFICATION.get(
         e.get('kind'), ('UNKNOWN', False))
     print('%s[%s]' % (indent, label))
+    gate = e.get('gate')
+    if gate:
+        kind, value = gate
+        if kind == 'feature':
+            print('%sneeds feature "%s" enabled in %s, or it will not build'
+                % (indent, value, spec.VOCAB.get('manifest', 'the manifest')))
+        else:
+            # A build tag is a platform, not a switch. Telling someone to
+            # "enable !windows in go.mod" would be nonsense, which is why the
+            # kind travels with the value.
+            print('%sonly builds where the constraint `%s` holds'
+                % (indent, value))
     if e.get('requires_feature'):
         # The kind travels with the value because the advice differs: a
         # cargo feature is something you switch on, a build tag is a platform
@@ -649,11 +664,13 @@ def cmd_example(idx, name):
         print('%s  %s  (%s:%d)' % (s['kind'], s['name'], s['file'], s['line']))
         if s['doc']:
             print('    %s' % s['doc'][:200])
+        spec = language(idx.meta.get('lang', 'rust'))
         for e in s['examples']:
-            # The gate lives on the symbol, not the example, because it is the
-            # enclosing module that is `#[cfg(feature = ...)]`.
-            if s.get('requires_feature'):
-                e = dict(e, requires_feature=s['requires_feature'])
+            # The gate lives on the symbol, not the example: in Rust it is the
+            # enclosing module's `#[cfg(feature)]`, in Go the file's build tag.
+            g = spec.gate_of(s)
+            if g:
+                e = dict(e, gate=g)
             print()
             show_example(e, lang=idx.meta.get('lang', 'rust'))
         print()
