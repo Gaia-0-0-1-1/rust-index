@@ -53,7 +53,7 @@ python repograph/repograph.py /tmp/idx context "how is a png decoded" --source
 ```
 
 That split exists because of one number. On questions written blind, the first
-answer is right 28% of the time and the right answer is in the top three 54% of
+answer is right 28% of the time and the right answer is in the top three 53% of
 the time. A person reading
 a ranked list experiences that 25-point gap as a wrong answer. A reader handed
 all three candidates with their docs attached just picks the right one, which
@@ -65,7 +65,7 @@ adds the code itself, `--budget` caps the output.
 **Read the top three, not the first.** Measured on 100 questions written blind
 by agents that had never seen this tool, across `toml`, `url`, `serde_json`,
 `tracing-subscriber` and `flate2`: the first answer is right **28%** of the
-time, and the answer is in the top three **54%** of the time. That gap is the
+time, and the answer is in the top three **53%** of the time. That gap is the
 single most useful fact about this tool, so `ask` prints three files and says so.
 
 **Coverage counts library code, and only what is really public.** Three things
@@ -153,7 +153,7 @@ measured as no better than ripgrep.
 Retrieval transfers intact, on both instruments. On 140 questions built from
 `logrus` commit history Go scores **44% top-1 and 69% top-3**, against Rust
 `chrono`'s 40% and 58%. On 40 blind questions written by agents who had never
-seen the tool, Go scores **50% and 75%** against Rust's 28% and 54%.
+seen the tool, Go scores **48% and 75%** against Rust's 28% and 53%.
 
 **Do not read that as Go being easier to search.** The Go blind set is 40
 questions over two repositories against Rust's 100 over five, and its per-repo
@@ -494,7 +494,13 @@ harness reports them separately:
 | tracing-subscriber | 30% | 50% |
 | serde_json | 15% | 50% |
 | toml | 10% | 25% |
-| **pooled** | **28%** | **54%** |
+| **pooled** | **28%** | **53%** |
+
+An earlier version of this table said 53% was 54%. Ranking ties used to break
+by whatever order the index happened to be built in, so a change that added
+symbols elsewhere could silently reorder equal-scoring results. Ties now break
+by name, which costs one question and makes every measurement robust to edits
+that have nothing to do with ranking. The old number was one part luck.
 
 `toml` scores worst for a reason the tool cannot fix: it delegates string
 escaping, datetimes and output to *other crates*, so several natural questions

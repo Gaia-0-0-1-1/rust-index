@@ -77,7 +77,7 @@ piping to a file, and `tty` and `terminal` were absent because
 ## 4. Read all three candidates. Do not take the first
 
 **The first candidate is right 28% of the time. The right answer is in the top
-three 54% of the time.** Measured on 100 questions written blind across five
+three 53% of the time.** Measured on 100 questions written blind across five
 crates.
 
 This is the one instruction here with demonstrated value: agents reported the

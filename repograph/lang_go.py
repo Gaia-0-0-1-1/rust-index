@@ -289,7 +289,14 @@ def walk(root):
         by_name.setdefault(s['name'], []).append(s)
     orphan = []
     for e in allex:
-        targets = by_name.get(e['subject']) or []
+        # Same package only. An Example lives beside what it documents, and
+        # without that constraint ExampleRegexp attaches to all 27 symbols
+        # named Regexp -- harmless in a 500-symbol repository and badly wrong
+        # in the standard library, where it produced 3,821 symbols carrying
+        # examples against roughly 1,015 that exist.
+        pkg = e['file'].rsplit('/', 1)[0] if '/' in e['file'] else ''
+        targets = [t for t in (by_name.get(e['subject']) or [])
+            if (t['file'].rsplit('/', 1)[0] if '/' in t['file'] else '') == pkg]
         if not targets:
             orphan.append(e)
             continue

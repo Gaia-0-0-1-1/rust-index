@@ -1,13 +1,17 @@
 # repograph — how to use it
 
-Paste this whole file to an agent that needs to work in an unfamiliar Rust
-codebase.
+Paste this whole file to an agent that needs to work in an unfamiliar Rust or
+Go codebase.
 
 ---
 
-`repograph` indexes any Rust checkout and answers questions about it. Python 3,
-standard library only. No network, no build, no install — it reads `.rs` files
-and writes JSON, in a second or two.
+`repograph` indexes a Rust or Go checkout and answers questions about it.
+Python 3, standard library only. No network, no build, no install — it reads
+source files and writes JSON, in a second or two.
+
+Add `--lang go` for a Go repository. Everything below applies to both: only
+extraction is language-specific, and each language declares its own vocabulary
+and its own notion of what "verified" means.
 
 ```bash
 git clone https://github.com/Gaia-0-0-1-1/rust-index.git
@@ -42,9 +46,14 @@ where grep is cheaper — which is often.
 ## What it gives you that grep does not
 
 **Verified code.** `cargo test --doc` compiles and runs the examples in a
-crate's documentation, so the crate's own CI has already proved them. This is
-the one part of the tool that is not a guess: the failure mode is that no
-example exists, never that the example is wrong.
+crate's documentation, and `go test` runs Go's `Example` functions and compares
+their output against the `// Output:` comment. Either way the project's own CI
+has already proved them. This is the one part of the tool that is not a guess:
+the failure mode is that no example exists, never that the example is wrong.
+
+Go's guarantee is the stronger one per example and much thinner in practice —
+6.3% of documented symbols carry an example against Rust's 20% — so `example`
+comes up empty more often there.
 
 ```bash
 python repograph/repograph.py /tmp/idx start            # how to use this crate
@@ -54,8 +63,8 @@ python repograph/repograph.py /tmp/idx example from_str # working code for one i
 Every example is labelled by what it demonstrates. Only **VERIFIED** is
 copyable. **DEMONSTRATES FAILURE** means `compile_fail` or `should_panic` —
 code written to break, which passes its own test while doing so. Examples also
-report the `#[cfg(feature)]` they need, because doc tests run with every
-feature and dev-dependency present and you will not have them.
+report what gates them: a Rust `#[cfg(feature)]` you must enable, or a Go
+`//go:build` constraint that is a platform you either are or are not on.
 
 **An honest map of where searching works.** `coverage` breaks down per
 directory over every symbol, not just the public API. `tracing-subscriber`
@@ -84,7 +93,7 @@ stats · selftest   index shape · check the tool still behaves
     using this, which is not the order you would guess: structure first
     (`file`, `sym`), ranked search after.
 - **Read all three candidates, never just the first.** First place is right 28%
-    of the time and the answer is in the top three 54% of the time, on blind
+    of the time and the answer is in the top three 53% of the time, on blind
     questions. That gap is the most useful fact about the tool.
 - **`NOT IN THIS INDEX` is the most valuable thing it prints.** Those words
     appear nowhere in the repository. Usually your phrasing is wrong; sometimes
@@ -96,7 +105,10 @@ stats · selftest   index shape · check the tool still behaves
 - **Confirm against the source, however is cheapest.** A targeted grep is often
     cheaper than `context --source`, and several agents preferred it. The point
     is that you read the code.
-- **It indexes one repository.** Dependencies are invisible. `toml` delegates
+- **It indexes one repository.** Dependencies are invisible, in either
+    language: `logrus`'s `exported.go` is pure delegation to a package-level
+    logger, so nothing asked about `logrus.WithField` is answered there. `toml`
+    delegates
     string escaping, datetimes and output to three other crates, so questions
     about those have no answer inside it however well you search.
 - **Tests, benchmarks and examples are excluded from ranking**, though `file`

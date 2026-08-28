@@ -24,7 +24,7 @@ Commands
 
 Read the top three, not the first. Measured on 100 questions written blind by
 agents that had never seen this tool, across five crates: the first answer is
-right 28% of the time and the answer is in the top three 54% of the time. That
+right 28% of the time and the answer is in the top three 53% of the time. That
 gap is the most useful fact about this tool.
 """
 import io
@@ -267,7 +267,11 @@ class Index(object):
             if w > 0:
                 s += (math.log10(self.centrality.get(i, 0) + 1) ** 2) * w
             out.append((s, i))
-        out.sort(key=lambda x: -x[0])
+        # Ties break by name, not by whatever order the index happened to be
+        # built in. Without this a change that adds symbols elsewhere silently
+        # reorders equal-scoring results, and every measurement becomes
+        # fragile to edits that have nothing to do with ranking.
+        out.sort(key=lambda x: (-x[0], self.symbols[x[1]]['name']))
         return out
 
     def by_file(self, scored):
@@ -292,7 +296,7 @@ class Index(object):
                 take = items[:AGG_TOPK]
                 score = sum(x[0] for x in take) / (len(take) ** AGG_NORM)
             rows.append((f, score, top[1]))
-        rows.sort(key=lambda x: -x[1])
+        rows.sort(key=lambda x: (-x[1], x[0]))
         return rows
 
     def vocab(self, key):
@@ -376,7 +380,7 @@ def cmd_ask(idx, question, prior=None):
             print('      %s' % sym['doc'][:96])
     print()
     print('Read all three files, not just the first: measured 28% top-1 '
-            'against 54% top-3 on blind questions.')
+            'against 53% top-3 on blind questions.')
     return 0
 
 
@@ -404,7 +408,7 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
 
     `ask` ranks; this hands over the material. The split matters because of a
     number: on questions written blind, the first answer is right 28% of the
-    time and the right answer is in the top three 54% of the time. A person
+    time and the right answer is in the top three 53% of the time. A person
     reading a ranked list feels that 26-point gap as a wrong answer. A reader
     who gets all three candidates with their documentation attached just picks
     the right one, which turns the top-three figure into the accuracy that
@@ -448,7 +452,7 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
             % (100 * ratio, cov.get('basis', 'public symbols')))
     out.append('')
     out.append('%d candidates, most likely first. The right answer is in the '
-        'top three about 54%% of the time and is first about 28%%, so read all '
+        'top three about 53%% of the time and is first about 28%%, so read all '
         'of them before deciding, and cite the file:line you actually used.'
         % len(order))
 
