@@ -401,6 +401,12 @@ def mark_visibility(symbols):
     return symbols
 
 
+def subject_file(rel):
+    """Rust keeps its unit tests in a `mod tests` inside the file they test,
+    so a test is already about the file it lives in."""
+    return rel
+
+
 def gate_of(sym):
     """Rust gates a module behind a cargo feature."""
     f = sym.get('requires_feature')

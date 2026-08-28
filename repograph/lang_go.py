@@ -59,6 +59,17 @@ EVAL = {'module_doc': True, 'doc_split': True, 'test_name': True}
 STOP_EXTRA = set()
 
 
+def subject_file(rel):
+    """Go keeps `entry_test.go` beside the `entry.go` it exercises, so a
+    question derived from a test name is really a question about the latter.
+    Pointing it at the test file asks for something the ranker never returns --
+    test functions are excluded from results -- and that alone dragged the
+    generated test-name stratum to 11% against Rust's 29%."""
+    if rel.endswith('_test.go'):
+        return rel[:-len('_test.go')] + '.go'
+    return rel
+
+
 def gate_of(sym):
     """Go constrains a file with a build tag rather than a cargo feature. The
     kind travels with the value because the advice differs: `linux` is a

@@ -93,7 +93,7 @@ def from_docs(idx, limit=400):
     return out
 
 
-def from_tests(idx):
+def from_tests(idx, subject=lambda r: r):
     """`fn test_date_add_assign` -> "date add assign". The test sits in the
     file it exercises, so the file is the answer, and none of this depends on
     anybody having written documentation."""
@@ -110,7 +110,10 @@ def from_tests(idx):
         if q in seen:
             continue
         seen.add(q)
-        out.append({'q': q, 'ok': [t['file']], 'src': 'test-name', 'hold': {}})
+        # Ask the language which file the test is really about. In Go that is
+        # the sibling without `_test`; in Rust it is the same file.
+        out.append({'q': q, 'ok': [subject(t['file'])], 'src': 'test-name',
+            'hold': {}})
     return out
 
 
@@ -124,7 +127,9 @@ def main(argv):
         out = argv[argv.index('-o') + 1]
     idx = RG.Index(idxpath)
 
-    qs = from_modules(idx) + from_docs(idx) + from_tests(idx)
+    spec = RG.language(idx.meta.get('lang', 'rust'))
+    subject = getattr(spec, 'subject_file', lambda r: r)
+    qs = from_modules(idx) + from_docs(idx) + from_tests(idx, subject)
     # Ground truth must be a file the index actually holds, or a question is
     # unanswerable for reasons that have nothing to do with ranking.
     # Ground truth has to be somewhere the ranker can actually return, or a
