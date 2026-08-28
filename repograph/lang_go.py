@@ -52,10 +52,13 @@ COPY_CAVEAT = None
 
 EVAL = {'module_doc': True, 'doc_split': True, 'test_name': True}
 
-# Deliberately identical to Rust's for now. Go text is thick with err, ctx,
-# nil and func, and dropping them would very likely help -- but it would move
-# Go's retrieval numbers, so it ships as a measured change rather than inside
-# a refactor.
+# Empty, and that is now a measurement rather than a deferral. The guess was
+# that Go text is thick with err, ctx and nil and that dropping them would
+# help. It is not: the index holds doc prose and signatures, not bodies, so
+# those words never appear. The genuinely frequent tokens are `func` (in 80% of
+# symbols, from every signature), `test`, `testing` and `method` -- and IDF has
+# already crushed them to 0.04-0.19. Adding all of them changes nothing:
+# logrus git goes 44/69 to 44/68 and the generated set does not move at all.
 STOP_EXTRA = set()
 
 
