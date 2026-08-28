@@ -292,6 +292,11 @@ class Index(object):
         rows.sort(key=lambda x: -x[1])
         return rows
 
+    def vocab(self, key):
+        """What this language calls things. Saying "crate" at someone reading
+        a Go index is a small wrongness that recurs on every screen."""
+        return language(self.meta.get('lang', 'rust')).VOCAB.get(key, key)
+
     def coverage_note(self):
         cov = self.meta.get('coverage') or {}
         ratio = cov.get('doc_ratio', 0.0)
@@ -508,6 +513,16 @@ def wrap(text, width):
     return out[:6]
 
 
+def language(name):
+    """The plugin for an index's language. Loaded through the same contract
+    index.py uses, so the query surface never asks which language it has."""
+    if name == 'go':
+        import lang_go
+        return lang_go
+    import lang_rust
+    return lang_rust
+
+
 def show_example(e, indent='    ', lang='rust'):
     """Print one example with an honest label.
 
@@ -515,41 +530,28 @@ def show_example(e, indent='    ', lang='rust'):
     `compile_fail` compile and pass their doc test while demonstrating a
     crash, so a flag meaning "cargo verified this" would hand over a panic as
     working code."""
-    # The guarantee differs by language, so the label has to name which one.
-    # Go's Example functions carry an `// Output:` comment that `go test`
-    # compares against the real output, so the code is verified to produce what
-    # it claims -- strictly more than Rust, where a doc test need only run.
-    # One shared wording would undersell Go and overstate the Go examples that
-    # declare no expected output at all.
-    if lang == 'go':
-        label = {
-            'runs': 'VERIFIED -- `go test` runs this and checks its'
-                ' `// Output:` against what it really prints',
-            'compiles': 'RUNS, UNCHECKED -- `go test` builds and runs this,'
-                ' but it declares no expected output',
-            'unverified': 'NOT VERIFIED -- nothing checks this',
-            'failure': 'DEMONSTRATES FAILURE -- this code is meant to break',
-        }.get(e.get('kind'), 'UNKNOWN')
-    else:
-        label = {
-            'runs': 'VERIFIED -- the crate\'s own doc tests compile and run'
-                ' this',
-            'compiles': 'COMPILES ONLY -- marked no_run, never executed',
-            'unverified': 'NOT VERIFIED -- marked ignore, or not Rust',
-            'failure': 'DEMONSTRATES FAILURE -- this code is meant to break',
-        }.get(e.get('kind'), 'UNKNOWN')
+    # Both the wording and the caveat come from the language plugin. The
+    # printer does not know which language it has, which is the point: a
+    # language with no verified examples at all declares that in its
+    # VERIFICATION table rather than needing a branch here.
+    spec = language(lang)
+    label, _copyable = spec.VERIFICATION.get(
+        e.get('kind'), ('UNKNOWN', False))
     print('%s[%s]' % (indent, label))
     if e.get('requires_feature'):
-        print('%sneeds feature "%s" enabled in Cargo.toml, or it will not build'
-            % (indent, e['requires_feature']))
-    if e.get('kind') == 'runs' and lang != 'go':
-        # Measured: 9 of 10 extracted examples compiled once their
-        # prerequisites existed, and the failures were a missing feature flag
-        # and a dev-dependency, not bad extraction. Doc tests run inside the
-        # crate with everything available; a reader copying the code does not.
-        # Go has no feature flags, so this caveat is Rust's alone.
-        print('%s(doc tests run with all features and dev-dependencies'
-            ' present; yours may not be)' % indent)
+        # The kind travels with the value because the advice differs: a
+        # cargo feature is something you switch on, a build tag is a platform
+        # you either are or are not on.
+        print('%sneeds feature "%s" enabled in %s, or it will not build'
+            % (indent, e['requires_feature'], spec.VOCAB.get('manifest', '')))
+    caveat = spec.COPY_CAVEAT
+    if e.get('kind') == 'runs' and caveat:
+        # Rust's doc tests run inside the crate with every feature and
+        # dev-dependency available and a reader copying the code has neither;
+        # measured, 9 of 10 extracted examples compiled once their
+        # prerequisites existed. Go has no feature flags, so its plugin
+        # declares no caveat and none is printed.
+        print('%s(%s)' % (indent, caveat))
     for ln in e['code'].split('\n'):
         print('%s%s' % (indent, ln))
 
@@ -585,15 +587,16 @@ def cmd_start(idx):
         # fragment squanders the one advantage this command has.
         order = {'runs': 0, 'compiles': 1, 'unverified': 2, 'failure': 3}
         lead.sort(key=lambda pe: order.get(pe[1].get('kind'), 9))
-        print('From the crate\'s own documentation header:')
+        print('From the %s\'s own documentation header:' % idx.vocab('unit'))
         for path, e in lead[:3]:
             print()
             print('  (%s)' % path)
             show_example(e, indent='  ', lang=idx.meta.get('lang', 'rust'))
         return 0
 
-    print('This crate has no module-level documentation header, so there is no')
-    print('author-written introduction. Falling back to the examples on its')
+    print('This %s has no module-level documentation header, so there is'
+        % idx.vocab('unit'))
+    print('no author-written introduction. Falling back to the examples on its')
     print('most widely used public items.')
     ranked = sorted(
         ((idx.centrality.get(i, 0), i) for i, sym in enumerate(idx.symbols)
@@ -724,7 +727,8 @@ def cmd_callers(idx, name):
             s = idx.symbols[si]
             seen.setdefault((s['file'], s['name']), s['line'])
     if not seen:
-        print('%s: nothing in this crate references it' % name)
+        print('%s: nothing in this %s references it'
+            % (name, idx.vocab('unit')))
         return 0
     print('%s is referenced by %d symbols' % (name, len(seen)))
     for (f, n), line in sorted(seen.items())[:30]:
@@ -744,8 +748,8 @@ def cmd_coverage(idx):
                 cov.get('basis_size', 0), 100 * ratio))
     ex = [e for sym in idx.symbols for e in (sym.get('examples') or [])]
     runnable = [e for e in ex if e.get('kind') == 'runs']
-    print('  doc examples              %d (%d compiled and run by the crate)'
-            % (len(ex), len(runnable)))
+    print('  doc examples              %d (%d verified by %s)'
+            % (len(ex), len(runnable), idx.vocab('verifier')))
     print('  files with a module doc   %d (%.0f%%)'
             % (cov.get('files_with_module_doc', 0),
                 100 * cov.get('module_doc_ratio', 0)))
