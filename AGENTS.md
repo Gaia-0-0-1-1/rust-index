@@ -9,6 +9,23 @@ regenerate it, never hand-edit it.**
 `AGENT-PROMPT.md` says all of this in one self-contained page, for pasting to
 an agent that does not have the repo yet.
 
+## There are two tools here
+
+**`tools/rustgraph.py` — this document.** Which crate should I use? It indexes
+the curated list: ~1,700 projects, categories, crates.io download counts and a
+dependency graph. Specific to `awesome-rust`.
+
+**`repograph/` — see `repograph/README.md`.** How does this code work? It
+indexes *any* Rust checkout: symbols, docs, references, and the verified
+examples from doc comments. It shares no code with `tools/` and can be split
+into its own repository whenever that is worth doing.
+
+They answer different questions and are honest about different things.
+`rustgraph` picks a crate; `repograph` explains one. Neither pretends to
+certainty it has not measured: `rustgraph` reports 59% top-1 against 80%
+top-3, and `repograph` reports that searching it is no better than ripgrep and
+that its verified doc examples are the part that is not a guess.
+
 ## Query it
 
 ```bash

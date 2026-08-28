@@ -8,7 +8,11 @@ python repograph/repograph.py /tmp/idx ask "how is a png decoded"
 ```
 
 Python 3, standard library only. Nothing is fetched, nothing is built: it reads
-`.rs` files and writes JSON. Independent of the `awesome-rust` tooling in
+`.rs` files and writes JSON.
+
+`AGENT-PROMPT.md` says all of this in one self-contained page, for pasting to an
+agent that does not have the repo yet. `PROTOCOL.md` is the sequence to follow
+once it does. Independent of the `awesome-rust` tooling in
 `tools/` — it shares no code and can be split into its own repository whenever
 that is worth doing.
 
