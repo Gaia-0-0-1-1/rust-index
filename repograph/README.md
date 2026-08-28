@@ -162,6 +162,41 @@ flat package of 36 files, which makes a file-level answer much easier to hit
 than a deeply nested crate does. The honest reading is that Go lands in the
 same band, measured on fewer repositories.
 
+## Cross-index resolution: what a type *is*, not just where it is used
+
+```bash
+python graph.py repo /path/to/mux type http.Handler
+```
+
+    defined in net/http, outside this package
+      interface Handler  (net/http/server.go:89)
+          A Handler responds to an HTTP request...
+    used here: 7 symbols return it, 7 take it
+
+A package almost never defines the types flowing through its own signatures.
+Measured against an index of the Go standard library, three third-party
+libraries had **72%, 74% and 100%** of their qualified type references resolved
+by it (81-100% of occurrences), and everything unresolved was either a
+self-reference the repository's own index already holds or a third-party
+dependency.
+
+So the definition is looked up wherever it lives and the usage is always local.
+A qualified name is what makes that possible: `http.Handler` is `Handler` in a
+directory whose last segment is `http`, which is why qualified names are kept
+whole rather than reduced.
+
+`graph.py repo <path>` works on any checkout in any supported language: it
+counts what is actually in the directory to pick the plugin, indexes it (cached
+by version, invalidated by schema), and attaches a cached standard library if
+one has been built. `graph.py crate <name>` remains the cargo-registry path,
+which is Rust's alone.
+
+Building the base is one command and 90 seconds:
+
+```bash
+python repograph/index.py <go>/src -o .cache/repograph/_stdlib_go --lang go
+```
+
 ## The type index: the one thing that beats grep
 
 ```bash

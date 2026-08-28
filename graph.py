@@ -82,7 +82,7 @@ def find_crate(name):
     return os.path.join(reg, found[-1][1])
 
 
-def index_for(crate_path, quiet=True):
+def index_for(crate_path, quiet=True, lang='rust'):
     """Index a crate, cached by its versioned directory name.
 
     Registry checkouts are immutable per version, so the only way a cache goes
@@ -104,6 +104,8 @@ def index_for(crate_path, quiet=True):
     os.makedirs(CACHE, exist_ok=True)
     cmd = [sys.executable, os.path.join(ROOT, 'repograph', 'index.py'),
             crate_path, '-o', out]
+    if lang != 'rust':
+        cmd += ['--lang', lang]
     subprocess.run(cmd, capture_output=quiet, text=True)
     return out if os.path.exists(meta) else None
 
@@ -192,6 +194,64 @@ def cmd_use(need, limit=3):
     return 0
 
 
+def stdlib_index(lang):
+    """A cached index of the language's own library, if one has been built.
+
+    Almost nothing a package defines is a type it invented: measured, the Go
+    standard library resolves 72% to 100% of the qualified type references in
+    three third-party libraries. Without it, `type io.Writer` can say where a
+    repository uses the thing but never what it is.
+    """
+    path = os.path.join(CACHE, '_stdlib_' + lang)
+    return path if os.path.exists(os.path.join(path, 'meta.json')) else None
+
+
+def detect_lang(path):
+    """Which plugin a checkout wants, by counting what is actually in it."""
+    counts = {}
+    for base, dirs, files in os.walk(path):
+        dirs[:] = [d for d in dirs if d not in ('.git', 'target', 'vendor')]
+        for f in files:
+            for suffix, lang in (('.rs', 'rust'), ('.go', 'go')):
+                if f.endswith(suffix):
+                    counts[lang] = counts.get(lang, 0) + 1
+        if sum(counts.values()) > 400:
+            break
+    if not counts:
+        return None
+    return max(counts.items(), key=lambda kv: kv[1])[0]
+
+
+def cmd_repo(argv):
+    """Any checkout on disk, in any supported language.
+
+    `crate` resolves a name through the cargo registry, which is Rust's alone.
+    This takes a path, works out the language from what is in it, and attaches
+    a cached standard library if one has been built.
+    """
+    if len(argv) < 2:
+        print('usage: graph.py repo <path> <command> [args]')
+        return 1
+    path, rest = os.path.abspath(argv[0]), argv[1:]
+    if not os.path.isdir(path):
+        print('not a directory: %s' % path)
+        return 1
+    lang = detect_lang(path)
+    if not lang:
+        print('no Rust or Go sources under %s' % path)
+        return 1
+    idxdir = index_for(path, lang=lang)
+    if not idxdir:
+        print('could not index %s' % path)
+        return 1
+    import repograph as RG
+    std = stdlib_index(lang)
+    argv2 = [sys.argv[0], idxdir]
+    if std and std != idxdir:
+        argv2 += ['--with', std]
+    return RG.main(argv2 + rest)
+
+
 def cmd_crate(argv):
     """Pass an indexed crate through to repograph."""
     if len(argv) < 2:
@@ -208,7 +268,16 @@ def cmd_crate(argv):
         print('could not index %s' % path)
         return 1
     import repograph as RG
-    return RG.main([sys.argv[0], idxdir] + rest)
+    # Resolve types against the language's own library where one is cached, so
+    # `type io.Writer` can say what it is and not merely where it is used.
+    std = stdlib_index('go' if os.path.exists(
+        os.path.join(idxdir, 'meta.json')) and json.load(
+            open(os.path.join(idxdir, 'meta.json'),
+                encoding='utf-8')).get('lang') == 'go' else 'rust')
+    argv2 = [sys.argv[0], idxdir]
+    if std:
+        argv2 += ['--with', std]
+    return RG.main(argv2 + rest)
 
 
 def cmd_selftest():
@@ -234,9 +303,16 @@ def cmd_selftest():
     if not hits:
         fails.append('bridge: the crate engine answered nothing')
 
+    # Language detection decides which plugin a checkout gets, so getting it
+    # wrong indexes a Go repository with a Rust extractor and finds nothing.
+    if detect_lang(ROOT) != 'rust':
+        fails.append('detect: this repository should read as rust')
+    if detect_lang(os.path.join(ROOT, 'repograph')) is not None:
+        fails.append('detect: a directory with no sources must return None')
+
     for f in fails:
         print('  FAIL %s' % f)
-    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 5))
+    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 7))
     return 1 if fails else 0
 
 
@@ -266,6 +342,8 @@ def main(argv):
     if cmd == 'which':
         import rustgraph as CRATES
         return CRATES.main([argv[0], 'ask'] + rest)
+    if cmd == 'repo':
+        return cmd_repo(rest)
     if cmd == 'crate':
         return cmd_crate(rest)
     if cmd == 'selftest':
