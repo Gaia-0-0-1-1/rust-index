@@ -1,0 +1,152 @@
+{
+    "repo": "logrus",
+    "questions": [
+        {
+            "q": "I want every line coming out of this logger to carry a request_id - what's the call for that?",
+            "ok": [
+                "entry.go",
+                "logger.go"
+            ],
+            "why": "Entry.WithField/WithFields/WithError build a duplicated entry carrying the fields; Logger.WithField etc. are the entry-point wrappers that pull an entry from the pool."
+        },
+        {
+            "q": "where does the code actually decide whether to emit ANSI escapes or plain text?",
+            "ok": [
+                "text_formatter.go"
+            ],
+            "why": "isColored() and isTerminal() decide it: DisableColors, ForceColors, the cached checkIfTerminal result, and CLICOLOR/CLICOLOR_FORCE, then Format branches to printColored vs printPlain."
+        },
+        {
+            "q": "if two hooks are registered for the same level and the first returns an error, does the second still run?",
+            "ok": [
+                "entry.go",
+                "hooks.go"
+            ],
+            "why": "Entry.fireHooks prints 'Failed to fire hook' to stderr and returns immediately on the first error; LevelHooks.Fire has the same short-circuit."
+        },
+        {
+            "q": "when file/line reporting is turned on, how does it skip past logrus's own stack frames to find my code?",
+            "ok": [
+                "entry.go"
+            ],
+            "why": "getCaller() caches the logrus package name via a sync.Once, then walks runtime.CallersFrames comparing getPackageName(f.Function) until it leaves the package."
+        },
+        {
+            "q": "I passed a closure as a field value and it disappeared from the output - what happened to it?",
+            "ok": [
+                "entry.go"
+            ],
+            "why": "addField reflects on the value and drops func / *func kinds, recording 'skipping unsupported field' in entry.err (surfaced as the logrus_error field)."
+        },
+        {
+            "q": "I need to flush my metrics buffer before a Fatal call tears the process down - is there somewhere to register that?",
+            "ok": [
+                "alt_exit.go",
+                "logger.go"
+            ],
+            "why": "RegisterExitHandler/DeferExitHandler append/prepend to the handlers slice and runHandlers recovers per handler; Logger.Exit calls runHandlers before ExitFunc."
+        },
+        {
+            "q": "what stops a field I happen to name msg from overwriting the real message in the output?",
+            "ok": [
+                "formatter.go"
+            ],
+            "why": "prefixFieldClashes moves colliding time/msg/level/logrus_error keys to 'fields.<key>', resolving names through FieldMap first."
+        },
+        {
+            "q": "in a unit test, how do I capture what got logged and assert on it without writing to stdout?",
+            "ok": [
+                "hooks/test/test.go"
+            ],
+            "why": "test.Hook records every Entry; NewNullLogger returns a logger writing to io.Discard plus the hook, with LastEntry/AllEntries/Reset accessors."
+        },
+        {
+            "q": "a library wants an io.Writer for its error output - can I hand it something backed by the logger?",
+            "ok": [
+                "writer.go"
+            ],
+            "why": "Logger.Writer/WriterLevel and Entry.WriterLevel return an *io.PipeWriter; a goroutine scans lines and calls the per-level print func, with a finalizer closing the writer."
+        },
+        {
+            "q": "when bridging to log/slog, which slog level does a logrus Warn become, and what comes back the other way?",
+            "ok": [
+                "hooks/slog/level.go"
+            ],
+            "why": "toSlogLevel/toLogrusLevel plus the slogLevelTrace..slogLevelPanic constants define both directions, including the Fatal=Error+2, Panic=Error+4 offsets."
+        },
+        {
+            "q": "if I wire slog into logrus and also logrus back into slog, what keeps a record from bouncing between them forever?",
+            "ok": [
+                "hooks/slog/slog.go",
+                "hooks/slog/handler.go"
+            ],
+            "why": "Hook.Fire stamps the logger into the context via withLogrusLogger, and Handler.Handle bails out early when hasLogrusLogger reports it already passed through."
+        },
+        {
+            "q": "if slog code calls WithGroup before logging, what do the resulting field keys look like on the logrus side?",
+            "ok": [
+                "hooks/slog/handler.go"
+            ],
+            "why": "appendAttr flattens group attrs and joins the group stack with '.' as a key prefix; WithGroup/WithAttrs maintain the groups slice and fields map."
+        },
+        {
+            "q": "colours work on Linux but not in a Windows console - where's the Windows-specific terminal detection?",
+            "ok": [
+                "terminal_check_windows.go"
+            ],
+            "why": "checkIfTerminal calls windows.GetConsoleMode on the *os.File handle and sets ENABLE_VIRTUAL_TERMINAL_PROCESSING, returning false if either call fails."
+        },
+        {
+            "q": "coloured output prints WARN instead of WARNING and the columns don't line up - which settings control that and where does the shortening happen?",
+            "ok": [
+                "level.go",
+                "text_formatter.go"
+            ],
+            "why": "formatLevel/levelPrefix do the uppercase, 4-char truncation, padding and colouring behind a sync.OnceValues cache; TextFormatter's DisableLevelTruncation/PadLevelText are passed into levelPrefix from printColored."
+        },
+        {
+            "q": "why does an error value come out as its message text in JSON rather than an empty object?",
+            "ok": [
+                "json_formatter.go"
+            ],
+            "why": "Format's copy loop type-switches on error and stores v.Error(), because encoding/json would otherwise emit {}."
+        },
+        {
+            "q": "can I get my custom fields grouped under a sub-object in the JSON instead of mixed in with time/level/msg?",
+            "ok": [
+                "json_formatter.go"
+            ],
+            "why": "The DataKey option re-wraps the collected data map under that single key before the standard fields are added."
+        },
+        {
+            "q": "is it safe to change the log level from another goroutine while requests are being logged?",
+            "ok": [
+                "logger.go"
+            ],
+            "why": "SetLevel/level() use atomic.StoreUint32/LoadUint32 over Logger.Level, and IsLevelEnabled reads through level()."
+        },
+        {
+            "q": "where do the byte buffers that formatters write into come from, and can I supply my own?",
+            "ok": [
+                "buffer_pool.go",
+                "entry.go",
+                "logger.go"
+            ],
+            "why": "buffer_pool.go defines the BufferPool interface, the sync.Pool default and the global SetBufferPool; Entry.log gets/puts a buffer via getBufferPool, and Logger has a BufferPool field with SetBufferPool."
+        },
+        {
+            "q": "I read a level like \"WARNING\" out of a YAML config - how do I turn that string into the level type?",
+            "ok": [
+                "logrus.go"
+            ],
+            "why": "ParseLevel/parseLevel do a case-insensitive match (accepting both warn and warning), and Level implements UnmarshalText/MarshalText for config decoding."
+        },
+        {
+            "q": "how do I route error-and-above to a second destination while normal output keeps going where it already goes?",
+            "ok": [
+                "hooks/writer/writer.go"
+            ],
+            "why": "writer.Hook holds a Writer plus LogLevels; Levels() returns those levels and Fire formats the entry with entry.Bytes() and writes it."
+        }
+    ]
+}

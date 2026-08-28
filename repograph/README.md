@@ -89,10 +89,41 @@ when a repository is thinly documented. That is not hedging; it is the finding.
 
 ## Adding a language
 
-`index.py --lang go` works today. What made that cheap is that only the
-extractor is language-specific -- the artifact format, the query surface and
-all three eval instruments are not, and the git-based eval especially, since
-commits and changed files exist in every language.
+`index.py --lang go` works today. Only the extractor is language-specific. The artifact
+format, the query surface and all three eval instruments are not -- the
+git-based eval especially, since commits and changed files exist everywhere.
+
+A language is a plugin filling one contract, and the driver never asks which
+one it has:
+
+```
+NAME, SUFFIX     what it is and what files it reads
+VOCAB            crate/package, cargo test --doc / go test, Cargo.toml / go.mod
+VERIFICATION     per example-kind: the label, and whether it may be copied
+COPY_CAVEAT      any caveat attached to copying verified code, or None
+EVAL             which generators it can supply primitives for
+STOP_EXTRA       retrieval stop words peculiar to it
+walk             -> symbols, imports, module docs, tests, examples
+role_of          library, test, bench or example
+gate_of          (kind, value) for a build constraint, or None
+subject_file     which file a test file is really about
+```
+
+Two of those slots exist because of specific measurements. **`VERIFICATION` is
+data**, which is what lets a language with no verification at all -- C, whose
+Doxygen blocks are never compiled -- declare that rather than fall through a
+branch nobody wrote. And **`gate_of` carries a kind**, because
+`('feature', 'raw_value')` and `('build-tag', '!windows')` need different
+advice: a platform is not something you switch on in a manifest.
+
+`subject_file` was added after a measurement disagreed with a guess. Go's
+generated test-name questions scored 11% top-1 against Rust's 29%, which looked
+like a Go weakness and was a generator bug: Go keeps `entry_test.go` beside the
+`entry.go` it exercises, and the generator was asking for the test file, which
+the ranker excludes by design. One slot took it to 33%. Twice now a Go number
+that looked like a language difference has turned out to be a hole in the
+abstraction -- the labels were the other -- and both were found by asking why
+the number differed rather than accepting it.
 
 What does **not** transfer is the reason to bother. Search here is no better
 than grep, so a language earns a port through its verified-example convention,
@@ -119,9 +150,17 @@ C is the language to be careful about: Doxygen blocks are never compiled, so a C
 port would ship a tool whose only capability is search -- the capability
 measured as no better than ripgrep.
 
-Retrieval itself transfers intact. On 140 questions built from `logrus` commit
-history, Go scores **44% top-1 and 68% top-3**, against Rust `chrono`'s 40% and
-58% on the same instrument.
+Retrieval transfers intact, on both instruments. On 140 questions built from
+`logrus` commit history Go scores **44% top-1 and 69% top-3**, against Rust
+`chrono`'s 40% and 58%. On 40 blind questions written by agents who had never
+seen the tool, Go scores **50% and 75%** against Rust's 28% and 54%.
+
+**Do not read that as Go being easier to search.** The Go blind set is 40
+questions over two repositories against Rust's 100 over five, and its per-repo
+spread is as wide as Rust's was: `logrus` 30%/65%, `cobra` 70%/85%. Cobra is a
+flat package of 36 files, which makes a file-level answer much easier to hit
+than a deeply nested crate does. The honest reading is that Go lands in the
+same band, measured on fewer repositories.
 
 ## Verified examples: the one thing here that is not probabilistic
 

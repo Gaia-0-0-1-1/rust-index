@@ -1,0 +1,152 @@
+{
+    "repo": "cobra",
+    "questions": [
+        {
+            "q": "when I fat-finger a subcommand name, where does the \"Did you mean this?\" list come from?",
+            "ok": [
+                "command.go",
+                "cobra.go"
+            ],
+            "why": "findSuggestions/SuggestionsFor build the list in command.go; the edit-distance helper ld() lives in cobra.go"
+        },
+        {
+            "q": "what happens to the remaining args once a bare -- shows up while it is still working out which subcommand you meant?",
+            "ok": [
+                "command.go"
+            ],
+            "why": "stripFlags and argsMinusFirstX both break out of their loop the moment they hit \"--\""
+        },
+        {
+            "q": "I want a parent's own flags handled before dispatch reaches the subcommand \u2014 what switch turns that on?",
+            "ok": [
+                "command.go"
+            ],
+            "why": "the TraverseChildren field and the Traverse() walk that parses flags at each level are both in command.go"
+        },
+        {
+            "q": "if a parent and a child both define persistent pre-run hooks, which ones actually fire and in what order?",
+            "ok": [
+                "command.go",
+                "cobra.go"
+            ],
+            "why": "execute() collects the parent chain and only runs the nearest hook unless EnableTraverseRunHooks (declared in cobra.go) is set"
+        },
+        {
+            "q": "how do a parent's persistent flags actually end up visible in the child's flag set?",
+            "ok": [
+                "command.go"
+            ],
+            "why": "mergePersistentFlags/updateParentsPflags copy parent persistent flag sets into the command's own set"
+        },
+        {
+            "q": "what ready-made checkers exist for \"takes exactly two arguments\" or \"at least one\"?",
+            "ok": [
+                "args.go"
+            ],
+            "why": "ExactArgs, MinimumNArgs, MaximumNArgs, RangeArgs, MatchAll and friends are all defined here"
+        },
+        {
+            "q": "if I never set an argument validator on my root command, what produces the \"unknown command\" error?",
+            "ok": [
+                "args.go",
+                "command.go"
+            ],
+            "why": "legacyArgs in args.go emits it, and Find() in command.go is what calls legacyArgs when Args is nil"
+        },
+        {
+            "q": "how do I declare that two flags can't be passed at the same time, and where is that rule enforced?",
+            "ok": [
+                "flag_groups.go"
+            ],
+            "why": "MarkFlagsMutuallyExclusive writes an annotation, ValidateFlagGroups/validateExclusiveFlagGroups check it"
+        },
+        {
+            "q": "how do I make a flag mandatory, and where does the \"required flag not set\" error actually get built?",
+            "ok": [
+                "shell_completions.go",
+                "command.go"
+            ],
+            "why": "MarkFlagRequired sets the annotation in shell_completions.go; ValidateRequiredFlags in command.go produces the error"
+        },
+        {
+            "q": "can I make tab completion for one flag only offer .yaml files instead of any file?",
+            "ok": [
+                "shell_completions.go",
+                "completions.go",
+                "bash_completions.go"
+            ],
+            "why": "MarkFlagFilename stores the extensions, the BashCompFilenameExt constant is in bash_completions.go, and getCompletions turns it into a filter directive"
+        },
+        {
+            "q": "what hidden subcommand do the generated shell scripts invoke to ask my binary for candidates, and how is that trailing number after the colon written?",
+            "ok": [
+                "completions.go"
+            ],
+            "why": "initCompleteCmd defines the __complete command and its Run prints each candidate then \":<directive>\""
+        },
+        {
+            "q": "how does completion tell that I'm typing a value for a flag rather than a positional arg, including the -abc= shorthand case?",
+            "ok": [
+                "completions.go"
+            ],
+            "why": "checkIfFlagCompletion splits on '=', pulls the last shorthand letter, and trims the flag from the args"
+        },
+        {
+            "q": "where does the \"completion\" subcommand my program suddenly has come from, and how do I stop it appearing?",
+            "ok": [
+                "completions.go"
+            ],
+            "why": "InitDefaultCompletionCmd builds it plus the bash/zsh/fish/powershell children; CompletionOptions.DisableDefaultCmd/HiddenDefaultCmd suppress it"
+        },
+        {
+            "q": "how do I push extra advisory lines into a completion list, and what environment variable makes them go away?",
+            "ok": [
+                "active_help.go"
+            ],
+            "why": "AppendActiveHelp prefixes the marker and GetActiveHelpConfig reads <PROGRAM>_ACTIVE_HELP / COBRA_ACTIVE_HELP"
+        },
+        {
+            "q": "in the generated zsh script, what makes it stop alphabetising my completions and keep the order I returned?",
+            "ok": [
+                "zsh_completions.go"
+            ],
+            "why": "the script sets keepOrder=\"-V\" on the keep-order directive bit and passes it to _describe"
+        },
+        {
+            "q": "which file emits the fish script, and how does that script preserve my ordering?",
+            "ok": [
+                "fish_completions.go"
+            ],
+            "why": "genFishComp writes __<name>_requires_order_preservation and a `complete -k` registration for that case"
+        },
+        {
+            "q": "there seem to be two bash generators \u2014 where is the newer script that shells out to the hidden completion command instead of baking the command tree into the script?",
+            "ok": [
+                "bash_completionsV2.go"
+            ],
+            "why": "genBashComp/GenBashCompletionV2 emit a script that calls ShellCompRequestCmd at completion time"
+        },
+        {
+            "q": "the older bash generator lets me paste in my own shell function \u2014 where does that string get spliced into the emitted script?",
+            "ok": [
+                "bash_completions.go"
+            ],
+            "why": "GenBashCompletion writes c.BashCompletionFunction right after the preamble and before gen()"
+        },
+        {
+            "q": "why does my CLI print a warning and pause when someone double-clicks the exe from Explorer, and how do I switch that off?",
+            "ok": [
+                "command_win.go",
+                "cobra.go"
+            ],
+            "why": "preExecHook in command_win.go checks mousetrap.StartedByExplorer(); the message text and delay vars are declared in cobra.go"
+        },
+        {
+            "q": "how do I dump man pages for my whole command tree, and what decides the file names?",
+            "ok": [
+                "doc/man_docs.go"
+            ],
+            "why": "GenManTree/GenManTreeFromOpts recurse over subcommands and join CommandPath with the separator plus section number"
+        }
+    ]
+}
