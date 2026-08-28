@@ -9,6 +9,8 @@ Commands
                         in one call, for an agent to read and decide
                         [--files N] [--source] [--budget CHARS]
     sym <name>         everything known about one symbol
+    example <name>     working code from its doc comment, labelled by
+                        whether cargo actually verifies it
     file <path>        what a file contains, or what a directory holds [--all]
     callers <name>     which symbols reference it
     coverage           documentation coverage, and whether to trust answers
@@ -494,6 +496,75 @@ def wrap(text, width):
     return out[:6]
 
 
+def show_example(e, indent='    '):
+    """Print one example with an honest label.
+
+    `runs` is the only bucket a reader may copy. `should_panic` and
+    `compile_fail` compile and pass their doc test while demonstrating a
+    crash, so a flag meaning "cargo verified this" would hand over a panic as
+    working code."""
+    label = {
+        'runs': 'VERIFIED -- the crate\'s own doc tests compile and run this',
+        'compiles': 'COMPILES ONLY -- marked no_run, never executed',
+        'unverified': 'NOT VERIFIED -- marked ignore, or not Rust',
+        'failure': 'DEMONSTRATES FAILURE -- this code is meant to break',
+    }.get(e.get('kind'), 'UNKNOWN')
+    print('%s[%s]' % (indent, label))
+    if e.get('requires_feature'):
+        print('%sneeds feature "%s" enabled in Cargo.toml, or it will not build'
+            % (indent, e['requires_feature']))
+    if e.get('kind') == 'runs':
+        # Measured: 9 of 10 extracted examples compiled once their
+        # prerequisites existed, and the failures were a missing feature flag
+        # and a dev-dependency, not bad extraction. Doc tests run inside the
+        # crate with everything available; a reader copying the code does not.
+        print('%s(doc tests run with all features and dev-dependencies'
+            ' present; yours may not be)' % indent)
+    for ln in e['code'].split('\n'):
+        print('%s%s' % (indent, ln))
+
+
+def cmd_example(idx, name):
+    """Working code for a symbol, taken from its doc comment.
+
+    This is the one thing here that is not probabilistic. Retrieval has no
+    measured advantage over grep, but a doc example marked `runs` was compiled
+    and executed by the crate's own test suite, so it is correct by
+    construction. The failure mode is that there is no example, never that the
+    example is wrong.
+    """
+    hits = [s for s in idx.symbols if s['name'].lower() == name.lower()
+        and s.get('examples')]
+    if not hits:
+        near = [s for s in idx.symbols
+            if name.lower() in s['name'].lower() and s.get('examples')]
+        if not near:
+            any_name = [s for s in idx.symbols
+                if s['name'].lower() == name.lower()]
+            if any_name:
+                print('%s exists (%s:%d) but its documentation carries no'
+                    ' example.' % (name, any_name[0]['file'],
+                        any_name[0]['line']))
+                return 1
+            print('no symbol named %r' % name)
+            return 1
+        hits = near[:3]
+
+    for s in hits[:3]:
+        print('%s  %s  (%s:%d)' % (s['kind'], s['name'], s['file'], s['line']))
+        if s['doc']:
+            print('    %s' % s['doc'][:200])
+        for e in s['examples']:
+            # The gate lives on the symbol, not the example, because it is the
+            # enclosing module that is `#[cfg(feature = ...)]`.
+            if s.get('requires_feature'):
+                e = dict(e, requires_feature=s['requires_feature'])
+            print()
+            show_example(e)
+        print()
+    return 0
+
+
 def cmd_sym(idx, name):
     hits = [s for s in idx.symbols if s['name'].lower() == name.lower()]
     if not hits:
@@ -579,6 +650,10 @@ def cmd_coverage(idx):
     print('  documented (%-11s) %d/%d (%.0f%%)'
             % (cov.get('basis', 'public'), cov.get('documented_of_basis', 0),
                 cov.get('basis_size', 0), 100 * ratio))
+    ex = [e for sym in idx.symbols for e in (sym.get('examples') or [])]
+    runnable = [e for e in ex if e.get('kind') == 'runs']
+    print('  doc examples              %d (%d compiled and run by the crate)'
+            % (len(ex), len(runnable)))
     print('  files with a module doc   %d (%.0f%%)'
             % (cov.get('files_with_module_doc', 0),
                 100 * cov.get('module_doc_ratio', 0)))
@@ -764,6 +839,34 @@ def cmd_selftest(idx):
     if not 0.0 <= ratio <= 1.0:
         fails.append('coverage: doc_ratio outside 0..1')
 
+    # The example feature's whole claim is that the code is known good, so
+    # these three guard the claim rather than the plumbing.
+    examples = [(sym, e) for sym in idx.symbols
+        for e in (sym.get('examples') or [])]
+    for sym, e in examples:
+        if e.get('kind') not in ('runs', 'compiles', 'unverified', 'failure'):
+            fails.append('example %s: no verification bucket' % sym['name'])
+            break
+    for sym, e in examples:
+        marker = [ln for ln in e['code'].split(chr(10))
+            if ln.lstrip().startswith('# ')]
+        if marker:
+            fails.append('example %s: raw doc-test hidden marker survived'
+                % sym['name'])
+            break
+    for sym, e in examples:
+        if e.get('kind') == 'failure':
+            buf3, real3 = io.StringIO(), sys.stdout
+            sys.stdout = buf3
+            try:
+                show_example(e)
+            finally:
+                sys.stdout = real3
+            if 'DEMONSTRATES FAILURE' not in buf3.getvalue():
+                fails.append('example %s: failure case shown without its label'
+                    % sym['name'])
+            break
+
     # context is what an agent reads, so its shape is load-bearing: three
     # candidates, each citable, and no stray %% from a format string.
     import io
@@ -819,7 +922,7 @@ def cmd_selftest(idx):
 
     for f in fails:
         print('  FAIL %s' % f)
-    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 11))
+    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 14))
     return 1 if fails else 0
 
 
@@ -863,6 +966,8 @@ def main(argv):
         return cmd_context(idx, ' '.join(rest2), nfiles, source, budget)
     if cmd == 'sym':
         return cmd_sym(idx, joined)
+    if cmd == 'example':
+        return cmd_example(idx, joined)
     if cmd == 'file':
         want_all = '--all' in rest
         rest = [a for a in rest if a != '--all']

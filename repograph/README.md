@@ -79,6 +79,48 @@ types. `num_seconds_from_midnight` retains midnight/num/seconds and nothing
 else. So `coverage` is a first-class command, and `ask` warns before answering
 when a repository is thinly documented. That is not hedging; it is the finding.
 
+## Verified examples: the one thing here that is not probabilistic
+
+```bash
+python repograph/repograph.py /tmp/idx example from_str
+```
+
+Everything else in this tool is a guess with a hit rate. A doc example is not.
+`cargo test --doc` compiles and runs the examples in a crate's documentation,
+so the crate's own CI has already proved them. The failure mode becomes
+**absent** rather than **wrong**, which no amount of ranking work achieves --
+`chrono` carries 257 examples, 256 of them compiled and run.
+
+Each is labelled by what it actually demonstrates, which is not the same as
+whether cargo touched it:
+
+| bucket | fences | meaning |
+|---|---|---|
+| VERIFIED | bare, `rust` | compiled and run; copyable |
+| COMPILES ONLY | `no_run` | builds, never executed |
+| NOT VERIFIED | `ignore`, `text`, other languages | nobody checked it |
+| DEMONSTRATES FAILURE | `compile_fail`, `should_panic` | **meant to break** |
+
+`should_panic` is the trap: cargo runs it and it passes, while the code shows a
+crash. A flag meaning "cargo verified this" would hand that over as working
+code, so the buckets classify by intent and only VERIFIED is presented as
+something to copy.
+
+**Two caveats, both found by compiling the extracted output rather than
+assuming.** Ten extracted examples were built against the real crate: eight
+compiled immediately, and the two failures needed a feature flag and a
+dev-dependency -- not extraction bugs. Doc tests run inside the crate with
+every feature and dev-dependency present, and a reader copying the code has
+neither. So `example` now prints the required feature where it can detect one
+(`#[cfg(feature = "raw_value")] mod raw;` gates 94 serde_json symbols) and says
+plainly that the crate's test setup is more generous than yours.
+
+That validation also caught the worst bug of the feature. Hidden doc-test lines
+begin `# `, and an early version stripped every line starting with `#` -- which
+silently deleted `#[derive(Deserialize)]` from ten examples, producing code
+that could never compile while claiming to be verified. Hidden lines are now
+unhidden and attributes kept.
+
 ## Does an agent with this tool beat an agent with grep? Measured: no
 
 Nine subagents, three arms on three crates spanning 4x in size, 10 blind

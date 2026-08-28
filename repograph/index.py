@@ -25,6 +25,13 @@ DECL = re.compile(
     r'(?P<kind>fn|struct|enum|trait|type|union|macro_rules!|mod|static|const)'
     r'\s+(?P<name>[A-Za-z_][A-Za-z0-9_]*)')
 USE = re.compile(r'^\s*(?:pub\s+)?use\s+([^;]+);')
+# `#[cfg(feature = "raw_value")]` directly above `mod raw;` gates every symbol
+# in raw.rs behind that feature. Without this the tool calls a doc example
+# VERIFIED and a reader copies code that will not build, because the crate's
+# own doc tests run with all features on and theirs do not.
+CFG_MOD = re.compile(
+    r'#\[cfg\(feature\s*=\s*"([^"]+)"\)\]\s*'
+    r'(?:pub\s+)?mod\s+([A-Za-z_][A-Za-z0-9_]*)\s*;')
 IDENT = re.compile(r'[A-Za-z_][A-Za-z0-9_]{2,}')
 SKIP_DIRS = {'target', '.git', 'node_modules', '.github'}
 # Directories that are part of the repository but not part of the library.
@@ -38,6 +45,82 @@ ROLES = {'benches': 'bench', 'examples': 'example', 'tests': 'test',
 def file_role(rel):
     head = rel.split('/')[0]
     return ROLES.get(head, 'lib')
+
+
+# What a doc example demonstrates, which is not the same as whether cargo runs
+# it. `should_panic` compiles, runs and passes -- while demonstrating a crash --
+# so a flag meaning "cargo verified this" would hand a reader a panic as working
+# code. Only RUNS may be presented as something to copy.
+RUNS, COMPILES, UNVERIFIED, FAILURE = 'runs', 'compiles', 'unverified', 'failure'
+NOT_RUST = {'text', 'notrust', 'json', 'toml', 'yaml', 'python', 'sh', 'bash',
+    'console', 'markdown', 'md', 'html', 'c', 'cpp'}
+
+
+def classify_fence(info):
+    """Rust doc fences carry comma-separated flags: ```rust,no_run and
+    ```ignore,json both occur. Classify by the flags present, never by the
+    whole string."""
+    flags = {f.strip().lower() for f in (info or '').split(',') if f.strip()}
+    if flags & {'compile_fail', 'should_panic'}:
+        return FAILURE
+    if flags & {'ignore'} or flags & NOT_RUST:
+        return UNVERIFIED
+    if 'no_run' in flags:
+        return COMPILES
+    return RUNS
+
+
+def unhide(line):
+    """Resolve rustdoc's hidden-line marker inside a doc example.
+
+    A line is hidden only when it is `#` followed by a space, or `#` alone.
+    Strip the marker and keep the content -- those lines are usually the
+    imports the example needs to compile, and dropping them breaks it.
+
+    `#[derive(Debug)]` is NOT hidden, it is an attribute, and an earlier
+    version of this deleted every one of them because they also begin with
+    `#`. That silently produced examples that could never compile, which is
+    the worst possible failure for a feature whose whole claim is that the
+    code is known good.
+
+    `##` is an escaped literal `#`, as in a shebang or a nested attribute.
+    """
+    body = line.lstrip()
+    if not body.startswith('#'):
+        return line
+    if body.startswith('##'):
+        return line.replace('##', '#', 1)
+    rest = body[1:]
+    if not rest.strip():
+        return None                      # `#` alone: a hidden blank line
+    if rest.startswith(' '):
+        return rest[1:]                  # `# use foo::Bar;` -> keep content
+    return line                          # `#[derive(..)]`, `#![feature]`
+
+
+def doc_examples(raw_lines):
+    """Fenced blocks from a run of `///` lines, with structure preserved.
+
+    The prose `doc` field flattens everything to one line, which is right for
+    matching words and useless for code. Examples are kept apart, with their
+    newlines, so they can be handed over as something runnable.
+    """
+    out, code, info, inside = [], [], None, False
+    for ln in raw_lines:
+        stripped = ln.strip()
+        if stripped.startswith('```'):
+            if inside:
+                out.append({'code': '\n'.join(code).strip(),
+                    'kind': classify_fence(info)})
+                code, inside = [], False
+            else:
+                inside, info, code = True, stripped[3:].strip(), []
+            continue
+        if inside:
+            kept = unhide(ln)
+            if kept is not None:
+                code.append(kept)
+    return [e for e in out if e['code']]
 
 
 def strip_noise(line):
@@ -94,7 +177,7 @@ def parse_file(path, rel):
 
         # Doc comment and #[test], both found by walking back over the
         # attributes that sit between an item and its documentation.
-        doc, is_test = [], False
+        doc, raw, is_test = [], [], False
         j = i - 1
         while j >= 0:
             s = lines[j].strip()
@@ -103,9 +186,10 @@ def parse_file(path, rel):
                 # `//////////` begins with `///`, so it was being captured as
                 # doc text -- harmless at 0.2% of symbols, but it is noise in
                 # the one field retrieval depends on.
-                body = s[3:].strip()
-                if re.search(r'[A-Za-z0-9]', body):
-                    doc.append(body)
+                body = s[3:]
+                raw.append(body[1:] if body.startswith(' ') else body)
+                if re.search(r'[A-Za-z0-9]', body.strip()):
+                    doc.append(body.strip())
             elif s.startswith('#['):
                 if 'test' in s:
                     is_test = True
@@ -115,6 +199,7 @@ def parse_file(path, rel):
                 break
             j -= 1
         doc.reverse()
+        raw.reverse()
 
         depth, end, started = 0, i, False
         for k in range(i, min(len(lines), i + 6000)):
@@ -139,12 +224,35 @@ def parse_file(path, rel):
             'doc': ' '.join(doc).strip(),
             'sig': line.strip()[:200],
             'test': is_test,
+            'examples': doc_examples(raw),
         }
         symbols.append(sym)
         if is_test:
             tests.append({'name': name, 'file': rel, 'line': i + 1})
 
     return symbols, uses, module_doc(lines), tests
+
+
+def feature_gates(root):
+    """file -> feature that must be enabled for it to exist."""
+    gates = {}
+    for base, dirs, files in os.walk(root):
+        dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
+        for f in files:
+            if not f.endswith('.rs'):
+                continue
+            p = os.path.join(base, f)
+            try:
+                text = open(p, encoding='utf-8', errors='replace').read()
+            except OSError:
+                continue
+            here = os.path.relpath(base, root).replace('\\', '/')
+            here = '' if here == '.' else here + '/'
+            for feat, name in CFG_MOD.findall(text):
+                for cand in ('%s%s.rs' % (here, name),
+                                '%s%s/mod.rs' % (here, name)):
+                    gates[cand] = feat
+    return gates
 
 
 def walk(root):
@@ -302,6 +410,11 @@ def main(argv):
 
     symbols, uses, mods, tests = walk(root)
     symbols = mark_visibility(symbols)
+    gates = feature_gates(root)
+    for sym in symbols:
+        feat = gates.get(sym['file'])
+        if feat:
+            sym['requires_feature'] = feat
     if not symbols:
         print('no .rs files found under %s' % root)
         return 1
