@@ -8,7 +8,11 @@ python repograph/repograph.py /tmp/idx ask "how is a png decoded"
 ```
 
 Python 3, standard library only. Nothing is fetched, nothing is built: it reads
-`.rs` files and writes JSON.
+source files and writes JSON.
+
+**Go is supported too**: `index.py <dir> --lang go`. The artifact format, the
+query surface and every eval instrument are language-agnostic; only extraction
+is not. See "Adding a language" below for what transfers and what does not.
 
 `AGENT-PROMPT.md` says all of this in one self-contained page, for pasting to an
 agent that does not have the repo yet. `PROTOCOL.md` is the sequence to follow
@@ -82,6 +86,42 @@ to **1%** — a name, path and signature carry almost none of the words a person
 types. `num_seconds_from_midnight` retains midnight/num/seconds and nothing
 else. So `coverage` is a first-class command, and `ask` warns before answering
 when a repository is thinly documented. That is not hedging; it is the finding.
+
+## Adding a language
+
+`index.py --lang go` works today. What made that cheap is that only the
+extractor is language-specific -- the artifact format, the query surface and
+all three eval instruments are not, and the git-based eval especially, since
+commits and changed files exist in every language.
+
+What does **not** transfer is the reason to bother. Search here is no better
+than grep, so a language earns a port through its verified-example convention,
+and those differ sharply. Measured before the Go extractor was written:
+
+| | convention | checked by | examples per documented symbol |
+|---|---|---|---|
+| Rust | ` ``` ` in `///` | `cargo test --doc` compiles and runs | **20%** |
+| Go | `func ExampleX()` + `// Output:` | `go test` runs it **and compares its output** | **6.3%** |
+| Python | doctest `>>>` | only if the project opts in | 4% |
+| C | Doxygen `@code` | nothing | — |
+
+Go's guarantee is the strongest available: 82% of the standard library's 1,015
+Example functions declare an expected output that `go test` checks against what
+the code really prints, so the example is verified to *do what it claims*, not
+merely to compile. `example` says so in those words rather than reusing Rust's.
+
+Go's density is three times thinner, though, and its doc coverage is 41% against
+93% for a well-documented crate. So `example` and `start` come up empty far more
+often in Go, and `coverage` will say `THIN` far more often. That is the honest
+trade and it was measured, not assumed.
+
+C is the language to be careful about: Doxygen blocks are never compiled, so a C
+port would ship a tool whose only capability is search -- the capability
+measured as no better than ripgrep.
+
+Retrieval itself transfers intact. On 140 questions built from `logrus` commit
+history, Go scores **44% top-1 and 68% top-3**, against Rust `chrono`'s 40% and
+58% on the same instrument.
 
 ## Verified examples: the one thing here that is not probabilistic
 

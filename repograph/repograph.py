@@ -508,28 +508,46 @@ def wrap(text, width):
     return out[:6]
 
 
-def show_example(e, indent='    '):
+def show_example(e, indent='    ', lang='rust'):
     """Print one example with an honest label.
 
     `runs` is the only bucket a reader may copy. `should_panic` and
     `compile_fail` compile and pass their doc test while demonstrating a
     crash, so a flag meaning "cargo verified this" would hand over a panic as
     working code."""
-    label = {
-        'runs': 'VERIFIED -- the crate\'s own doc tests compile and run this',
-        'compiles': 'COMPILES ONLY -- marked no_run, never executed',
-        'unverified': 'NOT VERIFIED -- marked ignore, or not Rust',
-        'failure': 'DEMONSTRATES FAILURE -- this code is meant to break',
-    }.get(e.get('kind'), 'UNKNOWN')
+    # The guarantee differs by language, so the label has to name which one.
+    # Go's Example functions carry an `// Output:` comment that `go test`
+    # compares against the real output, so the code is verified to produce what
+    # it claims -- strictly more than Rust, where a doc test need only run.
+    # One shared wording would undersell Go and overstate the Go examples that
+    # declare no expected output at all.
+    if lang == 'go':
+        label = {
+            'runs': 'VERIFIED -- `go test` runs this and checks its'
+                ' `// Output:` against what it really prints',
+            'compiles': 'RUNS, UNCHECKED -- `go test` builds and runs this,'
+                ' but it declares no expected output',
+            'unverified': 'NOT VERIFIED -- nothing checks this',
+            'failure': 'DEMONSTRATES FAILURE -- this code is meant to break',
+        }.get(e.get('kind'), 'UNKNOWN')
+    else:
+        label = {
+            'runs': 'VERIFIED -- the crate\'s own doc tests compile and run'
+                ' this',
+            'compiles': 'COMPILES ONLY -- marked no_run, never executed',
+            'unverified': 'NOT VERIFIED -- marked ignore, or not Rust',
+            'failure': 'DEMONSTRATES FAILURE -- this code is meant to break',
+        }.get(e.get('kind'), 'UNKNOWN')
     print('%s[%s]' % (indent, label))
     if e.get('requires_feature'):
         print('%sneeds feature "%s" enabled in Cargo.toml, or it will not build'
             % (indent, e['requires_feature']))
-    if e.get('kind') == 'runs':
+    if e.get('kind') == 'runs' and lang != 'go':
         # Measured: 9 of 10 extracted examples compiled once their
         # prerequisites existed, and the failures were a missing feature flag
         # and a dev-dependency, not bad extraction. Doc tests run inside the
         # crate with everything available; a reader copying the code does not.
+        # Go has no feature flags, so this caveat is Rust's alone.
         print('%s(doc tests run with all features and dev-dependencies'
             ' present; yours may not be)' % indent)
     for ln in e['code'].split('\n'):
@@ -571,7 +589,7 @@ def cmd_start(idx):
         for path, e in lead[:3]:
             print()
             print('  (%s)' % path)
-            show_example(e, indent='  ')
+            show_example(e, indent='  ', lang=idx.meta.get('lang', 'rust'))
         return 0
 
     print('This crate has no module-level documentation header, so there is no')
@@ -594,7 +612,7 @@ def cmd_start(idx):
         for e in sym['examples'][:1]:
             if sym.get('requires_feature'):
                 e = dict(e, requires_feature=sym['requires_feature'])
-            show_example(e, indent='  ')
+            show_example(e, indent='  ', lang=idx.meta.get('lang', 'rust'))
     return 0
 
 
@@ -634,7 +652,7 @@ def cmd_example(idx, name):
             if s.get('requires_feature'):
                 e = dict(e, requires_feature=s['requires_feature'])
             print()
-            show_example(e)
+            show_example(e, lang=idx.meta.get('lang', 'rust'))
         print()
     return 0
 
@@ -947,7 +965,7 @@ def cmd_selftest(idx):
             buf3, real3 = io.StringIO(), sys.stdout
             sys.stdout = buf3
             try:
-                show_example(e)
+                show_example(e, lang=idx.meta.get('lang', 'rust'))
             finally:
                 sys.stdout = real3
             if 'DEMONSTRATES FAILURE' not in buf3.getvalue():

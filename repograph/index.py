@@ -454,11 +454,63 @@ def coverage(symbols, mods, nfiles):
     }
 
 
+def write_index(root, out, symbols, edges, uses, mods, tests, mod_ex, cov,
+        lang):
+    os.makedirs(out, exist_ok=True)
+    meta = {'schema': SCHEMA, 'lang': lang,
+        'root': root.replace('\\', '/'),
+        'name': os.path.basename(root), 'coverage': cov}
+    for fname, obj in (('symbols.json', symbols), ('edges.json', edges),
+                        ('module-examples.json', mod_ex),
+                        ('uses.json', uses), ('modules.json', mods),
+                        ('tests.json', tests), ('meta.json', meta)):
+        with open(os.path.join(out, fname), 'w', encoding='utf-8') as fh:
+            json.dump(obj, fh)
+    print('%s [%s]: %d symbols, %d files, %d edges, %d tests'
+        % (meta['name'], lang, len(symbols), len(uses), len(edges),
+            len(tests)))
+    print('  documented (%s): %d/%d (%.0f%%)'
+        % (cov['basis'], cov['documented_of_basis'], cov['basis_size'],
+            100 * cov['doc_ratio']))
+    ex = sum(len(s.get('examples') or []) for s in symbols)
+    if ex:
+        print('  %d examples attached to symbols' % ex)
+    print('  written to %s' % out)
+    return 0
+
+
+def build_edges_from(symbols, root, suffix):
+    """Reference edges for any language: a symbol's body mentioning a name
+    that resolves to few symbols. The rarity gate is the whole mechanism and it
+    is not language-specific."""
+    src = bodies(root, symbols)
+    by_name = {}
+    for idx, s in enumerate(symbols):
+        by_name.setdefault(s['name'], []).append(idx)
+    edges = []
+    for idx, s in enumerate(symbols):
+        seen = set()
+        for tok in IDENT.findall(src.get(id(s), '')):
+            if tok == s['name'] or tok in seen:
+                continue
+            targets = by_name.get(tok)
+            if not targets or len(targets) > 3:
+                continue
+            seen.add(tok)
+            for t in targets:
+                if t != idx:
+                    edges.append([idx, t, tok])
+    return edges
+
+
 def main(argv):
     if len(argv) < 2:
         print(__doc__)
         return 1
     root = os.path.abspath(argv[1])
+    lang = 'rust'
+    if '--lang' in argv:
+        lang = argv[argv.index('--lang') + 1]
     out = None
     if '-o' in argv:
         out = argv[argv.index('-o') + 1]
@@ -468,6 +520,15 @@ def main(argv):
         print('not a directory: %s' % root)
         return 1
 
+    if lang == 'go':
+        import lang_go
+        symbols, uses, mods, tests, mod_ex = lang_go.walk(root)
+        for sym in symbols:
+            sym['role'] = lang_go.role_for(sym['file'])
+        edges = build_edges_from(symbols, root, '.go')
+        cov = coverage(symbols, mods, len(uses))
+        return write_index(root, out, symbols, edges, uses, mods, tests,
+            mod_ex, cov, lang)
     symbols, uses, mods, tests, mod_ex = walk(root)
     symbols = mark_visibility(symbols)
     gates = feature_gates(root)
