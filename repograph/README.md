@@ -301,6 +301,35 @@ Nothing was built past the probe, which is the point of running one.
 `eval/semantic/` ships the trainer and the probe so the ceiling can be
 re-measured against a better table.
 
+**A shipped embedding model.** The obvious next move after semantic expansion
+failed: relax the stdlib constraint, ship real word vectors, bridge the
+vocabulary gap properly. It was not done, because inspecting the failures it
+would have to fix showed there are none.
+
+Every one of the 13 prose failures on chrono, categorised by hand:
+
+| | count | what it is |
+|---|---|---|
+| already lexically connected | 6 | ranks 3, 5, 6, 7, 9, 12 |
+| not a question about behaviour | 6 | "Tweak expression to avoid repetition", "Inline `format_inner`", "Sync with 0.5 branch", doc edits |
+| vocabulary nothing could know | 1 | "Support ohos tzdata since oh35" |
+
+The six connected ones already share discriminating words with the right file --
+`weekdays` at idf 0.70, `rfc3339` at 0.61, `assign` at 0.56 -- and still rank
+3rd to 12th. **The words match and the file loses anyway**, which is a ranking
+problem, and ranking was measured to have no headroom. An embedding bridges
+vocabulary gaps; there is no vocabulary gap here to bridge.
+
+The other seven cannot be helped by anything. Six are refactors and
+documentation edits whose commit messages describe no behaviour, so no index of
+the code can contain their answer. One turns on `oh35`, an OpenHarmony version
+string absent from the crate and from English.
+
+This also means the 24%/29% prose figure understates the tool: roughly half
+that stratum is not answerable by any retrieval system. The honest reading of
+the prose case is not "semantic search would fix it" but "much of it was never
+a search problem".
+
 **Graph expansion.** Seed from the top lexical matches, then lift whatever the
 reference graph says they are built alongside. Reachability is genuinely high —
 15 of 18 held-out misses sit one hop from a seed. It ranks none of them. The
