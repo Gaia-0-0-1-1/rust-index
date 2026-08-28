@@ -187,6 +187,40 @@ What the agents said, consistently, is more useful than the scores:
     documented while its filter internals carry almost no docs, and that is
     exactly where retrieval failed. Coverage should be reported per directory.
 
+## The confound, settled: it depends on whether you can name the thing
+
+The null result above is bounded by how its questions were made -- agents wrote
+them by grepping and reading, so the answers were grep-findable by
+construction. Git breaks that. A commit subject is the author's account of
+intent, written before anyone went looking; the files it touched are recorded
+by version control. Neither half owes anything to lexical overlap.
+
+210 commits from `chronotope/chrono`, subject used verbatim as the question,
+changed files as the answer:
+
+| | questions | top-1 | top-3 |
+|---|---|---|---|
+| subject names a symbol in the crate | 182 | 43% | 63% |
+| subject is plain prose | 28 | **18%** | **21%** |
+| all | 210 | 40% | 58% |
+
+The headline 40/58 is higher than the blind sets' 28/54, and the split says why:
+**it is entirely identifier-driven.** When a question names something the crate
+calls by that name, the tool finds it. When a question only *describes*
+behaviour, it lands at 21% in the top three -- against roughly 6% for guessing
+among fifty files, so better than chance and not much use.
+
+That is the honest shape of the thing, and it is worth more than either average.
+Description-based search was the whole premise; description is exactly where it
+is weakest. It also explains the null result against grep rather than
+contradicting it, since grep likewise needs you to know the word.
+
+(28 prose-only questions is a small sample and the interval around 18/21 is
+wide. The direction is clear; the precise number is not.)
+
+The questions and the script that builds them are in `eval/git/`, so this can be
+rerun against any repository with history.
+
 ## Four fixes the experiment produced
 
 The scores said nothing; the agents' reports said plenty, and all four of these

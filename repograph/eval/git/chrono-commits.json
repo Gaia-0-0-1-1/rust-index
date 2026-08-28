@@ -1,0 +1,1895 @@
+{
+    "note": "Ground truth from git: the question is a commit subject verbatim, the answer is the source files that commit touched. Neither was chosen by searching the code, which is what the agent-written blind sets could not avoid.",
+    "repo": "chronotope/chrono",
+    "questions": [
+        {
+            "q": "Return None from from_isoywd_opt for out-of-range years",
+            "ok": [
+                "src/naive/date/mod.rs",
+                "src/naive/date/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6adaa5240c"
+        },
+        {
+            "q": "Fix reversed `NaiveDate` day and week iterators",
+            "ok": [
+                "src/naive/date/mod.rs",
+                "src/naive/date/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "7b6436f65e"
+        },
+        {
+            "q": "fix: clamp offset minute rounding to avoid invalid +24:00",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "3ffcd1b107"
+        },
+        {
+            "q": "fix(tz): avoid out-of-bounds slice on partial tzdata index entry",
+            "ok": [
+                "src/offset/local/tz_data.rs"
+            ],
+            "src": "git-commit",
+            "sha": "a71c212cdc"
+        },
+        {
+            "q": "fix(tz): avoid i64 overflow in find_local_time_type_from_local",
+            "ok": [
+                "src/offset/local/tz_info/timezone.rs"
+            ],
+            "src": "git-commit",
+            "sha": "75926fce51"
+        },
+        {
+            "q": "Accept longer time zone designations and '_' in TZif files",
+            "ok": [
+                "src/offset/local/tz_info/timezone.rs"
+            ],
+            "src": "git-commit",
+            "sha": "2c8426a3bd"
+        },
+        {
+            "q": "tz_data: fix tzdata locations on Android",
+            "ok": [
+                "src/offset/local/tz_data.rs"
+            ],
+            "src": "git-commit",
+            "sha": "881f9ab2f7"
+        },
+        {
+            "q": "fix(tz): reject TZ offset hour of 24 to avoid FixedOffset overflow",
+            "ok": [
+                "src/offset/local/tz_info/rule.rs"
+            ],
+            "src": "git-commit",
+            "sha": "f14ead46c0"
+        },
+        {
+            "q": "Fix panic message in to_rfc2822",
+            "ok": [
+                "src/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "cfae889a3a"
+        },
+        {
+            "q": "Added doctest for the NaiveDate years_since function (#1755)",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "db129730e8"
+        },
+        {
+            "q": "Drop deny lints, eager Debug impls are a mixed blessing",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ea1f11b356"
+        },
+        {
+            "q": "replace Datelike::days_between with NaiveDate::abs_diff",
+            "ok": [
+                "src/naive/date/mod.rs",
+                "src/traits.rs"
+            ],
+            "src": "git-commit",
+            "sha": "334565c5f4"
+        },
+        {
+            "q": "add Datelike::days_between",
+            "ok": [
+                "src/traits.rs"
+            ],
+            "src": "git-commit",
+            "sha": "c34e4c5108"
+        },
+        {
+            "q": "feat: faster RFC 3339 parsing without Parsed",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/format/parse.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ebc808e8fa"
+        },
+        {
+            "q": "refactor: scan::nanosecond to return u32",
+            "ok": [
+                "src/format/parse.rs",
+                "src/format/scan.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e0dd9c5f16"
+        },
+        {
+            "q": "test: a couple more tests for strict rfc3339 parsing",
+            "ok": [
+                "src/format/parse.rs"
+            ],
+            "src": "git-commit",
+            "sha": "728822e2a9"
+        },
+        {
+            "q": "Drop stabilized feature doc_auto_cfg",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "0061d86cb5"
+        },
+        {
+            "q": "strftime: add regression test case",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "5cf5603500"
+        },
+        {
+            "q": "strftime: simplify error handling",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "a6231701ee"
+        },
+        {
+            "q": "strftime: move specifier handling out of match to reduce rightward drift",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "36fbfb1221"
+        },
+        {
+            "q": "strftime: yield None early",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "7f413c363b"
+        },
+        {
+            "q": "strftime: outline constants",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "9d5dfe1640"
+        },
+        {
+            "q": "strftime: move error() method below caller",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e5f6be7db4"
+        },
+        {
+            "q": "strftime: merge impl blocks",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "d516c2764d"
+        },
+        {
+            "q": "strftime: re-order items to keep impls together",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "0ee2172fb9"
+        },
+        {
+            "q": "Add `?Sized` bound to related methods of `DelayedFormat::write_to`",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "59d5f46f17"
+        },
+        {
+            "q": "Fix incorrect parsing of fixed-length second fractions (#1705)",
+            "ok": [
+                "src/format/parse.rs"
+            ],
+            "src": "git-commit",
+            "sha": "2e1cd2f5fa"
+        },
+        {
+            "q": "Add warning about MappedLocalTime and wasm",
+            "ok": [
+                "src/offset/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "3b4af71f0b"
+        },
+        {
+            "q": "Fix wrong amount of micro/milliseconds",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "c5c22a357d"
+        },
+        {
+            "q": "Add support for lenient format strings (#1693)",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e2bd1d1d67"
+        },
+        {
+            "q": "Tweak expression to avoid repetition",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "2c95b0aca8"
+        },
+        {
+            "q": "TimeZone::from_posix_tz: Treat empty TZ variable as UTC",
+            "ok": [
+                "src/offset/local/tz_info/timezone.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ebeef99426"
+        },
+        {
+            "q": "Tweak style on NaiveWeek fixes",
+            "ok": [
+                "src/naive/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "dc068f0373"
+        },
+        {
+            "q": "Implemented consistent Hash and Eq trait for NaiveWeek",
+            "ok": [
+                "src/naive/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "b267a4fe90"
+        },
+        {
+            "q": "Upgrade to windows-bindgen 0.61",
+            "ok": [
+                "src/offset/local/win_bindings.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6a853015b7"
+        },
+        {
+            "q": "Tweak WeekdaySet method order",
+            "ok": [
+                "src/weekday_set.rs"
+            ],
+            "src": "git-commit",
+            "sha": "265c79b2a5"
+        },
+        {
+            "q": "Tweak WeekdaySet docs",
+            "ok": [
+                "src/weekday_set.rs"
+            ],
+            "src": "git-commit",
+            "sha": "57567b3e56"
+        },
+        {
+            "q": "Privatize WeekdaySetIter fields",
+            "ok": [
+                "src/weekday_set.rs"
+            ],
+            "src": "git-commit",
+            "sha": "97d6c63733"
+        },
+        {
+            "q": "Rename WeekdaySet::iter_from() to iter()",
+            "ok": [
+                "src/weekday_set.rs"
+            ],
+            "src": "git-commit",
+            "sha": "64c65a9256"
+        },
+        {
+            "q": "Remove Not impls for WeekdaySet and Weekday",
+            "ok": [
+                "src/weekday_set.rs"
+            ],
+            "src": "git-commit",
+            "sha": "4094865116"
+        },
+        {
+            "q": "Move WeekdaySet constructors to the top",
+            "ok": [
+                "src/weekday_set.rs"
+            ],
+            "src": "git-commit",
+            "sha": "cac4e8cf8d"
+        },
+        {
+            "q": "Rename weekdays module to weekday_set",
+            "ok": [
+                "src/lib.rs",
+                "src/weekday_set.rs"
+            ],
+            "src": "git-commit",
+            "sha": "cac71f3f4d"
+        },
+        {
+            "q": "add WeekdaySet - a collection of Weekday",
+            "ok": [
+                "src/lib.rs",
+                "src/weekdays.rs"
+            ],
+            "src": "git-commit",
+            "sha": "4f4e95bee8"
+        },
+        {
+            "q": "Add `num_days_in_month` method to `Datelike` trait",
+            "ok": [
+                "src/traits.rs"
+            ],
+            "src": "git-commit",
+            "sha": "39fb201c08"
+        },
+        {
+            "q": "Implement utility functions for converting TimeDelta to fractional seconds.",
+            "ok": [
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "fa957cc8dc"
+        },
+        {
+            "q": "Group subsec duration methods with their corresponding whole methods.",
+            "ok": [
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "cc6801d3dc"
+        },
+        {
+            "q": "Deprecate NaiveDateTime::UNIX_EPOCH",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "2115206bc3"
+        },
+        {
+            "q": "Add subsec_millis and subsec_micros methods for TimeDelta.",
+            "ok": [
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "042109f4f8"
+        },
+        {
+            "q": "Improve documentation for subsec_nanos() and add a test for the method.",
+            "ok": [
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "f0f807d1b5"
+        },
+        {
+            "q": "Upgrade to windows-bindgen 0.60",
+            "ok": [
+                "src/offset/local/win_bindings.rs"
+            ],
+            "src": "git-commit",
+            "sha": "07216ae8fd"
+        },
+        {
+            "q": "Switch to 2024 idiom",
+            "ok": [
+                "src/format/parsed.rs"
+            ],
+            "src": "git-commit",
+            "sha": "1f345fd7f9"
+        },
+        {
+            "q": "docs: fix minor typo",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "8317e7ca41"
+        },
+        {
+            "q": "Expose `write_to` for `DelayedFormat`",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "4c42ee5ceb"
+        },
+        {
+            "q": "Feature/round_up method on DurationRound trait (#1651)",
+            "ok": [
+                "src/round.rs"
+            ],
+            "src": "git-commit",
+            "sha": "5f2f5a8332"
+        },
+        {
+            "q": "Update Windows dependencies",
+            "ok": [
+                "src/offset/local/win_bindings.rs"
+            ],
+            "src": "git-commit",
+            "sha": "97f758f46d"
+        },
+        {
+            "q": "Add Month::num_days()",
+            "ok": [
+                "src/month.rs"
+            ],
+            "src": "git-commit",
+            "sha": "07a42f9f49"
+        },
+        {
+            "q": "add `#[inline]` to `num_days`",
+            "ok": [
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "f9ffd6fbde"
+        },
+        {
+            "q": "Use Formatter::pad (instead of write_str) for Weekdays",
+            "ok": [
+                "src/weekday.rs"
+            ],
+            "src": "git-commit",
+            "sha": "771c0477bf"
+        },
+        {
+            "q": "Support ohos tzdata since oh35",
+            "ok": [
+                "src/offset/local/tz_info/parser.rs",
+                "src/offset/local/tz_info/timezone.rs"
+            ],
+            "src": "git-commit",
+            "sha": "d8a177e4f5"
+        },
+        {
+            "q": "Derive `PartialEq`,`Eq`,`Hash`,`Copy` and `Clone` on `NaiveWeek`",
+            "ok": [
+                "src/naive/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "05a6ce68cf"
+        },
+        {
+            "q": "impl serde::Serialize and serde::Deserialize for TimeDelta (#1599)",
+            "ok": [
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "c8defc7766"
+        },
+        {
+            "q": "Test that `NaiveWeek` checked functions don't panic",
+            "ok": [
+                "src/naive/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "081c6482bc"
+        },
+        {
+            "q": "Add `checked_last_day`",
+            "ok": [
+                "src/naive/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ccb04bc449"
+        },
+        {
+            "q": "Add `checked_first_day`",
+            "ok": [
+                "src/naive/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "68afd5b407"
+        },
+        {
+            "q": "Fix line continuation in Parsed::to_datetime()",
+            "ok": [
+                "src/format/parsed.rs"
+            ],
+            "src": "git-commit",
+            "sha": "b18c1c1d8e"
+        },
+        {
+            "q": "docs: document century cutoff for %y",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "1eb3174428"
+        },
+        {
+            "q": "native/date: Improve DelayedFormat doc re Panics",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "de2f1f4cee"
+        },
+        {
+            "q": "Update windows-bindgen requirement from 0.56 to 0.57",
+            "ok": [
+                "src/offset/local/win_bindings.rs"
+            ],
+            "src": "git-commit",
+            "sha": "2085627892"
+        },
+        {
+            "q": "Fix micros (optional) limit in and_hms_micro_opt",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "865b0ad780"
+        },
+        {
+            "q": "Fix format::strftime docs link",
+            "ok": [
+                "src/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "0a058ea70d"
+        },
+        {
+            "q": "Remove obsolete weird feature guard",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ce383862ff"
+        },
+        {
+            "q": "#1577: Changed years_since documentation to match its implementation",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "7e25ffb373"
+        },
+        {
+            "q": "Manually implement `Copy` for `DateTime` if offset is `Copy`",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/datetime/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "46d44d6074"
+        },
+        {
+            "q": "Return error when rounding with zero duration",
+            "ok": [
+                "src/round.rs"
+            ],
+            "src": "git-commit",
+            "sha": "391187fff3"
+        },
+        {
+            "q": "Add `TimeDelta::checked_mul` and `TimeDelta::checked_div`",
+            "ok": [
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ffc75e5705"
+        },
+        {
+            "q": "Optimize number formatting",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "0cfc405d3e"
+        },
+        {
+            "q": "Match on tuples in `format_fixed`",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "78e79dbabf"
+        },
+        {
+            "q": "Match on tuples in `format_numeric`",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "f3d76c7bb0"
+        },
+        {
+            "q": "Inline `weeks_from_*`",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "8df4ad295f"
+        },
+        {
+            "q": "Always have a `locale` field",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6302158850"
+        },
+        {
+            "q": "Make `format_fixed` a method",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "fe43396283"
+        },
+        {
+            "q": "Make `format_numeric` a method",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "06a6b01f3b"
+        },
+        {
+            "q": "Inline `format_inner`",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "cc0139996f"
+        },
+        {
+            "q": "Factor out `DelayedFormat::format`",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "4947c90046"
+        },
+        {
+            "q": "Pass date and time by value",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "5c1c87c61d"
+        },
+        {
+            "q": "Factor out `Fixed` formatting",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "080d623dd3"
+        },
+        {
+            "q": "Factor out `Numeric` formatting",
+            "ok": [
+                "src/format/formatting.rs"
+            ],
+            "src": "git-commit",
+            "sha": "a36a45ad36"
+        },
+        {
+            "q": "Remove rustc-serialize feature",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "be62a7f116"
+        },
+        {
+            "q": "Hide re-export of `LocalResult` in docs",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6857d00070"
+        },
+        {
+            "q": "Swap `MappedLocalTime` and `LocalResult` type alias",
+            "ok": [
+                "src/offset/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "9e22e48d15"
+        },
+        {
+            "q": "Add `MappedLocalTime::and_then`",
+            "ok": [
+                "src/offset/local/unix.rs",
+                "src/offset/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e05ba8b9c2"
+        },
+        {
+            "q": "Main documentation: simplify links and reflow text",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "3adfd88ce0"
+        },
+        {
+            "q": "Remove unnecessary \"```ignore\"",
+            "ok": [
+                "src/format/strftime.rs",
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "61d54b5de8"
+        },
+        {
+            "q": "Remove 'This can fail' documentation from `NaiveDateTime::and_local_timezone`",
+            "ok": [
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "28a46c9b2f"
+        },
+        {
+            "q": "Simplify `NaiveDate::diff_months`",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "c370ef6a3b"
+        },
+        {
+            "q": "Simplify `DateTime::date_naive`",
+            "ok": [
+                "src/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "96644949a4"
+        },
+        {
+            "q": "Add extra assertions to `NaiveDate::from_yof`",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "d91b7d4a22"
+        },
+        {
+            "q": "Add `DateTime::with_time()`",
+            "ok": [
+                "src/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "236b7adf32"
+        },
+        {
+            "q": "Extend documentation for `MappedLocalTime`",
+            "ok": [
+                "src/offset/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "1789183012"
+        },
+        {
+            "q": "Update windows-bindgen to 0.55",
+            "ok": [
+                "src/offset/local/win_bindings.rs"
+            ],
+            "src": "git-commit",
+            "sha": "1aabe844ed"
+        },
+        {
+            "q": "Guard against integer overflow in `TzInfo::for_year`",
+            "ok": [
+                "src/offset/local/windows.rs"
+            ],
+            "src": "git-commit",
+            "sha": "db1c8eff16"
+        },
+        {
+            "q": "Improve error checking in `naive_date_time_from_system_time`",
+            "ok": [
+                "src/offset/local/windows.rs"
+            ],
+            "src": "git-commit",
+            "sha": "d40417fd1d"
+        },
+        {
+            "q": "Remove unnessary Copy and Send impls",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/datetime/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e79fe2187d"
+        },
+        {
+            "q": "Correct timestamp deprecation notes",
+            "ok": [
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "2d2f1a9670"
+        },
+        {
+            "q": "Deprecate panicking `TimeDelta` constructors",
+            "ok": [
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "9e667b606e"
+        },
+        {
+            "q": "Tests: replace `TimeDelta::weeks` with `try_weeks`",
+            "ok": [
+                "src/round.rs",
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e8f9b5e041"
+        },
+        {
+            "q": "Replace `TimeDelta::seconds` with `try_seconds`",
+            "ok": [
+                "src/format/parsed.rs",
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "4251bd1eb1"
+        },
+        {
+            "q": "Replace `TimeDelta::days` with `try_days`",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "073c3c32f0"
+        },
+        {
+            "q": "Use simplified `resolve_week_date`",
+            "ok": [
+                "src/format/parsed.rs"
+            ],
+            "src": "git-commit",
+            "sha": "383fcff56c"
+        },
+        {
+            "q": "Use `checked_add_days` in `NaiveDateWeeksIterator`",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "d7e5853949"
+        },
+        {
+            "q": "Hide fields on `Parsed` in preparation of making them private with 0.5",
+            "ok": [
+                "src/format/parsed.rs"
+            ],
+            "src": "git-commit",
+            "sha": "90dbd75d0d"
+        },
+        {
+            "q": "Add getters to `Parsed`",
+            "ok": [
+                "src/format/parsed.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ba4e50c8f2"
+        },
+        {
+            "q": "Add range checks to the `Parsed::set_*` methods",
+            "ok": [
+                "src/format/parsed.rs"
+            ],
+            "src": "git-commit",
+            "sha": "40724008b2"
+        },
+        {
+            "q": "Update windows-bindgen requirement from 0.53 to 0.54",
+            "ok": [
+                "src/offset/local/win_bindings.rs"
+            ],
+            "src": "git-commit",
+            "sha": "f4adc28dce"
+        },
+        {
+            "q": "Add comment to calculate `UNIX_EPOCH_DAY`",
+            "ok": [
+                "src/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "1d3da21ae2"
+        },
+        {
+            "q": "Deprecate timestamp methods on `NaiveDateTime`",
+            "ok": [
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "83573a8b30"
+        },
+        {
+            "q": "Don't use timestamp methods from `NaiveDateTime` in `serde` module",
+            "ok": [
+                "src/naive/datetime/serde.rs"
+            ],
+            "src": "git-commit",
+            "sha": "585d48be38"
+        },
+        {
+            "q": "Move implementation of `from_timestamp*` to `DateTime`",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "27a1ee4cdc"
+        },
+        {
+            "q": "Move implementation of `timestamp*` to `DateTime`",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "0c23fd4df5"
+        },
+        {
+            "q": "Use `UNIX_EPOCH` in `NaiveDateTime::default()`",
+            "ok": [
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "1c1feca6fa"
+        },
+        {
+            "q": "Add `DateTime::{from_timestamp_micros, from_timestamp_nanos}`",
+            "ok": [
+                "src/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "774951ff3d"
+        },
+        {
+            "q": "Make `with_year` return `Some` if it is a no-op",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/datetime/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ca51f694bb"
+        },
+        {
+            "q": "Use `overflowing_naive_local` in `checked_(add|sub)_days`",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/datetime/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "43675f162c"
+        },
+        {
+            "q": "Extend fast path in `NaiveDate::add_days`",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "06bd82cccf"
+        },
+        {
+            "q": "Use `overflowing_naive_local` in `checked_(add|sub)_months`",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/datetime/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "dd201649b5"
+        },
+        {
+            "q": "Simplify `from_isoywd` a bit",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e292d9bc90"
+        },
+        {
+            "q": "Check for invalid cast",
+            "ok": [
+                "src/naive/datetime/serde.rs"
+            ],
+            "src": "git-commit",
+            "sha": "a6c0c6425c"
+        },
+        {
+            "q": "Improve documentation of `Parset::to_*`",
+            "ok": [
+                "src/format/parsed.rs"
+            ],
+            "src": "git-commit",
+            "sha": "85c70ffad9"
+        },
+        {
+            "q": "Return correct error in `Parsed::to_fixed_offset`",
+            "ok": [
+                "src/format/parsed.rs"
+            ],
+            "src": "git-commit",
+            "sha": "48f05499d6"
+        },
+        {
+            "q": "Improve documentation of `Parsed::set_*`",
+            "ok": [
+                "src/format/parsed.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e9e9adf622"
+        },
+        {
+            "q": "Expand `Parsed` documentation",
+            "ok": [
+                "src/format/parsed.rs"
+            ],
+            "src": "git-commit",
+            "sha": "a8908b4428"
+        },
+        {
+            "q": "Return `IMPOSSIBLE` if year fields don't match",
+            "ok": [
+                "src/format/parsed.rs"
+            ],
+            "src": "git-commit",
+            "sha": "9efa85d9b6"
+        },
+        {
+            "q": "Simplify error value of `parse_internal`",
+            "ok": [
+                "src/format/parse.rs"
+            ],
+            "src": "git-commit",
+            "sha": "b882f58fa4"
+        },
+        {
+            "q": "Update windows-bindgen to 0.53",
+            "ok": [
+                "src/offset/local/win_bindings.rs"
+            ],
+            "src": "git-commit",
+            "sha": "8fcad1fda9"
+        },
+        {
+            "q": "Improve docs for crate features",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "81d58e05f7"
+        },
+        {
+            "q": "Add newlines between tests in `time_delta` module",
+            "ok": [
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "2464a5d6e6"
+        },
+        {
+            "q": "Remove trailing newlines in method documentation",
+            "ok": [
+                "src/offset/local/tz_info/rule.rs",
+                "src/offset/local/tz_info/timezone.rs"
+            ],
+            "src": "git-commit",
+            "sha": "188cf508b2"
+        },
+        {
+            "q": "Format inline comments",
+            "ok": [
+                "src/naive/date/mod.rs",
+                "src/offset/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "10bc27575b"
+        },
+        {
+            "q": "Use `TimeDelta` instead of `Duration` alias",
+            "ok": [
+                "src/offset/local/windows.rs"
+            ],
+            "src": "git-commit",
+            "sha": "042fd0c286"
+        },
+        {
+            "q": "Extend `YearFlags` documentation/constants",
+            "ok": [
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "21343bec7e"
+        },
+        {
+            "q": "`MAX_OL` and `MAX_MDL` can be private",
+            "ok": [
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "367fe84be6"
+        },
+        {
+            "q": "Simplify test-only `Mdf::valid` method",
+            "ok": [
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "83ad6207b2"
+        },
+        {
+            "q": "Casting a positive `i8` through `u8` is slightly faster",
+            "ok": [
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e3ff4bc1d2"
+        },
+        {
+            "q": "Comparing against zero is slightly faster",
+            "ok": [
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6eec070603"
+        },
+        {
+            "q": "Use `NonZeroI32::new_unchecked`",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "2703ca2d20"
+        },
+        {
+            "q": "Don't use `NaiveDate::from_ordinal_and_flags` in `from_mdf` It introduced a couple of extra checks in performance-sensitive code.",
+            "ok": [
+                "src/naive/date/mod.rs",
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "8cc41ddf02"
+        },
+        {
+            "q": "`Mdf::new`: remove checks that are also done by the table lookup",
+            "ok": [
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6d8ce13a71"
+        },
+        {
+            "q": "Add doc comments to `Mdf` methods",
+            "ok": [
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "7db1dc6d84"
+        },
+        {
+            "q": "Use `NonZeroI32` inside `NaiveDate`",
+            "ok": [
+                "src/lib.rs",
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "0b4d5ffe8a"
+        },
+        {
+            "q": "Add test for the size of chrono's main data types",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "22a0d40011"
+        },
+        {
+            "q": "Move `Days` to `naive` module",
+            "ok": [
+                "src/naive/date/mod.rs",
+                "src/naive/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "d9d6b6352e"
+        },
+        {
+            "q": "Add `NaiveWeek::new`",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "352392ba13"
+        },
+        {
+            "q": "Split out `test` module to its own file",
+            "ok": [
+                "src/naive/date/mod.rs",
+                "src/naive/date/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "792dbd0e0b"
+        },
+        {
+            "q": "Move `naive/date.rs` to `naive/date/mod.rs`",
+            "ok": [
+                "src/naive/date/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "dd88b4b26a"
+        },
+        {
+            "q": "Move `cycle_to_yo` and `yo_to_cycle` to `naive::date` module",
+            "ok": [
+                "src/naive/date.rs",
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "3016c30014"
+        },
+        {
+            "q": "Add `Mdf::ordinal` and `Mdf::year_flags`; remove `Of` type",
+            "ok": [
+                "src/naive/date.rs",
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6894b6fc39"
+        },
+        {
+            "q": "Change `Mdf::from_of` to `Mdf::from_ol`",
+            "ok": [
+                "src/naive/date.rs",
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "f95a973c4b"
+        },
+        {
+            "q": "Format `IsoWeek` comments",
+            "ok": [
+                "src/naive/isoweek.rs"
+            ],
+            "src": "git-commit",
+            "sha": "4bb5f6124c"
+        },
+        {
+            "q": "Remove `Of::flags`, add `NaiveDate::year_flags`",
+            "ok": [
+                "src/naive/date.rs",
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "7c4b119161"
+        },
+        {
+            "q": "Remove `Of::new` and basic functionality test for `Of`",
+            "ok": [
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "7e5357736f"
+        },
+        {
+            "q": "Remove `Of::weekday`",
+            "ok": [
+                "src/naive/date.rs",
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "3dbea44f84"
+        },
+        {
+            "q": "Move `iso_week_from_yof` to `IsoWeek::from_yof`",
+            "ok": [
+                "src/naive/date.rs",
+                "src/naive/isoweek.rs"
+            ],
+            "src": "git-commit",
+            "sha": "92b576b219"
+        },
+        {
+            "q": "Mark `format::Numeric` and `format::Fixed` as `non_exhaustive`",
+            "ok": [
+                "src/format/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "5a8b1e42b8"
+        },
+        {
+            "q": "Remove `Of::ordinal`",
+            "ok": [
+                "src/naive/date.rs",
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "5ba8ed1c90"
+        },
+        {
+            "q": "Remove `Of::with_ordinal`",
+            "ok": [
+                "src/naive/date.rs",
+                "src/naive/internals.rs"
+            ],
+            "src": "git-commit",
+            "sha": "26746b81d0"
+        },
+        {
+            "q": "Add description of `NaiveDate` internal format",
+            "ok": [
+                "src/naive/date.rs"
+            ],
+            "src": "git-commit",
+            "sha": "b0f40bcedd"
+        },
+        {
+            "q": "Rename `ymdf` field to `yof`",
+            "ok": [
+                "src/naive/date.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e9be4fd8e9"
+        },
+        {
+            "q": "Add `StrftimeItems::parse_to_owned`",
+            "ok": [
+                "src/format/mod.rs",
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "58a2149a8e"
+        },
+        {
+            "q": "Add `StrftimeItems::parse`",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "59eeb8c537"
+        },
+        {
+            "q": "Add more documentation to `StrftimeItems::new_with_locale`",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "79de122615"
+        },
+        {
+            "q": "Add more documentation to `StrftimeItems::new`",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "5b7cf85c53"
+        },
+        {
+            "q": "Make `Display` format of `TimeDelta` conform better to ISO 8601",
+            "ok": [
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "be6af79ae5"
+        },
+        {
+            "q": "Extend test to more distant dates",
+            "ok": [
+                "src/offset/local/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "0ef34e4da3"
+        },
+        {
+            "q": "Add test for localized formatting of `%X`",
+            "ok": [
+                "src/format/strftime.rs"
+            ],
+            "src": "git-commit",
+            "sha": "5fb4fabd13"
+        },
+        {
+            "q": "Move `TOO_LONG` error out of `parse_internal`",
+            "ok": [
+                "src/format/parse.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ded9fe1585"
+        },
+        {
+            "q": "Remove incomplete parsing support for `-0000` offset",
+            "ok": [
+                "src/format/parse.rs",
+                "src/format/scan.rs"
+            ],
+            "src": "git-commit",
+            "sha": "42db00a981"
+        },
+        {
+            "q": "Make range check more accurate, and add comment why it is not useless",
+            "ok": [
+                "src/format/parse.rs"
+            ],
+            "src": "git-commit",
+            "sha": "9c07a015df"
+        },
+        {
+            "q": "Replace `86_400` with `MAX_RFC3339_OFFSET`",
+            "ok": [
+                "src/format/parse.rs"
+            ],
+            "src": "git-commit",
+            "sha": "51cb026a58"
+        },
+        {
+            "q": "Add a test for duration_round close to min / max",
+            "ok": [
+                "src/round.rs"
+            ],
+            "src": "git-commit",
+            "sha": "5656a9ed67"
+        },
+        {
+            "q": "Replace DurationExceedsTimestamp example with a note.",
+            "ok": [
+                "src/round.rs"
+            ],
+            "src": "git-commit",
+            "sha": "8eb92d96c4"
+        },
+        {
+            "q": "Remove check for DurationExceedsTimestamp",
+            "ok": [
+                "src/round.rs"
+            ],
+            "src": "git-commit",
+            "sha": "c1f04222ca"
+        },
+        {
+            "q": "Sync with 0.5 branch",
+            "ok": [
+                "src/offset/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ef9a4c9539"
+        },
+        {
+            "q": "`TimeDelta` is not a full ISO 8601 duration",
+            "ok": [
+                "src/time_delta.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ce97c2ef52"
+        },
+        {
+            "q": "Update main documentation",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "32fa222144"
+        },
+        {
+            "q": "Rename `Duration` to `TimeDelta` in `duration` module, flip type alias",
+            "ok": [
+                "src/duration.rs",
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ac383d5303"
+        },
+        {
+            "q": "Rename `Duration` to `TimeDelta` in `date` module",
+            "ok": [
+                "src/date.rs"
+            ],
+            "src": "git-commit",
+            "sha": "3a9d8a3a3c"
+        },
+        {
+            "q": "Rename `Duration` to `TimeDelta` in `round` module",
+            "ok": [
+                "src/round.rs"
+            ],
+            "src": "git-commit",
+            "sha": "3bd9a90e91"
+        },
+        {
+            "q": "Rename `Duration` to `TimeDelta` in `naive::date` module",
+            "ok": [
+                "src/naive/date.rs"
+            ],
+            "src": "git-commit",
+            "sha": "20e9a73aa3"
+        },
+        {
+            "q": "Rename `Duration` to `TimeDelta` in `naive::time` module",
+            "ok": [
+                "src/naive/time/mod.rs",
+                "src/naive/time/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "04050b85f1"
+        },
+        {
+            "q": "Rename `Duration` to `TimeDelta` in `naive::datetime` module",
+            "ok": [
+                "src/naive/datetime/mod.rs",
+                "src/naive/datetime/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "b28c59c401"
+        },
+        {
+            "q": "Rename `Duration` to `TimeDelta` in `datetime` module",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/datetime/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "d079c8c032"
+        },
+        {
+            "q": "Add `TimeDelta` as type alias of `Duration`",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6659f7b9eb"
+        },
+        {
+            "q": "Fix check for `nanos` in `Duration::new`",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ae695a412c"
+        },
+        {
+            "q": "Make `Duration::new` public",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "f848876248"
+        },
+        {
+            "q": "Make methods on `DateTime` const where possible",
+            "ok": [
+                "src/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6f06e1ab0e"
+        },
+        {
+            "q": "Make remaining methods on `NaiveDateTime` const",
+            "ok": [
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "fd66791996"
+        },
+        {
+            "q": "Make `NaiveTime::overflowing_sub_signed` const",
+            "ok": [
+                "src/duration.rs",
+                "src/naive/time/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "f78eb20ef1"
+        },
+        {
+            "q": "Simplify `NaiveTime::overflowing_add_signed` and make const",
+            "ok": [
+                "src/naive/time/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e56f9c5797"
+        },
+        {
+            "q": "Make `NaiveTime::signed_duration_since` const",
+            "ok": [
+                "src/naive/time/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "4836953431"
+        },
+        {
+            "q": "Make remaining methods on `NaiveDate` const",
+            "ok": [
+                "src/naive/date.rs"
+            ],
+            "src": "git-commit",
+            "sha": "912cc63602"
+        },
+        {
+            "q": "Make methods on `NaiveWeek` const",
+            "ok": [
+                "src/naive/date.rs"
+            ],
+            "src": "git-commit",
+            "sha": "45785b58d3"
+        },
+        {
+            "q": "Make `DateTime<Utc>::from_timestamp` const",
+            "ok": [
+                "src/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "7cc4ce89ea"
+        },
+        {
+            "q": "Add `test_duration_const()`",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "d7afd72da5"
+        },
+        {
+            "q": "Make all methods on `Duration` const",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "7c4bf0b578"
+        },
+        {
+            "q": "Remove duplicate `try_opt` macro",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "086a26b020"
+        },
+        {
+            "q": "Improved Duration documentation",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e031ffbad5"
+        },
+        {
+            "q": "Added Duration::try_milliseconds()",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "ec831e7bc9"
+        },
+        {
+            "q": "Improved the documentation of Duration constructors",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "e5309f8aa7"
+        },
+        {
+            "q": "Added additional tests for Duration bounds",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "d87df5de78"
+        },
+        {
+            "q": "Remove stray documentation",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "83d5aae6aa"
+        },
+        {
+            "q": "Remove workaround for Rust < 1.61",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "02a96eba57"
+        },
+        {
+            "q": "Don't use deprecated method in `impl Arbitrary for DateTime`",
+            "ok": [
+                "src/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "76822ae051"
+        },
+        {
+            "q": "Fix the formatting of `timestamp_micros`'s Example doc",
+            "ok": [
+                "src/offset/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "94f9738b03"
+        },
+        {
+            "q": "Fixed typo in Duration::hours() exception",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "b5381f8fb5"
+        },
+        {
+            "q": "Add from_timestamp_millis to DateTime<Utc> (#1374)",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/datetime/tests.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6ec8f97d16"
+        },
+        {
+            "q": "Add Months::as_u32() (#1373)",
+            "ok": [
+                "src/month.rs"
+            ],
+            "src": "git-commit",
+            "sha": "5536687c0d"
+        },
+        {
+            "q": "docs: Improve deprecation of `TimeZone::datetime_from_str`",
+            "ok": [
+                "src/offset/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6033afea6f"
+        },
+        {
+            "q": "Expose rkyv features as features for chrono users.",
+            "ok": [
+                "src/month.rs",
+                "src/naive/isoweek.rs"
+            ],
+            "src": "git-commit",
+            "sha": "3f22822086"
+        },
+        {
+            "q": "Add From<NaiveDate> for NaiveDateTime",
+            "ok": [
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6f3ab9dd5a"
+        },
+        {
+            "q": "Split clock feature into clock and now",
+            "ok": [
+                "src/lib.rs",
+                "src/offset/utc.rs"
+            ],
+            "src": "git-commit",
+            "sha": "c0f418bbbf"
+        },
+        {
+            "q": "Adjust `Duration::MIN` by 1 millisecond",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "0f19d6be1d"
+        },
+        {
+            "q": "Make `NaiveDateTime::and_utc` const",
+            "ok": [
+                "src/datetime/mod.rs",
+                "src/naive/datetime/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "fe4713a4f0"
+        },
+        {
+            "q": "Implement `AddAssign` and `SubAssign`",
+            "ok": [
+                "src/duration.rs",
+                "src/naive/time/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "c8e3eb4ce1"
+        },
+        {
+            "q": "Use `checked_add` and `checked_sub` in `Add` and `Sub` impls",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "bd6573aebe"
+        },
+        {
+            "q": "Add Duration::try_* builders",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "a2820c4f7d"
+        },
+        {
+            "q": "Rename `Duration::nanos_mod_sec` to `subsec_nanos`, make public",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "8018c32684"
+        },
+        {
+            "q": "Derive `Default` for `Duration`.",
+            "ok": [
+                "src/duration.rs"
+            ],
+            "src": "git-commit",
+            "sha": "6d3a77dc5a"
+        },
+        {
+            "q": "Make `round` module public (so we don't need to show it in the main documentation)",
+            "ok": [
+                "src/lib.rs",
+                "src/round.rs"
+            ],
+            "src": "git-commit",
+            "sha": "5237de6e0a"
+        },
+        {
+            "q": "`Local` does not depend on the `time` crate",
+            "ok": [
+                "src/offset/local/mod.rs"
+            ],
+            "src": "git-commit",
+            "sha": "819dea0480"
+        },
+        {
+            "q": "Remove useless `#[doc(no_inline)]` from `prelude` module",
+            "ok": [
+                "src/lib.rs"
+            ],
+            "src": "git-commit",
+            "sha": "017b621033"
+        }
+    ]
+}
