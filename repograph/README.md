@@ -169,8 +169,8 @@ python graph.py repo /path/to/mux type http.Handler
 ```
 
     defined in net/http, outside this package
-      interface Handler  (net/http/server.go:89)
-          A Handler responds to an HTTP request...
+    interface Handler  (net/http/server.go:89)
+        A Handler responds to an HTTP request...
     used here: 7 symbols return it, 7 take it
 
 A package almost never defines the types flowing through its own signatures.
