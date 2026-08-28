@@ -147,17 +147,29 @@ def strip_noise(line):
 
 
 def module_doc(lines):
-    """The `//!` block at the top of a file. It says what the file is for, in
-    prose, which makes it both the best short description of a file and the
-    material the eval generator turns into questions."""
-    out = []
+    """The `//!` block at the top of a file, as prose and as examples.
+
+    A crate's `lib.rs` header is its author's own getting-started guide, and
+    the fenced blocks in it are the code they chose to lead with -- compiled
+    and run by the same doc tests as everything else. That makes it the best
+    answer to "how do I use this" that exists anywhere in the repository, and
+    picking it requires no ranking at all: the author already chose.
+
+    The prose half is deliberately byte-for-byte what it was before examples
+    were added. It feeds the retrieval bags, and widening the scan or filtering
+    blank fence lines out of it moved the blind score from 28/54 to 25/53 --
+    a presentation feature is not allowed to cost retrieval accuracy.
+    """
+    out, raw = [], []
     for ln in lines[:200]:
         s = ln.strip()
         if s.startswith('//!'):
             out.append(s[3:].strip())
+            body = ln.strip()[3:]
+            raw.append(body[1:] if body.startswith(' ') else body)
         elif s and not s.startswith('//') and not s.startswith('#!'):
             break
-    return ' '.join(out).strip()
+    return ' '.join(out).strip(), doc_examples(raw)
 
 
 def parse_file(path, rel):
@@ -230,7 +242,8 @@ def parse_file(path, rel):
         if is_test:
             tests.append({'name': name, 'file': rel, 'line': i + 1})
 
-    return symbols, uses, module_doc(lines), tests
+    prose, mod_ex = module_doc(lines)
+    return symbols, uses, prose, tests, mod_ex
 
 
 def feature_gates(root):
@@ -256,7 +269,7 @@ def feature_gates(root):
 
 
 def walk(root):
-    symbols, uses, mods, tests = [], {}, {}, []
+    symbols, uses, mods, tests, mod_ex = [], {}, {}, [], {}
     for base, dirs, files in os.walk(root):
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
         for f in sorted(files):
@@ -265,7 +278,7 @@ def walk(root):
             p = os.path.join(base, f)
             rel = os.path.relpath(p, root).replace('\\', '/')
             try:
-                s, u, md, t = parse_file(p, rel)
+                s, u, md, t, mx = parse_file(p, rel)
             except OSError:
                 continue
             symbols.extend(s)
@@ -273,7 +286,9 @@ def walk(root):
             tests.extend(t)
             if md:
                 mods[rel] = md
-    return symbols, uses, mods, tests
+            if mx:
+                mod_ex[rel] = mx
+    return symbols, uses, mods, tests, mod_ex
 
 
 def bodies(root, symbols):
@@ -408,7 +423,7 @@ def main(argv):
         print('not a directory: %s' % root)
         return 1
 
-    symbols, uses, mods, tests = walk(root)
+    symbols, uses, mods, tests, mod_ex = walk(root)
     symbols = mark_visibility(symbols)
     gates = feature_gates(root)
     for sym in symbols:
@@ -428,6 +443,7 @@ def main(argv):
         'coverage': cov,
     }
     for fname, obj in (('symbols.json', symbols), ('edges.json', edges),
+                        ('module-examples.json', mod_ex),
                         ('uses.json', uses), ('modules.json', mods),
                         ('tests.json', tests), ('meta.json', meta)):
         with open(os.path.join(out, fname), 'w', encoding='utf-8') as fh:

@@ -121,6 +121,24 @@ silently deleted `#[derive(Deserialize)]` from ten examples, producing code
 that could never compile while claiming to be verified. Hidden lines are now
 unhidden and attributes kept.
 
+### `start` -- how do I use this crate
+
+```bash
+python repograph/repograph.py /tmp/idx start
+```
+
+A crate's `lib.rs` header is its author's own getting-started guide, and the
+fenced blocks in it are the code they chose to lead with -- compiled by the
+same doc tests as everything else. Selecting it needs no ranking, which is the
+point: **the author already chose.** Runnable examples are shown first, because
+headers often open with a JSON blob or a shell snippet to set the scene and
+leading with an unverified fragment wastes the only advantage the command has.
+
+Three of eight crates tested (`regex`, `url`, `clap_builder`) have no module
+header at all, so `start` falls back to the examples on the most widely
+referenced public items -- a fixed property of the crate, not an answer to a
+query.
+
 ## Does an agent with this tool beat an agent with grep? Measured: no
 
 Nine subagents, three arms on three crates spanning 4x in size, 10 blind

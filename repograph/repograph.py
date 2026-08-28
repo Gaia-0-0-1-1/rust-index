@@ -9,6 +9,7 @@ Commands
                         in one call, for an agent to read and decide
                         [--files N] [--source] [--budget CHARS]
     sym <name>         everything known about one symbol
+    start              how to use this crate, from its own documentation
     example <name>     working code from its doc comment, labelled by
                         whether cargo actually verifies it
     file <path>        what a file contains, or what a directory holds [--all]
@@ -23,6 +24,7 @@ agents that had never seen this tool, across five crates: the first answer is
 right 28% of the time and the answer is in the top three 54% of the time. That
 gap is the most useful fact about this tool.
 """
+import io
 import json
 import math
 import os
@@ -169,6 +171,7 @@ class Index(object):
         self.modules = rd('modules.json') or {}
         self.meta = rd('meta.json') or {}
         self.tests = rd('tests.json') or []
+        self.module_examples = rd('module-examples.json') or {}
         if not self.symbols:
             raise SystemExit('no index at %s -- run repograph/index.py first'
                                 % path)
@@ -459,6 +462,15 @@ def cmd_context(idx, question, nfiles=3, source=False, budget=12000):
             blk.append('  %s  %s  (%s:%d)'
                 % (sym['kind'], sym['name'], sym['file'], sym['line']))
             blk.append('      %s' % sym['sig'][:160])
+            # One line, not the code itself -- context is for choosing between
+            # candidates, and it was cut to a third of its size for exactly
+            # that reason. Say the verified code exists and how to fetch it.
+            runnable = [e for e in (sym.get('examples') or [])
+                if e.get('kind') == 'runs']
+            if runnable:
+                blk.append('      has %d verified example%s -- `example %s`'
+                    % (len(runnable), '' if len(runnable) == 1 else 's',
+                        sym['name']))
             if sym['doc']:
                 for chunk in wrap(sym['doc'], 200)[:2]:
                     blk.append('      %s' % chunk)
@@ -522,6 +534,68 @@ def show_example(e, indent='    '):
             ' present; yours may not be)' % indent)
     for ln in e['code'].split('\n'):
         print('%s%s' % (indent, ln))
+
+
+def cmd_start(idx):
+    """How do I use this crate, answered with the author's own verified code.
+
+    No ranking is involved, which is why this is worth having: the crate author
+    already chose what to lead with in `lib.rs`, and the doc tests already
+    compiled it. Where an author wrote no module header -- regex, url and
+    clap_builder among the crates tested -- fall back to the examples on the
+    most widely referenced public symbols, which is a fixed property of the
+    crate rather than an answer to a query.
+    """
+    name = idx.meta.get('name', '?')
+    print('%s -- getting started' % name)
+    print('=' * 68)
+
+    lead = []
+    for path in ('src/lib.rs', 'lib.rs', 'src/main.rs'):
+        if idx.module_examples.get(path):
+            lead = [(path, e) for e in idx.module_examples[path]]
+            break
+    if not lead:
+        for path, exs in sorted(idx.module_examples.items()):
+            lead.extend((path, e) for e in exs)
+            if len(lead) >= 3:
+                break
+
+    if lead:
+        # Runnable code first. A crate header often opens with a JSON blob or a
+        # shell snippet to set the scene, and leading with an unverified
+        # fragment squanders the one advantage this command has.
+        order = {'runs': 0, 'compiles': 1, 'unverified': 2, 'failure': 3}
+        lead.sort(key=lambda pe: order.get(pe[1].get('kind'), 9))
+        print('From the crate\'s own documentation header:')
+        for path, e in lead[:3]:
+            print()
+            print('  (%s)' % path)
+            show_example(e, indent='  ')
+        return 0
+
+    print('This crate has no module-level documentation header, so there is no')
+    print('author-written introduction. Falling back to the examples on its')
+    print('most widely used public items.')
+    ranked = sorted(
+        ((idx.centrality.get(i, 0), i) for i, sym in enumerate(idx.symbols)
+            if sym.get('public') and sym.get('examples')
+            and sym.get('role', 'lib') == 'lib'),
+        key=lambda x: -x[0])
+    if not ranked:
+        print()
+        print('  ...and it has none of those either. Nothing to show.')
+        return 1
+    for used, i in ranked[:3]:
+        sym = idx.symbols[i]
+        print()
+        print('  %s %s  (%s:%d)  referenced by %d files'
+            % (sym['kind'], sym['name'], sym['file'], sym['line'], used))
+        for e in sym['examples'][:1]:
+            if sym.get('requires_feature'):
+                e = dict(e, requires_feature=sym['requires_feature'])
+            show_example(e, indent='  ')
+    return 0
 
 
 def cmd_example(idx, name):
@@ -854,6 +928,20 @@ def cmd_selftest(idx):
             fails.append('example %s: raw doc-test hidden marker survived'
                 % sym['name'])
             break
+    # `start` must produce something on any crate: the author's header if
+    # there is one, and the most-referenced documented items if there is not.
+    buf4, real4 = io.StringIO(), sys.stdout
+    sys.stdout = buf4
+    try:
+        cmd_start(idx)
+    finally:
+        sys.stdout = real4
+    started = buf4.getvalue()
+    if 'getting started' not in started:
+        fails.append('start: produced no header')
+    if examples and 'Nothing to show' in started:
+        fails.append('start: gave up although examples exist')
+
     for sym, e in examples:
         if e.get('kind') == 'failure':
             buf3, real3 = io.StringIO(), sys.stdout
@@ -869,7 +957,6 @@ def cmd_selftest(idx):
 
     # context is what an agent reads, so its shape is load-bearing: three
     # candidates, each citable, and no stray %% from a format string.
-    import io
     buf, real = io.StringIO(), sys.stdout
     sys.stdout = buf
     probe = idx.symbols[0]['name']
@@ -922,7 +1009,7 @@ def cmd_selftest(idx):
 
     for f in fails:
         print('  FAIL %s' % f)
-    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 14))
+    print('selftest %s (%d checks)' % ('OK' if not fails else 'FAILED', 16))
     return 1 if fails else 0
 
 
@@ -966,6 +1053,8 @@ def main(argv):
         return cmd_context(idx, ' '.join(rest2), nfiles, source, budget)
     if cmd == 'sym':
         return cmd_sym(idx, joined)
+    if cmd == 'start':
+        return cmd_start(idx)
     if cmd == 'example':
         return cmd_example(idx, joined)
     if cmd == 'file':
